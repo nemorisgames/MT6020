@@ -1,0 +1,392 @@
+﻿using UnityEngine;
+using System.Collections;
+using PoKeysDevice_DLL;
+
+public class ControlTarjetaControladora : MonoBehaviour {
+    PoKeysDevice device = new PoKeysDevice();
+    double analogInputVoltage;
+    byte analogValue;
+    byte myanalog;
+
+
+    float voltDevice;
+    byte pin = 0;
+
+    public string mensaje = "";
+
+    public enum pinFunctionsEnum
+    {
+        pinFunctionInactive = 0,
+        pinFunctionDigitalInput = 2,
+        pinFunctionDigitalOutput = 4,
+        pinFunctionAnalogInput = 8,
+        pinFunctionAnalogOutput = 16,
+        pinInvert = 128
+    }
+
+    public void MainWindow()
+    {
+
+
+        int iNumDevices = device.EnumerateDevices();
+
+        if (iNumDevices == 0)
+        {
+            mensaje = ("No hay dispositivo");
+        }
+
+        // Connect to first PoKeys55 device
+        device.ConnectToDevice(0);
+        /*  device.SetPinData(pin, (byte)(pinFunctionsEnum.pinFunctionDigitalOutput));
+          device.SetOutput(pin, false);*/
+
+        //Luces
+        device.SetPinData(0, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(1, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(2, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(3, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(4, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(5, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(6, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(7, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(8, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(9, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(10, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(11, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(12, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(13, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(14, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(15, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(16, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(17, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(18, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+
+        //Selectores
+        device.SetPinData(19, (byte)pinFunctionsEnum.pinFunctionDigitalInput);
+        device.SetPinData(20, (byte)pinFunctionsEnum.pinFunctionDigitalInput);
+        device.SetPinData(21, (byte)pinFunctionsEnum.pinFunctionDigitalInput);
+        device.SetPinData(22, (byte)pinFunctionsEnum.pinFunctionDigitalInput);
+        device.SetPinData(23, (byte)pinFunctionsEnum.pinFunctionDigitalInput);
+        device.SetPinData(24, (byte)pinFunctionsEnum.pinFunctionDigitalInput);
+        device.SetPinData(25, (byte)pinFunctionsEnum.pinFunctionDigitalInput);
+        device.SetPinData(26, (byte)pinFunctionsEnum.pinFunctionDigitalInput);
+        device.SetPinData(27, (byte)pinFunctionsEnum.pinFunctionDigitalInput);
+        device.SetPinData(28, (byte)pinFunctionsEnum.pinFunctionDigitalInput);
+        device.SetPinData(29, (byte)pinFunctionsEnum.pinFunctionDigitalInput);
+
+        //Velocimetro
+
+        //Decena
+        device.SetPinData(48, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(49, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(50, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(51, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(52, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(53, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(54, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+
+
+        //Unidad
+        device.SetPinData(37, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(38, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(39, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(40, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(41, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(42, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(43, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+
+        //Punto
+        device.SetPinData(47, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+
+        //Decimal
+        device.SetPinData(30, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(31, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(32, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(33, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(34, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(35, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+        device.SetPinData(36, (byte)pinFunctionsEnum.pinFunctionDigitalOutput);
+
+        //Pedales
+        device.SetPinData(44, (byte)pinFunctionsEnum.pinFunctionAnalogInput);
+        device.SetPinData(45, (byte)pinFunctionsEnum.pinFunctionAnalogInput);
+        device.SetPinData(46, (byte)pinFunctionsEnum.pinFunctionAnalogInput);
+
+
+    }
+
+    //Botón de Acción
+
+
+
+    //Tablero de control izquierdo (funciones)
+    public int ControlLucesDelanteras()
+    {
+        bool a = true;
+        if (device.GetInput(21, ref a))
+            return 1;
+        else
+        if (device.GetInput(22, ref a))
+            return 2;
+        else
+            return 0;
+    }
+
+    public int ControlLucesCarga()
+    {
+        bool a = true;
+        if (device.GetInput(23, ref a))
+            return 1;
+        else
+            return 0;
+    }
+
+    public int ControlLucesTraseras()
+    {
+        bool a = true;
+        if (device.GetInput(24, ref a))
+            return 1;
+        else
+            return 0;
+    }
+
+    public int ControlManualMotor()
+    {
+        bool a = true;
+        if (device.GetInput(28, ref a))
+            return 1;
+        else
+            return 0;
+    }
+
+    public int PruebaDeFrenos()
+    {
+        bool a = true;
+        if (device.GetInput(26, ref a))
+            return 1;
+        else
+        if (device.GetInput(27, ref a))
+            return 2;
+        else
+            return 0;
+    }
+
+    public int Limpiaparabrisas()
+    {
+        bool a = true;
+        if (device.GetInput(25, ref a))
+            return 1;
+        else
+            return 0;
+    }
+
+    void LuzCircuito1(bool encendido)
+    {
+        device.SetOutput(0, encendido);
+    }
+    void LuzCircuito2(bool encendido)
+    {
+        device.SetOutput(1, encendido);
+    }
+    void LuzCircuito3(bool encendido)
+    {
+        device.SetOutput(2, encendido);
+    }
+    void LuzCircuito4(bool encendido)
+    {
+        device.SetOutput(3, encendido);
+    }
+    void LuzCircuito5(bool encendido)
+    {
+        device.SetOutput(4, encendido);
+    }
+    void LuzCircuito6(bool encendido)
+    {
+        device.SetOutput(5, encendido);
+    }
+    void LuzCircuito7(bool encendido)
+    {
+        device.SetOutput(6, encendido);
+    }
+    void LuzCircuito8(bool encendido)
+    {
+        device.SetOutput(7, encendido);
+    }
+    void LuzCircuito9(bool encendido)
+    {
+        device.SetOutput(8, encendido);
+    }
+    void LuzCircuito10(bool encendido)
+    {
+        device.SetOutput(9, encendido);
+    }
+
+    //Panel de Control Central
+
+    void IntermitenteIzquierda(bool encendido)
+    {
+        device.SetOutput(10, encendido);
+    }
+    void IntermitenteDerecha(bool encendido)
+    {
+        device.SetOutput(11, encendido);
+    }
+
+    void luzPresionDropbox(bool encendido)
+    {
+        device.SetOutput(12, encendido);
+    }
+    void LuzFiltroTransmision(bool encendido)
+    {
+        device.SetOutput(13, encendido);
+    }
+    void luzPresionUpbox(bool encendido)
+    {
+        device.SetOutput(14, encendido);
+    }
+    void luzDetenerMotor(bool encendido)
+    {
+        device.SetOutput(15, encendido);
+    }
+    void luzTemperaturaUpboxDropbox(bool encendido)
+    {
+        device.SetOutput(16, encendido);
+    }
+    void luzMantenimientoMotor(bool encendido)
+    {
+        device.SetOutput(17, encendido);
+    }
+    void LuzNivelBajoBombaLubricacion(bool encendido)
+    {
+        device.SetOutput(18, encendido);
+    }
+
+    //Apaga todas las luces del velocimetro
+    void resetLucesVelocimetro()
+    {
+        //Decena
+        device.SetOutput(48, false);
+        device.SetOutput(49, false);
+        device.SetOutput(50, false);
+        device.SetOutput(51, false);
+        device.SetOutput(52, false);
+        device.SetOutput(53, false);
+        device.SetOutput(54, false);
+
+
+        //Unidad
+        device.SetOutput(37, false);
+        device.SetOutput(38, false);
+        device.SetOutput(39, false);
+        device.SetOutput(40, false);
+        device.SetOutput(41, false);
+        device.SetOutput(42, false);
+        device.SetOutput(43, false);
+
+        //Punto
+        device.SetOutput(47, false);
+
+        //Decimal
+        device.SetOutput(30, false);
+        device.SetOutput(31, false);
+        device.SetOutput(32, false);
+        device.SetOutput(33, false);
+        device.SetOutput(34, false);
+        device.SetOutput(35, false);
+        device.SetOutput(36, false);
+
+    }
+
+    public void velocimetro(string _velocidad)
+    {
+        print(_velocidad);
+        int _decena, _unidad, _decimal;
+        _decimal = int.Parse(_velocidad.ToString().Split(new char[2] {',', '.'})[1]);
+        _unidad = int.Parse(_velocidad.ToString().Split(new char[2] { ',', '.' })[0]) % 10;
+        _decena = (int.Parse(_velocidad.ToString().Split(new char[2] { ',', '.' })[0]) - _unidad) / 10;
+
+        resetLucesVelocimetro();
+
+        //Enciende leds
+
+        //Decena
+        if (_decena == 0 || _decena == 2 || _decena == 3 || _decena == 5 || _decena == 6 || _decena == 7 || _decena == 8 || _decena == 9) device.SetOutput(48, true);
+        if (_decena == 0 || _decena == 1 || _decena == 2 || _decena == 3 || _decena == 4 || _decena == 7 || _decena == 8 || _decena == 9) device.SetOutput(49, true);
+        if (_decena == 0 || _decena == 1 || _decena == 3 || _decena == 4 || _decena == 5 || _decena == 6 || _decena == 7 || _decena == 8 || _decena == 9) device.SetOutput(50, true);
+        if (_decena == 0 || _decena == 2 || _decena == 3 || _decena == 5 || _decena == 6 || _decena == 8) device.SetOutput(51, true);
+        if (_decena == 0 || _decena == 2 || _decena == 6 || _decena == 8) device.SetOutput(52, true);
+        if (_decena == 0 || _decena == 4 || _decena == 5 || _decena == 6 || _decena == 8 || _decena == 9) device.SetOutput(53, true);
+        if (_decena == 2 || _decena == 3 || _decena == 4 || _decena == 5 || _decena == 6 || _decena == 8 || _decena == 9) device.SetOutput(54, true);
+
+        //Unidad
+        if (_unidad == 0 || _unidad == 2 || _unidad == 3 || _unidad == 5 || _unidad == 6 || _unidad == 7 || _unidad == 8 || _unidad == 9) device.SetOutput(37, true);
+        if (_unidad == 0 || _unidad == 1 || _unidad == 2 || _unidad == 3 || _unidad == 4 || _unidad == 7 || _unidad == 8 || _unidad == 9) device.SetOutput(38, true);
+        if (_unidad == 0 || _unidad == 1 || _unidad == 3 || _unidad == 4 || _unidad == 5 || _unidad == 6 || _unidad == 7 || _unidad == 8 || _unidad == 9) device.SetOutput(39, true);
+        if (_unidad == 0 || _unidad == 2 || _unidad == 3 || _unidad == 5 || _unidad == 6 || _unidad == 8) device.SetOutput(40, true);
+        if (_unidad == 0 || _unidad == 2 || _unidad == 6 || _unidad == 8) device.SetOutput(41, true);
+        if (_unidad == 0 || _unidad == 4 || _unidad == 5 || _unidad == 6 || _unidad == 8 || _unidad == 9) device.SetOutput(42, true);
+        if (_unidad == 2 || _unidad == 3 || _unidad == 4 || _unidad == 5 || _unidad == 6 || _unidad == 8 || _unidad == 9) device.SetOutput(43, true);
+
+        //Punto
+
+        device.SetOutput(47, true);
+
+        //Decimal
+        if (_decimal == 0 || _decimal == 2 || _decimal == 3 || _decimal == 5 || _decimal == 6 || _decimal == 7 || _decimal == 8 || _decimal == 9) device.SetOutput(30, true);
+        if (_decimal == 0 || _decimal == 1 || _decimal == 2 || _decimal == 3 || _decimal == 4 || _decimal == 7 || _decimal == 8 || _decimal == 9) device.SetOutput(31, true);
+        if (_decimal == 0 || _decimal == 1 || _decimal == 3 || _decimal == 4 || _decimal == 5 || _decimal == 6 || _decimal == 7 || _decimal == 8 || _decimal == 9) device.SetOutput(32, true);
+        if (_decimal == 0 || _decimal == 2 || _decimal == 3 || _decimal == 5 || _decimal == 6 || _decimal == 8) device.SetOutput(33, true);
+        if (_decimal == 0 || _decimal == 2 || _decimal == 6 || _decimal == 8) device.SetOutput(34, true);
+        if (_decimal == 0 || _decimal == 4 || _decimal == 5 || _decimal == 6 || _decimal == 8 || _decimal == 9) device.SetOutput(35, true);
+        if (_decimal == 2 || _decimal == 3 || _decimal == 4 || _decimal == 5 || _decimal == 6 || _decimal == 8 || _decimal == 9) device.SetOutput(36, true);
+
+    }
+
+    //Tablero Derecho
+    public int ignicion()
+    {
+        bool a = true;
+        if (device.GetInput(19, ref a))
+            return 1;
+        else
+        if (device.GetInput(20, ref a))
+            return 2;
+        else
+            return 0;
+    }
+
+    public int acelerador()
+    {
+        bool a = true;
+        if (device.GetInput(44, ref a))
+            return 1;
+        else
+            return 0;
+    }
+
+    public int desacelerador()
+    {
+        bool a = true;
+        if (device.GetInput(45, ref a))
+            return 1;
+        else
+            return 0;
+    }
+
+    public int freno()
+    {
+        bool a = true;
+        if (device.GetInput(46, ref a))
+            return 1;
+        else
+            return 0;
+    }
+    public int BotonAccion()
+    {
+        bool a = false;
+        if (device.GetInput(29, ref a))
+            return 1;
+        else
+            return 0;
+    }
+}

@@ -1,0 +1,2689 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PoKeysDevice_DLL</name>
+    </assembly>
+    <members>
+        <member name="T:PoKeysDevice_DLL.ePoKeysDeviceConnectionType">
+            <summary>
+            Connection types enum
+            </summary>
+            <value></value>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePoKeysDeviceConnectionType.USBDevice">
+            <summary>
+            USB device
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePoKeysDeviceConnectionType.NetworkDevice">
+            <summary>
+            Network device
+            </summary>
+        </member>
+        <member name="T:PoKeysDevice_DLL.ePinCap">
+            <summary>
+            Pin capabilities enum
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePinCap.pinRestricted">
+            <summary>
+            Pin is restricted to use
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePinCap.reserved">
+            <summary>
+            Reserved function pin
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePinCap.digitalInput">
+            <summary>
+            Digital input available
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePinCap.digitalOutput">
+            <summary>
+            Digital output available
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePinCap.analogInput">
+            <summary>
+            Analog input available
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePinCap.analogOutput">
+            <summary>
+            Analog output available
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePinCap.triggeredInput">
+            <summary>
+            Triggered input
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePinCap.digitalCounter">
+            <summary>
+            Digital counter available
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePinCap.invertPin">
+            <summary>
+            Invert pin
+            </summary>
+        </member>
+        <member name="T:PoKeysDevice_DLL.eModbusAccess">
+            <summary>
+            Modbus peripherals access enum
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.eModbusAccess.access_IO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.eModbusAccess.access_analogIn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.eModbusAccess.access_PWMOut">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.eModbusAccess.access_MatrixKB">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.eModbusAccess.access_I2CMatrixKB">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.eModbusAccess.access_I2CMatrixKBLED">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.eModbusAccess.access_LEDMatrix">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.eModbusAccess.access_PoExtBus">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.eModbusAccess.access_Encoders">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.eModbusAccess.access_Counters">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.eModbusAccess.access_LCD">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:PoKeysDevice_DLL.ePoKeysDeviceSupport">
+            <summary>
+            Additional peripheral support enum
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePoKeysDeviceSupport.UltraFastEncoders">
+            <summary>
+            Ultra fast encoders support available
+            </summary>
+        </member>
+        <member name="T:PoKeysDevice_DLL.ePinMappingType">
+            <summary>
+            Digital pin to USB keyboard mapping options
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePinMappingType.enableKeyMapping">
+            <summary>
+            Enable mapping
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePinMappingType.directKeyMapping">
+            <summary>
+            Each key event is directly transfered to the system
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePinMappingType.macroKeyMapping">
+            <summary>
+            PoKeys is emulating the sequence of key presses
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePinMappingType.continuousMacroMapping">
+            <summary>
+            PoKeys is emulating the repeating sequence of key presses
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePinMappingType.repeatedKeyMapping">
+            <summary>
+            PoKeys emulates typematic delay and repeat rate for the activated key
+            </summary>
+        </member>
+        <member name="T:PoKeysDevice_DLL.sPoKeysNetworkDeviceData">
+            <summary>
+            Structure that holds the data of the selected network device - to be used with COM_GetNetworkDeviceData
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.sPoKeysNetworkDeviceData.IPAddress">
+            <summary>
+            Device's IP address
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.sPoKeysNetworkDeviceData.HostIP">
+            <summary>
+            IP address of the computer that started the discovery
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.sPoKeysNetworkDeviceData.DHCPStatus">
+            <summary>
+            DHCP status of the device - 0 means that the device does not use DHCP
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.sPoKeysNetworkDeviceData.UserID">
+            <summary>
+            User ID of the device
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.sPoKeysNetworkDeviceData.SerialNumber">
+            <summary>
+            Serial number of the device
+            </summary>
+        </member>
+        <member name="T:PoKeysDevice_DLL.ePoKeysDLLOperations">
+            <summary>
+            COM_Execute operations
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePoKeysDLLOperations.GetDeviceData">
+            <summary>
+            Retrieves basic device data
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePoKeysDLLOperations.GetPinConfiguration">
+            <summary>
+            Retrieves pin configuration
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePoKeysDLLOperations.SetPinConfiguration">
+            <summary>
+            Sets pin configuration
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePoKeysDLLOperations.GetPeripheralConfiguration">
+            <summary>
+            Retrieves peripheral configuration
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePoKeysDLLOperations.GetDigitalPinValues">
+            <summary>
+            Reads digital inputs
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePoKeysDLLOperations.SetDigitalPinValues">
+            <summary>
+            Sets digital outputs
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePoKeysDLLOperations.GetAnalogPinValues">
+            <summary>
+            Reads analog inputs values
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePoKeysDLLOperations.GetEncoderValues">
+            <summary>
+            Reads encoders values
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.ePoKeysDLLOperations.GetDigitalCounterValues">
+            <summary>
+            Reads digital counter values
+            </summary>
+        </member>
+        <member name="T:PoKeysDevice_DLL.sPoKeysDeviceStatus">
+            <summary>
+            Device status structure
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.sPoKeysDeviceStatus.DeviceData">
+            <summary>
+            Structure that holds basic device data
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.sPoKeysDeviceStatus.Pins">
+            <summary>
+            An array of 55 pins, each with its own settings
+            </summary>
+        </member>
+        <member name="F:PoKeysDevice_DLL.sPoKeysDeviceStatus.Encoders">
+            <summary>
+            An array of 26 encoders, each with its own settings
+            </summary>
+        </member>
+        <member name="T:PoKeysDevice_DLL.IPoKeysDevice">
+            <summary>
+            Main PoKeysDevice interface
+            </summary>
+        </member>
+        <member name="M:PoKeysDevice_DLL.IPoKeysDevice.GetAnalogValueMax">
+            <summary>
+            Returns the maximum value of analog input
+            </summary>
+            <returns>1024 for 10-bit inputs or 4096 for 12-bit inputs</returns>
+        </member>
+        <member name="T:PoKeysDevice_DLL.PoKeysDevice">
+            <summary>
+            Main class definition. Use this class for communication with PoKeys devices</summary>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.Finalize">
+            <summary>
+            Class destructor. Stops any ongoing communication with the device.
+            </summary>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.EnumerateDevices">
+             <summary>
+               Enumerates all USB devices connected. This function should be called every time the class is initialized or 
+               number of devices on the system has changed.
+             </summary>
+             <returns>Number of detected USB devices</returns>
+             <example>The following example enumerates the devices and lists them in the listbox:
+             <code>
+                // Enumerate and list USB devices
+                int i = MyDevice.EnumerateDevices();
+                byte userID = 0;
+                lstUSBdevices.Items.Clear();
+            
+                if (i &gt; 0)
+                {
+                    lstUSBdevices.Enabled = true;
+                    lstUSBdevices.Items.Clear();
+                }
+                else
+                {
+                    lstUSBdevices.Enabled = false;
+                    lstUSBdevices.Items.Clear();
+                    lstUSBdevices.Items.Add("No device detected");
+                }
+            
+                for (int k = 0; k &lt; i; k++)
+                {
+                    MyDevice.ConnectToDevice(k);
+            
+                    MyDevice.GetUserID(ref userID);
+                    lstUSBdevices.Items.Add(MyDevice.GetDeviceTypeName() + " (" + userID + ")");
+            
+                    MyDevice.DisconnectDevice();
+                }
+             </code>
+             </example>
+             <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.ConnectToDevice(System.Int32)"/>
+             <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.StartEthernetDiscovery"/>
+             <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.DisconnectDevice"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.IsValidIPAddr(System.String)">
+            <summary>
+              Internal function to check for IP address validity
+            </summary>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetNetworkDeviceIPAddressWithBroadcast(System.UInt32,System.Byte[],System.Byte)">
+            <summary>
+            This function enables to set the device configuration without direct TCP IP connection to the device.
+            It uses UDP broadcast to deliver message to the device on port 20055.
+            </summary>
+            <param name="deviceSerialNumber">Serial number of the device being searched for</param>
+            <param name="ip_addr">New IP address (4 bytes)</param>
+            <param name="useDHCP">Set to true to enable DHCP on the device</param>
+            <returns>True if message was sent (without waiting for the confirmation)</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetNetworkDeviceIPAddressWithBroadcast(System.UInt32,System.String,System.Byte)">
+            <summary>
+            This function enables to set the device configuration without direct TCP IP connection to the device.
+            It uses UDP broadcast to deliver message to the device on port 20055.
+            </summary>
+            <param name="deviceSerialNumber">Serial number of the device being searched for</param>
+            <param name="ip_addr">New IP address string</param>
+            <param name="useDHCP">Set to true to enable DHCP on the device</param>
+            <returns>True if message was sent (without waiting for the confirmation)</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.StartEthernetDiscovery">
+            <summary>
+              Start automatic network device discovery
+            </summary>
+            <example>The following example enumerates network devices and lists them in the listbox:
+            <code>
+            // Enumerate and list etherent devices
+            MyDevice.StartEthernetDiscovery();
+            byte userID = 0;
+            
+            lstEthDevices.Items.Clear();
+            lstEthDevices.Items.Add("Searching....");
+            lstEthDevices.Enabled = false;
+            lstEthDevices.Refresh();
+            Application.DoEvents();
+            Thread.Sleep(2000);
+            
+            MyDevice.StopEthernetDiscovery();
+            
+            if (MyDevice.GetNumberOfDetectedNetworkDevices() > 0)
+            {
+                lstEthDevices.Enabled = true;
+                lstEthDevices.Items.Clear();
+                cmdEthConnect.Enabled = true;
+            }
+            else
+            {
+                lstEthDevices.Items.Clear();
+                lstEthDevices.Items.Add("No device detected");
+                cmdEthConnect.Enabled = false;
+            }
+            for (int k = 0; k &lt; MyDevice.GetNumberOfDetectedNetworkDevices(); k++)
+            {
+                MyDevice.ConnectToNetworkDevice(MyDevice.EthDeviceIP[k]);
+            
+                MyDevice.GetUserID(ref userID);
+                lstEthDevices.Items.Add(MyDevice.GetDeviceTypeName() + " (" + userID + ")");
+            
+                MyDevice.DisconnectDevice();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.StopEthernetDiscovery">
+            <summary>
+              Stop automatic network device discovery
+            </summary>
+            <example>The following example enumerates network devices and lists them in the listbox:
+            <code>
+            // Enumerate and list etherent devices
+            MyDevice.StartEthernetDiscovery();
+            byte userID = 0;
+            
+            lstEthDevices.Items.Clear();
+            lstEthDevices.Items.Add("Searching....");
+            lstEthDevices.Enabled = false;
+            lstEthDevices.Refresh();
+            Application.DoEvents();
+            Thread.Sleep(2000);
+            
+            MyDevice.StopEthernetDiscovery();
+            
+            if (MyDevice.GetNumberOfDetectedNetworkDevices() > 0)
+            {
+                lstEthDevices.Enabled = true;
+                lstEthDevices.Items.Clear();
+                cmdEthConnect.Enabled = true;
+            }
+            else
+            {
+                lstEthDevices.Items.Clear();
+                lstEthDevices.Items.Add("No device detected");
+                cmdEthConnect.Enabled = false;
+            }
+            for (int k = 0; k &lt; MyDevice.GetNumberOfDetectedNetworkDevices(); k++)
+            {
+                MyDevice.ConnectToNetworkDevice(MyDevice.EthDeviceIP[k]);
+            
+                MyDevice.GetUserID(ref userID);
+                lstEthDevices.Items.Add(MyDevice.GetDeviceTypeName() + " (" + userID + ")");
+            
+                MyDevice.DisconnectDevice();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.ListEthernetDevices">
+            <summary>
+              Internal function (thread) to check for discovery reponses
+            </summary>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.isEthernetDiscoveryInProgress">
+            <summary>
+            Checks whether ethernet device discovery is in progress.
+            </summary>
+            <returns>True if discovery still in progress</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetNumberOfDetectedNetworkDevices">
+            <summary>
+              Returns the number of detected network devices
+            </summary>
+            <returns>Number of detected network devices</returns>
+            <example>The following example enumerates network devices and lists them in the listbox:
+            <code>
+            // Enumerate and list etherent devices
+            MyDevice.StartEthernetDiscovery();
+            byte userID = 0;
+            
+            lstEthDevices.Items.Clear();
+            lstEthDevices.Items.Add("Searching....");
+            lstEthDevices.Enabled = false;
+            lstEthDevices.Refresh();
+            Application.DoEvents();
+            Thread.Sleep(2000);
+            
+            MyDevice.StopEthernetDiscovery();
+            
+            if (MyDevice.GetNumberOfDetectedNetworkDevices() > 0)
+            {
+                lstEthDevices.Enabled = true;
+                lstEthDevices.Items.Clear();
+            }
+            else
+            {
+                lstEthDevices.Items.Clear();
+                lstEthDevices.Items.Add("No device detected");
+            }
+            for (int k = 0; k &lt; MyDevice.GetNumberOfDetectedNetworkDevices(); k++)
+            {
+                MyDevice.ConnectToNetworkDevice(MyDevice.EthDeviceIP[k]);
+            
+                MyDevice.GetUserID(ref userID);
+                lstEthDevices.Items.Add(MyDevice.GetDeviceTypeName() + " (" + userID + ")");
+            
+                MyDevice.DisconnectDevice();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetNetworkDevicesAddressses">
+            <summary>
+              Returns the IP addresses of detected network devices
+            </summary>
+            <returns>List of IP addresses</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetNetworkDevicesHostIP">
+            <summary>
+            Returns the IP addresses of the host that sent the discovery request
+            </summary>
+            <returns>List of IP addresses</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetNetworkDevicesDHCPstatus">
+            <summary>
+            Returns DHCP statuses of detected network devices
+            </summary>
+            <returns>List of DHCP statuses</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetNetworkDeviceSerialNumbers">
+            <summary>
+            Returns serial numbers of detected network devices
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.ConnectToNetworkDevice_Probe(System.String)">
+            <summary>
+            Start a connection probe - initiates a TCP connection with the device
+            </summary>
+            <param name="address">IP address of the device</param>
+            <returns>True if connection request was sent</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetConnectionProbeCompleteStatus">
+            <summary>
+            Get the connection probe completion status.
+            </summary>
+            <returns>True if connection attempt completed (whether successfully or unsuccessfully)</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetConnectionProbeStatus">
+            <summary>
+            Get the connection probe status
+            </summary>
+            <returns>True if connection with the device was successfully established</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.ConnectToNetworkDevice(System.String)">
+            <summary>
+              Opens the connection to the network device with a specific IP address. When port is different than default, use the format IP:Port
+            </summary>
+            <param name="address">IP address of the device</param>
+            <returns>True if connection with the device was successfully established</returns>
+            <example>The following example enumerates network devices and lists them in the listbox:
+            <code>
+            // Enumerate and list etherent devices
+            MyDevice.StartEthernetDiscovery();
+            byte userID = 0;
+            
+            lstEthDevices.Items.Clear();
+            lstEthDevices.Items.Add("Searching....");
+            lstEthDevices.Enabled = false;
+            lstEthDevices.Refresh();
+            Application.DoEvents();
+            Thread.Sleep(2000);
+            
+            MyDevice.StopEthernetDiscovery();
+            
+            if (MyDevice.GetNumberOfDetectedNetworkDevices() > 0)
+            {
+                lstEthDevices.Enabled = true;
+                lstEthDevices.Items.Clear();
+                cmdEthConnect.Enabled = true;
+            }
+            else
+            {
+                lstEthDevices.Items.Clear();
+                lstEthDevices.Items.Add("No device detected");
+                cmdEthConnect.Enabled = false;
+            }
+            for (int k = 0; k &lt; MyDevice.GetNumberOfDetectedNetworkDevices(); k++)
+            {
+                MyDevice.ConnectToNetworkDevice(MyDevice.EthDeviceIP[k]);
+            
+                MyDevice.GetUserID(ref userID);
+                lstEthDevices.Items.Add(MyDevice.GetDeviceTypeName() + " (" + userID + ")");
+            
+                MyDevice.DisconnectDevice();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetCurrentIPAddress">
+            <summary>
+            Returns current device IP address
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.StartAutoPingingNetworkDevice">
+            <summary>
+            Start automatic pinging of network device to ensure the device is not breaking up the connection due to the timeout
+            </summary>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.StopAutoPingingNetworkDevice">
+            <summary>
+            Stops automatic pinging process
+            </summary>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetCurrentDeviceConnectionType">
+            <summary>
+            Returns current connection type (USB or network)
+            </summary>
+            <returns>Connection type enum</returns>
+            <seealso cref="T:PoKeysDevice_DLL.ePoKeysDeviceConnectionType"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetPinCapabilities(System.Int32)">
+            <summary>
+            Returns pin capabilities of the selected pin
+            </summary>
+            <param name="pinID">Pin number (0-based)</param>
+            <returns>Pin capabilities enum</returns>
+            <seealso cref="T:PoKeysDevice_DLL.ePinCap"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.ConnectToDevice(System.Int32)">
+             <summary>
+               Opens the connection to the selected USB device
+             </summary>
+             <param name="deviceIndex">Index of the selected device (up to number of USB devices - 1)</param>
+             <returns>True if connection was established</returns>
+             <example>The following example enumerates the devices and lists them in the listbox:
+             <code>
+                // Enumerate and list USB devices
+                int i = MyDevice.EnumerateDevices();
+                byte userID = 0;
+                lstUSBdevices.Items.Clear();
+            
+                if (i &gt; 0)
+                {
+                    lstUSBdevices.Enabled = true;
+                    lstUSBdevices.Items.Clear();
+                }
+                else
+                {
+                    lstUSBdevices.Enabled = false;
+                    lstUSBdevices.Items.Clear();
+                    lstUSBdevices.Items.Add("No device detected");
+                }
+            
+                for (int k = 0; k &lt; i; k++)
+                {
+                    MyDevice.ConnectToDevice(k);
+            
+                    MyDevice.GetUserID(ref userID);
+                    lstUSBdevices.Items.Add(MyDevice.GetDeviceTypeName() + " (" + userID + ")");
+            
+                    MyDevice.DisconnectDevice();
+                }
+             </code>
+             </example>
+             <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.DisconnectDevice"/>
+             <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.EnumerateDevices"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.ConnectToDevice(System.IntPtr,System.Int32)">
+            <summary>
+              Opens the connection to the selected USB device
+            </summary>
+            <param name="deviceIndex">Index of the selected device (up to number of USB devices - 1)</param>
+            <param name="formHandle">Handle to the form that contains main user interface</param>
+            <returns>True if connection was established</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.DisconnectDevice">
+            <summary>
+              Closes the connection to the selected device
+            </summary>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.CalculateChecksum(System.Byte[]@)">
+            <summary>
+              Calculates the checksum for the packet specified (sum % 256)
+            </summary>
+            <param name="packet">Pointer to 8 byte array</param>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.Connected">
+            <summary>
+            Checks if connection is still established
+            </summary>
+            <returns>True if connected</returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.ConnectToDevice(System.Int32)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.ConnectToNetworkDevice(System.String)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.DisconnectDevice"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SendEthRequest(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte[]@)">
+            <summary>
+              Function creates packet, calculates checksum, sends it to the device and waits for the response packet with the same Request ID
+            </summary>
+            <param name="type">Packet type</param>
+            <param name="param1">Parameter 1</param>
+            <param name="param2">Parameter 2</param>
+            <param name="param3">Parameter 3</param>
+            <param name="param4">Parameter 4</param>
+            <param name="answer">Pointer to array that gets filled with response packet</param>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SendEthRequestEx(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte[]@,System.Byte[]@)">
+            <summary>
+              Function creates packet, calculates checksum, sends it to the device and waits for the response packet with the same Request ID
+            </summary>
+            <param name="type">Packet type</param>
+            <param name="useExtended">1 to indicate extended packet</param>
+            <param name="data3">Parameter 2</param>
+            <param name="data4">Parameter 3</param>
+            <param name="data5">Parameter 4</param>
+            <param name="Request">Pointer to array that has extended request data</param>
+            <param name="answer">Pointer to array that gets filled with response packet</param>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SendEthReportEx(System.Byte[]@)">
+            <summary>
+              Sends the report specified
+            </summary>
+            <param name="OutPacket">Pointer to 64 byte array for outgoing data</param>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetEthReportEx(System.Byte[]@)">
+            <summary>
+              Receives the report from the device
+            </summary>
+            <param name="InPacket">Pointer to 64 byte array for incoming data</param>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SendRequest(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte[]@)">
+            <summary>
+              Function creates packet, calculates checksum, sends it to the device and waits for the response packet with the same Request ID
+            </summary>
+            <param name="type">Packet type</param>
+            <param name="param1">Parameter 1</param>
+            <param name="param2">Parameter 2</param>
+            <param name="param3">Parameter 3</param>
+            <param name="param4">Parameter 4</param>
+            <param name="answer">Pointer to array that gets filled with response packet</param>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SendReport(System.Byte[]@)">
+            <summary>
+              Sends the report specified
+            </summary>
+            <param name="OutPacket">Pointer to 8 byte array for outgoing data</param>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetReport(System.Byte[]@)">
+            <summary>
+              Receives the report from the device
+            </summary>
+            <param name="InPacket">Pointer to 8 byte array for incoming data</param>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.CalculateChecksumEx(System.Byte[]@)">
+            <summary>
+            
+            </summary>
+            <param name="packet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SendRequestExFull(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte[]@,System.Byte[]@)">
+            <summary>
+              Function creates packet, calculates checksum, sends it to the device and waits for the response packet with the same Request ID
+            </summary>
+            <param name="type">Packet type</param>
+            <param name="useExtended">1 to indicate extended packet</param>
+            <param name="data3">Parameter 2</param>
+            <param name="data4">Parameter 3</param>
+            <param name="data5">Parameter 4</param>
+            <param name="Request">Pointer to array that has extended request data</param>
+            <param name="answer">Pointer to array that gets filled with response packet</param>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SendRequestEx(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte[]@,System.Byte[]@)">
+            <summary>
+              Function creates packet, calculates checksum, sends it to the device and waits for the response packet with the same Request ID
+            </summary>
+            <param name="type">Packet type</param>
+            <param name="useExtended">1 to indicate extended packet</param>
+            <param name="data3">Parameter 2</param>
+            <param name="data4">Parameter 3</param>
+            <param name="data5">Parameter 4</param>
+            <param name="Request">Pointer to array that has extended request data</param>
+            <param name="answer">Pointer to array that gets filled with response packet</param>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SendReportEx(System.Byte[]@)">
+            <summary>
+              Sends the extended report
+            </summary>
+            <param name="OutPacket">Pointer to 63 byte array for outgoing data</param>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetReportEx(System.Byte[]@)">
+            <summary>
+              Receives the extended report from the device
+            </summary>
+            <param name="InPacket">Pointer to 63 byte array for incoming data</param>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetDeviceID(System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Retrieves the device data (THIS FUNCTION CALL IS OBSOLETE, SEE THE REVISED VERSION <see cref="M:PoKeysDevice_DLL.PoKeysDevice.GetDeviceIDEx(System.Int32@,System.Int32@,System.Int32@)"/>)
+            </summary>
+            <param name="firmwareVersion">Device firmware version</param>
+            <param name="pinNum">Number of pins on the device</param>
+            <param name="serialNumber">Serial number of the device</param>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetDeviceType">
+            <summary>
+            Returns the device type
+            </summary>
+            <returns>
+            <para>0, 1 or 2 for PoKeys55 devices</para>
+            <para>3 for PoKeys55 device in recovery mode</para>
+            <para>10 for PoKeys56U</para>
+            <para>11 for PoKeys56E</para>
+            <para>15 for PoKeys56U device in recovery mode</para>
+            <para>16 for PoKeys56E device in recovery mode</para>
+            </returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetDeviceTypeName"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetDeviceTypeName">
+             <summary>
+             Returns the device type name
+             </summary>
+             <returns>String description of the device type</returns>
+             <example>The following example enumerates the devices and lists them in the listbox:
+             <code>
+                // Enumerate and list USB devices
+                int i = MyDevice.EnumerateDevices();
+                byte userID = 0;
+                lstUSBdevices.Items.Clear();
+            
+                if (i &gt; 0)
+                {
+                    lstUSBdevices.Enabled = true;
+                    lstUSBdevices.Items.Clear();
+                }
+                else
+                {
+                    lstUSBdevices.Enabled = false;
+                    lstUSBdevices.Items.Clear();
+                    lstUSBdevices.Items.Add("No device detected");
+                }
+            
+                for (int k = 0; k &lt; i; k++)
+                {
+                    MyDevice.ConnectToDevice(k);
+            
+                    MyDevice.GetUserID(ref userID);
+                    lstUSBdevices.Items.Add(MyDevice.GetDeviceTypeName() + " (" + userID + ")");
+            
+                    MyDevice.DisconnectDevice();
+                }
+             </code>
+             </example>
+             <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetDeviceType"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetDeviceName">
+            <summary>
+            Returns the device name
+            </summary>
+            <returns>Device name</returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetDeviceTypeName"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetDeviceIDEx(System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+              Retrieves the device data (version x.y.z and serial number)
+            </summary>
+            <param name="firmwareVersionMajor">Major firmware version - first two digits of the version: x = firmwareVersionMajor / 16, y = firmwareVersionMajor mod 16</param>
+            <param name="firmwareVersionMinor">Minir firmware version - z = firmwareVersionMinor</param>
+            <param name="serialNumber">Serial number of the device</param>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetBuildDate(System.String@)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetUserID(System.Byte@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetBuildDate(System.String@)">
+            <summary>
+            Returns the firmware build date in string format
+            </summary>
+            <param name="buildDate"></param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetDeviceIDEx(System.Int32@,System.Int32@,System.Int32@)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetUserID(System.Byte@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetUserID(System.Byte@)">
+             <summary>
+             Retrieves user ID
+             </summary>
+             <param name="userID">User ID</param>
+             <returns></returns>
+             <example>The following example enumerates the devices and lists them in the listbox:
+             <code>
+                // Enumerate and list USB devices
+                int i = MyDevice.EnumerateDevices();
+                byte userID = 0;
+                lstUSBdevices.Items.Clear();
+            
+                if (i &gt; 0)
+                {
+                    lstUSBdevices.Enabled = true;
+                    lstUSBdevices.Items.Clear();
+                }
+                else
+                {
+                    lstUSBdevices.Enabled = false;
+                    lstUSBdevices.Items.Clear();
+                    lstUSBdevices.Items.Add("No device detected");
+                }
+            
+                for (int k = 0; k &lt; i; k++)
+                {
+                    MyDevice.ConnectToDevice(k);
+            
+                    MyDevice.GetUserID(ref userID);
+                    lstUSBdevices.Items.Add(MyDevice.GetDeviceTypeName() + " (" + userID + ")");
+            
+                    MyDevice.DisconnectDevice();
+                }
+             </code>
+             </example>
+             <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetUserIDAndLockStatus(System.Byte@,System.Byte@)"/>
+             <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetUserID(System.Byte)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetUserIDAndLockStatus(System.Byte@,System.Byte@)">
+            <summary>
+            Retrieves user ID and lock status
+            </summary>
+            <param name="userID">User ID</param>
+            <param name="lockStatus">Lock status (1 if device is locked)</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetUserID(System.Byte@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetUserID(System.Byte)">
+            <summary>
+            Sets user ID
+            </summary>
+            <param name="newUserID">new user ID</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetUserID(System.Byte@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetUserDeviceName(System.String@)">
+            <summary>
+            Reads device name set by the user
+            </summary>
+            <param name="deviceName">device name string</param>
+            <returns>True if read was successfull</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetUserDeviceName(System.String@)">
+            <summary>
+            Sets device name
+            </summary>
+            <param name="deviceName">New device name string</param>
+            <returns>True if write was successfull</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetLoadStatus(System.Byte@)">
+            <summary>
+            Reads current load status of the device
+            </summary>
+            <param name="CPUload">0 to 255, 0 to 100 when in normal operation mode, more than 100 means the device is skipping cycles</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetSecurityStatus(System.Byte@)">
+            <summary>
+            Reads the current security status of network device
+            </summary>
+            <param name="securityLevel">Current security level of the device</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.AuthorizeUser(System.String@,System.Byte@,System.Boolean@)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetUserSecurityPassword(System.String@,System.Byte@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.AuthorizeUser(System.String@,System.Byte@,System.Boolean@)">
+            <summary>
+            Authorises user on the device - changes the security level to the specified value
+            </summary>
+            <param name="userPassword">User password (up to 32 characters)</param>
+            <param name="securityLevel">New security level</param>
+            <param name="UserAuthorised">True if the authorisation succeeded</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetSecurityStatus(System.Byte@)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetUserSecurityPassword(System.String@,System.Byte@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetUserSecurityPassword(System.String@,System.Byte@)">
+            <summary>
+            Sets the password for the network device. This can be executed only at the full access security level
+            </summary>
+            <param name="userPassword">New user password</param>
+            <param name="defaultSecurityLevel">Default security level for unauthorised users</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetSecurityStatus(System.Byte@)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.AuthorizeUser(System.String@,System.Byte@,System.Boolean@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetPinData(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Set pin function (OBSOLETE FUNCTION) - use <see cref="M:PoKeysDevice_DLL.PoKeysDevice.SetPinData(System.Byte,System.Byte)"/>
+            </summary>
+            <param name="pinID"></param>
+            <param name="pinFunction"></param>
+            <param name="pullUpDownResistor"></param>
+            <param name="invertPin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetPinData(System.Byte,System.Byte)">
+            <summary>
+            Set pin data
+            </summary>
+            <param name="pinID">Pid ID (0-based)</param>
+            <param name="pinFunction">Pin function byte according to the manual:
+            <para>bit 0: obsolete</para>
+            <para>bit 1: digital input</para>
+            <para>bit 2: digital output</para>
+            <para>bit 3: analog input</para>
+            <para>bit 4: analog output</para>
+            <para>bit 5: triggered input</para>
+            <para>bit 6: digital counter input</para>
+            <para>bit 7: invert state</para>
+            </param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetPinData(System.Byte,System.Byte,System.Byte)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetPinData(System.Byte,System.Byte@)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetPinData(System.Byte,System.Byte@,System.Byte@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetPinData(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Set pin data with counter options
+            </summary>
+            <param name="pinID">Pid ID (0-based)</param>
+            <param name="pinFunction">Pin function byte according to the manual:
+            <para>bit 0: obsolete</para>
+            <para>bit 1: digital input</para>
+            <para>bit 2: digital output</para>
+            <para>bit 3: analog input</para>
+            <para>bit 4: analog output</para>
+            <para>bit 5: triggered input</para>
+            <para>bit 6: digital counter input</para>
+            <para>bit 7: invert state</para>
+            </param>
+            <param name="CounterOptions">Pin counter options according to the manual:
+            <para>bit 0: count rising edges (fast counter)</para>
+            <para>bit 1: count falling edges (fast counter)</para>
+            </param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetPinData(System.Byte,System.Byte)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetPinData(System.Byte,System.Byte@)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetPinData(System.Byte,System.Byte@,System.Byte@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetConnectionSignalData(System.Byte)">
+            <summary>
+            Sets connection signal pins data
+            </summary>
+            <param name="data">Bit mapped connection signal pins 48 to 55</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetConnectionSignalData(System.Byte@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetConnectionSignalData(System.Byte@)">
+            <summary>
+            Retrieves connection signal pins data
+            </summary>
+            <param name="data">Bit mapped connection signal pins 48 to 55</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetConnectionSignalData(System.Byte)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetPinData(System.Byte,System.Byte@,System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            Retrieves pin data (OBSOLETE FUNCTION) - use <see cref="M:PoKeysDevice_DLL.PoKeysDevice.GetPinData(System.Byte,System.Byte@)"/>
+            </summary>
+            <param name="pinID"></param>
+            <param name="pinFunction"></param>
+            <param name="pullUpDownResistor"></param>
+            <param name="invertPin"></param>
+            <param name="pinPossibleFunctions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetPinData(System.Byte,System.Byte@)">
+            <summary>
+            Reads pin data
+            </summary>
+            <param name="pinID">Pid ID (0-based)</param>
+            <param name="pinFunction">Pin function byte according to the manual:
+            <para>bit 0: obsolete</para>
+            <para>bit 1: digital input</para>
+            <para>bit 2: digital output</para>
+            <para>bit 3: analog input</para>
+            <para>bit 4: analog output</para>
+            <para>bit 5: triggered input</para>
+            <para>bit 6: digital counter input</para>
+            <para>bit 7: invert state</para>
+            </param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetPinData(System.Byte,System.Byte@,System.Byte@)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetPinData(System.Byte,System.Byte)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetPinData(System.Byte,System.Byte,System.Byte)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetPinData(System.Byte,System.Byte@,System.Byte@)">
+            <summary>
+            Reads pin data with counter options
+            </summary>
+            <param name="pinID">Pid ID (0-based)</param>
+            <param name="pinFunction">Pin function byte according to the manual:
+            <para>bit 0: obsolete</para>
+            <para>bit 1: digital input</para>
+            <para>bit 2: digital output</para>
+            <para>bit 3: analog input</para>
+            <para>bit 4: analog output</para>
+            <para>bit 5: triggered input</para>
+            <para>bit 6: digital counter input</para>
+            <para>bit 7: invert state</para>
+            </param>
+            <param name="CounterOptions">Pin counter options according to the manual:
+            <para>bit 0: count rising edges (fast counter)</para>
+            <para>bit 1: count falling edges (fast counter)</para>
+            </param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetPinData(System.Byte,System.Byte@)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetPinData(System.Byte,System.Byte)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetPinData(System.Byte,System.Byte,System.Byte)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetPinKeyMapping(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Sets pin key mapping options (OBSOLETE)
+            </summary>
+            <param name="pinID">Pin ID (0-based)</param>
+            <param name="KeyCode">USB HID key code for the pin</param>
+            <param name="KeyModifier">USB HID key modifier for the pin</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetPinKeyMapping(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Sets pin key mapping options
+            </summary>
+            <param name="pinID">Pin ID (0-based)</param>
+            <param name="PinKeyMappingType">Key mapping type according to the manual: 
+            <para>bit 0: enable key mapping</para>
+            <para> bit 1: direct key mapping</para>
+             <para>bit 2: key mapped to macro (KeyCode is macro ID)</para>
+             <para>bit 3: key mapped to continous macro (same as above, but macro is refiring if input is still active)</para>
+             <para>bit 4: key repeating (after a delay, the key is being repeatedly fired with a given rate)</para>
+             <para>bit 5: </para>
+             <para>bit 6: </para>
+             <para>bit 7: </para>
+            </param>
+            <param name="KeyCode">USB HID key code for the pin</param>
+            <param name="KeyModifier">USB HID key modifier for the pin</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetPinMacroMapping(System.Byte,System.Byte)">
+            <summary>
+            Set pin macro mappping options 
+            </summary>
+            <param name="pinID">Pin ID (0-based)</param>
+            <param name="MacroID">Macro ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetPinKeyMapping(System.Byte,System.Byte@,System.Byte@)">
+            <summary>
+            Reads pin key mapping (OBSOLETE)
+            </summary>
+            <param name="pinID"></param>
+            <param name="KeyCode"></param>
+            <param name="KeyModifier"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetPinKeyMapping(System.Byte,System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            Reads pin key mapping
+            </summary>
+            <param name="pinID">Pin ID (0-based)</param>
+            <param name="PinKeyMappingType">Key mapping type according to the manual: 
+            <para>bit 0: enable key mapping</para>
+            <para> bit 1: direct key mapping</para>
+             <para>bit 2: key mapped to macro (KeyCode is macro ID)</para>
+             <para>bit 3: key mapped to continous macro (same as above, but macro is refiring if input is still active)</para>
+             <para>bit 4: key repeating (after a delay, the key is being repeatedly fired with a given rate)</para>
+             <para>bit 5: </para>
+             <para>bit 6: </para>
+             <para>bit 7: </para>
+            </param>
+            <param name="KeyCode">USB HID key code for the pin</param>
+            <param name="KeyModifier">USB HID key modifier for the pin</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetPinMacroMapping(System.Byte,System.Byte@)">
+            <summary>
+            Reads pin macro mapping
+            </summary>
+            <param name="pinID">Pin ID (0-based)</param>
+            <param name="MacroID">Macro ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetTriggeredInputMapping(System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Sets triggered input mapping options
+            </summary>
+            <param name="downKeyCodes">Array of 55 key codes for 'Key down' events</param>
+            <param name="downKeyModifiers">Array of 55 key modifiers for 'Key down' events</param>
+            <param name="upKeyCodes">Array of 55 key codes for 'Key up' events</param>
+            <param name="upKeyModifiers">Array of 55 key modifiers for 'Key up' events</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetTriggeredInputMapping(System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Reads triggered input mapping options
+            </summary>
+            <param name="downKeyCodes">Array of 55 key codes for 'Key down' events</param>
+            <param name="downKeyModifiers">Array of 55 key modifiers for 'Key down' events</param>
+            <param name="upKeyCodes">Array of 55 key codes for 'Key up' events</param>
+            <param name="upKeyModifiers">Array of 55 key modifiers for 'Key up' events</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetTypeMaticDelaysAndRates(System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Sets the typematic delay and repeat rate for each pin. Values are based on 5 ms intervals
+            </summary>
+            <param name="delays">Array of 55 delays - 5 ms based</param>
+            <param name="rates">Array of 55 repeat delays - 5 ms based</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetTypeMaticDelaysAndRates(System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Gets the typematic delay and repeat rate for each pin. Values are based on 5 ms intervals
+            </summary>
+            <param name="delays">Array of 55 delays - 5 ms based</param>
+            <param name="rates">Array of 55 repeat delays - 5 ms based</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetEncoderSettings(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Set encoder settings
+            </summary>
+            <param name="encoderID">Encoder ID (0 to 24)</param>
+            <param name="encoderOption">Encoder options according to the manual: 
+            <para>bit 0: enable encoder</para>
+            <para>bit 1: 4x sampling</para>
+            <para>bit 2: 2x sampling</para>
+            <para>bit 3: reserved</para>
+            <para>bit 4: direct key mapping for direction A</para>
+            <para>bit 5: mapped to macro for direction A</para>
+            <para>bit 6: direct key mapping for direction B</para>
+            <para>bit 7: mapped to macro for direction B</para>
+            </param>
+            <param name="pinChannelA">Pin ID for the channel A (0-based)</param>
+            <param name="pinChannelB">Pin ID for the channel B (0-based)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetEncoderSettings(System.Byte,System.Boolean,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Set encoder settings with macro mapping for A and B
+            </summary>
+            <param name="encoderID">Encoder ID (0 to 24)</param>
+            <param name="encoderEnabled">1 if encoder is to be enabled</param>
+            <param name="pinChannelA">Pin ID for the channel A (0-based)</param>
+            <param name="pinChannelB">Pin ID for the channel B (0-based)</param>
+            <param name="macroID_DirA">Macro ID for direction A mapping</param>
+            <param name="macroID_DirB">Macro ID for direction B mapping</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetEncoderSettings(System.Byte,System.Boolean,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Set encoder settings with direct key mapping for A and B
+            </summary>
+            <param name="encoderID">Encoder ID (0 to 24)</param>
+            <param name="encoderEnabled">1 if encoder is to be enabled</param>
+            <param name="pinChannelA">Pin ID for the channel A (0-based)</param>
+            <param name="pinChannelB">Pin ID for the channel B (0-based)</param>
+            <param name="KeyCode_DirA">USB HID key code for direction A</param>
+            <param name="KeyModifier_DirA">USB HID key modifier for direction A</param>
+            <param name="KeyCode_DirB">USB HID key code for direction B</param>
+            <param name="KeyModifier_DirB">USB HID key modifier for direction B</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetEncoderKeyMappingDirA(System.Byte,System.Byte)">
+            <summary>
+            Set encoder macro mapping for direction A
+            </summary>
+            <param name="encoderID">Encoder ID (0 to 24)</param>
+            <param name="macroID">Macro ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetEncoderKeyMappingDirA(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Set encoder key mapping for direction A
+            </summary>
+            <param name="encoderID">Encoder ID (0 to 24)</param>
+            <param name="KeyCode">USB HID key code</param>
+            <param name="KeyModifier">USB HID key modifier</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetEncoderKeyMappingDirB(System.Byte,System.Byte)">
+            <summary>
+            Set encoder macro mapping for direction B
+            </summary>
+            <param name="encoderID">Encoder ID (0 to 24)</param>
+            <param name="macroID">Macro ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetEncoderKeyMappingDirB(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Set encoder key mapping for direction B
+            </summary>
+            <param name="encoderID">Encoder ID (0 to 24)</param>
+            <param name="KeyCode">USB HID key code</param>
+            <param name="KeyModifier">USB HID key modifier</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetEncoderValue(System.Byte,System.Byte@)">
+            <summary>
+            Read current encoder value
+            </summary>
+            <param name="encoderID">Encoder ID (0 to 24)</param>
+            <param name="encoderValue">Lowest 8-bit of encoder counter</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.ResetEncoderValue(System.Byte)">
+            <summary>
+            Reset encoder value to 0
+            </summary>
+            <param name="encoderID">Encoder ID (0 to 24)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetEncoderRAWValue(System.Byte,System.Int32@)">
+            <summary>
+            Read encoder RAW value
+            </summary>
+            <param name="encoderID">Encoder ID (0 to 24)</param>
+            <param name="encoderValue">32-bit RAW encoder counter value</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetEncoders1_13_RAWValue(System.Int32[]@)">
+            <summary>
+            Read RAW value for encoders 1 to 13
+            </summary>
+            <param name="encoderValue">Array of 32-bit RAW encoder counter values</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetEncoders14_25_RAWValue(System.Int32[]@)">
+            <summary>
+            Read RAW value for encoders 14 to 25
+            </summary>
+            <param name="encoderValue">Array of 32-bit RAW encoder counter values</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetEncoders14_26_RAWValue(System.Int32[]@)">
+            <summary>
+            Read RAW value for encoders 14 to 26 (with ultra fast encoder as 26)
+            </summary>
+            <param name="encoderValue">Array of 32-bit RAW encoder counter values</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetEncoderSettings(System.Byte,System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            Read encoder settings
+            </summary>
+            <param name="encoderID">Encoder ID (0 to 24)</param>
+            <param name="encoderOption">Encoder options according to the manual: 
+            <para>bit 0: enable encoder</para>
+            <para>bit 1: 4x sampling</para>
+            <para>bit 2: 2x sampling</para>
+            <para>bit 3: reserved</para>
+            <para>bit 4: direct key mapping for direction A</para>
+            <para>bit 5: mapped to macro for direction A</para>
+            <para>bit 6: direct key mapping for direction B</para>
+            <para>bit 7: mapped to macro for direction B</para>
+            </param>
+            <param name="pinChannelA">Pin ID for the channel A (0-based)</param>
+            <param name="pinChannelB">Pin ID for the channel B (0-based)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetEncoderKeyMappingDirA(System.Byte,System.Byte@,System.Byte@)">
+            <summary>
+            Reads encoder mapping configuration for direction A
+            </summary>
+            <param name="encoderID">Encoder ID (0 to 24)</param>
+            <param name="KeyCodeMacroID">USB HID key code for direction A (or macro ID if macro mapping is enabled)</param>
+            <param name="KeyModifier">USB HID key modifier for direction A (if direct key mapping is enabled)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetEncoderKeyMappingDirB(System.Byte,System.Byte@,System.Byte@)">
+            <summary>
+            Reads encoder mapping configuration for direction B
+            </summary>
+            <param name="encoderID">Encoder ID (0 to 24)</param>
+            <param name="KeyCodeMacroID">USB HID key code for direction B (or macro ID if macro mapping is enabled)</param>
+            <param name="KeyModifier">USB HID key modifier for direction B (if direct key mapping is enabled)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetFastEncodersStatus(System.Byte)">
+            <summary>
+            Set fast encoder settings
+            </summary>
+            <param name="status">Option byte according to the manual (command 0xCE)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetFastEncodersStatusWOptions(System.Byte,System.Byte)">
+            <summary>
+            Set fast encoder settings and options
+            </summary>
+            <param name="status">Option byte according to the manual (command 0xCE)</param>
+            <param name="additionalOptions">Additional options as described in the manual</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetFastEncodersStatus(System.Byte@)">
+            <summary>
+            Read fast encoder settings
+            </summary>
+            <param name="status">Option byte according to the manual (command 0xCE)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetFastEncodersStatusWOptions(System.Byte@,System.Byte@)">
+            <summary>
+            Read fast encoder settings
+            </summary>
+            <param name="status">Option byte according to the manual (command 0xCE)</param>
+            <param name="additionalOptions">Additional options as described in the manual</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetUltraFastEncodersSettings(System.Byte,System.Byte)">
+            <summary>
+            Set ultra fast encoder settings
+            </summary>
+            <param name="enabled">1 to enable ultra fast encoder support</param>
+            <param name="settings">Additional options byte according to the manual (command 0x1C)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetUltraFastEncodersSettings(System.Byte,System.Byte,System.Int32)">
+            <summary>
+            Set ultra fast encoder settings
+            </summary>
+            <param name="enabled">1 to enable ultra fast encoder support</param>
+            <param name="settings">Additional options byte according to the manual (command 0x1C)</param>
+            <param name="filter">Digital filter sampling delay</param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetUltraFastEncodersSettings(System.Byte@,System.Byte@)">
+            <summary>
+            Read ultra fast encoder settings
+            </summary>
+            <param name="enabled">1 to enable ultra fast encoder support</param>
+            <param name="settings">Additional options byte according to the manual (command 0x1C)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetUltraFastEncodersSettings(System.Byte@,System.Byte@,System.Int32@)">
+            <summary>
+            Get ultra fast encoder settings
+            </summary>
+            <param name="enabled">1 to enable ultra fast encoder support</param>
+            <param name="settings">Additional options byte according to the manual (command 0x1C)</param>
+            <param name="filter">Digital filter sampling delay</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.CheckSupport(PoKeysDevice_DLL.ePoKeysDeviceSupport)">
+            <summary>
+            Checks if device supports requested item
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetTickCounter(System.UInt32@)">
+            <summary>
+            Reads current value of tick counter
+            </summary>
+            <param name="tickCounter">Unsigned 32-bit counter value</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetDigitalCountersValues(System.Int32[]@)">
+            <summary>
+            Reads current values of digital counters
+            </summary>
+            <param name="countersValues">Array of 55 32-bit counters values</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetDigitalCounterDirectionPin(System.Byte[]@)">
+            <summary>
+            Sets direction pins for the digital counters
+            </summary>
+            <param name="dirPins">Array of 55 bytes (value of 0 for no direction pin, else 1-based pin ID)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetDigitalCounterDirectionPin(System.Byte[]@)">
+            <summary>
+            Retrieves direction pins for the digital counters
+            </summary>
+            <param name="dirPins">Array of 55 bytes (value of 0 for no direction pin, else 1-based pin ID)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.IsCounterAvailable(System.Byte)">
+            <summary>
+            Checks if specified pin supports digital counter
+            </summary>
+            <param name="pinID">Pin ID (0-based)</param>
+            <returns>True if digital counter is supported on a specified pin</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.ResetDigitalCounters">
+            <summary>
+            Resets values of digital counters
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetInput(System.Byte,System.Boolean@)">
+            <summary>
+            Reads current state of digital input
+            </summary>
+            <param name="pinID">Pin ID (0-based)</param>
+            <param name="inputState">Boolean value of current state of digital input</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetOutput(System.Byte,System.Boolean)">
+            <summary>
+            Sets digital output state
+            </summary>
+            <param name="pinID">Pin ID (0-based)</param>
+            <param name="outputState">Boolean value of digital output state</param>
+            <returns></returns>
+            <remarks>Before using this command, pin must be set as digital output. After power-up, 
+            all pins are set as digital inputs due to security reasons.</remarks>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SaveConfiguration">
+            <summary>
+            Initiates configuration save procedure in the device to ensure the settings are restored when the device
+            is powered up. This command may take longer to execute.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SaveConfigurationAndSetDeviceLock">
+            <summary>
+            Initiates configuration save procedure in the device to ensure the settings are restored when the device
+            is powered up. This function also sets the configuration lock to protect settings in the device. 
+            This command may take longer to execute.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.ClearConfiguration">
+            <summary>
+            Initiates configuration clear procedure in the device. This command may take longer to execute.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetJoystickMapping(System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Set joystick mapping options
+            </summary>
+            <param name="axesMapping">Array of 6 bytes (one byte per axis) that contain the 1-based pin codes (analog inputs have pin codes from 41/43 to 47), axes have the following order: rotation x, rotation y, x, y, z and throttle</param>
+            <param name="buttonsMapping">Array of 32 bytes that contain 1-based pin codes (set to 0 to disable button mapping)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetJoystickMapping(System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Read joystick mapping options
+            </summary>
+            <param name="axesMapping">Array of 6 bytes (one byte per axis) that contain the 1-based pin codes (analog inputs have pin codes from 41/43 to 47), axes have the following order: rotation x, rotation y, x, y, z and throttle</param>
+            <param name="buttonsMapping">Array of 32 bytes that contain 1-based pin codes (0 means disabled button mapping)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetJoystickTriggeredMapping(System.Boolean[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Set joystick triggered mapping options
+            </summary>
+            <param name="triggeredMappingEnabled">Array of 32 boolean values - set to True to enable specified button to be triggering mapped</param>
+            <param name="axesMapping">Array of 6 bytes (one byte per axis) that contain the 1-based pin codes (analog inputs have pin codes from 41/43 to 47), axes have the following order: rotation x, rotation y, x, y, z and throttle</param>
+            <param name="buttonsMappingDown">Array of 32 byte values containing 1-based pin codes for down event mapping</param>
+            <param name="buttonsMappingUp">Array of 32 byte values containing 1-based pin codes for up event mapping</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetJoystickTriggeredMapping(System.Boolean[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Read joystick triggered mapping options
+            </summary>
+            <param name="triggeredMappingEnabled">Array of 32 boolean values - set to True means specified button is triggering mapped</param>
+            <param name="axesMapping">Array of 6 bytes (one byte per axis) that contain the 1-based pin codes (analog inputs have pin codes from 41/43 to 47), axes have the following order: rotation x, rotation y, x, y, z and throttle</param>
+            <param name="buttonsMappingDown">Array of 32 byte values containing 1-based pin codes for down event mapping</param>
+            <param name="buttonsMappingUp">Array of 32 byte values containing 1-based pin codes for up event mapping</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetJoystickDigitalMapping(System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Set joystick digital mapping options (see manual for more details)
+            </summary>
+            <param name="mappingLowType">Array of 6 bytes - mapping type for lower part</param>
+            <param name="mappingLowKeyCode">Array of 6 bytes - USB HID key codes for lower part</param>
+            <param name="mappingLowModifier">Array of 6 bytes - USB HID key modifiers for lower part</param>
+            <param name="mappingLowDelay">Array of 6 bytes - delay settings for lower part</param>
+            <param name="mappingLowMinRate">Array of 6 bytes - minimal rate delay for lower part</param>
+            <param name="mappingLowMaxRate">Array of 6 bytes - maximal rate delay for lower part</param>
+            <param name="mappingHighType">Array of 6 bytes - mapping type for upper part </param>
+            <param name="mappingHighKeyCode">Array of 6 bytes - USB HID key codes for upper part</param>
+            <param name="mappingHighModifier">Array of 6 bytes - USB HID key modifiers for upper part</param>
+            <param name="mappingHighDelay">Array of 6 bytes - delay settings for upper part</param>
+            <param name="mappingHighMinRate">Array of 6 bytes - minimal rate delay for upper part</param>
+            <param name="mappingHighMaxRate">Array of 6 bytes - maximal rate delay for upper part</param>
+            <param name="LowMargin1">Array of 6 bytes - lowest values</param>
+            <param name="LowMargin2">Array of 6 bytes - low deadband values</param>
+            <param name="HighMargin1">Array of 6 bytes - high deadband values</param>
+            <param name="HighMargin2">Array of 6 bytes - highest values</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetJoystickDigitalMapping(System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Reads joystick digital mapping options (see manual for more details)
+            </summary>
+            <param name="mappingLowType">Array of 6 bytes - mapping type for lower part</param>
+            <param name="mappingLowKeyCode">Array of 6 bytes - USB HID key codes for lower part</param>
+            <param name="mappingLowModifier">Array of 6 bytes - USB HID key modifiers for lower part</param>
+            <param name="mappingLowDelay">Array of 6 bytes - delay settings for lower part</param>
+            <param name="mappingLowMinRate">Array of 6 bytes - minimal rate delay for lower part</param>
+            <param name="mappingLowMaxRate">Array of 6 bytes - maximal rate delay for lower part</param>
+            <param name="mappingHighType">Array of 6 bytes - mapping type for upper part </param>
+            <param name="mappingHighKeyCode">Array of 6 bytes - USB HID key codes for upper part</param>
+            <param name="mappingHighModifier">Array of 6 bytes - USB HID key modifiers for upper part</param>
+            <param name="mappingHighDelay">Array of 6 bytes - delay settings for upper part</param>
+            <param name="mappingHighMinRate">Array of 6 bytes - minimal rate delay for upper part</param>
+            <param name="mappingHighMaxRate">Array of 6 bytes - maximal rate delay for upper part</param>
+            <param name="LowMargin1">Array of 6 bytes - lowest values</param>
+            <param name="LowMargin2">Array of 6 bytes - low deadband values</param>
+            <param name="HighMargin1">Array of 6 bytes - high deadband values</param>
+            <param name="HighMargin2">Array of 6 bytes - highest values</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetAnalogInput(System.Byte,System.Int32@)">
+            <summary>
+            Read analog input value - full scale
+            </summary>
+            <param name="pinID">Pin ID (40 to 46 on PoKeys56 devices, 42 to 46 on PoKeys55 devices)</param>
+            <param name="inputValue">10-bit or 12-bit analog input value</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetAnalogValueMax">
+            <summary>
+            Returns the maximum value of analog input
+            </summary>
+            <returns>1024 for 10-bit inputs or 4096 for 12-bit inputs</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetAllAnalogInputs(System.Int32[]@)">
+            <summary>
+            Read all analog inputs in one command
+            </summary>
+            <param name="values">Array of 7 32-bit integers - first value is analog input value on pin 41 (PoKeys56 only), the last is analog input value on pin 47</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetAnalogInput(System.Byte,System.Byte@)">
+            <summary>
+            Read analog input value - 8-bit
+            </summary>
+            <param name="pinID">Pin ID (40 to 46 on PoKeys56 devices, 42 to 46 on PoKeys55 devices)</param>
+            <param name="inputValue">8-bit analog input value</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetAnalogRCFilterValue(System.UInt32@)">
+            <summary>
+            Read analog RC filter value
+            </summary>
+            <param name="filter">Unsigned 32-bit filter value</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetAnalogRCFilterValue(System.UInt32)">
+            <summary>
+            Set analog RC filter value
+            </summary>
+            <param name="filter">Unsigned 32-bit filter value</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetAnalogOutputValue(System.Byte,System.Byte)">
+            <summary>
+            Set analog output value (only on PoKeys55 devices) - 8-bit value
+            </summary>
+            <param name="pinID">Pin ID 42</param>
+            <param name="value">8-bit value</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetAnalogOutputValue(System.Byte,System.Int32)">
+            <summary>
+            Set analog output value (only on PoKeys55 devices) - 10-bit value
+            </summary>
+            <param name="pinID">Pin ID 42</param>
+            <param name="value">10-bit value</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.BlockGetInput1(System.Boolean[]@)">
+            <summary>
+            Read block of inputs (1 to 32)
+            </summary>
+            <param name="inputState">Array of 32 booleans containing current states of inputs 1-32</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.BlockGetInput2(System.Boolean[]@)">
+            <summary>
+            Read block of inputs (33 to 55)
+            </summary>
+            <param name="inputState">Array of 23 booleans containing current states of inputs 33-55</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.BlockGetInputAll55(System.Boolean[]@)">
+            <summary>
+            Read block of inputs (1 to 55)
+            </summary>
+            <param name="inputState">Array of 55 booleans containing current states of inputs 1-55</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.BlockSetOutput1(System.Boolean[]@)">
+            <summary>
+            Set block of outputs (1 to 32) - only pins configured as digital outputs are affected by this command
+            </summary>
+            <param name="outputState">Array of 32 booleans</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.BlockSetOutput2(System.Boolean[]@)">
+            <summary>
+            Set block of outputs (33 to 55) - only pins configured as digital outputs are affected by this command
+            </summary>
+            <param name="outputState">Array of 23 booleans</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.BlockSetOutputAll55(System.Boolean[]@)">
+            <summary>
+            Set block of outputs (1 to 55) - only pins configured as digital outputs are affected by this command
+            </summary>
+            <param name="outputState">Array of 55 booleans</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.BlockGetAnalogInput8bit(System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Read block of analog inputs - OBSOLETE FUNCTION (use the function <see cref="M:PoKeysDevice_DLL.PoKeysDevice.GetAllAnalogInputs(System.Int32[]@)"/>)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.BlockGetAnalogInput10bit(System.Byte[]@,System.Int32[]@)">
+            <summary>
+            Read block of analog inputs - OBSOLETE FUNCTION (use the function <see cref="M:PoKeysDevice_DLL.PoKeysDevice.GetAllAnalogInputs(System.Int32[]@)"/>)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MacroCreate(System.Byte,System.Byte@)">
+            <summary>
+            Reserve space for a new macro and return new macro ID
+            </summary>
+            <param name="length">Length of macro</param>
+            <param name="newMacroID">New Macro ID (0 to 63), returned by the device</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MacroCreate(System.Byte)">
+            <summary>
+            Only reserve space for a new macro
+            </summary>
+            <param name="length">Length of macro</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MacroModifyLength(System.Byte,System.Byte)">
+            <summary>
+            Modify length of a macro
+            </summary>
+            <param name="macroID">Macro ID (0 to 63)</param>
+            <param name="newlength">New macro length</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MacroDelete(System.Byte)">
+            <summary>
+            Delete a specific macro
+            </summary>
+            <param name="macroID">Macro ID (0 to 63)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MacroSaveConfiguration">
+            <summary>
+            Save configuration of macros
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MacroSetName(System.Byte,System.String)">
+            <summary>
+            Set macro name
+            </summary>
+            <param name="macroID">Macro ID (0 to 63)</param>
+            <param name="newname">7 characters for macro name</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MacroSetKey(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Set key mapping for a macro at the specified position
+            </summary>
+            <param name="macroID">Macro ID (0 to 63)</param>
+            <param name="index">Position in macro</param>
+            <param name="keyCode">USB HID key code</param>
+            <param name="keyModifier">USB HID key modifier</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MacroGetLength(System.Byte,System.Byte@)">
+            <summary>
+            Read macro length
+            </summary>
+            <param name="macroID">Macro ID (0 to 63)</param>
+            <param name="length">Macro length, returned by the device</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MacroGetName(System.Byte,System.String@)">
+            <summary>
+            Read macro name - OBSOLETE - use <see cref="M:PoKeysDevice_DLL.PoKeysDevice.GetMacroName(System.Byte,System.String@)"/> 
+            </summary>
+            <param name="macroID">Macro ID (0 to 63)</param>
+            <param name="macroName">Macro name, returned by the device</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MacroGetKey(System.Byte,System.Byte,System.Byte@,System.Byte@)">
+            <summary>
+            Read key mapping for a macro at the specified position - OBSOLETE - use <see cref="M:PoKeysDevice_DLL.PoKeysDevice.GetMacroKeys(System.Byte,System.Byte[]@,System.Byte[]@)"/>
+            </summary>
+            <param name="macroID">Macro ID (0 to 63)</param>
+            <param name="index">Position in macro</param>
+            <param name="keyCode">USB HID key code</param>
+            <param name="keyModifier">USB HID key modifier</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MacroGetFreeSpace(System.Int32@)">
+            <summary>
+            Get free space for macros
+            </summary>
+            <param name="freeSpace">Free space left for macros</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MacroGetActiveMacros(System.Boolean[]@)">
+            <summary>
+            Read the macro activation status
+            </summary>
+            <param name="activeMacros">Array of 64 booleans</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetMacroName(System.Byte,System.String@)">
+            <summary>
+            Read macro name
+            </summary>
+            <param name="macroID">Macro ID (0 to 63)</param>
+            <param name="macroName">Macro name, returned by the device</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetMacroName(System.Byte,System.String)">
+            <summary>
+            Set macro name
+            </summary>
+            <param name="macroID">Macro ID (0 to 63)</param>
+            <param name="macroName">New macro name</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetMacroKeys(System.Byte,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Read key mapping for a macro
+            </summary>
+            <param name="macroID">Macro ID (0 to 63)</param>
+            <param name="keys">Array of 256 bytes - USB HID key codes</param>
+            <param name="modifiers">Array of 256 bytes - USB HID key modifiers</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetMacroKeys(System.Byte,System.Byte,System.Byte[],System.Byte[])">
+            <summary>
+            Set key mapping for a macro
+            </summary>
+            <param name="macroID">Macro ID (0 to 63)</param>
+            <param name="keys">Array of 256 bytes - USB HID key codes</param>
+            <param name="modifiers">Array of 256 bytes - USB HID key modifiers</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetFullDeviceReport(System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Set and read full device report
+            </summary>
+            <param name="FullReportOut">
+            <para>- bytes   0-3: output data (1-32)</para>
+            <para>- bytes   4-6: output data (33-55)</para>
+            <para>- byte      7: analog output MSB</para>
+            <para>- byte      8: analog output LSB</para> 
+            </param>
+            <param name="FullReportIn">
+            <para>- bytes   0-3: input status (1-32)</para>
+            <para>- bytes   4-6: input status (33-55)</para>
+            <para>- bytes  7-16: analog 1-5 (MSB+LSB for each input)</para>
+            <para>- bytes 17-41: 25x 8-bit encoder RAW values </para>
+            <para>- bytes 42-49: matrix keyboard status (each byte is bit-mapped to a matrix keyboard row) </para>
+            <para>- bytes 50-53: ultra fast encoder RAW value</para>
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetFullDeviceReportIn(System.Byte[]@)">
+            <summary>
+            Only read full device report
+            </summary>
+            <param name="FullReportIn">
+            <para>- bytes   0-3: input status (1-32)</para>
+            <para>- bytes   4-6: input status (33-55)</para>
+            <para>- bytes  7-16: analog 1-5 (MSB+LSB for each input)</para>
+            <para>- bytes 17-41: 25x 8-bit encoder RAW values </para>
+            <para>- bytes 42-49: matrix keyboard status (each byte is bit-mapped to a matrix keyboard row) </para>
+            <para>- bytes 50-53: ultra fast encoder RAW value</para>
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetAllPinConfiguration(System.Byte[]@)">
+            <summary>
+            Read pin configuration for all pins
+            </summary>
+            <param name="pinConfiguration">Array of 55 bytes (for details, see SetPinData function)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetAllPinConfiguration(System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Read pin configuration for all pins with digital counter options
+            </summary>
+            <param name="pinConfiguration">Array of 55 bytes (for details, see SetPinData function)</param>
+            <param name="additionalPinOptions">Array of 55 bytes (for details, see SetPinData function)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetAllPinKeyMapping(System.Byte[]@)">
+            <summary>
+            Read pin key mapping for all pins
+            </summary>
+            <param name="pinMapping">Array of 55 bytes (only mapping types)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetAllPinKeyCodes(System.Byte[]@)">
+            <summary>
+            Read pin key codes for all pins
+            </summary>
+            <param name="pinKeyCodes">Array of 55 bytes (only USB HID key codes)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetAllPinKeyModifierss(System.Byte[]@)">
+            <summary>
+            Read pin key modifiers for all pins
+            </summary>
+            <param name="pinKeyModifers">Array of 55 bytes (only USB HID key modifiers)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetAllPinConfiguration(System.Byte[]@)">
+            <summary>
+            Set pin configuration for all pins
+            </summary>
+            <param name="pinConfiguration">Array of 55 bytes (for details, see SetPinData function)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetAllPinConfiguration(System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Set pin configuration for all pins with digital counter options
+            </summary>
+            <param name="pinConfiguration">Array of 55 bytes (for details, see SetPinData function)</param>
+            <param name="additionalPinOptions">Array of 55 bytes (for details, see SetPinData function)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetAllPinKeyMapping(System.Byte[]@)">
+            <summary>
+            Set pin key mapping for all pins
+            </summary>
+            <param name="pinMapping">Array of 55 bytes (only mapping types)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetAllPinKeyCodes(System.Byte[]@)">
+            <summary>
+            Set pin key codes for all pins
+            </summary>
+            <param name="pinKeyCodes">Array of 55 bytes (only USB HID key codes)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetAllPinKeyModifierss(System.Byte[]@)">
+            <summary>
+            Set pin key modifiers for all pins
+            </summary>
+            <param name="pinKeyModifers">Array of 55 bytes (only USB HID key modifiers)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetAllEncoderOptions(System.Byte[]@)">
+            <summary>
+            Read encoder options for all encoders (for values, see <see cref="M:PoKeysDevice_DLL.PoKeysDevice.GetEncoderSettings(System.Byte,System.Byte@,System.Byte@,System.Byte@)"/>)
+            </summary>
+            <param name="encoderOptions">Array of 25 bytes - encoder options</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetAllEncoderChannelPinMappings(System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Get encoder pin mapping for all encoders
+            </summary>
+            <param name="channelApins">Array of 25 bytes - channel A pin codes (0-based)</param>
+            <param name="channelBpins">Array of 25 bytes - channel B pin codes (0-based)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetAllEncoderKeyMappingsDirA(System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Get encoder pin codes and modifiers for all encoders for direction A
+            </summary>
+            <param name="keyCodes">Array of 25 bytes - USB HID key codes</param>
+            <param name="keyModifiers">Array of 25 bytes - USB HID key modifiers</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetAllEncoderKeyMappingsDirB(System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Get encoder pin codes and modifiers for all encoders for direction B
+            </summary>
+            <param name="keyCodes">Array of 25 bytes - USB HID key codes</param>
+            <param name="keyModifiers">Array of 25 bytes - USB HID key modifiers</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetAllEncoderOptions(System.Byte[]@)">
+            <summary>
+            Set encoder options for all encoders (for values, see <see cref="M:PoKeysDevice_DLL.PoKeysDevice.GetEncoderSettings(System.Byte,System.Byte@,System.Byte@,System.Byte@)"/>)
+            </summary>
+            <param name="encoderOptions">Array of 25 bytes - encoder options</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetAllEncoderChannelPinMappings(System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Set encoder pin mapping for all encoders
+            </summary>
+            <param name="channelApins">Array of 25 bytes - channel A pin codes (0-based)</param>
+            <param name="channelBpins">Array of 25 bytes - channel B pin codes (0-based)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetAllEncoderKeyMappingsDirA(System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Set encoder pin codes and modifiers for all encoders for direction A
+            </summary>
+            <param name="keyCodes">Array of 25 bytes - USB HID key codes</param>
+            <param name="keyModifiers">Array of 25 bytes - USB HID key modifiers</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetAllEncoderKeyMappingsDirB(System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Get encoder pin codes and modifiers for all encoders for direction B
+            </summary>
+            <param name="keyCodes">Array of 25 bytes - USB HID key codes</param>
+            <param name="keyModifiers">Array of 25 bytes - USB HID key modifiers</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetNetworkConfiguration(System.Byte@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+             Retrieves current network configuration
+            </summary>
+            <param name="DHCPenabled">Returns 1 if DHCP is enabled</param>
+            <param name="IPaddress">Return 4 bytes of IP address (fixed setting)</param>
+            <param name="currentIPaddress">Returns 4 bytes of current IP address</param>
+            <returns>False if an error occured</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetNetworkConfiguration(System.Byte@,System.Byte[]@)">
+            <summary>
+             Sets current network configuration
+            </summary>
+            <param name="DHCPenabled">Set to 1 if DHCP is enabled</param>
+            <param name="IPaddress">4 bytes of IP address (fixed setting)</param>
+            <returns>False if an error occured</returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetModbusSettings(System.UInt16@,System.UInt16@,System.UInt32@,System.UInt32@)">
+            <summary>
+            Retrieves modbus settings
+            </summary>
+            <param name="ModbusPort">Modbus port number</param>
+            <param name="ModbusTimeout">Modbus connection timeout (in x100ms)</param>
+            <param name="ModbusReadAccess">Read access bits (see <see cref="T:PoKeysDevice_DLL.eModbusAccess"/>)</param>
+            <param name="ModbusWriteAccess">Write access bits (see <see cref="T:PoKeysDevice_DLL.eModbusAccess"/>)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetModbusSettings(System.UInt16@,System.UInt16@,System.UInt32@,System.UInt32@)">
+            <summary>
+            Set modbus settings
+            </summary>
+            <param name="ModbusPort">Modbus port number</param>
+            <param name="ModbusTimeout">Modbus connection timeout (in x100ms)</param>
+            <param name="ModbusReadAccess">Read access bits (see <see cref="T:PoKeysDevice_DLL.eModbusAccess"/>)</param>
+            <param name="ModbusWriteAccess">Write access bits (see <see cref="T:PoKeysDevice_DLL.eModbusAccess"/>)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetMatrixKeyboardKeyStatus(System.Boolean[]@)">
+            <summary>
+            Read matrix keyboard status
+            </summary>
+            <param name="status">Array of 128 booleans - statuses of each key</param>
+            <returns></returns>
+            <example>The following example reads statuses for a 4x4 matrix keyboard connected to the first 4 rows and columns
+            <code>
+            bool[] KeyStates = new bool[128];
+            
+            MyDevice.GetMatrixKeyboardKeyStatus(ref KeyStates);
+            
+            string status = "";
+            for (int row = 0; row &lt; 4; row++)
+            {
+                for (int col = 0; col &lt; 4; col++)
+                {
+                    status += KeyStates[row * 8 + col] ? "1 " : "0 ";
+                }
+                status += "\n";
+            }
+            
+            MessageBox.Show("Key statuses:\n" + status);
+            </code>
+            </example>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetMatrixKeyboardConfiguration(System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetMatrixKeyboardConfiguration(System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Read matrix keyboard configuration
+            </summary>
+            <param name="configuration">1 to enable matrix keyboard</param>
+            <param name="width">Number of columns</param>
+            <param name="height">Number of rows</param>
+            <param name="row_pins">Array of 16 row pins (pins must be configured as digital outputs)</param>
+            <param name="column_pins">Array of 8 column pins (pins must be configured as digital inputs)</param>
+            <param name="macro_mapping">Array of 128 booleans</param>
+            <param name="keycodes">Array of 128 bytes of key codes</param>
+            <param name="keymodifiers">Array of 128 bytes of key modifiers</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetMatrixKeyboardConfiguration(System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetMatrixKeyboardConfiguration(System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Set matrix keyboard configuration
+            </summary>
+            <param name="configuration">1 to enable matrix keyboard</param>
+            <param name="width">Number of columns</param>
+            <param name="height">Number of rows</param>
+            <param name="row_pins">Array of 16 row pins (pins must be configured as digital outputs)</param>
+            <param name="column_pins">Array of 8 column pins (pins must be configured as digital inputs)</param>
+            <param name="macro_mapping">Array of 128 booleans</param>
+            <param name="keycodes">Array of 128 bytes of key codes</param>
+            <param name="keymodifiers">Array of 128 bytes of key modifiers</param>
+            <returns></returns>        
+            <example>The following example sets up matrix keyboard on pins 1 to 8 (first 4 used for columns, last 4 for rows)
+            <code>
+                byte[] rows = new byte[16]; // This must always be the size of 16
+                byte[] cols = new byte[8];  // This must always be the size of 8
+            
+                bool[] macros = new bool[128];       // This must always be the size of 128
+                byte[] keys = new byte[128];         // This must always be the size of 128
+                byte[] modifiers = new byte[128];    // This must always be the size of 128
+            
+                for (int i=0; i &lt; 4; i++)
+                {
+                    cols[i] = (byte)i;
+                    rows[i] = (byte)(i + 4);
+                }
+            
+                byte configuration = 1;
+                byte numrows = 4;
+                byte numcols = 4;
+            
+                // Set column pins as digital inputs
+                MyDevice.SetPinData(0, 1 &lt;&lt; 1);
+                MyDevice.SetPinData(1, 1 &lt;&lt; 1);
+                MyDevice.SetPinData(2, 1 &lt;&lt; 1);
+                MyDevice.SetPinData(3, 1 &lt;&lt; 1);
+            
+                // Set row pins as digital outputs
+                MyDevice.SetPinData(4, 1 &lt;&lt; 2);
+                MyDevice.SetPinData(5, 1 &lt;&lt; 2);
+                MyDevice.SetPinData(6, 1 &lt;&lt; 2);
+                MyDevice.SetPinData(7, 1 &lt;&lt; 2);
+            
+                MyDevice.SetMatrixKeyboardConfiguration(ref configuration, ref numcols, ref numrows, ref rows, ref cols, ref macros, ref keys, ref modifiers);
+            </code>
+            </example>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetMatrixKeyboardConfiguration(System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetMatrixKeyboardConfiguration_TriggerSupport(System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetMatrixKeyboardConfiguration_AlternateFunctionSupport(System.Byte@,System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetMatrixKeyboardConfiguration_TriggerSupport(System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Read matrix keyboard configuration (for triggered mapping)
+            </summary>
+            <param name="configuration">1 to enable matrix keyboard</param>
+            <param name="width">Number of columns</param>
+            <param name="height">Number of rows</param>
+            <param name="row_pins">Array of 16 row pins (pins must be configured as digital outputs)</param>
+            <param name="column_pins">Array of 8 column pins (pins must be configured as digital inputs)</param>
+            <param name="macro_mapping">Array of 128 booleans</param>
+            <param name="keycodesDown">Array of 128 bytes of key codes (for 'Key down' event)</param>
+            <param name="keymodifiersDown">Array of 128 bytes of key modifiers (for 'Key down' event)</param>
+            <param name="triggeredKey">Array of 128 booleans - true if key supports triggering</param>
+            <param name="keycodesUp">Array of 128 bytes of key codes (for 'Key up' event)</param>
+            <param name="keymodifiersUp">Array of 128 bytes of key modifiers (for 'Key up' event)</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetMatrixKeyboardConfiguration_TriggerSupport(System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetMatrixKeyboardConfiguration_TriggerSupport(System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Set matrix keyboard configuration (for triggered mapping)
+            </summary>
+            <param name="configuration">1 to enable matrix keyboard</param>
+            <param name="width">Number of columns</param>
+            <param name="height">Number of rows</param>
+            <param name="row_pins">Array of 16 row pins (pins must be configured as digital outputs)</param>
+            <param name="column_pins">Array of 8 column pins (pins must be configured as digital inputs)</param>
+            <param name="macro_mapping">Array of 128 booleans</param>
+            <param name="keycodesDown">Array of 128 bytes of key codes (for 'Key down' event)</param>
+            <param name="keymodifiersDown">Array of 128 bytes of key modifiers (for 'Key down' event)</param>
+            <param name="triggeredKey">Array of 128 booleans - true if key supports triggering</param>
+            <param name="keycodesUp">Array of 128 bytes of key codes (for 'Key up' event)</param>
+            <param name="keymodifiersUp">Array of 128 bytes of key modifiers (for 'Key up' event)</param>
+            <returns></returns>  
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetMatrixKeyboardConfiguration_TriggerSupport(System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@,System.Boolean[]@,System.Byte[]@,System.Byte[]@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetMatrixKeyboardConfiguration_AlternateFunctionSupport(System.Byte@,System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Read matrix keyboard configuration (for triggered mapping)
+            </summary>
+            <param name="configuration">1 to enable matrix keyboard</param>
+            <param name="alternateFunction">Pin ID of an Fn+ key (1-based)</param>
+            <param name="width">Number of columns</param>
+            <param name="height">Number of rows</param>
+            <param name="row_pins">Array of 16 row pins (pins must be configured as digital outputs)</param>
+            <param name="column_pins">Array of 8 column pins (pins must be configured as digital inputs)</param>
+            <param name="keycodes1">Array of 128 bytes of key codes (for normal keys)</param>
+            <param name="keymodifiers1">Array of 128 bytes of key modifiers (for normal keys)</param>
+            <param name="keycodes2">Array of 128 bytes of key codes (for Fn+ keys)</param>
+            <param name="keymodifiers2">Array of 128 bytes of key modifiers (for Fn+ keys)</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetMatrixKeyboardConfiguration_AlternateFunctionSupport(System.Byte@,System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetMatrixKeyboardConfiguration_AlternateFunctionSupport(System.Byte@,System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Set matrix keyboard configuration (for triggered mapping)
+            </summary>
+            <param name="configuration">1 to enable matrix keyboard</param>
+            <param name="alternateFunction">Pin ID of an Fn+ key (1-based)</param>
+            <param name="width">Number of columns</param>
+            <param name="height">Number of rows</param>
+            <param name="row_pins">Array of 16 row pins (pins must be configured as digital outputs)</param>
+            <param name="column_pins">Array of 8 column pins (pins must be configured as digital inputs)</param>
+            <param name="keycodes1">Array of 128 bytes of key codes (for normal keys)</param>
+            <param name="keymodifiers1">Array of 128 bytes of key modifiers (for normal keys)</param>
+            <param name="keycodes2">Array of 128 bytes of key codes (for Fn+ keys)</param>
+            <param name="keymodifiers2">Array of 128 bytes of key modifiers (for Fn+ keys)</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetMatrixKeyboardConfiguration_AlternateFunctionSupport(System.Byte@,System.Byte@,System.Byte@,System.Byte@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@,System.Byte[]@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.SetPWMOutputs(System.Boolean[]@,System.UInt32@,System.UInt32[]@)">
+             <summary>
+             Set PWM outputs
+             </summary>
+             <param name="channels">Array of 6 booleans - True to activate channel (channel 5 = pin 17... channel 0 = pin 22)</param>
+             <param name="period">32-bit unsigned integer - PWM period as a maximum value of system timer</param>
+             <param name="duty_values">Array of 6 32-bit unsigned integers - duty cycle timer value</param>
+             <returns></returns>
+             <example>This example sets up PWM channel 5 on pin 17 to a PWM signal with period od 20 ms and duty cycle of 7.5% (1.5ms)
+             <code>
+                bool[] channel = new bool[6];
+                uint[] duty = new uint[6];
+            
+                // PWM base clock is 12 MHz (or 25 MHz on PoKeys56 devices), so 1 ms takes 12000 (25000) cycles
+                float ms = MyDevice.GetPWMFrequency() / 1000;
+                uint period = (uint)(ms * 20);   // 20 ms period
+            
+                channel[5] = true; // Pin 17 = channel 5 (Pin 18 = channel 4, ...)
+                duty[5] = (uint)(ms * 1.5); // Set duty cycle to 1.5 ms (7.5 %)
+            
+                MyDevice.SetPWMOutputs(ref channel, ref period, ref duty);
+             </code>
+             </example>
+             <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetPWMOutputs(System.Boolean[]@,System.UInt32@,System.UInt32[]@)"/>
+             <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetPWMFrequency"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetPWMOutputs(System.Boolean[]@,System.UInt32@,System.UInt32[]@)">
+            <summary>
+            Read PWM outputs status
+            </summary>
+            <param name="channels">Array of 6 booleans - True to activate channel (channel 5 = pin 17... channel 0 = pin 22)</param>
+            <param name="period">32-bit unsigned integer - PWM period as a maximum value of system timer</param>
+            <param name="duty_values">Array of 6 32-bit unsigned integers - duty cycle timer value</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetPWMOutputs(System.Boolean[]@,System.UInt32@,System.UInt32[]@)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetPWMFrequency"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.GetPWMFrequency">
+            <summary>
+            Read PWM sytem timer frequency
+            </summary>
+            <returns>12e6 for PoKeys55, 25e6 for PoKeys56</returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.SetPWMOutputs(System.Boolean[]@,System.UInt32@,System.UInt32[]@)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.GetPWMOutputs(System.Boolean[]@,System.UInt32@,System.UInt32[]@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.LCDSetSettings(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Set LCD module settings
+            </summary>
+            <param name="option">Option byte as described in manual - set to 1 for primary pins, 2 for secondary pins, 0 for disabled</param>
+            <param name="rows">Number of rows of the LCD display</param>
+            <param name="cols">Number of columns of the LCD display</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.LCDGetSettings(System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            Read LCD module settings
+            </summary>
+            <param name="option">Option byte as described in manual - set to 1 for primary pins, 2 for secondary pins, 0 for disabled</param>
+            <param name="rows">Number of rows of the LCD display</param>
+            <param name="cols">Number of columns of the LCD display</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.LCDInit">
+            <summary>
+            Initialize LCD display
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.LCDClear">
+            <summary>
+            Clear LCD display
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.LCDGotoXY(System.Byte,System.Byte)">
+            <summary>
+            Move cursor to a specified position in the display
+            </summary>
+            <param name="x">x position of the cursor (0-based)</param>
+            <param name="y">y position of the cursor (0-based)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.LCDPrint(System.String)">
+            <summary>
+            Print a string on the LCD display
+            </summary>
+            <param name="LCDText">String to print</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.LCDPutc(System.Char)">
+            <summary>
+            Put a single character on LCD display
+            </summary>
+            <param name="character">LCD display character code</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.LCDSetEntryMode(System.Byte,System.Byte)">
+            <summary>
+            Set entry mode for LCD
+            </summary>
+            <param name="CursorMoveDirection">1 for incrementing address, 0 for decrementing address</param>
+            <param name="DisplayShift">1 for display shift enabled</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.LCDDisplayOnOffControl(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Set LCD display on/off status
+            </summary>
+            <param name="DisplayOnOff">1 for display on</param>
+            <param name="CursorOnOff">1 for cursor on</param>
+            <param name="CursorBlinkingOnOff">1 for display blinking on</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.LCDDefineCustomCharacter(System.Byte,System.Byte[])">
+            <summary>
+            Define a custom character in the LCD display memory
+            </summary>
+            <param name="CharacterCode">Custom character code (0 to 7)</param>
+            <param name="characterData">Array of 8-bytes containing bit encoded custom character</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLEDSetSettings(System.Boolean,System.Byte,System.Byte,System.Boolean,System.Byte,System.Byte)">
+            <summary>
+            Set matrix LED settings
+            </summary>
+            <param name="enabled1">1 if matrix LED 1 is enabled</param>
+            <param name="rows1">Number of rows of matrix LED 1</param>
+            <param name="cols1">Number of columns of matrix LED 1</param>
+            <param name="enabled2">1 if matrix LED 2 is enabled</param>
+            <param name="rows2">Number of rows of matrix LED 2</param>
+            <param name="cols2">Number of columns of matrix LED 2</param>
+            <returns></returns>
+            <example>The following example enables matrix LED 1 and draws a simple graphic on the display
+            <code>
+                        // Enable LED1
+                        MyDevice.MatrixLEDSetSettings(true, 8, 8, false, 8, 8);
+            
+                        // Invert the whole matrix
+                        MyDevice.MatrixLED1ClearAll(true);
+            
+                        // Draw a dark + sign
+                        MyDevice.MatrixLED1SetPixel(2, 1, false);
+                        MyDevice.MatrixLED1SetPixel(1, 1, false);
+                        MyDevice.MatrixLED1SetPixel(0, 1, false);
+                        MyDevice.MatrixLED1SetPixel(1, 0, false);
+                        MyDevice.MatrixLED1SetPixel(1, 2, false);
+                    *
+            </code>
+            </example>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLEDGetSettings(System.Boolean@,System.Byte@,System.Byte@,System.Boolean@,System.Byte@,System.Byte@)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLED1Update(System.Byte[])"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLED1ClearAll(System.Boolean)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLED1SetPixel(System.Byte,System.Byte,System.Boolean)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLED2Update(System.Byte[])"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLED2ClearAll(System.Boolean)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLED2SetPixel(System.Byte,System.Byte,System.Boolean)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLEDGetSettings(System.Boolean@,System.Byte@,System.Byte@,System.Boolean@,System.Byte@,System.Byte@)">
+            <summary>
+            Get matrix LED settings
+            </summary>
+            <param name="enabled1">1 if matrix LED 1 is enabled</param>
+            <param name="rows1">Number of rows of matrix LED 1</param>
+            <param name="cols1">Number of columns of matrix LED 1</param>
+            <param name="enabled2">1 if matrix LED 2 is enabled</param>
+            <param name="rows2">Number of rows of matrix LED 2</param>
+            <param name="cols2">Number of columns of matrix LED 2</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLED1Update(System.Byte[])">
+            <summary>
+            Matrix LED 1 update
+            </summary>
+            <param name="data">Array of 8 bytes that contain bit encoded matrix LED 1 status</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLED1ClearAll(System.Boolean)">
+            <summary>
+            Clear matrix LED 1
+            </summary>
+            <param name="invert">Set to 1 if matrix LED 1 is inverted</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLED1SetPixel(System.Byte,System.Byte,System.Boolean)">
+            <summary>
+            Set pixel on matrix LED 1
+            </summary>
+            <param name="row">Row index (0-based)</param>
+            <param name="column">Column index (0-based)</param>
+            <param name="value">Bit value (true / false)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLED2Update(System.Byte[])">
+            <summary>
+            Matrix LED 2 update
+            </summary>
+            <param name="data">Array of 8 bytes that contain bit encoded matrix LED 2 status</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLED2ClearAll(System.Boolean)">
+            <summary>
+            Clear matrix LED 2
+            </summary>
+            <param name="invert">Set to 1 if matrix LED 2 is inverted</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.MatrixLED2SetPixel(System.Byte,System.Byte,System.Boolean)">
+            <summary>
+            Set pixel on matrix LED 2
+            </summary>
+            <param name="row">Row index (0-based)</param>
+            <param name="column">Column index (0-based)</param>
+            <param name="value">Bit value (true / false)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.AuxilaryBusSetData(System.Byte,System.Byte[])">
+            <summary>
+            Set ExtBus data
+            </summary>
+            <param name="auxilaryBusEnabled">1 enables the ExtBus</param>
+            <param name="dataBytes">Array of 10 bytes containing bit encoded output data</param>
+            <returns></returns>
+            <example>This example outputs data on PoExtBus to the first device (devices are ordered in reverse)
+            <code>
+            byte[] dataOut = new byte[10];
+            
+            // Set some value
+            dataOut[9] = 0xAA;
+            
+            MyDevice.AuxilaryBusSetData(1, dataOut);
+            </code>
+            </example>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.AuxilaryBusSetData(System.Byte,System.Byte,System.Byte[])">
+            <summary>
+            Set ExtBus data
+            </summary>
+            <param name="auxilaryBusEnabled">1 enables the ExtBus</param>
+            <param name="auxilaryBusConnection">0 for default connection option (dedicated connector on PoKeys56)</param>
+            <param name="dataBytes">Array of 10 bytes containing bit encoded output data</param>
+            <returns></returns>
+            <example>This example outputs data on PoExtBus to the first device (devices are ordered in reverse)
+            <code>
+            byte[] dataOut = new byte[10];
+            
+            // Set some value
+            dataOut[9] = 0xAA;
+            
+            MyDevice.AuxilaryBusSetData(1, 0, dataOut);
+            </code>
+            </example>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.AuxilaryBusGetData(System.Byte@)">
+            <summary>
+            Read ExtBus status
+            </summary>
+            <param name="auxilaryBusEnabled">1 if the ExtBus is enabled</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.AuxilaryBusGetData(System.Byte@,System.Byte@)">
+            <summary>
+            Read ExtBus status
+            </summary>
+            <param name="auxilaryBusEnabled">1 if the ExtBus is enabled</param>
+            <param name="auxilaryBusConnection">0 for default connection option (dedicated connector on PoKeys56)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.I2CSetStatus(System.Boolean)">
+            <summary>
+            Activates or deactivates the I<sup>2</sup>C bus support on ExtBus
+            </summary>
+            <param name="activated">True to activate I<sup>2</sup>C</param>
+            <returns></returns>
+            <example>The example below reads temperature from the LM75 I2C sensor, connected to the PoExtBus connector
+            <code>
+                        byte stat = 0;
+                        byte[] data = new byte[32];
+            
+                        // Turn off PoExtBus
+                        MyDevice.AuxilaryBusSetData(0, data);
+            
+                        // Activate I2C
+                        MyDevice.I2CSetStatus(true);
+            
+                        // Write 0 to the device (set address)
+                        data[0] = 0;
+                        MyDevice.I2CStartWrite(0x90, 1, data);
+                        MyDevice.I2CGetWriteStatus(ref stat);
+            
+                        if (stat != 1)
+                        {
+                            MessageBox.Show("Error writing");
+                            return;
+                        }
+            
+                        // Read temperature
+                        MyDevice.I2CStartRead(0x90, 2);
+                        // This operation was quite fast, so no wait is needed...
+                        MyDevice.I2CGetReadStatus(ref stat, ref data);
+            
+                        if (stat == 1)
+                        {
+                            MessageBox.Show("Temperature: " + data[0] + "°C");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error reading");
+                        }
+            
+                        // Deactivate I2C
+                        MyDevice.I2CSetStatus(false);
+                        *
+            </code>
+            </example>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.I2CStartBusScan"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.I2CStartWrite(System.Byte,System.Byte,System.Byte[])"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.I2CStartRead(System.Byte,System.Byte)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.I2CGetStatus(System.Boolean@)">
+            <summary>
+            Retrieves I2C bus activation status
+            </summary>
+            <param name="activated">Returns true if I2C is activated</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.I2CStartWrite(System.Byte,System.Byte,System.Byte[])">
+            <summary>
+            Writes data to I2C bus
+            </summary>
+            <param name="address">Address of I<sup>2</sup>C device (0 to 127)</param>
+            <param name="length">Number of bytes to be written</param>
+            <param name="data">Array of up to 32 bytes of data to be written</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.I2CGetWriteStatus(System.Byte@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.I2CGetWriteStatus(System.Byte@)">
+            <summary>
+            Read status of writing to I<sup>2</sup>C bus
+            </summary>
+            <param name="status">1 if successfull, 0 unsuccessfull, 0x10 – operation still executing</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.I2CStartWrite(System.Byte,System.Byte,System.Byte[])"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.I2CStartRead(System.Byte,System.Byte)">
+            <summary>
+            Initiates read from I<sup>2</sup>C device
+            </summary>
+            <param name="address">Address of I2C device (0 to 127)</param>
+            <param name="length">Number of bytes to be read from the device</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.I2CGetReadStatus(System.Byte@,System.Byte[]@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.I2CGetReadStatus(System.Byte@,System.Byte[]@)">
+            <summary>
+            Read status of reading from I<sup>2</sup>C bus and retrieve data is successfull
+            </summary>
+            <param name="status">1 if successfull, 0 unsuccessfull, 0x10 – operation still executing</param>
+            <param name="data">Data from I<sup>2</sup>C bus</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.I2CStartRead(System.Byte,System.Byte)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.I2CStartBusScan">
+            <summary>
+            Initiates I<sup>2</sup>C bus scan
+            </summary>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.I2CReadBusScanResults(System.Byte@,System.Boolean[]@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.I2CReadBusScanResults(System.Byte@,System.Boolean[]@)">
+            <summary>
+            Reads results of I<sup>2</sup>C bus scan
+            </summary>
+            <param name="status">1 if successfull, 0 unsuccessfull, 0x10 – operation still executing</param>
+            <param name="devicePresent">Array of 128 booleans with device present statuses</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.I2CStartBusScan"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.prot1WireSetStatus(System.Boolean)">
+            <summary>
+            Activate or deactivate 1-wire bus support on pin 55
+            </summary>
+            <param name="activated">True to activate 1-wire</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.prot1WireGetStatus(System.Boolean@)">
+            <summary>
+            Retrieves 1-Wire bus activation status
+            </summary>
+            <param name="activated">Returns true if 1-wire is activated</param>
+            <returns></returns>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.prot1WireStartWriteAndRead(System.Byte,System.Byte,System.Byte[])">
+            <summary>
+            Initiates write and read process to/from 1-wire device
+            </summary>
+            <param name="WriteCount">Number of bytes to be written</param>
+            <param name="ReadCount">Number of bytes to be read</param>
+            <param name="data">Up to 16 bytes of data to be written to the device</param>
+            <returns></returns>
+            <example>The example below reads temperature from Dallas 18B20 1-wire sensor, connected to the pin 55
+            <code>
+                        byte stat = 0;
+                        byte[] data = new byte[16];
+                        MyDevice.prot1WireSetStatus(true);
+                         
+                        data[0] = 0xCC;
+                        data[1] = 0x44;
+                        MyDevice.prot1WireStartWriteAndRead(2, 0, data);
+            
+                        Thread.Sleep(1000);
+            
+                        data[0] = 0xCC;
+                        data[1] = 0xBE;
+                        MyDevice.prot1WireStartWriteAndRead(2, 9, data);
+            
+                        Thread.Sleep(10);
+            
+                        byte len = 0;
+                        MyDevice.prot1WireGetReadStatus(ref stat, ref data, ref len);
+            
+                        if (stat == 1)
+                        {
+                            MessageBox.Show("Temperature: " + (((data[1] &lt;&lt; 8) + data[0]) &gt;&gt; 4) + "°C");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error reading");
+                        }
+                         *
+            </code>
+            </example>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.prot1WireSetStatus(System.Boolean)"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.prot1WireGetReadStatus(System.Byte@,System.Byte[]@,System.Byte@)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDevice.prot1WireGetReadStatus(System.Byte@,System.Byte[]@,System.Byte@)">
+            <summary>
+            Read status of write and read command and retrieve data if command was executed
+            </summary>
+            <param name="status">1 if successfull, 0 unsuccessfull, 0x10 – operation still executing</param>
+            <param name="data">Array of 16 bytes of data, read from device</param>
+            <param name="DataLength">Number of bytes, read from device</param>
+            <returns></returns>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.prot1WireStartWriteAndRead(System.Byte,System.Byte,System.Byte[])"/>
+            <seealso cref="M:PoKeysDevice_DLL.PoKeysDevice.prot1WireSetStatus(System.Boolean)"/>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDeviceDEMO.EnumerateDevices">
+            <summary>
+              Enumerates all the devices connected
+            </summary>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDeviceDEMO.ConnectToDevice(System.Int32)">
+            <summary>
+              Opens the connection to the selected device
+            </summary>
+            
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDeviceDEMO.ConnectToDevice(System.IntPtr,System.Int32)">
+            <summary>
+              Opens the connection to the selected device
+            </summary>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDeviceDEMO.DisconnectDevice">
+            <summary>
+              Closes the connection to the selected device
+            </summary>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDeviceDEMO.GetDeviceID(System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+              Retrieves the device data
+            </summary>
+        </member>
+        <member name="M:PoKeysDevice_DLL.PoKeysDeviceDEMO.GetAnalogValueMax">
+            <summary>
+            Demo function
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

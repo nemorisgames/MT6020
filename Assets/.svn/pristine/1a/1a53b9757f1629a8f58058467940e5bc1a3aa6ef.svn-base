@@ -1,0 +1,971 @@
+fileFormatVersion: 2
+guid: 83782ef41c4457b448473ec7174d2069
+timeCreated: 1455026501
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Balde
+    100002: Balde 1
+    100004: Baliza
+    100006: BaseBlax
+    100008: BaseEjeBajo
+    100010: Blax
+    100012: BrazoEje
+    100014: CableBlax
+    100016: Camara
+    100018: Camara1
+    100020: Camara3
+    100022: Camara4
+    100024: Camara5
+    100026: Camaras
+    100028: Car_Frot
+    100030: Car_Tras
+    100032: Caucho_2
+    100034: Cilindro1
+    100036: Cilindro2
+    100038: ClaxonTras
+    100040: Colliders
+    100042: Colliders1
+    100044: Colliders2
+    100046: Cubierta_Cabina
+    100048: Cunia
+    100050: Delantera
+    100052: EjeBajo
+    100054: EjeBalde
+    100056: EjeMedio
+    100058: EjeTrasero
+    100060: EntradasGrasa
+    100062: Espejos
+    100064: G_Balde
+    100066: LimpiaParabrisas
+    100068: LLantas_D
+    100070: MetalAmarillo_1
+    100072: MetalYelow_2
+    100074: MT6020_
+    100076: //RootNode
+    100078: NegroBrillaste
+    100080: pCube1
+    100082: pCube10
+    100084: pCube11
+    100086: pCube12
+    100088: pCube13
+    100090: pCube14
+    100092: pCube15
+    100094: pCube16
+    100096: pCube17
+    100098: pCube18
+    100100: pCube19
+    100102: pCube2
+    100104: pCube20
+    100106: pCube21
+    100108: pCube22
+    100110: pCube23
+    100112: pCube24
+    100114: pCube25
+    100116: pCube26
+    100118: pCube27
+    100120: pCube28
+    100122: pCube29
+    100124: pCube3
+    100126: pCube30
+    100128: pCube31
+    100130: pCube32
+    100132: pCube33
+    100134: pCube34
+    100136: pCube35
+    100138: pCube36
+    100140: pCube37
+    100142: pCube4
+    100144: pCube5
+    100146: pCube6
+    100148: pCube7
+    100150: pCube8
+    100152: pCube9
+    100154: pCylinder624
+    100156: Pernos
+    100158: Puerta
+    100160: ReflectTras
+    100162: Rueda1
+    100164: Rueda1 1
+    100166: Rueda2
+    100168: Rueda2 1
+    100170: Rueda3
+    100172: Rueda3 1
+    100174: Rueda4
+    100176: Rueda4 1
+    100178: Ruendas_D
+    100180: Ruendas_T
+    100182: Salida
+    100184: Tolva
+    100186: Tope
+    100188: Trasero1
+    100190: Vidrios_2
+    100192: Camara1 1
+    100194: Collider1
+    100196: Collider1 1
+    100198: Collider14
+    100200: Collider15
+    100202: Collider16
+    100204: Collider17
+    100206: Collider18
+    100208: Collider19
+    100210: Collider2
+    100212: Collider2 1
+    100214: Collider20
+    100216: Collider21
+    100218: Collider22
+    100220: Collider23
+    100222: Collider24
+    100224: Collider25
+    100226: Collider26
+    100228: Collider27
+    100230: Collider28
+    100232: Collider29
+    100234: Collider3
+    100236: Collider3 1
+    100238: Collider30
+    100240: Collider31
+    100242: Collider32
+    100244: Collider33
+    100246: Collider34
+    100248: Collider35
+    100250: Collider36
+    100252: Collider4
+    100254: Collider4 1
+    100256: Collider5
+    100258: Collider5 1
+    100260: Collider6
+    100262: Collider6 1
+    100264: Collider7
+    100266: Collider8
+    100268: Colliders_D
+    100270: Colliders_T
+    100272: CollidersBalde
+    100274: RuedaD_1
+    100276: RuedaD_2
+    100278: RuedaT_3
+    100280: RuedaT_4
+    100282: Ruendas_D1
+    100284: Ruendas_D2
+    100286: Ruendas_T3
+    100288: Ruendas_T4
+    100290: Delantera_B
+    100292: Trasero_B
+    100294: Varios
+    100296: Varios 1
+    100298: EspejoDe
+    100300: EspejoIz
+    100302: RetroVisor
+    400000: Balde
+    400002: Balde 1
+    400004: Baliza
+    400006: BaseBlax
+    400008: BaseEjeBajo
+    400010: Blax
+    400012: BrazoEje
+    400014: CableBlax
+    400016: Camara
+    400018: Camara1
+    400020: Camara3
+    400022: Camara4
+    400024: Camara5
+    400026: Camaras
+    400028: Car_Frot
+    400030: Car_Tras
+    400032: Caucho_2
+    400034: Cilindro1
+    400036: Cilindro2
+    400038: ClaxonTras
+    400040: Colliders
+    400042: Colliders1
+    400044: Colliders2
+    400046: Cubierta_Cabina
+    400048: Cunia
+    400050: Delantera
+    400052: EjeBajo
+    400054: EjeBalde
+    400056: EjeMedio
+    400058: EjeTrasero
+    400060: EntradasGrasa
+    400062: Espejos
+    400064: G_Balde
+    400066: LimpiaParabrisas
+    400068: LLantas_D
+    400070: MetalAmarillo_1
+    400072: MetalYelow_2
+    400074: MT6020_
+    400076: //RootNode
+    400078: NegroBrillaste
+    400080: pCube1
+    400082: pCube10
+    400084: pCube11
+    400086: pCube12
+    400088: pCube13
+    400090: pCube14
+    400092: pCube15
+    400094: pCube16
+    400096: pCube17
+    400098: pCube18
+    400100: pCube19
+    400102: pCube2
+    400104: pCube20
+    400106: pCube21
+    400108: pCube22
+    400110: pCube23
+    400112: pCube24
+    400114: pCube25
+    400116: pCube26
+    400118: pCube27
+    400120: pCube28
+    400122: pCube29
+    400124: pCube3
+    400126: pCube30
+    400128: pCube31
+    400130: pCube32
+    400132: pCube33
+    400134: pCube34
+    400136: pCube35
+    400138: pCube36
+    400140: pCube37
+    400142: pCube4
+    400144: pCube5
+    400146: pCube6
+    400148: pCube7
+    400150: pCube8
+    400152: pCube9
+    400154: pCylinder624
+    400156: Pernos
+    400158: Puerta
+    400160: ReflectTras
+    400162: Rueda1
+    400164: Rueda1 1
+    400166: Rueda2
+    400168: Rueda2 1
+    400170: Rueda3
+    400172: Rueda3 1
+    400174: Rueda4
+    400176: Rueda4 1
+    400178: Ruendas_D
+    400180: Ruendas_T
+    400182: Salida
+    400184: Tolva
+    400186: Tope
+    400188: Trasero1
+    400190: Vidrios_2
+    400192: Camara1 1
+    400194: Collider1
+    400196: Collider1 1
+    400198: Collider14
+    400200: Collider15
+    400202: Collider16
+    400204: Collider17
+    400206: Collider18
+    400208: Collider19
+    400210: Collider2
+    400212: Collider2 1
+    400214: Collider20
+    400216: Collider21
+    400218: Collider22
+    400220: Collider23
+    400222: Collider24
+    400224: Collider25
+    400226: Collider26
+    400228: Collider27
+    400230: Collider28
+    400232: Collider29
+    400234: Collider3
+    400236: Collider3 1
+    400238: Collider30
+    400240: Collider31
+    400242: Collider32
+    400244: Collider33
+    400246: Collider34
+    400248: Collider35
+    400250: Collider36
+    400252: Collider4
+    400254: Collider4 1
+    400256: Collider5
+    400258: Collider5 1
+    400260: Collider6
+    400262: Collider6 1
+    400264: Collider7
+    400266: Collider8
+    400268: Colliders_D
+    400270: Colliders_T
+    400272: CollidersBalde
+    400274: RuedaD_1
+    400276: RuedaD_2
+    400278: RuedaT_3
+    400280: RuedaT_4
+    400282: Ruendas_D1
+    400284: Ruendas_D2
+    400286: Ruendas_T3
+    400288: Ruendas_T4
+    400290: Delantera_B
+    400292: Trasero_B
+    400294: Varios
+    400296: Varios 1
+    400298: EspejoDe
+    400300: EspejoIz
+    400302: RetroVisor
+    2300000: Balde 1
+    2300002: Baliza
+    2300004: BaseBlax
+    2300006: CableBlax
+    2300008: Camara
+    2300010: Camara1
+    2300012: Camara3
+    2300014: Camara4
+    2300016: Camara5
+    2300018: Car_Frot
+    2300020: Car_Tras
+    2300022: Caucho_2
+    2300024: Cilindro1
+    2300026: Cilindro2
+    2300028: ClaxonTras
+    2300030: Cubierta_Cabina
+    2300032: Cunia
+    2300034: EjeBajo
+    2300036: EjeBalde
+    2300038: EjeTrasero
+    2300040: EntradasGrasa
+    2300042: Espejos
+    2300044: LimpiaParabrisas
+    2300046: LLantas_D
+    2300048: MetalAmarillo_1
+    2300050: MetalYelow_2
+    2300052: NegroBrillaste
+    2300054: pCube1
+    2300056: pCube10
+    2300058: pCube11
+    2300060: pCube12
+    2300062: pCube13
+    2300064: pCube14
+    2300066: pCube15
+    2300068: pCube16
+    2300070: pCube17
+    2300072: pCube18
+    2300074: pCube19
+    2300076: pCube2
+    2300078: pCube20
+    2300080: pCube21
+    2300082: pCube22
+    2300084: pCube23
+    2300086: pCube24
+    2300088: pCube25
+    2300090: pCube26
+    2300092: pCube27
+    2300094: pCube28
+    2300096: pCube29
+    2300098: pCube3
+    2300100: pCube30
+    2300102: pCube31
+    2300104: pCube32
+    2300106: pCube33
+    2300108: pCube34
+    2300110: pCube35
+    2300112: pCube36
+    2300114: pCube37
+    2300116: pCube4
+    2300118: pCube5
+    2300120: pCube6
+    2300122: pCube7
+    2300124: pCube8
+    2300126: pCube9
+    2300128: pCylinder624
+    2300130: Pernos
+    2300132: ReflectTras
+    2300134: Rueda1
+    2300136: Rueda1 1
+    2300138: Rueda2
+    2300140: Rueda2 1
+    2300142: Rueda3
+    2300144: Rueda3 1
+    2300146: Rueda4
+    2300148: Rueda4 1
+    2300150: Ruendas_D
+    2300152: Ruendas_T
+    2300154: Salida
+    2300156: Tolva
+    2300158: Tope
+    2300160: Vidrios_2
+    2300162: Camara1 1
+    2300164: Collider1
+    2300166: Collider1 1
+    2300168: Collider14
+    2300170: Collider15
+    2300172: Collider16
+    2300174: Collider17
+    2300176: Collider18
+    2300178: Collider19
+    2300180: Collider2
+    2300182: Collider2 1
+    2300184: Collider20
+    2300186: Collider21
+    2300188: Collider22
+    2300190: Collider23
+    2300192: Collider24
+    2300194: Collider25
+    2300196: Collider26
+    2300198: Collider27
+    2300200: Collider28
+    2300202: Collider29
+    2300204: Collider3
+    2300206: Collider3 1
+    2300208: Collider30
+    2300210: Collider31
+    2300212: Collider32
+    2300214: Collider33
+    2300216: Collider34
+    2300218: Collider35
+    2300220: Collider36
+    2300222: Collider4
+    2300224: Collider4 1
+    2300226: Collider5
+    2300228: Collider5 1
+    2300230: Collider6
+    2300232: Collider6 1
+    2300234: Collider7
+    2300236: Collider8
+    2300238: Ruendas_D1
+    2300240: Ruendas_D2
+    2300242: Ruendas_T3
+    2300244: Ruendas_T4
+    2300246: EspejoDe
+    2300248: EspejoIz
+    2300250: RetroVisor
+    3300000: Balde 1
+    3300002: Baliza
+    3300004: BaseBlax
+    3300006: CableBlax
+    3300008: Camara
+    3300010: Camara1
+    3300012: Camara3
+    3300014: Camara4
+    3300016: Camara5
+    3300018: Car_Frot
+    3300020: Car_Tras
+    3300022: Caucho_2
+    3300024: Cilindro1
+    3300026: Cilindro2
+    3300028: ClaxonTras
+    3300030: Cubierta_Cabina
+    3300032: Cunia
+    3300034: EjeBajo
+    3300036: EjeBalde
+    3300038: EjeTrasero
+    3300040: EntradasGrasa
+    3300042: Espejos
+    3300044: LimpiaParabrisas
+    3300046: LLantas_D
+    3300048: MetalAmarillo_1
+    3300050: MetalYelow_2
+    3300052: NegroBrillaste
+    3300054: pCube1
+    3300056: pCube10
+    3300058: pCube11
+    3300060: pCube12
+    3300062: pCube13
+    3300064: pCube14
+    3300066: pCube15
+    3300068: pCube16
+    3300070: pCube17
+    3300072: pCube18
+    3300074: pCube19
+    3300076: pCube2
+    3300078: pCube20
+    3300080: pCube21
+    3300082: pCube22
+    3300084: pCube23
+    3300086: pCube24
+    3300088: pCube25
+    3300090: pCube26
+    3300092: pCube27
+    3300094: pCube28
+    3300096: pCube29
+    3300098: pCube3
+    3300100: pCube30
+    3300102: pCube31
+    3300104: pCube32
+    3300106: pCube33
+    3300108: pCube34
+    3300110: pCube35
+    3300112: pCube36
+    3300114: pCube37
+    3300116: pCube4
+    3300118: pCube5
+    3300120: pCube6
+    3300122: pCube7
+    3300124: pCube8
+    3300126: pCube9
+    3300128: pCylinder624
+    3300130: Pernos
+    3300132: ReflectTras
+    3300134: Rueda1
+    3300136: Rueda1 1
+    3300138: Rueda2
+    3300140: Rueda2 1
+    3300142: Rueda3
+    3300144: Rueda3 1
+    3300146: Rueda4
+    3300148: Rueda4 1
+    3300150: Ruendas_D
+    3300152: Ruendas_T
+    3300154: Salida
+    3300156: Tolva
+    3300158: Tope
+    3300160: Vidrios_2
+    3300162: Camara1 1
+    3300164: Collider1
+    3300166: Collider1 1
+    3300168: Collider14
+    3300170: Collider15
+    3300172: Collider16
+    3300174: Collider17
+    3300176: Collider18
+    3300178: Collider19
+    3300180: Collider2
+    3300182: Collider2 1
+    3300184: Collider20
+    3300186: Collider21
+    3300188: Collider22
+    3300190: Collider23
+    3300192: Collider24
+    3300194: Collider25
+    3300196: Collider26
+    3300198: Collider27
+    3300200: Collider28
+    3300202: Collider29
+    3300204: Collider3
+    3300206: Collider3 1
+    3300208: Collider30
+    3300210: Collider31
+    3300212: Collider32
+    3300214: Collider33
+    3300216: Collider34
+    3300218: Collider35
+    3300220: Collider36
+    3300222: Collider4
+    3300224: Collider4 1
+    3300226: Collider5
+    3300228: Collider5 1
+    3300230: Collider6
+    3300232: Collider6 1
+    3300234: Collider7
+    3300236: Collider8
+    3300238: Ruendas_D1
+    3300240: Ruendas_D2
+    3300242: Ruendas_T3
+    3300244: Ruendas_T4
+    3300246: EspejoDe
+    3300248: EspejoIz
+    3300250: RetroVisor
+    4300000: ReflectTras
+    4300002: MetalYelow_2
+    4300004: Baliza
+    4300006: EntradasGrasa
+    4300008: ClaxonTras
+    4300010: pCylinder624
+    4300012: EjeBajo
+    4300014: EjeBalde
+    4300016: Cilindro1
+    4300018: Cilindro2
+    4300020: Pernos
+    4300022: Balde
+    4300024: Cunia
+    4300026: Ruendas_T
+    4300028: Tope
+    4300030: EjeTrasero
+    4300032: NegroBrillaste
+    4300034: MetalAmarillo_1
+    4300036: LimpiaParabrisas
+    4300038: Espejos
+    4300040: Cubierta_Cabina
+    4300042: LLantas_D
+    4300044: Vidrios_2
+    4300046: Ruendas_D
+    4300048: Salida
+    4300050: Caucho_2
+    4300052: CableBlax
+    4300054: BaseBlax
+    4300056: Camara
+    4300058: Camara1
+    4300060: Camara3
+    4300062: Camara4
+    4300064: Camara5
+    4300066: Rueda1
+    4300068: Rueda2
+    4300070: Rueda3
+    4300072: Rueda4
+    4300074: pCube1
+    4300076: pCube2
+    4300078: pCube3
+    4300080: pCube4
+    4300082: pCube5
+    4300084: pCube6
+    4300086: pCube7
+    4300088: pCube8
+    4300090: pCube9
+    4300092: pCube10
+    4300094: pCube11
+    4300096: pCube12
+    4300098: pCube13
+    4300100: pCube37
+    4300102: pCube36
+    4300104: pCube35
+    4300106: pCube34
+    4300108: pCube33
+    4300110: pCube32
+    4300112: pCube31
+    4300114: pCube30
+    4300116: pCube29
+    4300118: pCube28
+    4300120: pCube27
+    4300122: pCube26
+    4300124: pCube25
+    4300126: pCube24
+    4300128: pCube23
+    4300130: pCube22
+    4300132: pCube21
+    4300134: pCube20
+    4300136: pCube19
+    4300138: pCube18
+    4300140: pCube17
+    4300142: pCube16
+    4300144: pCube15
+    4300146: pCube14
+    4300148: Rueda1
+    4300150: Rueda2
+    4300152: Rueda3
+    4300154: Rueda4
+    4300156: Car_Frot
+    4300158: Tolva
+    4300160: Car_Tras
+    4300162: Camara1
+    4300164: Collider1
+    4300166: Collider2
+    4300168: Collider3
+    4300170: Collider4
+    4300172: Collider5
+    4300174: Collider6
+    4300176: Collider7
+    4300178: Collider8
+    4300180: Ruendas_D2
+    4300182: Ruendas_D1
+    4300184: Collider14
+    4300186: Collider15
+    4300188: Collider35
+    4300190: Collider28
+    4300192: Collider29
+    4300194: Collider31
+    4300196: Collider32
+    4300198: Collider36
+    4300200: Collider30
+    4300202: Collider34
+    4300204: Collider24
+    4300206: Collider16
+    4300208: Collider17
+    4300210: Collider19
+    4300212: Collider21
+    4300214: Collider22
+    4300216: Collider23
+    4300218: Collider25
+    4300220: Collider33
+    4300222: Collider18
+    4300224: Collider27
+    4300226: Collider20
+    4300228: Collider26
+    4300230: Ruendas_T4
+    4300232: Ruendas_T3
+    4300234: Collider1
+    4300236: Collider2
+    4300238: Collider3
+    4300240: Collider4
+    4300242: Collider5
+    4300244: Collider6
+    4300246: RetroVisor
+    4300248: EspejoIz
+    4300250: EspejoDe
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Camaras
+        weight: 1
+      - path: Camaras/Camara1
+        weight: 1
+      - path: Camaras/Camara3
+        weight: 1
+      - path: Camaras/Camara4
+        weight: 1
+      - path: Camaras/Camara5
+        weight: 1
+      - path: Delantera_B
+        weight: 1
+      - path: Delantera_B/Blax
+        weight: 1
+      - path: Delantera_B/Blax/BaseBlax
+        weight: 1
+      - path: Delantera_B/Blax/CableBlax
+        weight: 1
+      - path: Delantera_B/Blax/Camara1 1
+        weight: 1
+      - path: Delantera_B/Caucho_2
+        weight: 1
+      - path: Delantera_B/Colliders_D
+        weight: 1
+      - path: Delantera_B/Colliders_D/Collider1
+        weight: 1
+      - path: Delantera_B/Colliders_D/Collider2
+        weight: 1
+      - path: Delantera_B/Colliders_D/Collider3
+        weight: 1
+      - path: Delantera_B/Colliders_D/Collider4
+        weight: 1
+      - path: Delantera_B/Colliders_D/Collider5
+        weight: 1
+      - path: Delantera_B/Colliders_D/Collider6
+        weight: 1
+      - path: Delantera_B/Colliders_D/Collider7
+        weight: 1
+      - path: Delantera_B/Colliders_D/Collider8
+        weight: 1
+      - path: Delantera_B/Cubierta_Cabina
+        weight: 1
+      - path: Delantera_B/Espejos
+        weight: 1
+      - path: Delantera_B/LimpiaParabrisas
+        weight: 1
+      - path: Delantera_B/MetalAmarillo_1
+        weight: 1
+      - path: Delantera_B/NegroBrillaste
+        weight: 1
+      - path: Delantera_B/Puerta
+        weight: 1
+      - path: Delantera_B/Puerta/Vidrios_2
+        weight: 1
+      - path: Delantera_B/Ruendas_D
+        weight: 1
+      - path: Delantera_B/Ruendas_D/RuedaD_1
+        weight: 1
+      - path: Delantera_B/Ruendas_D/RuedaD_1/Rueda1
+        weight: 1
+      - path: Delantera_B/Ruendas_D/RuedaD_1/Ruendas_D1
+        weight: 1
+      - path: Delantera_B/Ruendas_D/RuedaD_2
+        weight: 1
+      - path: Delantera_B/Ruendas_D/RuedaD_2/Rueda2
+        weight: 1
+      - path: Delantera_B/Ruendas_D/RuedaD_2/Ruendas_D2
+        weight: 1
+      - path: Delantera_B/Salida
+        weight: 1
+      - path: Trasero_B
+        weight: 1
+      - path: Trasero_B/Balde
+        weight: 1
+      - path: Trasero_B/Balde/BrazoEje
+        weight: 1
+      - path: Trasero_B/Balde/BrazoEje/EjeBalde
+        weight: 1
+      - path: Trasero_B/Balde/BrazoEje/EjeMedio
+        weight: 1
+      - path: Trasero_B/Balde/BrazoEje/EjeMedio/Cilindro1
+        weight: 1
+      - path: Trasero_B/Balde/BrazoEje/EjeMedio/Cilindro2
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider14
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider15
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider16
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider17
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider18
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider19
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider20
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider21
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider22
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider23
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider24
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider25
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider26
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider27
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider28
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider29
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider30
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider31
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider32
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider33
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider34
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider35
+        weight: 1
+      - path: Trasero_B/Balde/CollidersBalde/Collider36
+        weight: 1
+      - path: Trasero_B/Balde/G_Balde
+        weight: 1
+      - path: Trasero_B/Balde/G_Balde/Balde 1
+        weight: 1
+      - path: Trasero_B/Balde/G_Balde/Cunia
+        weight: 1
+      - path: Trasero_B/Balde/G_Balde/Pernos
+        weight: 1
+      - path: Trasero_B/Baliza
+        weight: 1
+      - path: Trasero_B/BaseEjeBajo
+        weight: 1
+      - path: Trasero_B/BaseEjeBajo/EjeBajo
+        weight: 1
+      - path: Trasero_B/BaseEjeBajo/pCylinder624
+        weight: 1
+      - path: Trasero_B/ClaxonTras
+        weight: 1
+      - path: Trasero_B/Colliders_T
+        weight: 1
+      - path: Trasero_B/Colliders_T/Collider1 1
+        weight: 1
+      - path: Trasero_B/Colliders_T/Collider2 1
+        weight: 1
+      - path: Trasero_B/Colliders_T/Collider3 1
+        weight: 1
+      - path: Trasero_B/Colliders_T/Collider4 1
+        weight: 1
+      - path: Trasero_B/Colliders_T/Collider5 1
+        weight: 1
+      - path: Trasero_B/Colliders_T/Collider6 1
+        weight: 1
+      - path: Trasero_B/EntradasGrasa
+        weight: 1
+      - path: Trasero_B/MetalYelow_2
+        weight: 1
+      - path: Trasero_B/ReflectTras
+        weight: 1
+      - path: Trasero_B/Ruendas_T
+        weight: 1
+      - path: Trasero_B/Ruendas_T/RuedaT_3
+        weight: 1
+      - path: Trasero_B/Ruendas_T/RuedaT_3/Rueda3
+        weight: 1
+      - path: Trasero_B/Ruendas_T/RuedaT_3/Ruendas_T3
+        weight: 1
+      - path: Trasero_B/Ruendas_T/RuedaT_4
+        weight: 1
+      - path: Trasero_B/Ruendas_T/RuedaT_4/Rueda4
+        weight: 1
+      - path: Trasero_B/Ruendas_T/RuedaT_4/Ruendas_T4
+        weight: 1
+      - path: Trasero_B/Tope
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

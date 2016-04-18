@@ -1,0 +1,4552 @@
+fileFormatVersion: 2
+guid: f0d4edbcf1cda0046a5ab2ed6a0f76d8
+timeCreated: 1455450823
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Amarillo1
+    100002: Amarillo2
+    100004: Amarillo3
+    100006: Amarillo4
+    100008: Amarillo_5
+    100010: Amarillo_6
+    100012: Asiento
+    100014: Balde
+    100016: Balde 1
+    100018: Baliza1
+    100020: Baliza2
+    100022: BaseEjeBajo
+    100024: BasePedales
+    100026: BlaxTair_D
+    100028: BlaxTair_T
+    100030: Botones_Tab
+    100032: BrazoEje
+    100034: Cables
+    100036: Cadenas
+    100038: CamSup
+    100040: CamTras
+    100042: Caucho
+    100044: Caucho_2
+    100046: Caucho_6
+    100048: Caucho_7
+    100050: CilindInterEmpuje
+    100052: CilindroEmpuje_I
+    100054: CinlindroLaterales
+    100056: ClaxonTras
+    100058: Cobierta
+    100060: Conecciones
+    100062: Conectores
+    100064: Conex
+    100066: ConexIntMotor
+    100068: ConexMangueras
+    100070: Control_Manual
+    100072: Correa
+    100074: Correa1
+    100076: Cubierta_Cabina
+    100078: Cubierta_Puerta
+    100080: Cunia
+    100082: Delantera
+    100084: EjeBajo
+    100086: EjeBalde
+    100088: EjeMedio
+    100090: EjeMotor
+    100092: EjeTrasero
+    100094: Espejos
+    100096: Fijacion
+    100098: Filtros
+    100100: Focos
+    100102: Focos 1
+    100104: FocosTras
+    100106: G_Balde
+    100108: IsoManilla
+    100110: IsoSwitch
+    100112: Llantas_D
+    100114: Llave
+    100116: LlaveFiltro
+    100118: MangerasHidrau
+    100120: ManguerasMotor
+    100122: Manilla
+    100124: ManillaNegro
+    100126: Marco_Puerta
+    100128: Marco_Tablero
+    100130: MetalAmarillo_4
+    100132: Metales_7
+    100134: Motor2
+    100136: Motor_1
+    100138: //RootNode
+    100140: OcultoMotor
+    100142: Perno1
+    100144: Pernos
+    100146: Pernos 1
+    100148: PernosTuercas
+    100150: Plastico_Metal1
+    100152: Plastico_Metal2
+    100154: pTorus1
+    100156: Puerta
+    100158: PuertaAnsul
+    100160: Ruendas_D
+    100162: Ruendas_T
+    100164: Salida1
+    100166: Salida2
+    100168: Seguro2
+    100170: SeguroCable_B
+    100172: SistemAnsul2
+    100174: SoporteCilindro
+    100176: Tablero_Odometro
+    100178: Tapa1
+    100180: Tapa3
+    100182: Tapa_Motor
+    100184: Tapa_tras
+    100186: TapaAnsu
+    100188: TapaEnfriadores
+    100190: TapaISO
+    100192: TapaMotor
+    100194: TapaRadiador
+    100196: TapaRadiador 1
+    100198: Tope
+    100200: TopeEje
+    100202: Topes
+    100204: Trasero1
+    100206: Vara
+    100208: Varios
+    100210: Varios 1
+    100212: Varios_1
+    100214: Varios_3
+    100216: Vidrios_1
+    100218: Vidrios_2
+    100220: Colliders
+    100222: Colliders_1
+    100224: Colliders_2
+    100226: Colliders_3
+    100228: Colliders_4
+    100230: Colliders_5
+    100232: Colliders_6
+    100234: Colliders_7
+    100236: Radiador_
+    100238: Amarillo6
+    100240: BasesFocos
+    100242: EnfriadorDropBox
+    100244: Foco1
+    100246: Foco10
+    100248: Foco11
+    100250: Foco12
+    100252: Foco13
+    100254: Foco14
+    100256: Foco15
+    100258: Foco2
+    100260: Foco3
+    100262: Foco4
+    100264: Foco5
+    100266: Foco6
+    100268: Foco7
+    100270: Foco8
+    100272: Foco9
+    100274: Focos 2
+    100276: Intro1
+    100278: Intro2
+    100280: MT6020
+    100282: Operador:_notused_Bip01_L_Finger0Nub
+    100284: Operador:_notused_Bip01_L_Finger1Nub
+    100286: Operador:_notused_Bip01_L_Finger2Nub
+    100288: Operador:_notused_Bip01_R_Finger0Nub
+    100290: Operador:_notused_Bip01_R_Finger1Nub
+    100292: Operador:_notused_Bip01_R_Finger2Nub
+    100294: Operador:Ant_Brazo_De
+    100296: Operador:Ant_Brazo_Iz
+    100298: Operador:Bip01_L_Finger0
+    100300: Operador:Bip01_L_Finger01
+    100302: Operador:Bip01_L_Finger1
+    100304: Operador:Bip01_L_Finger11
+    100306: Operador:Bip01_L_Finger2
+    100308: Operador:Bip01_L_Finger21
+    100310: Operador:Bip01_R_Finger0
+    100312: Operador:Bip01_R_Finger01
+    100314: Operador:Bip01_R_Finger1
+    100316: Operador:Bip01_R_Finger11
+    100318: Operador:Bip01_R_Finger2
+    100320: Operador:Bip01_R_Finger21
+    100322: Operador:Brazo_De
+    100324: Operador:Brazo_De 1
+    100326: Operador:Brazo_Iz
+    100328: Operador:Brazo_Iz 1
+    100330: Operador:C_Cabeza
+    100332: Operador:C_Pie_De
+    100334: Operador:C_Pie_Iz
+    100336: Operador:Cabeza
+    100338: Operador:Caja1
+    100340: Operador:Caja2
+    100342: Operador:Canilla_De
+    100344: Operador:Canilla_Iz
+    100346: Operador:Casco
+    100348: Operador:Casco 1
+    100350: Operador:Codo_De
+    100352: Operador:Codo_Iz
+    100354: Operador:Control
+    100356: Operador:ControlBase
+    100358: Operador:ControlMedio
+    100360: Operador:Cordon
+    100362: Operador:Cuerpo
+    100364: Operador:Cuerpo 1
+    100366: Operador:Cuerpo 2
+    100368: Operador:Emp_De
+    100370: Operador:Emp_Iz
+    100372: Operador:Espalda
+    100374: Operador:Esqueleto
+    100376: Operador:Hombro_De
+    100378: Operador:Hombro_Iz
+    100380: Operador:Hombros
+    100382: Operador:Hombros 1
+    100384: Operador:ik_Pie_De
+    100386: Operador:ik_Pie_Iz
+    100388: Operador:ikHandle_De
+    100390: Operador:ikHandle_Iz
+    100392: Operador:Lente
+    100394: Operador:Lente 1
+    100396: Operador:Luces
+    100398: Operador:Mano_De
+    100400: Operador:Mano_Iz
+    100402: Operador:ManoDe
+    100404: Operador:ManoIz
+    100406: Operador:Mascarilla
+    100408: Operador:OperadorDentro
+    100410: Operador:Operadores
+    100412: Operador:OperadorFuera
+    100414: Operador:P_Pie_De
+    100416: Operador:P_Pie_Iz
+    100418: Operador:Pecho_Espalda
+    100420: Operador:Pelvis
+    100422: Operador:Pie_De
+    100424: Operador:Pie_Iz
+    100426: Operador:Pierna_De
+    100428: Operador:Pierna_Iz
+    100430: Operador:PuntaCabeza
+    100432: Operador:spotLight1
+    100434: Operador:Superior
+    100436: polySurface11
+    100438: polySurface12
+    100440: polySurface13
+    100442: polySurface14
+    100444: polySurface18
+    100446: polySurface20
+    100448: polySurface21
+    100450: polySurface25
+    100452: polySurface26
+    100454: polySurface28
+    100456: polySurface3
+    100458: polySurface34
+    100460: polySurface39
+    100462: polySurface44
+    100464: polySurface45
+    100466: polySurface47
+    100468: polySurface5
+    100470: polySurface6
+    100472: polySurface8
+    100474: RuedaDelatDerecha
+    100476: RuedaDelatIzquierda
+    100478: RuedaTrastDerecha
+    100480: RuedaTrastIzquierda
+    100482: SimbolBack
+    100484: SimbolBalde
+    100486: SimbolDoor
+    100488: SimbolEnfriador
+    100490: SimbolFront
+    100492: TapaDropBox
+    100494: transform1
+    100496: transform10
+    100498: transform11
+    100500: transform12
+    100502: transform13
+    100504: transform14
+    100506: transform2
+    100508: transform3
+    100510: transform4
+    100512: transform5
+    100514: transform6
+    100516: transform7
+    100518: transform8
+    100520: transform9
+    100522: Varios 2
+    400000: Amarillo1
+    400002: Amarillo2
+    400004: Amarillo3
+    400006: Amarillo4
+    400008: Amarillo_5
+    400010: Amarillo_6
+    400012: Asiento
+    400014: Balde
+    400016: Balde 1
+    400018: Baliza1
+    400020: Baliza2
+    400022: BaseEjeBajo
+    400024: BasePedales
+    400026: BlaxTair_D
+    400028: BlaxTair_T
+    400030: Botones_Tab
+    400032: BrazoEje
+    400034: Cables
+    400036: Cadenas
+    400038: CamSup
+    400040: CamTras
+    400042: Caucho
+    400044: Caucho_2
+    400046: Caucho_6
+    400048: Caucho_7
+    400050: CilindInterEmpuje
+    400052: CilindroEmpuje_I
+    400054: CinlindroLaterales
+    400056: ClaxonTras
+    400058: Cobierta
+    400060: Conecciones
+    400062: Conectores
+    400064: Conex
+    400066: ConexIntMotor
+    400068: ConexMangueras
+    400070: Control_Manual
+    400072: Correa
+    400074: Correa1
+    400076: Cubierta_Cabina
+    400078: Cubierta_Puerta
+    400080: Cunia
+    400082: Delantera
+    400084: EjeBajo
+    400086: EjeBalde
+    400088: EjeMedio
+    400090: EjeMotor
+    400092: EjeTrasero
+    400094: Espejos
+    400096: Fijacion
+    400098: Filtros
+    400100: Focos
+    400102: Focos 1
+    400104: FocosTras
+    400106: G_Balde
+    400108: IsoManilla
+    400110: IsoSwitch
+    400112: Llantas_D
+    400114: Llave
+    400116: LlaveFiltro
+    400118: MangerasHidrau
+    400120: ManguerasMotor
+    400122: Manilla
+    400124: ManillaNegro
+    400126: Marco_Puerta
+    400128: Marco_Tablero
+    400130: MetalAmarillo_4
+    400132: Metales_7
+    400134: Motor2
+    400136: Motor_1
+    400138: //RootNode
+    400140: OcultoMotor
+    400142: Perno1
+    400144: Pernos
+    400146: Pernos 1
+    400148: PernosTuercas
+    400150: Plastico_Metal1
+    400152: Plastico_Metal2
+    400154: pTorus1
+    400156: Puerta
+    400158: PuertaAnsul
+    400160: Ruendas_D
+    400162: Ruendas_T
+    400164: Salida1
+    400166: Salida2
+    400168: Seguro2
+    400170: SeguroCable_B
+    400172: SistemAnsul2
+    400174: SoporteCilindro
+    400176: Tablero_Odometro
+    400178: Tapa1
+    400180: Tapa3
+    400182: Tapa_Motor
+    400184: Tapa_tras
+    400186: TapaAnsu
+    400188: TapaEnfriadores
+    400190: TapaISO
+    400192: TapaMotor
+    400194: TapaRadiador
+    400196: TapaRadiador 1
+    400198: Tope
+    400200: TopeEje
+    400202: Topes
+    400204: Trasero1
+    400206: Vara
+    400208: Varios
+    400210: Varios 1
+    400212: Varios_1
+    400214: Varios_3
+    400216: Vidrios_1
+    400218: Vidrios_2
+    400220: Colliders
+    400222: Colliders_1
+    400224: Colliders_2
+    400226: Colliders_3
+    400228: Colliders_4
+    400230: Colliders_5
+    400232: Colliders_6
+    400234: Colliders_7
+    400236: Radiador_
+    400238: Amarillo6
+    400240: BasesFocos
+    400242: EnfriadorDropBox
+    400244: Foco1
+    400246: Foco10
+    400248: Foco11
+    400250: Foco12
+    400252: Foco13
+    400254: Foco14
+    400256: Foco15
+    400258: Foco2
+    400260: Foco3
+    400262: Foco4
+    400264: Foco5
+    400266: Foco6
+    400268: Foco7
+    400270: Foco8
+    400272: Foco9
+    400274: Focos 2
+    400276: Intro1
+    400278: Intro2
+    400280: MT6020
+    400282: Operador:_notused_Bip01_L_Finger0Nub
+    400284: Operador:_notused_Bip01_L_Finger1Nub
+    400286: Operador:_notused_Bip01_L_Finger2Nub
+    400288: Operador:_notused_Bip01_R_Finger0Nub
+    400290: Operador:_notused_Bip01_R_Finger1Nub
+    400292: Operador:_notused_Bip01_R_Finger2Nub
+    400294: Operador:Ant_Brazo_De
+    400296: Operador:Ant_Brazo_Iz
+    400298: Operador:Bip01_L_Finger0
+    400300: Operador:Bip01_L_Finger01
+    400302: Operador:Bip01_L_Finger1
+    400304: Operador:Bip01_L_Finger11
+    400306: Operador:Bip01_L_Finger2
+    400308: Operador:Bip01_L_Finger21
+    400310: Operador:Bip01_R_Finger0
+    400312: Operador:Bip01_R_Finger01
+    400314: Operador:Bip01_R_Finger1
+    400316: Operador:Bip01_R_Finger11
+    400318: Operador:Bip01_R_Finger2
+    400320: Operador:Bip01_R_Finger21
+    400322: Operador:Brazo_De
+    400324: Operador:Brazo_De 1
+    400326: Operador:Brazo_Iz
+    400328: Operador:Brazo_Iz 1
+    400330: Operador:C_Cabeza
+    400332: Operador:C_Pie_De
+    400334: Operador:C_Pie_Iz
+    400336: Operador:Cabeza
+    400338: Operador:Caja1
+    400340: Operador:Caja2
+    400342: Operador:Canilla_De
+    400344: Operador:Canilla_Iz
+    400346: Operador:Casco
+    400348: Operador:Casco 1
+    400350: Operador:Codo_De
+    400352: Operador:Codo_Iz
+    400354: Operador:Control
+    400356: Operador:ControlBase
+    400358: Operador:ControlMedio
+    400360: Operador:Cordon
+    400362: Operador:Cuerpo
+    400364: Operador:Cuerpo 1
+    400366: Operador:Cuerpo 2
+    400368: Operador:Emp_De
+    400370: Operador:Emp_Iz
+    400372: Operador:Espalda
+    400374: Operador:Esqueleto
+    400376: Operador:Hombro_De
+    400378: Operador:Hombro_Iz
+    400380: Operador:Hombros
+    400382: Operador:Hombros 1
+    400384: Operador:ik_Pie_De
+    400386: Operador:ik_Pie_Iz
+    400388: Operador:ikHandle_De
+    400390: Operador:ikHandle_Iz
+    400392: Operador:Lente
+    400394: Operador:Lente 1
+    400396: Operador:Luces
+    400398: Operador:Mano_De
+    400400: Operador:Mano_Iz
+    400402: Operador:ManoDe
+    400404: Operador:ManoIz
+    400406: Operador:Mascarilla
+    400408: Operador:OperadorDentro
+    400410: Operador:Operadores
+    400412: Operador:OperadorFuera
+    400414: Operador:P_Pie_De
+    400416: Operador:P_Pie_Iz
+    400418: Operador:Pecho_Espalda
+    400420: Operador:Pelvis
+    400422: Operador:Pie_De
+    400424: Operador:Pie_Iz
+    400426: Operador:Pierna_De
+    400428: Operador:Pierna_Iz
+    400430: Operador:PuntaCabeza
+    400432: Operador:spotLight1
+    400434: Operador:Superior
+    400436: polySurface11
+    400438: polySurface12
+    400440: polySurface13
+    400442: polySurface14
+    400444: polySurface18
+    400446: polySurface20
+    400448: polySurface21
+    400450: polySurface25
+    400452: polySurface26
+    400454: polySurface28
+    400456: polySurface3
+    400458: polySurface34
+    400460: polySurface39
+    400462: polySurface44
+    400464: polySurface45
+    400466: polySurface47
+    400468: polySurface5
+    400470: polySurface6
+    400472: polySurface8
+    400474: RuedaDelatDerecha
+    400476: RuedaDelatIzquierda
+    400478: RuedaTrastDerecha
+    400480: RuedaTrastIzquierda
+    400482: SimbolBack
+    400484: SimbolBalde
+    400486: SimbolDoor
+    400488: SimbolEnfriador
+    400490: SimbolFront
+    400492: TapaDropBox
+    400494: transform1
+    400496: transform10
+    400498: transform11
+    400500: transform12
+    400502: transform13
+    400504: transform14
+    400506: transform2
+    400508: transform3
+    400510: transform4
+    400512: transform5
+    400514: transform6
+    400516: transform7
+    400518: transform8
+    400520: transform9
+    400522: Varios 2
+    2300000: Amarillo1
+    2300002: Amarillo2
+    2300004: Amarillo3
+    2300006: Amarillo4
+    2300008: Amarillo_5
+    2300010: Amarillo_6
+    2300012: Asiento
+    2300014: Balde 1
+    2300016: Baliza1
+    2300018: Baliza2
+    2300020: BasePedales
+    2300022: BlaxTair_D
+    2300024: BlaxTair_T
+    2300026: Botones_Tab
+    2300028: Cables
+    2300030: Cadenas
+    2300032: CamSup
+    2300034: CamTras
+    2300036: Caucho
+    2300038: Caucho_2
+    2300040: Caucho_6
+    2300042: Caucho_7
+    2300044: CilindInterEmpuje
+    2300046: CilindroEmpuje_I
+    2300048: CinlindroLaterales
+    2300050: ClaxonTras
+    2300052: Cobierta
+    2300054: Conecciones
+    2300056: Conectores
+    2300058: Conex
+    2300060: ConexIntMotor
+    2300062: ConexMangueras
+    2300064: Control_Manual
+    2300066: Correa
+    2300068: Correa1
+    2300070: Cubierta_Cabina
+    2300072: Cubierta_Puerta
+    2300074: Cunia
+    2300076: EjeBajo
+    2300078: EjeBalde
+    2300080: EjeMotor
+    2300082: EjeTrasero
+    2300084: Espejos
+    2300086: Fijacion
+    2300088: Filtros
+    2300090: Focos
+    2300092: Focos 1
+    2300094: FocosTras
+    2300096: IsoManilla
+    2300098: Llantas_D
+    2300100: Llave
+    2300102: MangerasHidrau
+    2300104: ManguerasMotor
+    2300106: Manilla
+    2300108: ManillaNegro
+    2300110: Marco_Puerta
+    2300112: Marco_Tablero
+    2300114: MetalAmarillo_4
+    2300116: Metales_7
+    2300118: Motor2
+    2300120: Motor_1
+    2300122: OcultoMotor
+    2300124: Perno1
+    2300126: Pernos
+    2300128: Pernos 1
+    2300130: PernosTuercas
+    2300132: Plastico_Metal1
+    2300134: Plastico_Metal2
+    2300136: pTorus1
+    2300138: Ruendas_D
+    2300140: Ruendas_T
+    2300142: Salida1
+    2300144: Salida2
+    2300146: Seguro2
+    2300148: SeguroCable_B
+    2300150: SistemAnsul2
+    2300152: SoporteCilindro
+    2300154: Tablero_Odometro
+    2300156: Tapa1
+    2300158: Tapa3
+    2300160: Tapa_Motor
+    2300162: TapaAnsu
+    2300164: TapaEnfriadores
+    2300166: TapaISO
+    2300168: TapaRadiador 1
+    2300170: Tope
+    2300172: TopeEje
+    2300174: Topes
+    2300176: Varios_1
+    2300178: Varios_3
+    2300180: Vidrios_1
+    2300182: Vidrios_2
+    2300184: Colliders_1
+    2300186: Colliders_2
+    2300188: Colliders_3
+    2300190: Colliders_4
+    2300192: Colliders_5
+    2300194: Colliders_6
+    2300196: Colliders_7
+    2300198: Radiador_
+    2300200: Amarillo6
+    2300202: BasesFocos
+    2300204: Foco1
+    2300206: Foco10
+    2300208: Foco11
+    2300210: Foco12
+    2300212: Foco13
+    2300214: Foco14
+    2300216: Foco15
+    2300218: Foco2
+    2300220: Foco3
+    2300222: Foco4
+    2300224: Foco5
+    2300226: Foco6
+    2300228: Foco7
+    2300230: Foco8
+    2300232: Foco9
+    2300234: Intro1
+    2300236: Intro2
+    2300238: polySurface45
+    2300240: polySurface47
+    2300242: RuedaDelatDerecha
+    2300244: RuedaDelatIzquierda
+    2300246: RuedaTrastDerecha
+    2300248: RuedaTrastIzquierda
+    2300250: SimbolBack
+    2300252: SimbolBalde
+    2300254: SimbolDoor
+    2300256: SimbolEnfriador
+    2300258: SimbolFront
+    2300260: Varios 2
+    3300000: Amarillo1
+    3300002: Amarillo2
+    3300004: Amarillo3
+    3300006: Amarillo4
+    3300008: Amarillo_5
+    3300010: Amarillo_6
+    3300012: Asiento
+    3300014: Balde 1
+    3300016: Baliza1
+    3300018: Baliza2
+    3300020: BasePedales
+    3300022: BlaxTair_D
+    3300024: BlaxTair_T
+    3300026: Botones_Tab
+    3300028: Cables
+    3300030: Cadenas
+    3300032: CamSup
+    3300034: CamTras
+    3300036: Caucho
+    3300038: Caucho_2
+    3300040: Caucho_6
+    3300042: Caucho_7
+    3300044: CilindInterEmpuje
+    3300046: CilindroEmpuje_I
+    3300048: CinlindroLaterales
+    3300050: ClaxonTras
+    3300052: Cobierta
+    3300054: Conecciones
+    3300056: Conectores
+    3300058: Conex
+    3300060: ConexIntMotor
+    3300062: ConexMangueras
+    3300064: Control_Manual
+    3300066: Correa
+    3300068: Correa1
+    3300070: Cubierta_Cabina
+    3300072: Cubierta_Puerta
+    3300074: Cunia
+    3300076: EjeBajo
+    3300078: EjeBalde
+    3300080: EjeMotor
+    3300082: EjeTrasero
+    3300084: Espejos
+    3300086: Fijacion
+    3300088: Filtros
+    3300090: Focos
+    3300092: Focos 1
+    3300094: FocosTras
+    3300096: IsoManilla
+    3300098: Llantas_D
+    3300100: Llave
+    3300102: MangerasHidrau
+    3300104: ManguerasMotor
+    3300106: Manilla
+    3300108: ManillaNegro
+    3300110: Marco_Puerta
+    3300112: Marco_Tablero
+    3300114: MetalAmarillo_4
+    3300116: Metales_7
+    3300118: Motor2
+    3300120: Motor_1
+    3300122: OcultoMotor
+    3300124: Perno1
+    3300126: Pernos
+    3300128: Pernos 1
+    3300130: PernosTuercas
+    3300132: Plastico_Metal1
+    3300134: Plastico_Metal2
+    3300136: pTorus1
+    3300138: Ruendas_D
+    3300140: Ruendas_T
+    3300142: Salida1
+    3300144: Salida2
+    3300146: Seguro2
+    3300148: SeguroCable_B
+    3300150: SistemAnsul2
+    3300152: SoporteCilindro
+    3300154: Tablero_Odometro
+    3300156: Tapa1
+    3300158: Tapa3
+    3300160: Tapa_Motor
+    3300162: TapaAnsu
+    3300164: TapaEnfriadores
+    3300166: TapaISO
+    3300168: TapaRadiador 1
+    3300170: Tope
+    3300172: TopeEje
+    3300174: Topes
+    3300176: Varios_1
+    3300178: Varios_3
+    3300180: Vidrios_1
+    3300182: Vidrios_2
+    3300184: Colliders_1
+    3300186: Colliders_2
+    3300188: Colliders_3
+    3300190: Colliders_4
+    3300192: Colliders_5
+    3300194: Colliders_6
+    3300196: Colliders_7
+    3300198: Radiador_
+    3300200: Amarillo6
+    3300202: BasesFocos
+    3300204: Foco1
+    3300206: Foco10
+    3300208: Foco11
+    3300210: Foco12
+    3300212: Foco13
+    3300214: Foco14
+    3300216: Foco15
+    3300218: Foco2
+    3300220: Foco3
+    3300222: Foco4
+    3300224: Foco5
+    3300226: Foco6
+    3300228: Foco7
+    3300230: Foco8
+    3300232: Foco9
+    3300234: Intro1
+    3300236: Intro2
+    3300238: polySurface45
+    3300240: polySurface47
+    3300242: RuedaDelatDerecha
+    3300244: RuedaDelatIzquierda
+    3300246: RuedaTrastDerecha
+    3300248: RuedaTrastIzquierda
+    3300250: SimbolBack
+    3300252: SimbolBalde
+    3300254: SimbolDoor
+    3300256: SimbolEnfriador
+    3300258: SimbolFront
+    3300260: Varios 2
+    4300000: SoporteCilindro
+    4300002: EjeBajo
+    4300004: EjeBalde
+    4300006: CilindroEmpuje_I
+    4300008: Cobierta
+    4300010: Pernos
+    4300012: Cunia
+    4300014: SeguroCable_B
+    4300016: Balde
+    4300018: Amarillo_5
+    4300020: Amarillo_6
+    4300022: BlaxTair_T
+    4300024: CamTras
+    4300026: Caucho_7
+    4300028: Cadenas
+    4300030: Cables
+    4300032: CinlindroLaterales
+    4300034: ConexMangueras
+    4300036: ClaxonTras
+    4300038: CilindInterEmpuje
+    4300040: EjeMotor
+    4300042: EjeTrasero
+    4300044: FocosTras
+    4300046: PernosTuercas
+    4300048: Focos
+    4300050: MangerasHidrau
+    4300052: Ruendas_T
+    4300054: Tope
+    4300056: TopeEje
+    4300058: Varios_3
+    4300060: Conex
+    4300062: TapaISO
+    4300064: IsoManilla
+    4300066: Vidrios_2
+    4300068: Marco_Puerta
+    4300070: Caucho_2
+    4300072: Cubierta_Puerta
+    4300074: MetalAmarillo_4
+    4300076: Salida2
+    4300078: TapaAnsu
+    4300080: pTorus1
+    4300082: Seguro2
+    4300084: Correa
+    4300086: Conecciones
+    4300088: Correa1
+    4300090: TapaRadiador
+    4300092: Tapa_Motor
+    4300094: Topes
+    4300096: ManillaNegro
+    4300098: Perno1
+    4300100: Fijacion
+    4300102: Llave
+    4300104: Manilla
+    4300106: Tapa3
+    4300108: Amarillo1
+    4300110: Amarillo2
+    4300112: Amarillo3
+    4300114: Amarillo4
+    4300116: Asiento
+    4300118: BlaxTair_D
+    4300120: Baliza1
+    4300122: Baliza2
+    4300124: Botones_Tab
+    4300126: BasePedales
+    4300128: Control_Manual
+    4300130: ConexIntMotor
+    4300132: Conectores
+    4300134: CamSup
+    4300136: Caucho_6
+    4300138: Cubierta_Cabina
+    4300140: Caucho
+    4300142: Espejos
+    4300144: Filtros
+    4300146: Focos
+    4300148: Llantas_D
+    4300150: ManguerasMotor
+    4300152: Marco_Tablero
+    4300154: Motor_1
+    4300156: Motor2
+    4300158: OcultoMotor
+    4300160: Metales_7
+    4300162: Pernos
+    4300164: Plastico_Metal2
+    4300166: Plastico_Metal1
+    4300168: Ruendas_D
+    4300170: SistemAnsul2
+    4300172: Salida1
+    4300174: TapaEnfriadores
+    4300176: Tapa1
+    4300178: Tablero_Odometro
+    4300180: Vidrios_1
+    4300182: Varios_1
+    4300184: Colliders_1
+    4300186: Colliders_2
+    4300188: Colliders_3
+    4300190: Colliders_4
+    4300192: Colliders_5
+    4300194: Colliders_6
+    4300196: Colliders_7
+    4300198: Radiador_
+    4300200: Foco1
+    4300202: Foco2
+    4300204: Foco3
+    4300206: Foco4
+    4300208: Foco5
+    4300210: Foco6
+    4300212: Foco7
+    4300214: Foco8
+    4300216: Foco9
+    4300218: Foco10
+    4300220: Foco11
+    4300222: Foco12
+    4300224: Foco13
+    4300226: Foco14
+    4300228: Foco15
+    4300230: SimbolBalde
+    4300232: RuedaTrastIzquierda
+    4300234: RuedaTrastDerecha
+    4300236: polySurface45
+    4300238: Varios
+    4300240: SimbolBack
+    4300242: BasesFocos
+    4300244: polySurface47
+    4300246: RuedaDelatDerecha
+    4300248: RuedaDelatIzquierda
+    4300250: SimbolFront
+    4300252: Intro1
+    4300254: Intro2
+    4300256: Amarillo6
+    4300258: SimbolEnfriador
+    4300260: SimbolDoor
+    4300262: Operador:Lente
+    4300264: Operador:Cuerpo
+    4300266: Operador:Casco
+    4300268: Operador:Lente
+    4300270: Operador:Cuerpo
+    4300272: Operador:Casco
+    4300274: Operador:Caja1
+    4300276: Operador:Caja2
+    4300278: Operador:Luces
+    4300280: Operador:Cordon
+    4300282: Operador:Mascarilla
+    7400000: Entrada
+    7400002: CompuertaDelantera
+    7400004: CompuertaTraseraIzq
+    7400006: Idle
+    7400008: CompuertaDelanteraCerrar
+    7400010: CompuertaTraseraIzqCerrar
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Operador:Caja1
+    13700002: Operador:Caja2
+    13700004: Operador:Casco
+    13700006: Operador:Casco 1
+    13700008: Operador:Cordon
+    13700010: Operador:Cuerpo
+    13700012: Operador:Cuerpo 1
+    13700014: Operador:Lente
+    13700016: Operador:Lente 1
+    13700018: Operador:Luces
+    13700020: Operador:Mascarilla
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Entrada
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 260
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MT6020
+        weight: 1
+      - path: MT6020/Delantera
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/Intro1
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/Amarillo6
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/Intro2
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/SimbolEnfriador
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch/IsoManilla
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch/TapaISO
+        weight: 1
+      - path: MT6020/Delantera/LlaveFiltro
+        weight: 1
+      - path: MT6020/Delantera/LlaveFiltro/Llave
+        weight: 1
+      - path: MT6020/Delantera/Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Caucho_2
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Cubierta_Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Marco_Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/MetalAmarillo_4
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Salida2
+        weight: 1
+      - path: MT6020/Delantera/Puerta/SimbolDoor
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Vidrios_2
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/pTorus1
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/Seguro2
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/TapaAnsu
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras/Manilla
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras/Tapa3
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Tapa_Motor
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Topes
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/Fijacion
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/ManillaNegro
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/Perno1
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Conecciones
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Correa1
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Radiador_
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/TapaRadiador 1
+        weight: 1
+      - path: MT6020/Delantera/Varios
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo4
+        weight: 1
+      - path: MT6020/Delantera/Varios/Asiento
+        weight: 1
+      - path: MT6020/Delantera/Varios/Baliza1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Baliza2
+        weight: 1
+      - path: MT6020/Delantera/Varios/BasePedales
+        weight: 1
+      - path: MT6020/Delantera/Varios/BlaxTair_D
+        weight: 1
+      - path: MT6020/Delantera/Varios/Botones_Tab
+        weight: 1
+      - path: MT6020/Delantera/Varios/CamSup
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface3/transform2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface6
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface6/transform4
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface11
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface11/transform12
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface12
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface12/transform14
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface13
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface13/polySurface47
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho_6
+        weight: 1
+      - path: MT6020/Delantera/Varios/Conectores
+        weight: 1
+      - path: MT6020/Delantera/Varios/ConexIntMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Control_Manual
+        weight: 1
+      - path: MT6020/Delantera/Varios/Cubierta_Cabina
+        weight: 1
+      - path: MT6020/Delantera/Varios/Espejos
+        weight: 1
+      - path: MT6020/Delantera/Varios/Filtros
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface14
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface14/transform1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface18
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface18/transform3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface20
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface20/transform11
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface21
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface21/transform13
+        weight: 1
+      - path: MT6020/Delantera/Varios/Llantas_D
+        weight: 1
+      - path: MT6020/Delantera/Varios/ManguerasMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Marco_Tablero
+        weight: 1
+      - path: MT6020/Delantera/Varios/Metales_7
+        weight: 1
+      - path: MT6020/Delantera/Varios/Motor2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Motor_1
+        weight: 1
+      - path: MT6020/Delantera/Varios/OcultoMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Pernos
+        weight: 1
+      - path: MT6020/Delantera/Varios/Plastico_Metal1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Plastico_Metal2
+        weight: 1
+      - path: MT6020/Delantera/Varios/RuedaDelatDerecha
+        weight: 1
+      - path: MT6020/Delantera/Varios/RuedaDelatIzquierda
+        weight: 1
+      - path: MT6020/Delantera/Varios/Salida1
+        weight: 1
+      - path: MT6020/Delantera/Varios/SimbolFront
+        weight: 1
+      - path: MT6020/Delantera/Varios/SistemAnsul2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Tablero_Odometro
+        weight: 1
+      - path: MT6020/Delantera/Varios/Tapa1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Varios_1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Vidrios_1
+        weight: 1
+      - path: MT6020/Focos
+        weight: 1
+      - path: MT6020/Focos/Foco1
+        weight: 1
+      - path: MT6020/Focos/Foco2
+        weight: 1
+      - path: MT6020/Focos/Foco3
+        weight: 1
+      - path: MT6020/Focos/Foco4
+        weight: 1
+      - path: MT6020/Focos/Foco5
+        weight: 1
+      - path: MT6020/Focos/Foco6
+        weight: 1
+      - path: MT6020/Focos/Foco7
+        weight: 1
+      - path: MT6020/Focos/Foco8
+        weight: 1
+      - path: MT6020/Focos/Foco9
+        weight: 1
+      - path: MT6020/Focos/Foco10
+        weight: 1
+      - path: MT6020/Focos/Foco11
+        weight: 1
+      - path: MT6020/Focos/Foco12
+        weight: 1
+      - path: MT6020/Focos/Foco13
+        weight: 1
+      - path: MT6020/Focos/Foco14
+        weight: 1
+      - path: MT6020/Focos/Foco15
+        weight: 1
+      - path: MT6020/Trasero1
+        weight: 1
+      - path: MT6020/Trasero1/Balde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/Balde 1
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeBalde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio/CilindroEmpuje_I
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio/Cobierta
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/Cunia
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/Pernos 1
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/SeguroCable_B
+        weight: 1
+      - path: MT6020/Trasero1/Balde/SimbolBalde
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo/EjeBajo
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo/SoporteCilindro
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Amarillo_5
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Amarillo_6
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/BasesFocos
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/BlaxTair_T
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Cables
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Cadenas
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CamTras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Caucho_7
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CilindInterEmpuje
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CinlindroLaterales
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Conex
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/ConexMangueras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/EjeMotor
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/EjeTrasero
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface34
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface34/transform5
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface39
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface39/transform7
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface44
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface44/transform10
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface45
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface25
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface25/transform9
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface26
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface26/transform8
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface28
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface28/transform6
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/MangerasHidrau
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/PernosTuercas
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/RuedaTrastDerecha
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/RuedaTrastIzquierda
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/SimbolBack
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Tope
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/TopeEje
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Varios 2
+        weight: 1
+      - path: Operador:Operadores
+        weight: 1
+      - path: Operador:Operadores/Operador:Caja1
+        weight: 1
+      - path: Operador:Operadores/Operador:Caja2
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_De/Operador:ik_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_Iz/Operador:ik_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza/Operador:spotLight1
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De/Operador:ManoDe
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz/Operador:ManoIz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ikHandle_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ikHandle_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Cordon
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza/Operador:PuntaCabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01/Operador:_notused_Bip01_R_Finger0Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11/Operador:_notused_Bip01_R_Finger1Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21/Operador:_notused_Bip01_R_Finger2Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01/Operador:_notused_Bip01_L_Finger0Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11/Operador:_notused_Bip01_L_Finger1Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21/Operador:_notused_Bip01_L_Finger2Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De/Operador:P_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz/Operador:P_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Luces
+        weight: 1
+      - path: Operador:Operadores/Operador:Mascarilla
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Casco
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Cuerpo
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Lente
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Casco 1
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Cuerpo 1
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Lente 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CompuertaDelantera
+      takeName: Take 001
+      firstFrame: 298
+      lastFrame: 319
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MT6020
+        weight: 1
+      - path: MT6020/Delantera
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/Intro1
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/Amarillo6
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/Intro2
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/SimbolEnfriador
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch/IsoManilla
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch/TapaISO
+        weight: 1
+      - path: MT6020/Delantera/LlaveFiltro
+        weight: 1
+      - path: MT6020/Delantera/LlaveFiltro/Llave
+        weight: 1
+      - path: MT6020/Delantera/Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Caucho_2
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Cubierta_Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Marco_Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/MetalAmarillo_4
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Salida2
+        weight: 1
+      - path: MT6020/Delantera/Puerta/SimbolDoor
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Vidrios_2
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/pTorus1
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/Seguro2
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/TapaAnsu
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras/Manilla
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras/Tapa3
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Tapa_Motor
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Topes
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/Fijacion
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/ManillaNegro
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/Perno1
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Conecciones
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Correa1
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Radiador_
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/TapaRadiador 1
+        weight: 1
+      - path: MT6020/Delantera/Varios
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo4
+        weight: 1
+      - path: MT6020/Delantera/Varios/Asiento
+        weight: 1
+      - path: MT6020/Delantera/Varios/Baliza1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Baliza2
+        weight: 1
+      - path: MT6020/Delantera/Varios/BasePedales
+        weight: 1
+      - path: MT6020/Delantera/Varios/BlaxTair_D
+        weight: 1
+      - path: MT6020/Delantera/Varios/Botones_Tab
+        weight: 1
+      - path: MT6020/Delantera/Varios/CamSup
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface3/transform2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface6
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface6/transform4
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface11
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface11/transform12
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface12
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface12/transform14
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface13
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface13/polySurface47
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho_6
+        weight: 1
+      - path: MT6020/Delantera/Varios/Conectores
+        weight: 1
+      - path: MT6020/Delantera/Varios/ConexIntMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Control_Manual
+        weight: 1
+      - path: MT6020/Delantera/Varios/Cubierta_Cabina
+        weight: 1
+      - path: MT6020/Delantera/Varios/Espejos
+        weight: 1
+      - path: MT6020/Delantera/Varios/Filtros
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface14
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface14/transform1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface18
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface18/transform3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface20
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface20/transform11
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface21
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface21/transform13
+        weight: 1
+      - path: MT6020/Delantera/Varios/Llantas_D
+        weight: 1
+      - path: MT6020/Delantera/Varios/ManguerasMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Marco_Tablero
+        weight: 1
+      - path: MT6020/Delantera/Varios/Metales_7
+        weight: 1
+      - path: MT6020/Delantera/Varios/Motor2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Motor_1
+        weight: 1
+      - path: MT6020/Delantera/Varios/OcultoMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Pernos
+        weight: 1
+      - path: MT6020/Delantera/Varios/Plastico_Metal1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Plastico_Metal2
+        weight: 1
+      - path: MT6020/Delantera/Varios/RuedaDelatDerecha
+        weight: 1
+      - path: MT6020/Delantera/Varios/RuedaDelatIzquierda
+        weight: 1
+      - path: MT6020/Delantera/Varios/Salida1
+        weight: 1
+      - path: MT6020/Delantera/Varios/SimbolFront
+        weight: 1
+      - path: MT6020/Delantera/Varios/SistemAnsul2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Tablero_Odometro
+        weight: 1
+      - path: MT6020/Delantera/Varios/Tapa1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Varios_1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Vidrios_1
+        weight: 1
+      - path: MT6020/Focos
+        weight: 1
+      - path: MT6020/Focos/Foco1
+        weight: 1
+      - path: MT6020/Focos/Foco2
+        weight: 1
+      - path: MT6020/Focos/Foco3
+        weight: 1
+      - path: MT6020/Focos/Foco4
+        weight: 1
+      - path: MT6020/Focos/Foco5
+        weight: 1
+      - path: MT6020/Focos/Foco6
+        weight: 1
+      - path: MT6020/Focos/Foco7
+        weight: 1
+      - path: MT6020/Focos/Foco8
+        weight: 1
+      - path: MT6020/Focos/Foco9
+        weight: 1
+      - path: MT6020/Focos/Foco10
+        weight: 1
+      - path: MT6020/Focos/Foco11
+        weight: 1
+      - path: MT6020/Focos/Foco12
+        weight: 1
+      - path: MT6020/Focos/Foco13
+        weight: 1
+      - path: MT6020/Focos/Foco14
+        weight: 1
+      - path: MT6020/Focos/Foco15
+        weight: 1
+      - path: MT6020/Trasero1
+        weight: 1
+      - path: MT6020/Trasero1/Balde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/Balde 1
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeBalde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio/CilindroEmpuje_I
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio/Cobierta
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/Cunia
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/Pernos 1
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/SeguroCable_B
+        weight: 1
+      - path: MT6020/Trasero1/Balde/SimbolBalde
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo/EjeBajo
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo/SoporteCilindro
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Amarillo_5
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Amarillo_6
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/BasesFocos
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/BlaxTair_T
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Cables
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Cadenas
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CamTras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Caucho_7
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CilindInterEmpuje
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CinlindroLaterales
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Conex
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/ConexMangueras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/EjeMotor
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/EjeTrasero
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface34
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface34/transform5
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface39
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface39/transform7
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface44
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface44/transform10
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface45
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface25
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface25/transform9
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface26
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface26/transform8
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface28
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface28/transform6
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/MangerasHidrau
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/PernosTuercas
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/RuedaTrastDerecha
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/RuedaTrastIzquierda
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/SimbolBack
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Tope
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/TopeEje
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Varios 2
+        weight: 1
+      - path: Operador:Operadores
+        weight: 1
+      - path: Operador:Operadores/Operador:Caja1
+        weight: 1
+      - path: Operador:Operadores/Operador:Caja2
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_De/Operador:ik_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_Iz/Operador:ik_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza/Operador:spotLight1
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De/Operador:ManoDe
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz/Operador:ManoIz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ikHandle_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ikHandle_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Cordon
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza/Operador:PuntaCabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01/Operador:_notused_Bip01_R_Finger0Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11/Operador:_notused_Bip01_R_Finger1Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21/Operador:_notused_Bip01_R_Finger2Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01/Operador:_notused_Bip01_L_Finger0Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11/Operador:_notused_Bip01_L_Finger1Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21/Operador:_notused_Bip01_L_Finger2Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De/Operador:P_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz/Operador:P_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Luces
+        weight: 1
+      - path: Operador:Operadores/Operador:Mascarilla
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Casco
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Cuerpo
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Lente
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Casco 1
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Cuerpo 1
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Lente 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CompuertaTraseraIzq
+      takeName: Take 001
+      firstFrame: 260
+      lastFrame: 278
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MT6020
+        weight: 1
+      - path: MT6020/Delantera
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/Intro1
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/Amarillo6
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/Intro2
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/SimbolEnfriador
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch/IsoManilla
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch/TapaISO
+        weight: 1
+      - path: MT6020/Delantera/LlaveFiltro
+        weight: 1
+      - path: MT6020/Delantera/LlaveFiltro/Llave
+        weight: 1
+      - path: MT6020/Delantera/Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Caucho_2
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Cubierta_Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Marco_Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/MetalAmarillo_4
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Salida2
+        weight: 1
+      - path: MT6020/Delantera/Puerta/SimbolDoor
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Vidrios_2
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/pTorus1
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/Seguro2
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/TapaAnsu
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras/Manilla
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras/Tapa3
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Tapa_Motor
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Topes
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/Fijacion
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/ManillaNegro
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/Perno1
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Conecciones
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Correa1
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Radiador_
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/TapaRadiador 1
+        weight: 1
+      - path: MT6020/Delantera/Varios
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo4
+        weight: 1
+      - path: MT6020/Delantera/Varios/Asiento
+        weight: 1
+      - path: MT6020/Delantera/Varios/Baliza1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Baliza2
+        weight: 1
+      - path: MT6020/Delantera/Varios/BasePedales
+        weight: 1
+      - path: MT6020/Delantera/Varios/BlaxTair_D
+        weight: 1
+      - path: MT6020/Delantera/Varios/Botones_Tab
+        weight: 1
+      - path: MT6020/Delantera/Varios/CamSup
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface3/transform2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface6
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface6/transform4
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface11
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface11/transform12
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface12
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface12/transform14
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface13
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface13/polySurface47
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho_6
+        weight: 1
+      - path: MT6020/Delantera/Varios/Conectores
+        weight: 1
+      - path: MT6020/Delantera/Varios/ConexIntMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Control_Manual
+        weight: 1
+      - path: MT6020/Delantera/Varios/Cubierta_Cabina
+        weight: 1
+      - path: MT6020/Delantera/Varios/Espejos
+        weight: 1
+      - path: MT6020/Delantera/Varios/Filtros
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface14
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface14/transform1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface18
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface18/transform3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface20
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface20/transform11
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface21
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface21/transform13
+        weight: 1
+      - path: MT6020/Delantera/Varios/Llantas_D
+        weight: 1
+      - path: MT6020/Delantera/Varios/ManguerasMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Marco_Tablero
+        weight: 1
+      - path: MT6020/Delantera/Varios/Metales_7
+        weight: 1
+      - path: MT6020/Delantera/Varios/Motor2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Motor_1
+        weight: 1
+      - path: MT6020/Delantera/Varios/OcultoMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Pernos
+        weight: 1
+      - path: MT6020/Delantera/Varios/Plastico_Metal1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Plastico_Metal2
+        weight: 1
+      - path: MT6020/Delantera/Varios/RuedaDelatDerecha
+        weight: 1
+      - path: MT6020/Delantera/Varios/RuedaDelatIzquierda
+        weight: 1
+      - path: MT6020/Delantera/Varios/Salida1
+        weight: 1
+      - path: MT6020/Delantera/Varios/SimbolFront
+        weight: 1
+      - path: MT6020/Delantera/Varios/SistemAnsul2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Tablero_Odometro
+        weight: 1
+      - path: MT6020/Delantera/Varios/Tapa1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Varios_1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Vidrios_1
+        weight: 1
+      - path: MT6020/Focos
+        weight: 1
+      - path: MT6020/Focos/Foco1
+        weight: 1
+      - path: MT6020/Focos/Foco2
+        weight: 1
+      - path: MT6020/Focos/Foco3
+        weight: 1
+      - path: MT6020/Focos/Foco4
+        weight: 1
+      - path: MT6020/Focos/Foco5
+        weight: 1
+      - path: MT6020/Focos/Foco6
+        weight: 1
+      - path: MT6020/Focos/Foco7
+        weight: 1
+      - path: MT6020/Focos/Foco8
+        weight: 1
+      - path: MT6020/Focos/Foco9
+        weight: 1
+      - path: MT6020/Focos/Foco10
+        weight: 1
+      - path: MT6020/Focos/Foco11
+        weight: 1
+      - path: MT6020/Focos/Foco12
+        weight: 1
+      - path: MT6020/Focos/Foco13
+        weight: 1
+      - path: MT6020/Focos/Foco14
+        weight: 1
+      - path: MT6020/Focos/Foco15
+        weight: 1
+      - path: MT6020/Trasero1
+        weight: 1
+      - path: MT6020/Trasero1/Balde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/Balde 1
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeBalde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio/CilindroEmpuje_I
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio/Cobierta
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/Cunia
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/Pernos 1
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/SeguroCable_B
+        weight: 1
+      - path: MT6020/Trasero1/Balde/SimbolBalde
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo/EjeBajo
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo/SoporteCilindro
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Amarillo_5
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Amarillo_6
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/BasesFocos
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/BlaxTair_T
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Cables
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Cadenas
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CamTras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Caucho_7
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CilindInterEmpuje
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CinlindroLaterales
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Conex
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/ConexMangueras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/EjeMotor
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/EjeTrasero
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface34
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface34/transform5
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface39
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface39/transform7
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface44
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface44/transform10
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface45
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface25
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface25/transform9
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface26
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface26/transform8
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface28
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface28/transform6
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/MangerasHidrau
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/PernosTuercas
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/RuedaTrastDerecha
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/RuedaTrastIzquierda
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/SimbolBack
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Tope
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/TopeEje
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Varios 2
+        weight: 1
+      - path: Operador:Operadores
+        weight: 1
+      - path: Operador:Operadores/Operador:Caja1
+        weight: 1
+      - path: Operador:Operadores/Operador:Caja2
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_De/Operador:ik_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_Iz/Operador:ik_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza/Operador:spotLight1
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De/Operador:ManoDe
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz/Operador:ManoIz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ikHandle_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ikHandle_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Cordon
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza/Operador:PuntaCabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01/Operador:_notused_Bip01_R_Finger0Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11/Operador:_notused_Bip01_R_Finger1Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21/Operador:_notused_Bip01_R_Finger2Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01/Operador:_notused_Bip01_L_Finger0Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11/Operador:_notused_Bip01_L_Finger1Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21/Operador:_notused_Bip01_L_Finger2Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De/Operador:P_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz/Operador:P_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Luces
+        weight: 1
+      - path: Operador:Operadores/Operador:Mascarilla
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Casco
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Cuerpo
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Lente
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Casco 1
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Cuerpo 1
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Lente 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MT6020
+        weight: 1
+      - path: MT6020/Delantera
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/Intro1
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/Amarillo6
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/Intro2
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/SimbolEnfriador
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch/IsoManilla
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch/TapaISO
+        weight: 1
+      - path: MT6020/Delantera/LlaveFiltro
+        weight: 1
+      - path: MT6020/Delantera/LlaveFiltro/Llave
+        weight: 1
+      - path: MT6020/Delantera/Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Caucho_2
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Cubierta_Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Marco_Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/MetalAmarillo_4
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Salida2
+        weight: 1
+      - path: MT6020/Delantera/Puerta/SimbolDoor
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Vidrios_2
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/pTorus1
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/Seguro2
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/TapaAnsu
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras/Manilla
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras/Tapa3
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Tapa_Motor
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Topes
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/Fijacion
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/ManillaNegro
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/Perno1
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Conecciones
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Correa1
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Radiador_
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/TapaRadiador 1
+        weight: 1
+      - path: MT6020/Delantera/Varios
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo4
+        weight: 1
+      - path: MT6020/Delantera/Varios/Asiento
+        weight: 1
+      - path: MT6020/Delantera/Varios/Baliza1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Baliza2
+        weight: 1
+      - path: MT6020/Delantera/Varios/BasePedales
+        weight: 1
+      - path: MT6020/Delantera/Varios/BlaxTair_D
+        weight: 1
+      - path: MT6020/Delantera/Varios/Botones_Tab
+        weight: 1
+      - path: MT6020/Delantera/Varios/CamSup
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface3/transform2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface6
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface6/transform4
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface11
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface11/transform12
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface12
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface12/transform14
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface13
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface13/polySurface47
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho_6
+        weight: 1
+      - path: MT6020/Delantera/Varios/Conectores
+        weight: 1
+      - path: MT6020/Delantera/Varios/ConexIntMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Control_Manual
+        weight: 1
+      - path: MT6020/Delantera/Varios/Cubierta_Cabina
+        weight: 1
+      - path: MT6020/Delantera/Varios/Espejos
+        weight: 1
+      - path: MT6020/Delantera/Varios/Filtros
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface14
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface14/transform1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface18
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface18/transform3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface20
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface20/transform11
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface21
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface21/transform13
+        weight: 1
+      - path: MT6020/Delantera/Varios/Llantas_D
+        weight: 1
+      - path: MT6020/Delantera/Varios/ManguerasMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Marco_Tablero
+        weight: 1
+      - path: MT6020/Delantera/Varios/Metales_7
+        weight: 1
+      - path: MT6020/Delantera/Varios/Motor2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Motor_1
+        weight: 1
+      - path: MT6020/Delantera/Varios/OcultoMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Pernos
+        weight: 1
+      - path: MT6020/Delantera/Varios/Plastico_Metal1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Plastico_Metal2
+        weight: 1
+      - path: MT6020/Delantera/Varios/RuedaDelatDerecha
+        weight: 1
+      - path: MT6020/Delantera/Varios/RuedaDelatIzquierda
+        weight: 1
+      - path: MT6020/Delantera/Varios/Salida1
+        weight: 1
+      - path: MT6020/Delantera/Varios/SimbolFront
+        weight: 1
+      - path: MT6020/Delantera/Varios/SistemAnsul2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Tablero_Odometro
+        weight: 1
+      - path: MT6020/Delantera/Varios/Tapa1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Varios_1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Vidrios_1
+        weight: 1
+      - path: MT6020/Focos
+        weight: 1
+      - path: MT6020/Focos/Foco1
+        weight: 1
+      - path: MT6020/Focos/Foco2
+        weight: 1
+      - path: MT6020/Focos/Foco3
+        weight: 1
+      - path: MT6020/Focos/Foco4
+        weight: 1
+      - path: MT6020/Focos/Foco5
+        weight: 1
+      - path: MT6020/Focos/Foco6
+        weight: 1
+      - path: MT6020/Focos/Foco7
+        weight: 1
+      - path: MT6020/Focos/Foco8
+        weight: 1
+      - path: MT6020/Focos/Foco9
+        weight: 1
+      - path: MT6020/Focos/Foco10
+        weight: 1
+      - path: MT6020/Focos/Foco11
+        weight: 1
+      - path: MT6020/Focos/Foco12
+        weight: 1
+      - path: MT6020/Focos/Foco13
+        weight: 1
+      - path: MT6020/Focos/Foco14
+        weight: 1
+      - path: MT6020/Focos/Foco15
+        weight: 1
+      - path: MT6020/Trasero1
+        weight: 1
+      - path: MT6020/Trasero1/Balde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/Balde 1
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeBalde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio/CilindroEmpuje_I
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio/Cobierta
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/Cunia
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/Pernos 1
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/SeguroCable_B
+        weight: 1
+      - path: MT6020/Trasero1/Balde/SimbolBalde
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo/EjeBajo
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo/SoporteCilindro
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Amarillo_5
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Amarillo_6
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/BasesFocos
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/BlaxTair_T
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Cables
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Cadenas
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CamTras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Caucho_7
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CilindInterEmpuje
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CinlindroLaterales
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Conex
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/ConexMangueras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/EjeMotor
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/EjeTrasero
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface34
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface34/transform5
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface39
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface39/transform7
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface44
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface44/transform10
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface45
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface25
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface25/transform9
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface26
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface26/transform8
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface28
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface28/transform6
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/MangerasHidrau
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/PernosTuercas
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/RuedaTrastDerecha
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/RuedaTrastIzquierda
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/SimbolBack
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Tope
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/TopeEje
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Varios 2
+        weight: 1
+      - path: Operador:Operadores
+        weight: 1
+      - path: Operador:Operadores/Operador:Caja1
+        weight: 1
+      - path: Operador:Operadores/Operador:Caja2
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_De/Operador:ik_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_Iz/Operador:ik_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza/Operador:spotLight1
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De/Operador:ManoDe
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz/Operador:ManoIz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ikHandle_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ikHandle_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Cordon
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza/Operador:PuntaCabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01/Operador:_notused_Bip01_R_Finger0Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11/Operador:_notused_Bip01_R_Finger1Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21/Operador:_notused_Bip01_R_Finger2Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01/Operador:_notused_Bip01_L_Finger0Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11/Operador:_notused_Bip01_L_Finger1Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21/Operador:_notused_Bip01_L_Finger2Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De/Operador:P_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz/Operador:P_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Luces
+        weight: 1
+      - path: Operador:Operadores/Operador:Mascarilla
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Casco
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Cuerpo
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Lente
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Casco 1
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Cuerpo 1
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Lente 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CompuertaDelanteraCerrar
+      takeName: Take 001
+      firstFrame: 319
+      lastFrame: 340
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MT6020
+        weight: 1
+      - path: MT6020/Delantera
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/Intro1
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/Amarillo6
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/Intro2
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/SimbolEnfriador
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch/IsoManilla
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch/TapaISO
+        weight: 1
+      - path: MT6020/Delantera/LlaveFiltro
+        weight: 1
+      - path: MT6020/Delantera/LlaveFiltro/Llave
+        weight: 1
+      - path: MT6020/Delantera/Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Caucho_2
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Cubierta_Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Marco_Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/MetalAmarillo_4
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Salida2
+        weight: 1
+      - path: MT6020/Delantera/Puerta/SimbolDoor
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Vidrios_2
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/pTorus1
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/Seguro2
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/TapaAnsu
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras/Manilla
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras/Tapa3
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Tapa_Motor
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Topes
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/Fijacion
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/ManillaNegro
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/Perno1
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Conecciones
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Correa1
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Radiador_
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/TapaRadiador 1
+        weight: 1
+      - path: MT6020/Delantera/Varios
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo4
+        weight: 1
+      - path: MT6020/Delantera/Varios/Asiento
+        weight: 1
+      - path: MT6020/Delantera/Varios/Baliza1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Baliza2
+        weight: 1
+      - path: MT6020/Delantera/Varios/BasePedales
+        weight: 1
+      - path: MT6020/Delantera/Varios/BlaxTair_D
+        weight: 1
+      - path: MT6020/Delantera/Varios/Botones_Tab
+        weight: 1
+      - path: MT6020/Delantera/Varios/CamSup
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface3/transform2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface6
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface6/transform4
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface11
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface11/transform12
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface12
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface12/transform14
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface13
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface13/polySurface47
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho_6
+        weight: 1
+      - path: MT6020/Delantera/Varios/Conectores
+        weight: 1
+      - path: MT6020/Delantera/Varios/ConexIntMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Control_Manual
+        weight: 1
+      - path: MT6020/Delantera/Varios/Cubierta_Cabina
+        weight: 1
+      - path: MT6020/Delantera/Varios/Espejos
+        weight: 1
+      - path: MT6020/Delantera/Varios/Filtros
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface14
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface14/transform1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface18
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface18/transform3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface20
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface20/transform11
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface21
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface21/transform13
+        weight: 1
+      - path: MT6020/Delantera/Varios/Llantas_D
+        weight: 1
+      - path: MT6020/Delantera/Varios/ManguerasMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Marco_Tablero
+        weight: 1
+      - path: MT6020/Delantera/Varios/Metales_7
+        weight: 1
+      - path: MT6020/Delantera/Varios/Motor2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Motor_1
+        weight: 1
+      - path: MT6020/Delantera/Varios/OcultoMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Pernos
+        weight: 1
+      - path: MT6020/Delantera/Varios/Plastico_Metal1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Plastico_Metal2
+        weight: 1
+      - path: MT6020/Delantera/Varios/RuedaDelatDerecha
+        weight: 1
+      - path: MT6020/Delantera/Varios/RuedaDelatIzquierda
+        weight: 1
+      - path: MT6020/Delantera/Varios/Salida1
+        weight: 1
+      - path: MT6020/Delantera/Varios/SimbolFront
+        weight: 1
+      - path: MT6020/Delantera/Varios/SistemAnsul2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Tablero_Odometro
+        weight: 1
+      - path: MT6020/Delantera/Varios/Tapa1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Varios_1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Vidrios_1
+        weight: 1
+      - path: MT6020/Focos
+        weight: 1
+      - path: MT6020/Focos/Foco1
+        weight: 1
+      - path: MT6020/Focos/Foco2
+        weight: 1
+      - path: MT6020/Focos/Foco3
+        weight: 1
+      - path: MT6020/Focos/Foco4
+        weight: 1
+      - path: MT6020/Focos/Foco5
+        weight: 1
+      - path: MT6020/Focos/Foco6
+        weight: 1
+      - path: MT6020/Focos/Foco7
+        weight: 1
+      - path: MT6020/Focos/Foco8
+        weight: 1
+      - path: MT6020/Focos/Foco9
+        weight: 1
+      - path: MT6020/Focos/Foco10
+        weight: 1
+      - path: MT6020/Focos/Foco11
+        weight: 1
+      - path: MT6020/Focos/Foco12
+        weight: 1
+      - path: MT6020/Focos/Foco13
+        weight: 1
+      - path: MT6020/Focos/Foco14
+        weight: 1
+      - path: MT6020/Focos/Foco15
+        weight: 1
+      - path: MT6020/Trasero1
+        weight: 1
+      - path: MT6020/Trasero1/Balde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/Balde 1
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeBalde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio/CilindroEmpuje_I
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio/Cobierta
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/Cunia
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/Pernos 1
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/SeguroCable_B
+        weight: 1
+      - path: MT6020/Trasero1/Balde/SimbolBalde
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo/EjeBajo
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo/SoporteCilindro
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Amarillo_5
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Amarillo_6
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/BasesFocos
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/BlaxTair_T
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Cables
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Cadenas
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CamTras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Caucho_7
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CilindInterEmpuje
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CinlindroLaterales
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Conex
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/ConexMangueras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/EjeMotor
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/EjeTrasero
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface34
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface34/transform5
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface39
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface39/transform7
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface44
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface44/transform10
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface45
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface25
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface25/transform9
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface26
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface26/transform8
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface28
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface28/transform6
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/MangerasHidrau
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/PernosTuercas
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/RuedaTrastDerecha
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/RuedaTrastIzquierda
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/SimbolBack
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Tope
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/TopeEje
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Varios 2
+        weight: 1
+      - path: Operador:Operadores
+        weight: 1
+      - path: Operador:Operadores/Operador:Caja1
+        weight: 1
+      - path: Operador:Operadores/Operador:Caja2
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_De/Operador:ik_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_Iz/Operador:ik_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza/Operador:spotLight1
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De/Operador:ManoDe
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz/Operador:ManoIz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ikHandle_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ikHandle_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Cordon
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza/Operador:PuntaCabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01/Operador:_notused_Bip01_R_Finger0Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11/Operador:_notused_Bip01_R_Finger1Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21/Operador:_notused_Bip01_R_Finger2Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01/Operador:_notused_Bip01_L_Finger0Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11/Operador:_notused_Bip01_L_Finger1Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21/Operador:_notused_Bip01_L_Finger2Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De/Operador:P_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz/Operador:P_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Luces
+        weight: 1
+      - path: Operador:Operadores/Operador:Mascarilla
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Casco
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Cuerpo
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Lente
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Casco 1
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Cuerpo 1
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Lente 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CompuertaTraseraIzqCerrar
+      takeName: Take 001
+      firstFrame: 278
+      lastFrame: 298
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MT6020
+        weight: 1
+      - path: MT6020/Delantera
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/Intro1
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/Amarillo6
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/Intro2
+        weight: 1
+      - path: MT6020/Delantera/EnfriadorDropBox/TapaDropBox/SimbolEnfriador
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch/IsoManilla
+        weight: 1
+      - path: MT6020/Delantera/IsoSwitch/TapaISO
+        weight: 1
+      - path: MT6020/Delantera/LlaveFiltro
+        weight: 1
+      - path: MT6020/Delantera/LlaveFiltro/Llave
+        weight: 1
+      - path: MT6020/Delantera/Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Caucho_2
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Cubierta_Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Marco_Puerta
+        weight: 1
+      - path: MT6020/Delantera/Puerta/MetalAmarillo_4
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Salida2
+        weight: 1
+      - path: MT6020/Delantera/Puerta/SimbolDoor
+        weight: 1
+      - path: MT6020/Delantera/Puerta/Vidrios_2
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/pTorus1
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/Seguro2
+        weight: 1
+      - path: MT6020/Delantera/PuertaAnsul/TapaAnsu
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras/Manilla
+        weight: 1
+      - path: MT6020/Delantera/Tapa_tras/Tapa3
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Tapa_Motor
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Topes
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/Fijacion
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/ManillaNegro
+        weight: 1
+      - path: MT6020/Delantera/TapaMotor/Vara/Perno1
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Conecciones
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Correa1
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/Radiador_
+        weight: 1
+      - path: MT6020/Delantera/TapaRadiador/TapaRadiador 1
+        weight: 1
+      - path: MT6020/Delantera/Varios
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Amarillo4
+        weight: 1
+      - path: MT6020/Delantera/Varios/Asiento
+        weight: 1
+      - path: MT6020/Delantera/Varios/Baliza1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Baliza2
+        weight: 1
+      - path: MT6020/Delantera/Varios/BasePedales
+        weight: 1
+      - path: MT6020/Delantera/Varios/BlaxTair_D
+        weight: 1
+      - path: MT6020/Delantera/Varios/Botones_Tab
+        weight: 1
+      - path: MT6020/Delantera/Varios/CamSup
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface3/transform2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface6
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface6/transform4
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface11
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface11/transform12
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface12
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface12/transform14
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface13
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho/polySurface5/polySurface8/polySurface13/polySurface47
+        weight: 1
+      - path: MT6020/Delantera/Varios/Caucho_6
+        weight: 1
+      - path: MT6020/Delantera/Varios/Conectores
+        weight: 1
+      - path: MT6020/Delantera/Varios/ConexIntMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Control_Manual
+        weight: 1
+      - path: MT6020/Delantera/Varios/Cubierta_Cabina
+        weight: 1
+      - path: MT6020/Delantera/Varios/Espejos
+        weight: 1
+      - path: MT6020/Delantera/Varios/Filtros
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface14
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface14/transform1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface18
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface18/transform3
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface20
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface20/transform11
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface21
+        weight: 1
+      - path: MT6020/Delantera/Varios/Focos 1/polySurface21/transform13
+        weight: 1
+      - path: MT6020/Delantera/Varios/Llantas_D
+        weight: 1
+      - path: MT6020/Delantera/Varios/ManguerasMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Marco_Tablero
+        weight: 1
+      - path: MT6020/Delantera/Varios/Metales_7
+        weight: 1
+      - path: MT6020/Delantera/Varios/Motor2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Motor_1
+        weight: 1
+      - path: MT6020/Delantera/Varios/OcultoMotor
+        weight: 1
+      - path: MT6020/Delantera/Varios/Pernos
+        weight: 1
+      - path: MT6020/Delantera/Varios/Plastico_Metal1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Plastico_Metal2
+        weight: 1
+      - path: MT6020/Delantera/Varios/RuedaDelatDerecha
+        weight: 1
+      - path: MT6020/Delantera/Varios/RuedaDelatIzquierda
+        weight: 1
+      - path: MT6020/Delantera/Varios/Salida1
+        weight: 1
+      - path: MT6020/Delantera/Varios/SimbolFront
+        weight: 1
+      - path: MT6020/Delantera/Varios/SistemAnsul2
+        weight: 1
+      - path: MT6020/Delantera/Varios/Tablero_Odometro
+        weight: 1
+      - path: MT6020/Delantera/Varios/Tapa1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Varios_1
+        weight: 1
+      - path: MT6020/Delantera/Varios/Vidrios_1
+        weight: 1
+      - path: MT6020/Focos
+        weight: 1
+      - path: MT6020/Focos/Foco1
+        weight: 1
+      - path: MT6020/Focos/Foco2
+        weight: 1
+      - path: MT6020/Focos/Foco3
+        weight: 1
+      - path: MT6020/Focos/Foco4
+        weight: 1
+      - path: MT6020/Focos/Foco5
+        weight: 1
+      - path: MT6020/Focos/Foco6
+        weight: 1
+      - path: MT6020/Focos/Foco7
+        weight: 1
+      - path: MT6020/Focos/Foco8
+        weight: 1
+      - path: MT6020/Focos/Foco9
+        weight: 1
+      - path: MT6020/Focos/Foco10
+        weight: 1
+      - path: MT6020/Focos/Foco11
+        weight: 1
+      - path: MT6020/Focos/Foco12
+        weight: 1
+      - path: MT6020/Focos/Foco13
+        weight: 1
+      - path: MT6020/Focos/Foco14
+        weight: 1
+      - path: MT6020/Focos/Foco15
+        weight: 1
+      - path: MT6020/Trasero1
+        weight: 1
+      - path: MT6020/Trasero1/Balde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/Balde 1
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeBalde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio/CilindroEmpuje_I
+        weight: 1
+      - path: MT6020/Trasero1/Balde/BrazoEje/EjeMedio/Cobierta
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/Cunia
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/Pernos 1
+        weight: 1
+      - path: MT6020/Trasero1/Balde/G_Balde/SeguroCable_B
+        weight: 1
+      - path: MT6020/Trasero1/Balde/SimbolBalde
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo/EjeBajo
+        weight: 1
+      - path: MT6020/Trasero1/BaseEjeBajo/SoporteCilindro
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Amarillo_5
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Amarillo_6
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/BasesFocos
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/BlaxTair_T
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Cables
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Cadenas
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CamTras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Caucho_7
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CilindInterEmpuje
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/CinlindroLaterales
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Conex
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/ConexMangueras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/EjeMotor
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/EjeTrasero
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface34
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface34/transform5
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface39
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface39/transform7
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface44
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface44/transform10
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Focos 2/polySurface45
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface25
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface25/transform9
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface26
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface26/transform8
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface28
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/FocosTras/polySurface28/transform6
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/MangerasHidrau
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/PernosTuercas
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/RuedaTrastDerecha
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/RuedaTrastIzquierda
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/SimbolBack
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Tope
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/TopeEje
+        weight: 1
+      - path: MT6020/Trasero1/Varios 1/Varios 2
+        weight: 1
+      - path: Operador:Operadores
+        weight: 1
+      - path: Operador:Operadores/Operador:Caja1
+        weight: 1
+      - path: Operador:Operadores/Operador:Caja2
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_De/Operador:ik_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:C_Pie_Iz/Operador:ik_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza/Operador:spotLight1
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De/Operador:ManoDe
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz/Operador:ManoIz
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ikHandle_De
+        weight: 1
+      - path: Operador:Operadores/Operador:ControlBase/Operador:ikHandle_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Cordon
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza/Operador:PuntaCabeza
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01/Operador:_notused_Bip01_R_Finger0Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11/Operador:_notused_Bip01_R_Finger1Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21/Operador:_notused_Bip01_R_Finger2Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01/Operador:_notused_Bip01_L_Finger0Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11/Operador:_notused_Bip01_L_Finger1Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21/Operador:_notused_Bip01_L_Finger2Nub
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De/Operador:P_Pie_De
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          2/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz/Operador:P_Pie_Iz
+        weight: 1
+      - path: Operador:Operadores/Operador:Luces
+        weight: 1
+      - path: Operador:Operadores/Operador:Mascarilla
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Casco
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Cuerpo
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorDentro/Operador:Lente
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Casco 1
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Cuerpo 1
+        weight: 1
+      - path: Operador:Operadores/Operador:OperadorFuera/Operador:Lente 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

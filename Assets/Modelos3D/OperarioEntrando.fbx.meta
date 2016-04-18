@@ -1,0 +1,714 @@
+fileFormatVersion: 2
+guid: 8b1189f0e508f8b43a92e054fb0df4f4
+timeCreated: 1459278287
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Operador:_notused_Bip01_L_Finger0Nub
+    100002: Operador:_notused_Bip01_L_Finger1Nub
+    100004: Operador:_notused_Bip01_L_Finger2Nub
+    100006: Operador:_notused_Bip01_R_Finger0Nub
+    100008: Operador:_notused_Bip01_R_Finger1Nub
+    100010: Operador:_notused_Bip01_R_Finger2Nub
+    100012: Operador:Ant_Brazo_De
+    100014: Operador:Ant_Brazo_Iz
+    100016: Operador:Bip01_L_Finger0
+    100018: Operador:Bip01_L_Finger01
+    100020: Operador:Bip01_L_Finger1
+    100022: Operador:Bip01_L_Finger11
+    100024: Operador:Bip01_L_Finger2
+    100026: Operador:Bip01_L_Finger21
+    100028: Operador:Bip01_R_Finger0
+    100030: Operador:Bip01_R_Finger01
+    100032: Operador:Bip01_R_Finger1
+    100034: Operador:Bip01_R_Finger11
+    100036: Operador:Bip01_R_Finger2
+    100038: Operador:Bip01_R_Finger21
+    100040: Operador:Brazo_De
+    100042: Operador:Brazo_De 1
+    100044: Operador:Brazo_Iz
+    100046: Operador:Brazo_Iz 1
+    100048: Operador:C_Cabeza
+    100050: Operador:C_Pie_De
+    100052: Operador:C_Pie_Iz
+    100054: Operador:Cabeza
+    100056: Operador:Caja1
+    100058: Operador:Caja2
+    100060: Operador:Canilla_De
+    100062: Operador:Canilla_Iz
+    100064: Operador:Casco
+    100066: Operador:Codo_De
+    100068: Operador:Codo_Iz
+    100070: Operador:Control
+    100072: Operador:ControlBase
+    100074: Operador:ControlMedio
+    100076: Operador:Cordon
+    100078: Operador:Cuerpo
+    100080: Operador:Cuerpo 1
+    100082: Operador:Emp_De
+    100084: Operador:Emp_Iz
+    100086: Operador:Espalda
+    100088: Operador:Esqueleto
+    100090: Operador:Hombro_De
+    100092: Operador:Hombro_Iz
+    100094: Operador:Hombros
+    100096: Operador:Hombros 1
+    100098: Operador:ik_Pie_De
+    100100: Operador:ik_Pie_Iz
+    100102: Operador:ikHandle_De
+    100104: Operador:ikHandle_Iz
+    100106: Operador:Lente
+    100108: Operador:Luces
+    100110: Operador:Mano_De
+    100112: Operador:Mano_Iz
+    100114: Operador:ManoDe
+    100116: Operador:ManoIz
+    100118: Operador:Mascarilla
+    100120: Operador:OperadorDentro
+    100122: Operador:P_Pie_De
+    100124: Operador:P_Pie_Iz
+    100126: Operador:Pecho_Espalda
+    100128: Operador:Pelvis
+    100130: Operador:Pie_De
+    100132: Operador:Pie_Iz
+    100134: Operador:Pierna_De
+    100136: Operador:Pierna_Iz
+    100138: Operador:PuntaCabeza
+    100140: Operador:spotLight1
+    100142: Operador:Superior
+    100144: //RootNode
+    400000: Operador:_notused_Bip01_L_Finger0Nub
+    400002: Operador:_notused_Bip01_L_Finger1Nub
+    400004: Operador:_notused_Bip01_L_Finger2Nub
+    400006: Operador:_notused_Bip01_R_Finger0Nub
+    400008: Operador:_notused_Bip01_R_Finger1Nub
+    400010: Operador:_notused_Bip01_R_Finger2Nub
+    400012: Operador:Ant_Brazo_De
+    400014: Operador:Ant_Brazo_Iz
+    400016: Operador:Bip01_L_Finger0
+    400018: Operador:Bip01_L_Finger01
+    400020: Operador:Bip01_L_Finger1
+    400022: Operador:Bip01_L_Finger11
+    400024: Operador:Bip01_L_Finger2
+    400026: Operador:Bip01_L_Finger21
+    400028: Operador:Bip01_R_Finger0
+    400030: Operador:Bip01_R_Finger01
+    400032: Operador:Bip01_R_Finger1
+    400034: Operador:Bip01_R_Finger11
+    400036: Operador:Bip01_R_Finger2
+    400038: Operador:Bip01_R_Finger21
+    400040: Operador:Brazo_De
+    400042: Operador:Brazo_De 1
+    400044: Operador:Brazo_Iz
+    400046: Operador:Brazo_Iz 1
+    400048: Operador:C_Cabeza
+    400050: Operador:C_Pie_De
+    400052: Operador:C_Pie_Iz
+    400054: Operador:Cabeza
+    400056: Operador:Caja1
+    400058: Operador:Caja2
+    400060: Operador:Canilla_De
+    400062: Operador:Canilla_Iz
+    400064: Operador:Casco
+    400066: Operador:Codo_De
+    400068: Operador:Codo_Iz
+    400070: Operador:Control
+    400072: Operador:ControlBase
+    400074: Operador:ControlMedio
+    400076: Operador:Cordon
+    400078: Operador:Cuerpo
+    400080: Operador:Cuerpo 1
+    400082: Operador:Emp_De
+    400084: Operador:Emp_Iz
+    400086: Operador:Espalda
+    400088: Operador:Esqueleto
+    400090: Operador:Hombro_De
+    400092: Operador:Hombro_Iz
+    400094: Operador:Hombros
+    400096: Operador:Hombros 1
+    400098: Operador:ik_Pie_De
+    400100: Operador:ik_Pie_Iz
+    400102: Operador:ikHandle_De
+    400104: Operador:ikHandle_Iz
+    400106: Operador:Lente
+    400108: Operador:Luces
+    400110: Operador:Mano_De
+    400112: Operador:Mano_Iz
+    400114: Operador:ManoDe
+    400116: Operador:ManoIz
+    400118: Operador:Mascarilla
+    400120: Operador:OperadorDentro
+    400122: Operador:P_Pie_De
+    400124: Operador:P_Pie_Iz
+    400126: Operador:Pecho_Espalda
+    400128: Operador:Pelvis
+    400130: Operador:Pie_De
+    400132: Operador:Pie_Iz
+    400134: Operador:Pierna_De
+    400136: Operador:Pierna_Iz
+    400138: Operador:PuntaCabeza
+    400140: Operador:spotLight1
+    400142: Operador:Superior
+    400144: //RootNode
+    4300000: Operador:Lente
+    4300002: Operador:Cuerpo
+    4300004: Operador:Casco
+    4300006: Operador:Caja1
+    4300008: Operador:Caja2
+    4300010: Operador:Luces
+    4300012: Operador:Cordon
+    4300014: Operador:Mascarilla
+    7400000: Entrar
+    7400002: Idle
+    9500000: //RootNode
+    13700000: Operador:Caja1
+    13700002: Operador:Caja2
+    13700004: Operador:Casco
+    13700006: Operador:Cordon
+    13700008: Operador:Cuerpo
+    13700010: Operador:Lente
+    13700012: Operador:Luces
+    13700014: Operador:Mascarilla
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Entrar
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 399
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Operador:Caja1
+        weight: 1
+      - path: Operador:Caja2
+        weight: 1
+      - path: Operador:ControlBase
+        weight: 1
+      - path: Operador:ControlBase/Operador:C_Pie_De
+        weight: 1
+      - path: Operador:ControlBase/Operador:C_Pie_De/Operador:ik_Pie_De
+        weight: 1
+      - path: Operador:ControlBase/Operador:C_Pie_Iz
+        weight: 1
+      - path: Operador:ControlBase/Operador:C_Pie_Iz/Operador:ik_Pie_Iz
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza/Operador:spotLight1
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De/Operador:ManoDe
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz/Operador:ManoIz
+        weight: 1
+      - path: Operador:ControlBase/Operador:ikHandle_De
+        weight: 1
+      - path: Operador:ControlBase/Operador:ikHandle_Iz
+        weight: 1
+      - path: Operador:Cordon
+        weight: 1
+      - path: Operador:Esqueleto
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza/Operador:PuntaCabeza
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01/Operador:_notused_Bip01_R_Finger0Nub
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11/Operador:_notused_Bip01_R_Finger1Nub
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21/Operador:_notused_Bip01_R_Finger2Nub
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01/Operador:_notused_Bip01_L_Finger0Nub
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11/Operador:_notused_Bip01_L_Finger1Nub
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21/Operador:_notused_Bip01_L_Finger2Nub
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_De/Operador:Canilla_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De/Operador:P_Pie_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_Iz
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_Iz/Operador:Canilla_Iz
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz/Operador:P_Pie_Iz
+        weight: 1
+      - path: Operador:Luces
+        weight: 1
+      - path: Operador:Mascarilla
+        weight: 1
+      - path: Operador:OperadorDentro
+        weight: 1
+      - path: Operador:OperadorDentro/Operador:Casco
+        weight: 1
+      - path: Operador:OperadorDentro/Operador:Cuerpo
+        weight: 1
+      - path: Operador:OperadorDentro/Operador:Lente
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Operador:Caja1
+        weight: 1
+      - path: Operador:Caja2
+        weight: 1
+      - path: Operador:ControlBase
+        weight: 1
+      - path: Operador:ControlBase/Operador:C_Pie_De
+        weight: 1
+      - path: Operador:ControlBase/Operador:C_Pie_De/Operador:ik_Pie_De
+        weight: 1
+      - path: Operador:ControlBase/Operador:C_Pie_Iz
+        weight: 1
+      - path: Operador:ControlBase/Operador:C_Pie_Iz/Operador:ik_Pie_Iz
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:C_Cabeza/Operador:spotLight1
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_De/Operador:Codo_De/Operador:ManoDe
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz
+        weight: 1
+      - path: Operador:ControlBase/Operador:ControlMedio/Operador:Pecho_Espalda/Operador:Superior/Operador:Hombros/Operador:Brazo_Iz/Operador:Codo_Iz/Operador:ManoIz
+        weight: 1
+      - path: Operador:ControlBase/Operador:ikHandle_De
+        weight: 1
+      - path: Operador:ControlBase/Operador:ikHandle_Iz
+        weight: 1
+      - path: Operador:Cordon
+        weight: 1
+      - path: Operador:Esqueleto
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Cabeza/Operador:PuntaCabeza
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger0/Operador:Bip01_R_Finger01/Operador:_notused_Bip01_R_Finger0Nub
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger1/Operador:Bip01_R_Finger11/Operador:_notused_Bip01_R_Finger1Nub
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_De/Operador:Brazo_De
+          1/Operador:Ant_Brazo_De/Operador:Mano_De/Operador:Bip01_R_Finger2/Operador:Bip01_R_Finger21/Operador:_notused_Bip01_R_Finger2Nub
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger0/Operador:Bip01_L_Finger01/Operador:_notused_Bip01_L_Finger0Nub
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger1/Operador:Bip01_L_Finger11/Operador:_notused_Bip01_L_Finger1Nub
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Espalda/Operador:Hombros 1/Operador:Hombro_Iz/Operador:Brazo_Iz
+          1/Operador:Ant_Brazo_Iz/Operador:Mano_Iz/Operador:Bip01_L_Finger2/Operador:Bip01_L_Finger21/Operador:_notused_Bip01_L_Finger2Nub
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_De/Operador:Canilla_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_De/Operador:Canilla_De/Operador:Pie_De/Operador:Emp_De/Operador:P_Pie_De
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_Iz
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_Iz/Operador:Canilla_Iz
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz
+        weight: 1
+      - path: Operador:Esqueleto/Operador:Control/Operador:Pelvis/Operador:Cuerpo
+          1/Operador:Pierna_Iz/Operador:Canilla_Iz/Operador:Pie_Iz/Operador:Emp_Iz/Operador:P_Pie_Iz
+        weight: 1
+      - path: Operador:Luces
+        weight: 1
+      - path: Operador:Mascarilla
+        weight: 1
+      - path: Operador:OperadorDentro
+        weight: 1
+      - path: Operador:OperadorDentro/Operador:Casco
+        weight: 1
+      - path: Operador:OperadorDentro/Operador:Cuerpo
+        weight: 1
+      - path: Operador:OperadorDentro/Operador:Lente
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

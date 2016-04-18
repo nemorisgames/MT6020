@@ -1,0 +1,302 @@
+fileFormatVersion: 2
+guid: a1fe05bd2b82f45f7b4fbada5785c1f9
+timeCreated: 1429224408
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Rock_01
+    100004: Rock_02
+    100006: Rock_03
+    100008: Rock_04
+    100010: Rock_05
+    100012: Rock_06
+    100014: Rock_07
+    100016: Rock_08
+    100018: Rock_09
+    100020: Rock_10
+    100022: Rock_11
+    100024: Rock_12
+    100026: Rock_13
+    100028: Rock_14
+    100030: Rock_15
+    100032: Rock_16
+    100034: Rock_17
+    100036: Rock_18
+    100038: Rock_19
+    100040: Rock_20
+    100042: Rock_21
+    100044: Rock_22
+    100046: Rock_23
+    100048: Colliders
+    100050: GroupStones
+    100052: Rock_01 1
+    100054: Rock_02 1
+    100056: Rock_03 1
+    100058: Rock_04 1
+    100060: Rock_05 1
+    100062: Rock_06 1
+    100064: Rock_07 1
+    100066: Rock_08 1
+    100068: Rock_09 1
+    100070: Rock_10 1
+    100072: Rock_11 1
+    100074: Rock_12 1
+    100076: Rock_13 1
+    100078: Rock_14 1
+    100080: Rock_15 1
+    100082: Rock_16 1
+    100084: Rock_17 1
+    100086: Rock_18 1
+    100088: Rock_19 1
+    100090: Rock_20 1
+    100092: Rock_21 1
+    100094: Rock_22 1
+    100096: Rock_23 1
+    400000: //RootNode
+    400002: Rock_01
+    400004: Rock_02
+    400006: Rock_03
+    400008: Rock_04
+    400010: Rock_05
+    400012: Rock_06
+    400014: Rock_07
+    400016: Rock_08
+    400018: Rock_09
+    400020: Rock_10
+    400022: Rock_11
+    400024: Rock_12
+    400026: Rock_13
+    400028: Rock_14
+    400030: Rock_15
+    400032: Rock_16
+    400034: Rock_17
+    400036: Rock_18
+    400038: Rock_19
+    400040: Rock_20
+    400042: Rock_21
+    400044: Rock_22
+    400046: Rock_23
+    400048: Colliders
+    400050: GroupStones
+    400052: Rock_01 1
+    400054: Rock_02 1
+    400056: Rock_03 1
+    400058: Rock_04 1
+    400060: Rock_05 1
+    400062: Rock_06 1
+    400064: Rock_07 1
+    400066: Rock_08 1
+    400068: Rock_09 1
+    400070: Rock_10 1
+    400072: Rock_11 1
+    400074: Rock_12 1
+    400076: Rock_13 1
+    400078: Rock_14 1
+    400080: Rock_15 1
+    400082: Rock_16 1
+    400084: Rock_17 1
+    400086: Rock_18 1
+    400088: Rock_19 1
+    400090: Rock_20 1
+    400092: Rock_21 1
+    400094: Rock_22 1
+    400096: Rock_23 1
+    2300000: Rock_01
+    2300002: Rock_02
+    2300004: Rock_03
+    2300006: Rock_04
+    2300008: Rock_05
+    2300010: Rock_06
+    2300012: Rock_07
+    2300014: Rock_08
+    2300016: Rock_09
+    2300018: Rock_10
+    2300020: Rock_11
+    2300022: Rock_12
+    2300024: Rock_13
+    2300026: Rock_14
+    2300028: Rock_15
+    2300030: Rock_16
+    2300032: Rock_17
+    2300034: Rock_18
+    2300036: Rock_19
+    2300038: Rock_20
+    2300040: Rock_21
+    2300042: Rock_22
+    2300044: Rock_23
+    2300046: Rock_01 1
+    2300048: Rock_02 1
+    2300050: Rock_03 1
+    2300052: Rock_04 1
+    2300054: Rock_05 1
+    2300056: Rock_06 1
+    2300058: Rock_07 1
+    2300060: Rock_08 1
+    2300062: Rock_09 1
+    2300064: Rock_10 1
+    2300066: Rock_11 1
+    2300068: Rock_12 1
+    2300070: Rock_13 1
+    2300072: Rock_14 1
+    2300074: Rock_15 1
+    2300076: Rock_16 1
+    2300078: Rock_17 1
+    2300080: Rock_18 1
+    2300082: Rock_19 1
+    2300084: Rock_20 1
+    2300086: Rock_21 1
+    2300088: Rock_22 1
+    2300090: Rock_23 1
+    3300000: Rock_01
+    3300002: Rock_02
+    3300004: Rock_03
+    3300006: Rock_04
+    3300008: Rock_05
+    3300010: Rock_06
+    3300012: Rock_07
+    3300014: Rock_08
+    3300016: Rock_09
+    3300018: Rock_10
+    3300020: Rock_11
+    3300022: Rock_12
+    3300024: Rock_13
+    3300026: Rock_14
+    3300028: Rock_15
+    3300030: Rock_16
+    3300032: Rock_17
+    3300034: Rock_18
+    3300036: Rock_19
+    3300038: Rock_20
+    3300040: Rock_21
+    3300042: Rock_22
+    3300044: Rock_23
+    3300046: Rock_01 1
+    3300048: Rock_02 1
+    3300050: Rock_03 1
+    3300052: Rock_04 1
+    3300054: Rock_05 1
+    3300056: Rock_06 1
+    3300058: Rock_07 1
+    3300060: Rock_08 1
+    3300062: Rock_09 1
+    3300064: Rock_10 1
+    3300066: Rock_11 1
+    3300068: Rock_12 1
+    3300070: Rock_13 1
+    3300072: Rock_14 1
+    3300074: Rock_15 1
+    3300076: Rock_16 1
+    3300078: Rock_17 1
+    3300080: Rock_18 1
+    3300082: Rock_19 1
+    3300084: Rock_20 1
+    3300086: Rock_21 1
+    3300088: Rock_22 1
+    3300090: Rock_23 1
+    4300000: Rock_01
+    4300002: Rock_02
+    4300004: Rock_03
+    4300006: Rock_04
+    4300008: Rock_05
+    4300010: Rock_06
+    4300012: Rock_07
+    4300014: Rock_08
+    4300016: Rock_09
+    4300018: Rock_10
+    4300020: Rock_11
+    4300022: Rock_12
+    4300024: Rock_13
+    4300026: Rock_14
+    4300028: Rock_15
+    4300030: Rock_16
+    4300032: Rock_17
+    4300034: Rock_18
+    4300036: Rock_19
+    4300038: Rock_20
+    4300040: Rock_21
+    4300042: Rock_22
+    4300044: Rock_23
+    4300046: Rock_01
+    4300048: Rock_02
+    4300050: Rock_03
+    4300052: Rock_04
+    4300054: Rock_05
+    4300056: Rock_06
+    4300058: Rock_07
+    4300060: Rock_08
+    4300062: Rock_09
+    4300064: Rock_10
+    4300066: Rock_11
+    4300068: Rock_12
+    4300070: Rock_13
+    4300072: Rock_14
+    4300074: Rock_15
+    4300076: Rock_16
+    4300078: Rock_17
+    4300080: Rock_18
+    4300082: Rock_19
+    4300084: Rock_20
+    4300086: Rock_21
+    4300088: Rock_22
+    4300090: Rock_23
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

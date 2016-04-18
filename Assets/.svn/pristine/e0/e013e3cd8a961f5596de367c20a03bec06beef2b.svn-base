@@ -1,0 +1,115 @@
+fileFormatVersion: 2
+guid: da51251ff72ee30488f6de7fd5e269cd
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Terreno_2
+    100002: //RootNode
+    100004: TerrenoTest1
+    100006: TerrenoTest2
+    100008: TerrenoTest3
+    100010: TerrenoTest4
+    100012: TerrenoTest5
+    100014: TerrenoTest6
+    100016: TerrenoTest7
+    100018: TerrenoTest8
+    400000: Terreno_2
+    400002: //RootNode
+    400004: TerrenoTest1
+    400006: TerrenoTest2
+    400008: TerrenoTest3
+    400010: TerrenoTest4
+    400012: TerrenoTest5
+    400014: TerrenoTest6
+    400016: TerrenoTest7
+    400018: TerrenoTest8
+    2300000: TerrenoTest1
+    2300002: TerrenoTest2
+    2300004: TerrenoTest3
+    2300006: TerrenoTest4
+    2300008: TerrenoTest5
+    2300010: TerrenoTest6
+    2300012: TerrenoTest7
+    2300014: TerrenoTest8
+    3300000: TerrenoTest1
+    3300002: TerrenoTest2
+    3300004: TerrenoTest3
+    3300006: TerrenoTest4
+    3300008: TerrenoTest5
+    3300010: TerrenoTest6
+    3300012: TerrenoTest7
+    3300014: TerrenoTest8
+    4300000: polySurface5
+    4300002: Supef_01
+    4300004: Supef_02
+    4300006: Supef_03
+    4300008: Supef_04
+    4300010: Supef_05
+    4300012: Supef_06
+    4300014: Supef_07
+    4300016: Supef_08
+    4300018: Supef_09
+    4300020: Supef_010
+    4300022: TerrenoTest6
+    4300024: TerrenoTest7
+    4300026: TerrenoTest8
+    4300028: TerrenoTest3
+    4300030: TerrenoTest4
+    4300032: TerrenoTest1
+    4300034: TerrenoTest2
+    4300036: TerrenoTest5
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

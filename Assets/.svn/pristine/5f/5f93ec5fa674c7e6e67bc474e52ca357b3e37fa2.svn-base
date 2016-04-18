@@ -1,0 +1,381 @@
+fileFormatVersion: 2
+guid: a610702b82e99aa43b0b6569726548d8
+timeCreated: 1436544962
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Amarillo1
+    100002: Arm
+    100004: Arm 1
+    100006: Arm1
+    100008: AxisEnd
+    100010: AxisMiddle
+    100012: Brazo
+    100014: Cabina
+    100016: Camion
+    100018: Camion03
+    100020: Camion04
+    100022: Camion05
+    100024: CamionBajoPerfil
+    100026: Camiones
+    100028: Camionetas
+    100030: Carcasa
+    100032: Carcasa 1
+    100034: CarcasaTonal
+    100036: CobertorAxis
+    100038: cristales
+    100040: Eje_empuje_medio
+    100042: Espejo_1
+    100044: Espejos
+    100046: Estructura
+    100048: Estructura 1
+    100050: FrontEje
+    100052: FrontEjeIntro
+    100054: //RootNode
+    100056: HidraulicCentral
+    100058: Mercedez_1
+    100060: Mercedez_2
+    100062: Negro1
+    100064: OperadorFijo1
+    100066: OperadorFijo2
+    100068: Pala
+    100070: PalaFrontal
+    100072: Pomo
+    100074: Reflejos
+    100076: Ruedas
+    100078: Ruedas1
+    100080: Ruedas1 1
+    100082: Ruedas1 2
+    100084: Ruedas2
+    100086: Ruedas2 1
+    100088: Ruedas2 2
+    100090: Ruedas3
+    100092: Ruedas3 1
+    100094: Ruedas4
+    100096: Ruedas4 1
+    100098: RuedasFront
+    100100: RuedasTras
+    100102: ST14_Taller
+    100104: ST14EstrucBack
+    100106: SymbolsArm1
+    100108: SymbolsArm2
+    100110: SymbolsArm2 1
+    100112: Trabajador
+    100114: Ventanas
+    100116: Ventanas 1
+    100118: Ventanas_vidrio
+    100120: Vidrio
+    100122: VidrioCabina
+    100124: Vidrios
+    100126: Vidrios 1
+    100128: Vidrios_focos
+    100130: WheelBackLeft
+    100132: WheelBackRight
+    100134: WheelFrontLeft
+    100136: WheelFrontRight
+    400000: Amarillo1
+    400002: Arm
+    400004: Arm 1
+    400006: Arm1
+    400008: AxisEnd
+    400010: AxisMiddle
+    400012: Brazo
+    400014: Cabina
+    400016: Camion
+    400018: Camion03
+    400020: Camion04
+    400022: Camion05
+    400024: CamionBajoPerfil
+    400026: Camiones
+    400028: Camionetas
+    400030: Carcasa
+    400032: Carcasa 1
+    400034: CarcasaTonal
+    400036: CobertorAxis
+    400038: cristales
+    400040: Eje_empuje_medio
+    400042: Espejo_1
+    400044: Espejos
+    400046: Estructura
+    400048: Estructura 1
+    400050: FrontEje
+    400052: FrontEjeIntro
+    400054: //RootNode
+    400056: HidraulicCentral
+    400058: Mercedez_1
+    400060: Mercedez_2
+    400062: Negro1
+    400064: OperadorFijo1
+    400066: OperadorFijo2
+    400068: Pala
+    400070: PalaFrontal
+    400072: Pomo
+    400074: Reflejos
+    400076: Ruedas
+    400078: Ruedas1
+    400080: Ruedas1 1
+    400082: Ruedas1 2
+    400084: Ruedas2
+    400086: Ruedas2 1
+    400088: Ruedas2 2
+    400090: Ruedas3
+    400092: Ruedas3 1
+    400094: Ruedas4
+    400096: Ruedas4 1
+    400098: RuedasFront
+    400100: RuedasTras
+    400102: ST14_Taller
+    400104: ST14EstrucBack
+    400106: SymbolsArm1
+    400108: SymbolsArm2
+    400110: SymbolsArm2 1
+    400112: Trabajador
+    400114: Ventanas
+    400116: Ventanas 1
+    400118: Ventanas_vidrio
+    400120: Vidrio
+    400122: VidrioCabina
+    400124: Vidrios
+    400126: Vidrios 1
+    400128: Vidrios_focos
+    400130: WheelBackLeft
+    400132: WheelBackRight
+    400134: WheelFrontLeft
+    400136: WheelFrontRight
+    2300000: Amarillo1
+    2300002: Arm
+    2300004: Arm 1
+    2300006: Arm1
+    2300008: AxisEnd
+    2300010: AxisMiddle
+    2300012: Cabina
+    2300014: Camion03
+    2300016: Camion04
+    2300018: Camion05
+    2300020: Carcasa
+    2300022: Carcasa 1
+    2300024: CarcasaTonal
+    2300026: CobertorAxis
+    2300028: cristales
+    2300030: Eje_empuje_medio
+    2300032: Espejo_1
+    2300034: Espejos
+    2300036: Estructura
+    2300038: Estructura 1
+    2300040: FrontEje
+    2300042: FrontEjeIntro
+    2300044: HidraulicCentral
+    2300046: Negro1
+    2300048: OperadorFijo1
+    2300050: OperadorFijo2
+    2300052: Pala
+    2300054: Pomo
+    2300056: Reflejos
+    2300058: Ruedas
+    2300060: Ruedas1
+    2300062: Ruedas1 1
+    2300064: Ruedas1 2
+    2300066: Ruedas2
+    2300068: Ruedas2 1
+    2300070: Ruedas2 2
+    2300072: Ruedas3
+    2300074: Ruedas3 1
+    2300076: Ruedas4
+    2300078: Ruedas4 1
+    2300080: RuedasFront
+    2300082: RuedasTras
+    2300084: ST14EstrucBack
+    2300086: SymbolsArm1
+    2300088: SymbolsArm2
+    2300090: SymbolsArm2 1
+    2300092: Trabajador
+    2300094: Ventanas
+    2300096: Ventanas 1
+    2300098: Ventanas_vidrio
+    2300100: Vidrio
+    2300102: VidrioCabina
+    2300104: Vidrios
+    2300106: Vidrios 1
+    2300108: Vidrios_focos
+    2300110: WheelBackLeft
+    2300112: WheelBackRight
+    2300114: WheelFrontLeft
+    2300116: WheelFrontRight
+    3300000: Amarillo1
+    3300002: Arm
+    3300004: Arm 1
+    3300006: Arm1
+    3300008: AxisEnd
+    3300010: AxisMiddle
+    3300012: Cabina
+    3300014: Camion03
+    3300016: Camion04
+    3300018: Camion05
+    3300020: Carcasa
+    3300022: Carcasa 1
+    3300024: CarcasaTonal
+    3300026: CobertorAxis
+    3300028: cristales
+    3300030: Eje_empuje_medio
+    3300032: Espejo_1
+    3300034: Espejos
+    3300036: Estructura
+    3300038: Estructura 1
+    3300040: FrontEje
+    3300042: FrontEjeIntro
+    3300044: HidraulicCentral
+    3300046: Negro1
+    3300048: OperadorFijo1
+    3300050: OperadorFijo2
+    3300052: Pala
+    3300054: Pomo
+    3300056: Reflejos
+    3300058: Ruedas
+    3300060: Ruedas1
+    3300062: Ruedas1 1
+    3300064: Ruedas1 2
+    3300066: Ruedas2
+    3300068: Ruedas2 1
+    3300070: Ruedas2 2
+    3300072: Ruedas3
+    3300074: Ruedas3 1
+    3300076: Ruedas4
+    3300078: Ruedas4 1
+    3300080: RuedasFront
+    3300082: RuedasTras
+    3300084: ST14EstrucBack
+    3300086: SymbolsArm1
+    3300088: SymbolsArm2
+    3300090: SymbolsArm2 1
+    3300092: Trabajador
+    3300094: Ventanas
+    3300096: Ventanas 1
+    3300098: Ventanas_vidrio
+    3300100: Vidrio
+    3300102: VidrioCabina
+    3300104: Vidrios
+    3300106: Vidrios 1
+    3300108: Vidrios_focos
+    3300110: WheelBackLeft
+    3300112: WheelBackRight
+    3300114: WheelFrontLeft
+    3300116: WheelFrontRight
+    4300000: Estructura
+    4300002: Ventanas
+    4300004: Ruedas1
+    4300006: Ruedas2
+    4300008: Ruedas3
+    4300010: Ruedas4
+    4300012: Trabajador
+    4300014: Ruedas
+    4300016: Amarillo1
+    4300018: Reflejos
+    4300020: Negro1
+    4300022: Vidrios
+    4300024: VidrioCabina
+    4300026: Vidrios
+    4300028: Carcasa
+    4300030: Ruedas1
+    4300032: Ruedas2
+    4300034: OperadorFijo1
+    4300036: Arm
+    4300038: SymbolsArm2
+    4300040: SymbolsArm1
+    4300042: Espejos
+    4300044: RuedasTras
+    4300046: RuedasFront
+    4300048: Vidrio
+    4300050: Carcasa
+    4300052: OperadorFijo2
+    4300054: Estructura
+    4300056: Ventanas
+    4300058: Ruedas1
+    4300060: Ruedas2
+    4300062: Ruedas3
+    4300064: Ruedas4
+    4300066: Cabina
+    4300068: CarcasaTonal
+    4300070: Espejo_1
+    4300072: Vidrios_focos
+    4300074: Ventanas_vidrio
+    4300076: Camion04
+    4300078: Camion03
+    4300080: Camion05
+    4300082: Pomo
+    4300084: AxisEnd
+    4300086: CobertorAxis
+    4300088: AxisMiddle
+    4300090: Pala
+    4300092: HidraulicCentral
+    4300094: Arm1
+    4300096: Eje_empuje_medio
+    4300098: SymbolsArm2
+    4300100: Arm
+    4300102: FrontEjeIntro
+    4300104: WheelFrontLeft
+    4300106: WheelFrontRight
+    4300108: cristales
+    4300110: ST14EstrucBack
+    4300112: WheelBackRight
+    4300114: WheelBackLeft
+    4300116: FrontEje
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
