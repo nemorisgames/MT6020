@@ -47,7 +47,7 @@ public class ControlCamionMotor : MonoBehaviour {
         cambioVelocidad (0);
         */
         controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
         tipoCambio = TipoCambio.automatico;
 #else
         tipoCambio = TipoCambio.manual;
@@ -112,7 +112,7 @@ public class ControlCamionMotor : MonoBehaviour {
         float retardador = controlTarjetaControladora.Retardador();
         if (Input.GetKeyUp(KeyCode.Q)) retroceso = !retroceso;
         //print(brake + " " + retardador);
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
 		/*throttle = ((valoresPotenciometro[0] * 1f) - 310f) / 520f;
 		brake = ((valoresPotenciometro[1] * 1f) - 310f) / 520f;*/
 #endif
