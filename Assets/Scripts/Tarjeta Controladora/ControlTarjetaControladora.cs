@@ -9,7 +9,7 @@ using System;
 
 public class PoKeysNativeDevice
 {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
     [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
     public extern static int PK_EnumerateUSBDevices();
 
@@ -228,7 +228,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
 
     public void Start()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         dev = new PoKeysNativeDevice();
         dev.ConnectToDevice_Serial(33282);
         //mensaje += ("Devices: " + dev.EnumerateDevices() + "\n");
@@ -306,7 +306,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
     IEnumerator resetAll()
     {
         yield return new WaitForSeconds(0.2f);
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         resetLucesVelocimetro();
         for (int i = 0; i < 20; i++)
             LuzCircuito(i, true);
@@ -320,7 +320,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
 
     void OnDisable()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         dev.Disconnect();
         dev = null;
 #endif
@@ -328,7 +328,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
 
     void Update()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         // Read all digital inputs
         dev.ReadIOStates();
         // Read all analog inputs
@@ -385,7 +385,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
 
     public int leerSwitch(int pin1, int pin2)
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         bool a = false;
         bool b = false;
         a = (dev.PinStates[(byte)pin1] == 1);
@@ -422,7 +422,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
 
     public int ignicion1()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         return dev.PinStates[20];
 #endif
         //si no hay lectura
@@ -430,7 +430,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
     }
     public int ignicion2()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         return dev.PinStates[21];
 #endif
         //si no hay lectura
@@ -444,7 +444,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
 
     public int ControlLucesDelanteras1()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         return dev.PinStates[22];
 #endif
         //si no hay lectura
@@ -452,7 +452,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
     }
     public int ControlLucesDelanteras2()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         return dev.PinStates[23];
 #endif
         //si no hay lectura
@@ -461,7 +461,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
 
     public int ControlLucesCarga()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         return (dev.PinStates[24] == 0)?0:1;
 #endif
         //si no hay lectura
@@ -470,7 +470,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
     
     public int ControlLucesTraseras()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         return (dev.PinStates[25] == 0)?0:1;
 #endif
         //si no hay lectura
@@ -478,7 +478,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
     }
     public int controlManualMotor()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         return (dev.PinStates[26] == 0)?0:1;
 #endif
         //si no hay lectura
@@ -501,7 +501,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
 
     public int BotonAccion()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         return (dev.PinStates[29] == 0)?0:1;
 #endif
         //si no hay lectura
@@ -511,7 +511,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
     //0 a 8
     public void LuzCircuito(int indice, bool encendido)
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         dev.PinStates[(byte)indice] = (byte)(encendido ? 0 : 1);
 
         // Update the output pins
@@ -523,7 +523,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
 
     public float Acelerador() //45 a 255
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         return Mathf.Clamp(((float)dev.GetAnalogInput(44) - 0.17f) / 0.83f, 0f, 1f);
 #else
         return Input.GetAxis("Acelerador");
@@ -532,7 +532,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
 
     public float Retardador()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         return Mathf.Clamp(((float)dev.GetAnalogInput(45) - 0.17f) / 0.83f, 0f, 1f);
 #else
         return -Input.GetAxis("Retardador");
@@ -541,7 +541,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
 
     public float Freno()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         return Mathf.Clamp(((float)dev.GetAnalogInput(46) - 0.17f) / 0.83f, 0f, 1f);
 #else
         return Input.GetAxis("Freno");
@@ -551,7 +551,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
     //Apaga todas las luces del velocimetro
     public void resetLucesVelocimetro()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         for (int i = 30; i <= 43; i++)
             dev.PinStates[(byte)i] = 1;
         for (int i = 48; i <= 54; i++)
@@ -564,7 +564,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
     {
         mensaje += "test velocimetro\n";
 
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         int _decena, _unidad, _decimal;
         _decimal = int.Parse(_velocidad.ToString().Split(',')[1]);
         _unidad = int.Parse(_velocidad.ToString().Split(',')[0]) % 10;

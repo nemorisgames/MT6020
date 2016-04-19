@@ -83,9 +83,10 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 		float hor2 = 0f;
 		float ver = 0f;
 		float ver2 = 0f;
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
 		hor = Input.GetAxis("ManubrioEditor");
 #else
+        //print(Input.GetAxis("Manubrio"));
         hor = Input.GetAxis("Manubrio");
 #endif
         hor2 = 0f;// Input.GetAxis("Horizontal");
@@ -264,7 +265,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
             }
         }
 
-        if (enfocandoCabina && Input.GetKeyDown(KeyCode.Space))
+        if (enfocandoCabina && (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Fire3")))
         {
             operarioAnimator.gameObject.SetActive(true);
             operarioAnimator.SetTrigger("Entrar");

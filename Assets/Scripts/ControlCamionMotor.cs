@@ -47,7 +47,7 @@ public class ControlCamionMotor : MonoBehaviour {
         cambioVelocidad (0);
         */
         controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
         tipoCambio = TipoCambio.automatico;
 #else
         tipoCambio = TipoCambio.manual;
@@ -112,7 +112,7 @@ public class ControlCamionMotor : MonoBehaviour {
         float retardador = controlTarjetaControladora.Retardador();
         if (Input.GetKeyUp(KeyCode.Q)) retroceso = !retroceso;
         //print(brake + " " + retardador);
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
 		/*throttle = ((valoresPotenciometro[0] * 1f) - 310f) / 520f;
 		brake = ((valoresPotenciometro[1] * 1f) - 310f) / 520f;*/
 #endif
@@ -165,40 +165,40 @@ public class ControlCamionMotor : MonoBehaviour {
             if (c > 0.9f)
             {
                 cambioActual = 1;
-                factorRetroceso = -1;
+                factorRetroceso = 1;
             }
             else
             {
                 if(c > 0.6f)
                 {
                     cambioActual = 2;
-                    factorRetroceso = -1;
+                    factorRetroceso = 1;
                 }
                 else
                 {
                     if (c > 0.1f)
                     {
                         cambioActual = 3;
-                        factorRetroceso = -1;
+                        factorRetroceso = 1;
                     }
                     else
                     {
                         if (c > -0.3f)
                         {
                             cambioActual = 4;
-                            factorRetroceso = -1;
+                            factorRetroceso = 1;
                         }
                         else
                         {
                             if (c > -0.7f)
                             {
                                 cambioActual = 0;
-                                factorRetroceso = -1;
+                                factorRetroceso = 1;
                             }
                             else
                             {
                                 cambioActual = 1;
-                                factorRetroceso = 1;
+                                factorRetroceso = -1;
                             }
                         }
                     }

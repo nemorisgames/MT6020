@@ -670,14 +670,15 @@ public class ControlCamion : MonoBehaviour {
         float brazo = 0f;
 		float direccion = 0f;
         /*
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
 		pala = Input.GetAxis ("CucharaEditor");*/
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
         brazo = Input.GetAxis("ControlTolbaEditor");
 #else
+        print("Tolba: " + Input.GetAxis("ControlTolba") + ", Cambio: " + Input.GetAxis("Cambio"));
         brazo = Input.GetAxis("ControlTolba");
 #endif
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
         direccion = Input.GetAxis("ManubrioEditor");
 #else
         direccion = Input.GetAxis("Manubrio");
@@ -702,23 +703,43 @@ public class ControlCamion : MonoBehaviour {
 		controlPantallaTactil.setPesoPala ("" + (Mathf.Round(capturaPeso.enCarga * 100f) / 100f));
 		controlPantallaTactil.setVehicleSpeed ("" + Mathf.RoundToInt(controlExcavadoraMotor.GetComponent<Rigidbody>().velocity.magnitude * 3600f / 1000f));
         */
-        if (controlTarjetaControladora.ignicion() == 1)
+        print(controlTarjetaControladora.ignicion());
+        if (controlTarjetaControladora.ignicion() == 0)
         {
-            if (estado != EstadoMaquina.apagadaTotal)
+            if (estado == EstadoMaquina.encendida)
             {
-                tiempoEncendido = Time.time + 2f;
-                //audioRetroceso.clip = Resources.Load("camion") as AudioClip;
-                //if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
+                tiempoEncendido = 0f;
+                arranque(false);
             }
         }
         else
         {
-            if (controlTarjetaControladora.ignicion() == 2)
+            if (controlTarjetaControladora.ignicion() == 1)
             {
-                if (estado != EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))
+                if (estado == EstadoMaquina.apagada && tiempoEncendido <= 0f)
                 {
-                    tiempoEncendido = 0f;
-                    arranque(estado == EstadoMaquina.apagada);
+                    tiempoEncendido = Time.time + 2f;
+                    //audioRetroceso.clip = Resources.Load("camion") as AudioClip;
+                    //if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
+                }
+                else
+                {
+                    if (estado == EstadoMaquina.encendida)
+                    {
+                        tiempoEncendido = 0f;
+                        arranque(false);
+                    }
+                }
+            }
+            else
+            {
+                if (controlTarjetaControladora.ignicion() == 2)
+                {
+                    if (estado != EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))
+                    {
+                        tiempoEncendido = 0f;
+                        arranque(true);
+                    }
                 }
             }
         }
