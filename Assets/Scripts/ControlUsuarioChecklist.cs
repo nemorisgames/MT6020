@@ -92,8 +92,8 @@ public class ControlUsuarioChecklist : MonoBehaviour {
         hor2 = 0f;// Input.GetAxis("Horizontal");
         ver = 0f;
         ver2 = controlTarjetaControladora.Acelerador();
-//#else
-		/*hor = ((valoresPotenciometro[2] * 1f) - 512f) / 1024f; //Input.GetAxis ("Joy1 Axis 1"); 
+        //#else
+        /*hor = ((valoresPotenciometro[2] * 1f) - 512f) / 1024f; //Input.GetAxis ("Joy1 Axis 1"); 
 		hor2 = ((valoresPotenciometro[4] * 1f) - 512f) / 1024f; //Input.GetAxis("Joy1 Axis 3");//joy der
 		ver = ((valoresPotenciometro[3] * 1f) - 512f) / 1024f; //Input.GetAxis("Joy1 Axis 2"); 
 		ver2 = ((valoresPotenciometro[5] * 1f) - 512f) / 1024f; //Input.GetAxis("Joy1 Axis 4");//joy der
@@ -103,8 +103,8 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 		ver = VariablesGlobales.calcularPresicion(ver);
 		ver2 = VariablesGlobales.calcularPresicion(ver2);
         */
-//#endif
-
+        //#endif
+        print(ver2);
 		if(GetComponent<Rigidbody>() != null && movimientoActivado)
 			GetComponent<Rigidbody>().AddForce ((hor2 * transform.right + ver2 * new Vector3(transform.forward.x, 0f, transform.forward.z)).normalized * 450f * 1f *  Time.deltaTime);
 		transform.Rotate (Vector3.right, ver * velocidadRotacion * 1.5f * Time.deltaTime);

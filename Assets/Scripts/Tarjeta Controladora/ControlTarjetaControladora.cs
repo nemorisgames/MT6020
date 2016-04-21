@@ -394,7 +394,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
         {
             if (b)
             {
-                return 1;
+                return 2;
             }
             else
             {
@@ -405,7 +405,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
         {
             if (b)
             {
-                return 2;
+                return 1;
             }
                
         }

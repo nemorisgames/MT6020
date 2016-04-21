@@ -703,6 +703,7 @@ public class ControlCamion : MonoBehaviour {
 		controlPantallaTactil.setPesoPala ("" + (Mathf.Round(capturaPeso.enCarga * 100f) / 100f));
 		controlPantallaTactil.setVehicleSpeed ("" + Mathf.RoundToInt(controlExcavadoraMotor.GetComponent<Rigidbody>().velocity.magnitude * 3600f / 1000f));
         */
+        
         print(controlTarjetaControladora.ignicion());
         if (controlTarjetaControladora.ignicion() == 0)
         {
