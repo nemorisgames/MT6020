@@ -394,18 +394,18 @@ public class ControlTarjetaControladora : MonoBehaviour {
         {
             if (b)
             {
-                return 2;
+                return 1;
             }
             else
             {
-                return 0;
+                return 2;
             }
         }
         else
         {
             if (b)
             {
-                return 1;
+                return 0;
             }
                
         }

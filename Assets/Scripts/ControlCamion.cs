@@ -789,7 +789,8 @@ public class ControlCamion : MonoBehaviour {
 	}
     */
 	void manejarBrazoLimites(float accionControl){
-        animator.SetFloat("multiplicadorVelocidadBalde",accionControl);
+        animator.SetFloat("multiplicadorVelocidadBalde",Mathf.Clamp(accionControl, -1f, 1f));
+        
         /*
 		JointMotor m = jointBrazo.motor;
 		JointLimits b = jointBrazo.limits;

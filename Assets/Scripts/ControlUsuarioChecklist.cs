@@ -106,7 +106,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
         //#endif
         print(ver2);
 		if(GetComponent<Rigidbody>() != null && movimientoActivado)
-			GetComponent<Rigidbody>().AddForce ((hor2 * transform.right + ver2 * new Vector3(transform.forward.x, 0f, transform.forward.z)).normalized * 450f * 1f *  Time.deltaTime);
+			GetComponent<Rigidbody>().AddForce ((hor2 * transform.right + ver2 * new Vector3(transform.forward.x, 0f, transform.forward.z)) * 450f * 1f *  Time.deltaTime);
 		transform.Rotate (Vector3.right, ver * velocidadRotacion * 1.5f * Time.deltaTime);
 		transform.Rotate (Vector3.up, hor * velocidadRotacion * 1.5f * Time.deltaTime);
 		transform.eulerAngles = new Vector3 (Mathf.Clamp((transform.eulerAngles.x>270f?(transform.eulerAngles.x - 360f):transform.eulerAngles.x), -20f, 30f), transform.eulerAngles.y, 0f);
