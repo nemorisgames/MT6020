@@ -9,6 +9,8 @@ public class ControlCamion : MonoBehaviour {
 	public ControlCamionMotor controlCamionMotor;
     public HingeJoint jointCentro;
     Animator animator;
+    bool animacionEnInicio = true;
+    bool animacionEnFinal = false;
     /*public HingeJoint jointBrazo;
 	Transform cilindroEmpuje;
 	Vector2 limiteBrazo = new Vector2 (30f, 100f);
@@ -600,7 +602,14 @@ public class ControlCamion : MonoBehaviour {
 		lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedDisplayON), monitorDisplay.activeSelf);
 	}
 	*/
-	public void resetMaquina(){
+
+    public void isoSwitchActivado(bool activado)
+    {
+        estado = EstadoMaquina.apagada;
+        controlCamionMotor.estado = EstadoMaquina.apagada;
+    }
+
+    public void resetMaquina(){
         /*
 		JointLimits b = jointBrazo.limits;
 		b.min = -60f;
@@ -622,6 +631,18 @@ public class ControlCamion : MonoBehaviour {
 		jointCentro.transform.localRotation = Quaternion.identity;
 		jointCentro.limits = b3;
 	}
+
+    public void animacionInicio()
+    {
+        animacionEnInicio = true;
+        animacionEnFinal = false;
+    }
+
+    public void animacionFin()
+    {
+        animacionEnInicio = false;
+        animacionEnFinal = true;
+    }
 	
     // Update is called once per frame
     void Update()
@@ -670,7 +691,7 @@ public class ControlCamion : MonoBehaviour {
         float brazo = 0f;
 		float direccion = 0f;
         /*
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
 		pala = Input.GetAxis ("CucharaEditor");*/
 #if !UNITY_EDITOR
         brazo = Input.GetAxis("ControlTolbaEditor");
@@ -704,7 +725,7 @@ public class ControlCamion : MonoBehaviour {
 		controlPantallaTactil.setVehicleSpeed ("" + Mathf.RoundToInt(controlExcavadoraMotor.GetComponent<Rigidbody>().velocity.magnitude * 3600f / 1000f));
         */
         
-        print(controlTarjetaControladora.ignicion());
+        //print(controlTarjetaControladora.ignicion());
         if (controlTarjetaControladora.ignicion() == 0)
         {
             if (estado == EstadoMaquina.encendida)
@@ -789,8 +810,23 @@ public class ControlCamion : MonoBehaviour {
 	}
     */
 	void manejarBrazoLimites(float accionControl){
-        animator.SetFloat("multiplicadorVelocidadBalde",Mathf.Clamp(accionControl, -1f, 1f));
-        
+        print(animacionEnInicio + " " + animacionEnFinal + " " + accionControl);
+        /*if (animacionEnInicio && accionControl > 0f)
+        {
+            animator.SetFloat("offsetBalde", 0f);
+            print("reset1");
+            animacionEnInicio = false;
+        }
+        if (animacionEnFinal && accionControl < 0f)
+        {
+            animator.SetFloat("offsetBalde", 0f);
+            print("reset2");
+            animacionEnFinal = false;
+        }
+        if (!animacionEnInicio && !animacionEnFinal)
+        {*/
+            animator.SetFloat("multiplicadorVelocidadBalde", Mathf.Clamp(accionControl, -1f, 1f));
+        //}
         /*
 		JointMotor m = jointBrazo.motor;
 		JointLimits b = jointBrazo.limits;

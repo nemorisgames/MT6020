@@ -18,8 +18,13 @@ public class ControlUsuarioChecklist : MonoBehaviour {
     //public bool enfocandoBrazo = false;
     //public bool enfocandoBrazoActual = false;
 
-    //public bool enfocandoEncendido = false;
-    //public bool enfocandoEncendidoActual = false;
+    public bool enfocandoEncendido = false;
+    public bool enfocandoEncendidoActual = false;
+
+    public ControlCamion controlCamion;
+    bool puertaIsoSwitchAbierta = false;
+    public TweenRotation puertaIsoSwitch;
+    public TweenRotation isoSwitch;
 
     /*public ControlChecklist controlChecklist;
 	public UILabel mensajeInteraccion;
@@ -113,6 +118,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 
 
         enfocandoCabina = false;
+        enfocandoEncendido = false;
         /*
         enfocandoPuertaHidraulica = false;
 		enfocandoBrazo = false;
@@ -250,20 +256,21 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 		}*/
 
         //NUEVO
-        if (!enfocandoCabina)
-        {
+        //if (!enfocandoCabina)
+        //{
             RaycastHit hit;
 
             Debug.DrawRay(camara.transform.position, camara.transform.forward);
-            if (Physics.Raycast(camara.transform.position, camara.transform.forward, out hit, 1.2f, mascaraLayers))
+            if (Physics.Raycast(camara.transform.position, camara.transform.forward, out hit, 4.2f, mascaraLayers))
             {
                 //print (hit.transform.gameObject.name + " " + hit.distance);
                 switch (hit.transform.gameObject.name)
                 {
                     case "Puerta": enfocandoCabina = true; break;
+                    case "IsoSwitch": enfocandoEncendido = true; break;
                 }
             }
-        }
+        //}
 
         if (enfocandoCabina && (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Fire3")))
         {
@@ -276,6 +283,34 @@ public class ControlUsuarioChecklist : MonoBehaviour {
             inGame.ejecutarEntradaMaquina();
             gameObject.SetActive(false);
         }
+
+        if (enfocandoEncendido && (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Fire3")))
+        {
+            if(!puertaIsoSwitchAbierta)
+                puertaIsoSwitch.PlayForward();
+            else
+            {
+                isoSwitch.PlayForward();
+                
+            }
+            /*camionAnimator.SetTrigger("Entrada");
+            camaraEntradaAnimator.gameObject.SetActive(true);
+            camaraEntradaAnimator.SetTrigger("Entrar");
+            print("entrar aqui");
+            inGame.ejecutarEntradaMaquina();
+            gameObject.SetActive(false);*/
+        }
+    }
+
+    public void isoSwitchEncendidoTotal()
+    {
+        puertaIsoSwitch.PlayReverse();
+        controlCamion.isoSwitchActivado(true);
+    }
+
+    public void puertaIsoSwitchAbiertaTotal()
+    {
+        puertaIsoSwitchAbierta = true;
     }
 
     void OnDisable(){

@@ -7,7 +7,13 @@ public class InGame : MonoBehaviour {
     public GameObject camaraEntrada;
     public GameObject controlChecklistGameObject;
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+
+        for (int i = 0; i <= 7; i++)
+        {
+            Display.displays[i].Activate();
+        }
         activarMaquinaAlta(true);
     }
 
@@ -24,6 +30,7 @@ public class InGame : MonoBehaviour {
         print("entrando");
         StartCoroutine(ejecutarEntradaMaquinaDelay());
     }
+
 
     public IEnumerator ejecutarEntradaMaquinaDelay() { 
         yield return new WaitForSeconds(10f);
