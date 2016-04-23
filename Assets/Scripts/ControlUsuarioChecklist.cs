@@ -109,7 +109,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 		ver2 = VariablesGlobales.calcularPresicion(ver2);
         */
         //#endif
-        print(ver2);
+        //print(ver2);
 		if(GetComponent<Rigidbody>() != null && movimientoActivado)
 			GetComponent<Rigidbody>().AddForce ((hor2 * transform.right + ver2 * new Vector3(transform.forward.x, 0f, transform.forward.z)) * 450f * 1f *  Time.deltaTime);
 		transform.Rotate (Vector3.right, ver * velocidadRotacion * 1.5f * Time.deltaTime);

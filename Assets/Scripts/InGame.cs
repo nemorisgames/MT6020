@@ -9,11 +9,17 @@ public class InGame : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-
-        for (int i = 0; i <= 7; i++)
+        for (int i = 0; i < Display.displays.Length; i++)
         {
             Display.displays[i].Activate();
         }
+
+        string[] names = Input.GetJoystickNames();
+        Debug.Log("Connected Joysticks:");
+        for (int i = 0; i < names.Length; i++) {
+            Debug.Log("Joystick" + (i + 1) + " = " + names[i]);
+        }
+
         activarMaquinaAlta(true);
     }
 

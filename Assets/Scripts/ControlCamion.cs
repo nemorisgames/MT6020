@@ -694,7 +694,7 @@ public class ControlCamion : MonoBehaviour {
 #if UNITY_EDITOR
 		pala = Input.GetAxis ("CucharaEditor");*/
 #if !UNITY_EDITOR
-        brazo = Input.GetAxis("ControlTolbaEditor");
+        brazo = 0.4f;// Input.GetAxis("ControlTolbaEditor");
 #else
         print("Tolba: " + Input.GetAxis("ControlTolba") + ", Cambio: " + Input.GetAxis("Cambio"));
         brazo = Input.GetAxis("ControlTolba");

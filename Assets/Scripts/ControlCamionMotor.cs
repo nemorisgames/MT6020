@@ -106,8 +106,8 @@ public class ControlCamionMotor : MonoBehaviour {
 			}
 			return;
 		}
-	
-		float throttle = controlTarjetaControladora.Acelerador();
+
+        float throttle = controlTarjetaControladora.Acelerador();
 		float brake = controlTarjetaControladora.Freno();
         float retardador = controlTarjetaControladora.Retardador();
         if (Input.GetKeyUp(KeyCode.Q)) retroceso = !retroceso;
