@@ -10,73 +10,77 @@ using System;
 public class PoKeysNativeDevice
 {
 #if !UNITY_EDITOR
+<<<<<<< HEAD
     [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+=======
+    [DllImport(@"PoKeyslib.dll")]
+>>>>>>> 698d0ab84791fd65e909662ee5f65fa6aa2153d7
     public extern static int PK_EnumerateUSBDevices();
 
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static long PK_ConnectToDevice(Int32 deviceIndex);
 
     // Connect to a PoKeys device with the specific serial number. Returns pointer to a newly created PoKeys device structure. Returns NULL if the connection is not successfull
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static long PK_ConnectToDeviceWSerial(UInt32 serialNumber, UInt32 checkForNetworkDevicesAndTimeout);
 
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     // Same as above, but uses UDP for connection
     public extern static long PK_ConnectToDeviceWSerial_UDP(UInt32 serialNumber, UInt32 checkForNetworkDevicesAndTimeout);
 
 
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static void PK_DisconnectDevice(long devPtr);
 
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     // Set single digital output
     public extern static Int32 PK_DigitalIOSetSingle(long device, byte pinID, byte pinValue);
 
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     // Get single digital input value
     public extern static Int32 PK_DigitalIOGetSingle(long device, byte pinID, ref byte pinValue);
 
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static void PK_SL_SetPinFunction(long device, byte pin, byte function);
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static byte PK_SL_GetPinFunction(long device, byte pin);
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static void PK_SL_DigitalOutputSet(long device, byte pin, byte value);
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static byte PK_SL_DigitalInputGet(long device, byte pin);
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static UInt32 PK_SL_AnalogInputGet(long device, byte pin);
 
     // Retrieve pin configuration from the devic
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static Int32 PK_PinConfigurationGet(long device);
     // Send pin configuration to device
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static Int32 PK_PinConfigurationSet(long device);
 
     // Retrieve encoder configuration from the device
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static Int32 PK_EncoderConfigurationGet(long device);
     // Send encoder configuration to device
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static Int32 PK_EncoderConfigurationSet(long device);
     // Retrieve encoder values from device
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static Int32 PK_EncoderValuesGet(long device);
     // Send encoder values to device
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static Int32 PK_EncoderValuesSet(long device);
 
     // Set digital outputs values
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static Int32 PK_DigitalIOSet(long device);
     // Get digital inputs values
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static Int32 PK_DigitalIOGet(long device);
 
 
     // Get analog input values
-    [DllImport(@"Assets\Scripts\PoKeyslib.dll")]
+    [DllImport(@"PoKeyslib.dll")]
     public extern static Int32 PK_AnalogIOGet(long device);
 
 
