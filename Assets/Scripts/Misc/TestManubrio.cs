@@ -22,12 +22,23 @@ public class TestManubrio : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        port = PlayerPrefs.GetString("port", "COM4");
+        for (int i = 0; i < Display.displays.Length; i++)
+        {
+            Display.displays[i].Activate();
+        }
+        output.text = "" + Display.displays.Length;
+        Display.displays[0].SetParams(1366, 768, 0, 0);
+        Display.displays[1].SetParams(1920, 1080, 0, 0);
+        Display.displays[2].SetParams(1920, 1080, 0, 0);
+        Display.displays[3].SetParams(1920, 1080, 0, 0);
+        Display.displays[4].SetParams(800, 480, 0, 0); //camara posterior
+        Display.displays[5].SetParams(1024, 600, 0, 0); //odometro
+        /*port = PlayerPrefs.GetString("port", "COM4");
         portInput.value = port;
         sp = new SerialPort(port, 9600, Parity.None, 8, StopBits.One);
-        OpenConnection();
+        OpenConnection();*/
     }
-
+    /*
     public void changePort()
     {
         port = portInput.value;
@@ -104,4 +115,5 @@ public class TestManubrio : MonoBehaviour {
     {
         sp.Close();
     }
+    */
 }

@@ -11,6 +11,8 @@ public class ControlCamion : MonoBehaviour {
     Animator animator;
     bool animacionEnInicio = true;
     bool animacionEnFinal = false;
+    public GameObject camaraTrasera;
+    public GameObject camaraBalde;
     /*public HingeJoint jointBrazo;
 	Transform cilindroEmpuje;
 	Vector2 limiteBrazo = new Vector2 (30f, 100f);
@@ -32,7 +34,8 @@ public class ControlCamion : MonoBehaviour {
 	public Light[] lucesTraserasAltas;
 	public Light[] lucesTraserasBajas;
     */
-	Vector2 rangoLimitEje = new Vector2 (-45f, 45f); 
+	Vector2 rangoLimitEje = new Vector2 (-45f, 45f);
+    Vector2 rangoLimitTolba = new Vector2(-1f, 1f);
     /*
 	public Vector2 rangoLimitBrazo; 
 	//public float limitMaxActual = 0f;
@@ -56,7 +59,7 @@ public class ControlCamion : MonoBehaviour {
 	public bool enTopeBrazo = false;
 	public bool enTopeEje = false;
     */
-	public float tiempoEncendido = 2f;
+    public float tiempoEncendido = 2f;
     /*
 	int[] valoresPotenciometro = new int[6];
 	
@@ -691,15 +694,15 @@ public class ControlCamion : MonoBehaviour {
         float brazo = 0f;
 		float direccion = 0f;
         /*
-#if UNITY_EDITOR
-		pala = Input.GetAxis ("CucharaEditor");*/
 #if !UNITY_EDITOR
-        brazo = 0.4f;// Input.GetAxis("ControlTolbaEditor");
+		pala = Input.GetAxis ("CucharaEditor");*/
+#if UNITY_EDITOR
+        brazo = Input.GetAxis("ControlTolbaEditor");
 #else
         print("Tolba: " + Input.GetAxis("ControlTolba") + ", Cambio: " + Input.GetAxis("Cambio"));
         brazo = Input.GetAxis("ControlTolba");
 #endif
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         direccion = Input.GetAxis("ManubrioEditor");
 #else
         direccion = Input.GetAxis("Manubrio");
@@ -740,7 +743,7 @@ public class ControlCamion : MonoBehaviour {
             {
                 if (estado == EstadoMaquina.apagada && tiempoEncendido <= 0f)
                 {
-                    tiempoEncendido = Time.time + 2f;
+                    tiempoEncendido = Time.time + 5f;
                     //audioRetroceso.clip = Resources.Load("camion") as AudioClip;
                     //if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
                 }
@@ -766,11 +769,13 @@ public class ControlCamion : MonoBehaviour {
             }
         }
 
+        controlCamionMotor.frenoParqueoActivado = controlTarjetaControladora.BotonAccion() == 0;
+
         if (Input.GetButtonDown("Encendido"))
         {
             if (estado != EstadoMaquina.apagadaTotal)
             {
-                tiempoEncendido = Time.time + 2f;
+                tiempoEncendido = Time.time + 5f;
                 //audioRetroceso.clip = Resources.Load("camion") as AudioClip;
                 //if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
             }
@@ -810,7 +815,7 @@ public class ControlCamion : MonoBehaviour {
 	}
     */
 	void manejarBrazoLimites(float accionControl){
-        print(animacionEnInicio + " " + animacionEnFinal + " " + accionControl);
+        //print(animacionEnInicio + " " + animacionEnFinal + " " + accionControl);
         /*if (animacionEnInicio && accionControl > 0f)
         {
             animator.SetFloat("offsetBalde", 0f);
@@ -825,7 +830,8 @@ public class ControlCamion : MonoBehaviour {
         }
         if (!animacionEnInicio && !animacionEnFinal)
         {*/
-            animator.SetFloat("multiplicadorVelocidadBalde", Mathf.Clamp(accionControl, -1f, 1f));
+        print(Mathf.Clamp(accionControl, rangoLimitTolba.x, rangoLimitTolba.y));
+            animator.SetFloat("multiplicadorVelocidadBalde", Mathf.Clamp(accionControl, rangoLimitTolba.x, rangoLimitTolba.y));
         //}
         /*
 		JointMotor m = jointBrazo.motor;
@@ -949,6 +955,20 @@ public class ControlCamion : MonoBehaviour {
 		cambio0 (true);
 		lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedTransmisionAutomatica), controlExcavadoraMotor.tipoCambio != ControlExcavadoraMotor.TipoCambio.manual);
         */
+    }
+
+    public void inicio(float valor)
+    {
+        rangoLimitTolba.x = valor;
+    }
+    public void fin(float valor)
+    {
+        rangoLimitTolba.y = valor;
+    }
+    public void cambiarCamara()
+    {
+        camaraTrasera.SetActive(!camaraTrasera.activeSelf);
+        camaraBalde.SetActive(!camaraBalde.activeSelf);
     }
     /*
 	void overrideMotor(bool activar){

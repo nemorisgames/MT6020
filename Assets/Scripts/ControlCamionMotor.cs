@@ -26,6 +26,9 @@ public class ControlCamionMotor : MonoBehaviour {
     */
     public WheelCollider[] ruedasConMotor;
     public bool frenoParqueoActivado = true;
+    public GameObject camaraMedicionAtras;
+    public GameObject camaraMedicionAdelante;
+
     /*
 
     public AudioClip sonidoClaxon;
@@ -47,7 +50,7 @@ public class ControlCamionMotor : MonoBehaviour {
         cambioVelocidad (0);
         */
         controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         tipoCambio = TipoCambio.automatico;
 #else
         tipoCambio = TipoCambio.manual;
@@ -110,9 +113,14 @@ public class ControlCamionMotor : MonoBehaviour {
         float throttle = controlTarjetaControladora.Acelerador();
 		float brake = controlTarjetaControladora.Freno();
         float retardador = controlTarjetaControladora.Retardador();
-        if (Input.GetKeyUp(KeyCode.Q)) retroceso = !retroceso;
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            retroceso = !retroceso;
+            camaraMedicionAdelante.SetActive(!camaraMedicionAdelante.activeSelf);
+            camaraMedicionAtras.SetActive(!camaraMedicionAtras.activeSelf);
+        }
         //print(brake + " " + retardador);
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
 		/*throttle = ((valoresPotenciometro[0] * 1f) - 310f) / 520f;
 		brake = ((valoresPotenciometro[1] * 1f) - 310f) / 520f;*/
 #endif
@@ -127,8 +135,8 @@ public class ControlCamionMotor : MonoBehaviour {
         //if (tipoCambio != TipoCambio.automatico)
         //	throttle = throttle * cambioActual / 6f;
 
-        //if(!frenoParqueoActivado)
-        velocidadActual = Mathf.Lerp(velocidadActual, Mathf.Clamp(Mathf.Clamp(throttle, 0f, 1f) * velocidades[cambioActual], 0f, velocidades[cambioActual]) * 100000f, factorAceleracion * Time.deltaTime);
+        if(!frenoParqueoActivado)
+            velocidadActual = Mathf.Lerp(velocidadActual, Mathf.Clamp(Mathf.Clamp(throttle, 0f, 1f) * velocidades[cambioActual], 0f, velocidades[cambioActual]) * 100000f, factorAceleracion * Time.deltaTime);
 
         if (retardador > 0.5f)
         {

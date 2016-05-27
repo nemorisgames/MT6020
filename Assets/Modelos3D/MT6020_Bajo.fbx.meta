@@ -720,7 +720,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      hasAdditiveReferencePose: 1
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -733,7 +733,37 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: inicio
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.0067873304
+        functionName: inicio
+        data: 
+        objectReferenceParameter: {fileID: 100076, guid: 83782ef41c4457b448473ec7174d2069,
+          type: 3}
+        floatParameter: -1
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.99321264
+        functionName: fin
+        data: 
+        objectReferenceParameter: {fileID: 100076, guid: 83782ef41c4457b448473ec7174d2069,
+          type: 3}
+        floatParameter: 1
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: fin
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -757,8 +787,6 @@ ModelImporter:
         weight: 1
       - path: Delantera_B/Blax/Camara1 1
         weight: 1
-      - path: Delantera_B/Caucho_2
-        weight: 1
       - path: Delantera_B/Colliders_D
         weight: 1
       - path: Delantera_B/Colliders_D/Collider1
@@ -776,16 +804,6 @@ ModelImporter:
       - path: Delantera_B/Colliders_D/Collider7
         weight: 1
       - path: Delantera_B/Colliders_D/Collider8
-        weight: 1
-      - path: Delantera_B/Cubierta_Cabina
-        weight: 1
-      - path: Delantera_B/Espejos
-        weight: 1
-      - path: Delantera_B/LimpiaParabrisas
-        weight: 1
-      - path: Delantera_B/MetalAmarillo_1
-        weight: 1
-      - path: Delantera_B/NegroBrillaste
         weight: 1
       - path: Delantera_B/Puerta
         weight: 1
@@ -805,7 +823,25 @@ ModelImporter:
         weight: 1
       - path: Delantera_B/Ruendas_D/RuedaD_2/Ruendas_D2
         weight: 1
-      - path: Delantera_B/Salida
+      - path: Delantera_B/Varios
+        weight: 1
+      - path: Delantera_B/Varios/Caucho_2
+        weight: 1
+      - path: Delantera_B/Varios/Cubierta_Cabina
+        weight: 1
+      - path: Delantera_B/Varios/EspejoDe
+        weight: 1
+      - path: Delantera_B/Varios/LimpiaParabrisas
+        weight: 1
+      - path: Delantera_B/Varios/MetalAmarillo_1
+        weight: 1
+      - path: Delantera_B/Varios/NegroBrillaste
+        weight: 1
+      - path: Delantera_B/Varios/RetroVisor
+        weight: 1
+      - path: Delantera_B/Varios/RetroVisor/EspejoIz
+        weight: 1
+      - path: Delantera_B/Varios/Salida
         weight: 1
       - path: Trasero_B
         weight: 1
@@ -877,15 +913,11 @@ ModelImporter:
         weight: 1
       - path: Trasero_B/Balde/G_Balde/Pernos
         weight: 1
-      - path: Trasero_B/Baliza
-        weight: 1
       - path: Trasero_B/BaseEjeBajo
         weight: 1
       - path: Trasero_B/BaseEjeBajo/EjeBajo
         weight: 1
       - path: Trasero_B/BaseEjeBajo/pCylinder624
-        weight: 1
-      - path: Trasero_B/ClaxonTras
         weight: 1
       - path: Trasero_B/Colliders_T
         weight: 1
@@ -901,12 +933,6 @@ ModelImporter:
         weight: 1
       - path: Trasero_B/Colliders_T/Collider6 1
         weight: 1
-      - path: Trasero_B/EntradasGrasa
-        weight: 1
-      - path: Trasero_B/MetalYelow_2
-        weight: 1
-      - path: Trasero_B/ReflectTras
-        weight: 1
       - path: Trasero_B/Ruendas_T
         weight: 1
       - path: Trasero_B/Ruendas_T/RuedaT_3
@@ -921,7 +947,19 @@ ModelImporter:
         weight: 1
       - path: Trasero_B/Ruendas_T/RuedaT_4/Ruendas_T4
         weight: 1
-      - path: Trasero_B/Tope
+      - path: Trasero_B/Varios 1
+        weight: 1
+      - path: Trasero_B/Varios 1/Baliza
+        weight: 1
+      - path: Trasero_B/Varios 1/ClaxonTras
+        weight: 1
+      - path: Trasero_B/Varios 1/EntradasGrasa
+        weight: 1
+      - path: Trasero_B/Varios 1/MetalYelow_2
+        weight: 1
+      - path: Trasero_B/Varios 1/ReflectTras
+        weight: 1
+      - path: Trasero_B/Varios 1/Tope
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
