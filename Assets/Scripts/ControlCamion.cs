@@ -720,9 +720,12 @@ public class ControlCamion : MonoBehaviour {
 		if (brazoAutomatico)
 			brazo = 1f;
 		*/
-		manejarEjeLimites (direccion);
-
-        manejarBrazoLimites(brazo);// * (test?100f:1f));
+		if (estado == EstadoMaquina.encendida)
+		{
+			manejarEjeLimites (-direccion);
+			manejarBrazoLimites(brazo);
+		}
+		// * (test?100f:1f));
         /*manejarPalaLimites (pala * (test?100f:1f));
 		controlPantallaTactil.setPesoPala ("" + (Mathf.Round(capturaPeso.enCarga * 100f) / 100f));
 		controlPantallaTactil.setVehicleSpeed ("" + Mathf.RoundToInt(controlExcavadoraMotor.GetComponent<Rigidbody>().velocity.magnitude * 3600f / 1000f));

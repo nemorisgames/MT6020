@@ -6,19 +6,26 @@ public class InGame : MonoBehaviour {
     public GameObject maquinaBaja;
     public GameObject camaraEntrada;
     public GameObject controlChecklistGameObject;
+
 	// Use this for initialization
 	void Start ()
     {
-        for (int i = 0; i < Display.displays.Length; i++)
+		/*print ("Displays: " + Display.displays.Length);
+		for (int i = 0; i < 6; i++)
         {
             Display.displays[i].Activate();
         }
         Display.displays[0].SetParams(1366, 768, 0, 0);
-        if (Display.displays.Length > 1) Display.displays[1].SetParams(1920, 1080, 0, 0);
-        if (Display.displays.Length > 2) Display.displays[2].SetParams(1920, 1080, 0, 0);
-        if (Display.displays.Length > 3) Display.displays[3].SetParams(1920, 1080, 0, 0);
-        if (Display.displays.Length > 4) Display.displays[4].SetParams(800, 480, 0, 0);
-        if (Display.displays.Length > 5) Display.displays[5].SetParams(1920, 1080, 0, 0);
+        //if (Display.displays.Length > 1) 
+			Display.displays[1].SetParams(1920, 1080, 0, 0);
+        //if (Display.displays.Length > 2) 
+			Display.displays[2].SetParams(1920, 1080, 0, 0);
+        //if (Display.displays.Length > 3) 
+			Display.displays[3].SetParams(1920, 1080, 0, 0);
+        //if (Display.displays.Length > 4) 
+			Display.displays[4].SetParams(800, 480, 0, 0);
+        //if (Display.displays.Length > 5) 
+			Display.displays[5].SetParams(1920, 1080, 0, 0);
 
         string[] names = Input.GetJoystickNames();
         Debug.Log("Connected Joysticks:");
@@ -26,7 +33,18 @@ public class InGame : MonoBehaviour {
             Debug.Log("Joystick" + (i + 1) + " = " + names[i]);
         }
 
-        activarMaquinaAlta(true);
+        activarMaquinaAlta(true);*/
+		print("pantallas: " + Display.displays.Length);
+		for (int i = 0; i < Display.displays.Length; i++)
+		{
+			Display.displays[i].Activate();
+		}
+		Display.displays[0].SetParams(1366, 768, 0, 0);
+		Display.displays[1].SetParams(1920, 1080, 0, 0);
+		Display.displays[2].SetParams(1920, 1080, 0, 0);
+		Display.displays[3].SetParams(1920, 1080, 0, 0);
+		Display.displays[4].SetParams(800, 480, 0, 0);
+		Display.displays[5].SetParams(1920, 1080, 0, 0);
     }
 
     void activarMaquinaAlta(bool activar)

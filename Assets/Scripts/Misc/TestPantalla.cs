@@ -9,6 +9,7 @@ public class TestPantalla : MonoBehaviour {
     public UIInput[] py;
     // Use this for initialization
     void Start () {
+		print("pantallas: " + Display.displays.Length);
         for (int i = 0; i < Display.displays.Length; i++)
         {
             Display.displays[i].Activate();
