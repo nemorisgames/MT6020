@@ -88,7 +88,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 		float hor2 = 0f;
 		float ver = 0f;
 		float ver2 = 0f;
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
 		hor = Input.GetAxis("ManubrioEditor");
 #else
         //print(Input.GetAxis("Manubrio"));
@@ -272,7 +272,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
             }
         //}
 
-        if (enfocandoCabina && (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Fire3")))
+		if (enfocandoCabina && (Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire3")))
         {
             operarioAnimator.gameObject.SetActive(true);
             operarioAnimator.SetTrigger("Entrar");
@@ -284,7 +284,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
             gameObject.SetActive(false);
         }
 
-        if (enfocandoEncendido && (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Fire3")))
+        if (enfocandoEncendido && (Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire3")))
         {
             if(!puertaIsoSwitchAbierta)
                 puertaIsoSwitch.PlayForward();

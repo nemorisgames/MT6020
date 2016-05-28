@@ -694,19 +694,15 @@ public class ControlCamion : MonoBehaviour {
         float brazo = 0f;
 		float direccion = 0f;
         /*
-#if !UNITY_EDITOR
-		pala = Input.GetAxis ("CucharaEditor");*/
 #if UNITY_EDITOR
-<<<<<<< HEAD
+		pala = Input.GetAxis ("CucharaEditor");*/
+#if !UNITY_EDITOR
         brazo = Input.GetAxis("ControlTolbaEditor");
-=======
-        brazo = 0.4f;// Input.GetAxis("ControlTolbaEditor");
->>>>>>> 698d0ab84791fd65e909662ee5f65fa6aa2153d7
 #else
         print("Tolba: " + Input.GetAxis("ControlTolba") + ", Cambio: " + Input.GetAxis("Cambio"));
         brazo = Input.GetAxis("ControlTolba");
 #endif
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
         direccion = Input.GetAxis("ManubrioEditor");
 #else
         direccion = Input.GetAxis("Manubrio");
