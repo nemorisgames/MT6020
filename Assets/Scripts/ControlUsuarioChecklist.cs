@@ -88,7 +88,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 		float hor2 = 0f;
 		float ver = 0f;
 		float ver2 = 0f;
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
 		hor = Input.GetAxis("ManubrioEditor");
 #else
         //print(Input.GetAxis("Manubrio"));
