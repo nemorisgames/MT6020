@@ -99,7 +99,7 @@ public class ControlCamionMotor : MonoBehaviour {
 
 		if (estado != ControlCamion.EstadoMaquina.encendida) {// || central.estado == Central.EstadoSimulacion.Finalizando) {
 			//if(central != null && central.estado == Central.EstadoSimulacion.Finalizando){
-				GetComponent<Rigidbody>().velocity = Vector3.zero;
+				//GetComponent<Rigidbody>().velocity = Vector3.zero;
 				//GetComponent<Rigidbody>().isKinematic = true;
 				//audioMotor.pitch = 0.7f;
 				//audioRetroceso.Stop();

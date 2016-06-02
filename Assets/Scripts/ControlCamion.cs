@@ -834,7 +834,7 @@ public class ControlCamion : MonoBehaviour {
         if (!animacionEnInicio && !animacionEnFinal)
         {*/
         print(Mathf.Clamp(accionControl, rangoLimitTolba.x, rangoLimitTolba.y));
-            animator.SetFloat("multiplicadorVelocidadBalde", Mathf.Clamp(accionControl, rangoLimitTolba.x, rangoLimitTolba.y));
+        animator.SetFloat("multiplicadorVelocidadBalde", Mathf.Clamp(accionControl, rangoLimitTolba.x, rangoLimitTolba.y));
         //}
         /*
 		JointMotor m = jointBrazo.motor;
