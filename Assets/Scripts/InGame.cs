@@ -6,9 +6,10 @@ public class InGame : MonoBehaviour {
     public GameObject maquinaBaja;
     public GameObject camaraEntrada;
     public GameObject controlChecklistGameObject;
+    public TableroControl tableroControl;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
 		/*print ("Displays: " + Display.displays.Length);
 		for (int i = 0; i < 6; i++)

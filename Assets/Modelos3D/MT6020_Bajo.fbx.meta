@@ -157,6 +157,11 @@ ModelImporter:
     100298: EspejoDe
     100300: EspejoIz
     100302: RetroVisor
+    100304: _Ruendas_T3
+    100306: _Ruendas_T4
+    100308: Control_Manual
+    100310: Cubierta_Cabina 1
+    100312: RetrovisarDerecho
     400000: Balde
     400002: Balde 1
     400004: Baliza
@@ -309,6 +314,11 @@ ModelImporter:
     400298: EspejoDe
     400300: EspejoIz
     400302: RetroVisor
+    400304: _Ruendas_T3
+    400306: _Ruendas_T4
+    400308: Control_Manual
+    400310: Cubierta_Cabina 1
+    400312: RetrovisarDerecho
     2300000: Balde 1
     2300002: Baliza
     2300004: BaseBlax
@@ -435,6 +445,11 @@ ModelImporter:
     2300246: EspejoDe
     2300248: EspejoIz
     2300250: RetroVisor
+    2300252: _Ruendas_T3
+    2300254: _Ruendas_T4
+    2300256: Control_Manual
+    2300258: Cubierta_Cabina 1
+    2300260: RetrovisarDerecho
     3300000: Balde 1
     3300002: Baliza
     3300004: BaseBlax
@@ -561,6 +576,11 @@ ModelImporter:
     3300246: EspejoDe
     3300248: EspejoIz
     3300250: RetroVisor
+    3300252: _Ruendas_T3
+    3300254: _Ruendas_T4
+    3300256: Control_Manual
+    3300258: Cubierta_Cabina 1
+    3300260: RetrovisarDerecho
     4300000: ReflectTras
     4300002: MetalYelow_2
     4300004: Baliza
@@ -687,6 +707,11 @@ ModelImporter:
     4300246: RetroVisor
     4300248: EspejoIz
     4300250: EspejoDe
+    4300252: _Ruendas_T4
+    4300254: _Ruendas_T3
+    4300256: RetrovisarDerecho
+    4300258: Cubierta_Cabina
+    4300260: Control_Manual
     7400000: Take 001
     9500000: //RootNode
   materials:

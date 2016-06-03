@@ -13,6 +13,9 @@ public class ControlCamion : MonoBehaviour {
     bool animacionEnFinal = false;
     public GameObject camaraTrasera;
     public GameObject camaraBalde;
+
+    public InGame ingame;
+
     /*public HingeJoint jointBrazo;
 	Transform cilindroEmpuje;
 	Vector2 limiteBrazo = new Vector2 (30f, 100f);
@@ -110,6 +113,7 @@ public class ControlCamion : MonoBehaviour {
     */
     // Use this for initialization
     void Start () {
+        ingame = GameObject.FindWithTag("InGame").GetComponent<InGame>();
         controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
         animator = GetComponent<Animator>();
         /*

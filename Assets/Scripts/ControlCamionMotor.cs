@@ -29,6 +29,7 @@ public class ControlCamionMotor : MonoBehaviour {
     public GameObject camaraMedicionAtras;
     public GameObject camaraMedicionAdelante;
 
+    public InGame ingame;
     /*
 
     public AudioClip sonidoClaxon;
@@ -49,6 +50,7 @@ public class ControlCamionMotor : MonoBehaviour {
         audioMotor = gameObject.GetComponent<AudioSource> ();
         cambioVelocidad (0);
         */
+        ingame = GameObject.FindWithTag("InGame").GetComponent<InGame>();
         controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
 #if UNITY_EDITOR
         tipoCambio = TipoCambio.automatico;
@@ -119,12 +121,14 @@ public class ControlCamionMotor : MonoBehaviour {
             camaraMedicionAdelante.SetActive(!camaraMedicionAdelante.activeSelf);
             camaraMedicionAtras.SetActive(!camaraMedicionAtras.activeSelf);
         }
+        ingame.tableroControl.encenderReversa(retroceso);
+        ingame.tableroControl.encenderAdelante(!retroceso);
         //print(brake + " " + retardador);
 #if UNITY_EDITOR
-		/*throttle = ((valoresPotenciometro[0] * 1f) - 310f) / 520f;
+        /*throttle = ((valoresPotenciometro[0] * 1f) - 310f) / 520f;
 		brake = ((valoresPotenciometro[1] * 1f) - 310f) / 520f;*/
 #endif
-		float factorAceleracion = 1f;
+        float factorAceleracion = 1f;
 		if (throttle > 0) {
 			factorAceleracion = 2f / ((cambioActual + 1f));
 		} else
@@ -144,7 +148,11 @@ public class ControlCamionMotor : MonoBehaviour {
             velocidadActual = velocidadActual * Mathf.Clamp01(0.9f + 1f / (20f * retardador));
         }
         //print(throttle + " " + brake + " " + velocidadActual);
+        ingame.tableroControl.encenderManual(tipoCambio != TipoCambio.automatico);
+        ingame.tableroControl.encenderAuto(tipoCambio == TipoCambio.automatico);
+        ingame.tableroControl.encenderNeutro(cambioActual == 0);
         if (tipoCambio == TipoCambio.automatico) {
+
             if (retroceso){
 			    if(factorRetroceso * velocidadActual > 1f){ 
 				    cambioVelocidad(cambioActual - 1);
