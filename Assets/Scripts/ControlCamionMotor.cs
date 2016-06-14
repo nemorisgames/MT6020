@@ -30,6 +30,12 @@ public class ControlCamionMotor : MonoBehaviour {
     public GameObject camaraMedicionAdelante;
 
     public InGame ingame;
+    public AudioSource audioSource;
+    public AudioClip sonidoMotor;
+    public AudioClip sonidoBomba;
+    public AudioClip sonidoEncendido;
+    public AudioClip sonidoRetroceso;
+    public AudioClip sonidoPitido;
     /*
 
     public AudioClip sonidoClaxon;
@@ -86,16 +92,21 @@ public class ControlCamionMotor : MonoBehaviour {
         if (estado == ControlCamion.EstadoMaquina.apagadaTotal)
             return;
         estado = activar? ControlCamion.EstadoMaquina.encendida: ControlCamion.EstadoMaquina.apagada;
-        /*if (activar)
-            GetComponent<AudioSource>().Play ();
-        else { 
-            GetComponent<AudioSource>().Stop ();
-            GetComponent<AudioSource>().PlayOneShot(apagadoMotor);
-        }*/
+        if (activar)
+        {
+            audioSource.clip = sonidoMotor;
+            audioSource.loop = true;
+            audioSource.Play();
+            audioSource.PlayOneShot(sonidoEncendido);
+        }
+        else
+        {
+            audioSource.Stop();
+        }
     }
     // Update is called once per frame
     void FixedUpdate () {
-		if (estado == ControlCamion.EstadoMaquina.encendida && !GetComponent<AudioSource>().isPlaying){
+		if (estado == ControlCamion.EstadoMaquina.encendida && !audioSource.isPlaying){
 			GetComponent<AudioSource>().Play ();
 		}
 
@@ -109,6 +120,15 @@ public class ControlCamionMotor : MonoBehaviour {
 			foreach (WheelCollider w in ruedasConMotor) {
 				w.brakeTorque = 500000f;
 			}
+            if (estado == ControlCamion.EstadoMaquina.apagada)
+            {
+                audioSource.loop = false;
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.clip = sonidoPitido;
+                    audioSource.PlayDelayed(4f);
+                }
+            }
 			return;
 		}
 
@@ -222,8 +242,8 @@ public class ControlCamionMotor : MonoBehaviour {
             }
             print("cambio " + cambioActual);
         }
-
-		//audioMotor.pitch = Mathf.Clamp (0.7f + velocidadActual / velocidades [Mathf.Clamp(cambioActual, 1, 6)], 0.7f, 1.1f);
+        print(velocidadActual / ((velocidades[cambioActual] * 100000f) + 1f));
+		audioSource.pitch = Mathf.Clamp (1f + velocidadActual / (velocidades[cambioActual] * 100000f + 1f), 1f, 1.5f);
 
 		foreach (WheelCollider w in ruedasConMotor) {
 			w.motorTorque = factorRetroceso * velocidadActual * Time.deltaTime;

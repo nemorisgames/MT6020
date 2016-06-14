@@ -751,6 +751,9 @@ public class ControlCamion : MonoBehaviour {
                 if (estado == EstadoMaquina.apagada && tiempoEncendido <= 0f)
                 {
                     tiempoEncendido = Time.time + 5f;
+                    controlCamionMotor.audioSource.loop = true;
+                    controlCamionMotor.audioSource.clip = controlCamionMotor.sonidoBomba;
+                    controlCamionMotor.audioSource.Play();
                     //audioRetroceso.clip = Resources.Load("camion") as AudioClip;
                     //if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
                 }
