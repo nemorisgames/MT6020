@@ -51,7 +51,7 @@ public class UIScrollViewEditor : Editor
 		{
 			NGUIEditorTools.BeginContents();
 			NGUIEditorTools.DrawProperty("Horizontal", serializedObject, "horizontalScrollBar");
-			NGUIEditorTools.DrawProperty("Acelerador", serializedObject, "verticalScrollBar");
+			NGUIEditorTools.DrawProperty("Vertical", serializedObject, "verticalScrollBar");
 			NGUIEditorTools.DrawProperty("Show Condition", serializedObject, "showScrollBars");
 			NGUIEditorTools.EndContents();
 		}

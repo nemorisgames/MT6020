@@ -15,7 +15,7 @@ public class DataBase
     public DataBase()
     {
         source = "server= localhost;" +
-                "database =generico;" +
+                "database =mt6020;" +
                 "Uid =root;" +
                 "Pooling=false;" +
                 "password= ";
@@ -46,13 +46,14 @@ public class DataBase
             
             comando.CommandText = consulta;
             MySqlDataReader datos = comando.ExecuteReader();
-       
-          /*  while (datos.Read())
-            {
-                string usuario = (string)datos["name"];
-                Debug.Log("Usuario " + usuario);
-            }*/
-            
+
+            //for(int i = 0; i < 1000; i++)
+            //    Debug.Log(datos.);
+            //{
+            //    string usuario = (string)datos["name"];
+            //    Debug.Log("Usuario " + usuario);
+            //}
+
             return datos;
             conexion.Close();
         }
