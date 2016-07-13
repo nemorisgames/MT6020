@@ -439,7 +439,11 @@ public class ControlTarjetaControladora : MonoBehaviour {
 
     public int ControlLucesDelanteras()
     {
+#if !UNITY_EDITOR
         return leerSwitch(22, 23);
+#else
+        return Input.GetKey(KeyCode.T)?0:1;
+#endif
     }
 
     public int ControlLucesDelanteras1()
@@ -463,6 +467,9 @@ public class ControlTarjetaControladora : MonoBehaviour {
     {
 #if !UNITY_EDITOR
         return (dev.PinStates[24] == 0)?0:1;
+
+#else
+        return Input.GetKey(KeyCode.B) ? 0 : 1;
 #endif
         //si no hay lectura
         return -1;
@@ -472,6 +479,9 @@ public class ControlTarjetaControladora : MonoBehaviour {
     {
 #if !UNITY_EDITOR
         return (dev.PinStates[25] == 0)?0:1;
+
+#else
+        return Input.GetKey(KeyCode.G) ? 0 : 1;
 #endif
         //si no hay lectura
         return -1;

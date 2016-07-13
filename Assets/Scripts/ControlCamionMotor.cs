@@ -185,7 +185,7 @@ public class ControlCamionMotor : MonoBehaviour {
 		    }
 		    else{
 			    if(factorRetroceso * velocidadActual < -1f){
-                    print("bajando velocidad " + (cambioActual - 1));
+                    //print("bajando velocidad " + (cambioActual - 1));
 				    cambioVelocidad(cambioActual - 1);
 				    factorRetroceso = -1;
 			    }
@@ -242,7 +242,7 @@ public class ControlCamionMotor : MonoBehaviour {
             }
             print("cambio " + cambioActual);
         }
-        print(velocidadActual / ((velocidades[cambioActual] * 100000f) + 1f));
+        //print(velocidadActual / ((velocidades[cambioActual] * 100000f) + 1f));
 		audioSource.pitch = Mathf.Clamp (1f + velocidadActual / (velocidades[cambioActual] * 100000f + 1f), 1f, 1.5f);
 
 		foreach (WheelCollider w in ruedasConMotor) {
@@ -274,7 +274,7 @@ public class ControlCamionMotor : MonoBehaviour {
     
 	void calcularCambio(float throttle){
 		if(throttle > 0f){
-			print ("cambio up!" + Mathf.RoundToInt(throttle * 6));
+			//print ("cambio up!" + Mathf.RoundToInt(throttle * 6));
 			cambioVelocidad(Mathf.RoundToInt(throttle * 6));
 		}
     }
@@ -282,7 +282,7 @@ public class ControlCamionMotor : MonoBehaviour {
     public void cambioVelocidad(int cambio)
     {
         cambioActual = Mathf.Clamp(cambio, 0, 6);
-        print("cambio " + cambioActual);
+        //print("cambio " + cambioActual);
         //transform.parent.gameObject.SendMessage("cambio" + (cambioActual), true);
     }
 

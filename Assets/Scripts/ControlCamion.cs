@@ -31,13 +31,12 @@ public class ControlCamion : MonoBehaviour {
 	public bool vistaExterior = true;
 	public GameObject[] PartesMaquina;
 	public GameObject[] PartesMaquinaChecklist;
-
-	public Light[] lucesDelanterasAltas;
-	public Light[] lucesDelanterasBajas;
-	public Light[] lucesTraserasAltas;
-	public Light[] lucesTraserasBajas;
     */
-	Vector2 rangoLimitEje = new Vector2 (-45f, 45f);
+    public Light[] lucesDelanteras;
+	public Light[] lucesCarga;
+	public Light[] lucesTraseras;
+    
+    Vector2 rangoLimitEje = new Vector2 (-45f, 45f);
     Vector2 rangoLimitTolba = new Vector2(-1f, 1f);
     /*
 	public Vector2 rangoLimitBrazo; 
@@ -71,12 +70,12 @@ public class ControlCamion : MonoBehaviour {
 	ConfiguracionControles configuracionControles;
 	Configuracion configuracion;
 	LectorControles lectorControles;
-
+    */
 	public enum senaletica {ninguno, recta, flechaIzq, flechaDer, giroT, giroTReves, giroU, giroUReves, giroX, giroXReves};
 	public senaletica senalActual = senaletica.ninguno;
 	public GameObject[] senales;
 	public GameObject[] senalesMotor;
-
+    /*
 	public CapturaPeso capturaPeso;
 
 	public ControlCamion controlCamion;
@@ -143,43 +142,43 @@ public class ControlCamion : MonoBehaviour {
 	void potenciometros(int[] valores){
 		valoresPotenciometro = valores;
 	}
-
+    */
 	public void cambiarEstado(senaletica senal, bool avancePuntaBalde){
 		if (senalActual == senal)
 			return;
 		senalActual = senal;
 		for (int i = 0; i < senales.Length; i++) {
 			senales[i].SetActive(false);
-			senalesMotor[i].SetActive(false);
+			//senalesMotor[i].SetActive(false);
 		}
 		if(avancePuntaBalde)
 			switch(senalActual){
-			case senaletica.ninguno: break;
-			case senaletica.recta: senales[0].SetActive(true); break;
-			case senaletica.giroU: senales[1].SetActive(true); break;
-			case senaletica.giroUReves: senales[2].SetActive(true); break;
-			case senaletica.giroT: senales[3].SetActive(true); break;
-			case senaletica.giroTReves: senales[4].SetActive(true); break;
-			case senaletica.giroX: senales[5].SetActive(true); break;
-			case senaletica.giroXReves: senales[6].SetActive(true); break;
-			case senaletica.flechaIzq: senales[7].SetActive(true); break;
-			case senaletica.flechaDer: senales[8].SetActive(true); break;
+			    case senaletica.ninguno: break;
+			    case senaletica.recta: senales[0].SetActive(true); break;
+			    case senaletica.giroU: senales[1].SetActive(true); break;
+			    case senaletica.giroUReves: senales[2].SetActive(true); break;
+			    case senaletica.giroT: senales[3].SetActive(true); break;
+			    case senaletica.giroTReves: senales[4].SetActive(true); break;
+			    case senaletica.giroX: senales[5].SetActive(true); break;
+			    case senaletica.giroXReves: senales[6].SetActive(true); break;
+			    case senaletica.flechaIzq: senales[7].SetActive(true); break;
+			    case senaletica.flechaDer: senales[8].SetActive(true); break;
 			}
 		else
 			switch(senalActual){
-			case senaletica.ninguno: break;
-			case senaletica.recta: senalesMotor[0].SetActive(true); break;
-			case senaletica.giroU: senalesMotor[1].SetActive(true); break;
-			case senaletica.giroUReves: senalesMotor[2].SetActive(true); break;
-			case senaletica.giroT: senalesMotor[3].SetActive(true); break;
-			case senaletica.giroTReves: senalesMotor[4].SetActive(true); break;
-			case senaletica.giroX: senalesMotor[5].SetActive(true); break;
-			case senaletica.giroXReves: senalesMotor[6].SetActive(true); break;
-			case senaletica.flechaIzq: senalesMotor[7].SetActive(true); break;
-			case senaletica.flechaDer: senalesMotor[8].SetActive(true); break;
-		}
+			    case senaletica.ninguno: break;
+			    /*case senaletica.recta: senalesMotor[0].SetActive(true); break;
+			    case senaletica.giroU: senalesMotor[1].SetActive(true); break;
+			    case senaletica.giroUReves: senalesMotor[2].SetActive(true); break;
+			    case senaletica.giroT: senalesMotor[3].SetActive(true); break;
+			    case senaletica.giroTReves: senalesMotor[4].SetActive(true); break;
+			    case senaletica.giroX: senalesMotor[5].SetActive(true); break;
+			    case senaletica.giroXReves: senalesMotor[6].SetActive(true); break;
+			    case senaletica.flechaIzq: senalesMotor[7].SetActive(true); break;
+			    case senaletica.flechaDer: senalesMotor[8].SetActive(true); break;*/
+		    }
 	}
-	
+	/*
 	void comprobarOrdenEjecucion(){
 		switch (ordenEjecucion) {
 		case 0: 
@@ -803,6 +802,21 @@ public class ControlCamion : MonoBehaviour {
             //audioRetroceso.Stop();
             //if ((central.estado == Central.EstadoSimulacion.Finalizando || central.estado == Central.EstadoSimulacion.ApagadoExterior) && estado == EstadoMaquina.encendida) mensajeApagar.Toggle();
         }
+
+        //if (estado == EstadoMaquina.encendida)
+        //{
+        //    if (lucesDelanteras.Length > 0)
+        //    {
+        encenderLucesDelanteras(controlTarjetaControladora.ControlLucesDelanteras() == 1 && estado == EstadoMaquina.encendida);
+        encenderLucesTraseras(controlTarjetaControladora.ControlLucesTraseras() == 1 && estado == EstadoMaquina.encendida);
+        encenderLucesCarga(controlTarjetaControladora.ControlLucesCarga() == 1 && estado == EstadoMaquina.encendida);
+
+        //    }
+        //}
+        /*if ((central.estado == Central.EstadoSimulacion.Finalizando || central.estado == Central.EstadoSimulacion.ApagadoExterior) && estado == EstadoMaquina.encendida)
+        {
+            mensajeApagar.Toggle();
+        }*/
     }
 
     //void OnGUI(){
@@ -840,7 +854,7 @@ public class ControlCamion : MonoBehaviour {
         }
         if (!animacionEnInicio && !animacionEnFinal)
         {*/
-        print(Mathf.Clamp(accionControl, rangoLimitTolba.x, rangoLimitTolba.y));
+        //print(Mathf.Clamp(accionControl, rangoLimitTolba.x, rangoLimitTolba.y));
         animator.SetFloat("multiplicadorVelocidadBalde", Mathf.Clamp(accionControl, rangoLimitTolba.x, rangoLimitTolba.y));
         //}
         /*
@@ -923,36 +937,29 @@ public class ControlCamion : MonoBehaviour {
 	}
 
 
-
-	public void lucesAltasPala(bool activar){
-		if (monitorDisplay.activeSelf) {
-			if(controlCamion != null && Vector3.Distance(controlExcavadoraMotor.transform.position, controlCamion.camiones.transform.position) < 30f) controlCamion.lucesEncendidas(activar);
-			foreach (Light l in lucesDelanterasAltas)
+        */
+	public void encenderLucesDelanteras(bool activar){
+		//if (monitorDisplay.activeSelf) {
+			//if(controlCamion != null && Vector3.Distance(controlExcavadoraMotor.transform.position, controlCamion.camiones.transform.position) < 30f) controlCamion.lucesEncendidas(activar);
+			foreach (Light l in lucesDelanteras)
 				l.gameObject.SetActive (activar);
-		}
+		//}
 	}
-	public void lucesAltasMotor(bool activar){
-		if (monitorDisplay.activeSelf) {
-			if(controlCamion != null && Vector3.Distance(controlExcavadoraMotor.transform.position, controlCamion.camiones.transform.position) < 30f) controlCamion.lucesEncendidas(activar);
-			foreach (Light l in lucesTraserasAltas)
+	public void encenderLucesTraseras(bool activar){
+		//if (monitorDisplay.activeSelf) {
+		//	if(controlCamion != null && Vector3.Distance(controlExcavadoraMotor.transform.position, controlCamion.camiones.transform.position) < 30f) controlCamion.lucesEncendidas(activar);
+			foreach (Light l in lucesTraseras)
 				l.gameObject.SetActive (activar);
-		}
+		//}
 	}
-	public void lucesBajasPala(bool activar){
-		if (monitorDisplay.activeSelf) {
-			if(controlCamion != null && Vector3.Distance(controlExcavadoraMotor.transform.position, controlCamion.camiones.transform.position) < 30f) controlCamion.lucesEncendidas(activar);
-			foreach (Light l in lucesDelanterasBajas)
+	public void encenderLucesCarga(bool activar){
+		//if (monitorDisplay.activeSelf) {
+		//	if(controlCamion != null && Vector3.Distance(controlExcavadoraMotor.transform.position, controlCamion.camiones.transform.position) < 30f) controlCamion.lucesEncendidas(activar);
+			foreach (Light l in lucesCarga)
 				l.gameObject.SetActive (activar);
-		}
+		//}
 	}
-	public void lucesBajasMotor(bool activar){
-		if (monitorDisplay.activeSelf) {
-			if(controlCamion != null && Vector3.Distance(controlExcavadoraMotor.transform.position, controlCamion.camiones.transform.position) < 30f) controlCamion.lucesEncendidas(activar);
-			foreach (Light l in lucesTraserasBajas)
-				l.gameObject.SetActive (activar);
-		}
-	}*/
-	public void arranque(bool activar){
+    public void arranque(bool activar){
 		if (estado == EstadoMaquina.apagadaTotal)
 			return;
 		//print ("arranque" + activar);

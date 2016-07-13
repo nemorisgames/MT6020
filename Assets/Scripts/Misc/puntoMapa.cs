@@ -3,8 +3,8 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class puntoMapa : MonoBehaviour {
-	/*Transform maquina;
-	ControlExcavadora controlExcavadora;
+	Transform maquina;
+	ControlCamion controlCamion;
 	public float escalaX = 3.21f;
 	public float escalaY = 3.21f;
 
@@ -15,7 +15,7 @@ public class puntoMapa : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		maquina = GameObject.FindWithTag ("Maquina").transform.FindChild ("Front");
-		controlExcavadora = maquina.parent.gameObject.GetComponent<ControlExcavadora> ();
+		controlCamion = maquina.parent.gameObject.GetComponent<ControlCamion> ();
 		sp = gameObject.GetComponent<UISprite> ();
 		textura = transform.parent.parent.FindChild ("Texture").gameObject;
 		Transform t2 = transform.parent.parent.FindChild ("Texture 1");
@@ -30,7 +30,7 @@ public class puntoMapa : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (controlExcavadora.estado == ControlExcavadora.EstadoMaquina.encendida) {
+		if (controlCamion.estado == ControlCamion.EstadoMaquina.encendida) {
 			if(!sp.enabled){
 				sp.enabled = true;
 				textura.SetActive(true);
@@ -44,7 +44,7 @@ public class puntoMapa : MonoBehaviour {
 			}
 		}
 		if (SceneManager.GetActiveScene().name.Contains ("17") || SceneManager.GetActiveScene().name.Contains ("18")) {
-			if(controlExcavadora.controlExcavadoraMotor.gameObject.transform.position.y < -12f){
+			if(controlCamion.controlCamionMotor.gameObject.transform.position.y < -12f){
 				if(!enPisoBajo){
 					enPisoBajo = true;
 					activarPisoBajo(true);
@@ -58,5 +58,5 @@ public class puntoMapa : MonoBehaviour {
 			}
 		}
 		transform.localPosition = new Vector3 (-maquina.position.z * escalaX, maquina.position.x * escalaY, 0f);
-	}*/
+	}
 }

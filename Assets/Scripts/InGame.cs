@@ -8,10 +8,13 @@ public class InGame : MonoBehaviour {
     public GameObject controlChecklistGameObject;
     public TableroControl tableroControl;
 
+    public enum EstadoSimulacion { PanelInicial, EncendidoExterior, Conduciendo, Finalizando, ApagadoExterior, Resultados };
+    public EstadoSimulacion estado = EstadoSimulacion.PanelInicial;
+
     // Use this for initialization
     void Start ()
     {
-		/*print ("Displays: " + Display.displays.Length);
+        /*print ("Displays: " + Display.displays.Length);
 		for (int i = 0; i < 6; i++)
         {
             Display.displays[i].Activate();
@@ -33,8 +36,8 @@ public class InGame : MonoBehaviour {
         for (int i = 0; i < names.Length; i++) {
             Debug.Log("Joystick" + (i + 1) + " = " + names[i]);
         }
-
-        activarMaquinaAlta(true);*/
+        */
+        activarMaquinaAlta(true);
 		print("pantallas: " + Display.displays.Length);
 		for (int i = 0; i < Display.displays.Length; i++)
 		{
@@ -68,9 +71,14 @@ public class InGame : MonoBehaviour {
         print("entrar");
         activarMaquinaAlta(false);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void cambiarEstado(EstadoSimulacion e)
+    {
+        estado = e;
+    }
+
+    // Update is called once per frame
+    void Update () {
 	
 	}
 }
