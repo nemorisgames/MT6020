@@ -34,6 +34,20 @@ public class login : MonoBehaviour
                 cosasLogin.SetActive(false);
             }
         }
+
+        /*print("pantallas: " + Display.displays.Length);
+        for (int i = 0; i < Display.displays.Length; i++)
+        {
+            Display.displays[i].Activate();
+        }
+        Display.displays[0].SetParams(1366, 768, 0, 0);
+        Display.displays[1].SetParams(1920, 1080, 0, 0);
+        Display.displays[2].SetParams(1920, 1080, 0, 0);
+        Display.displays[3].SetParams(1920, 1080, 0, 0);
+        Display.displays[4].SetParams(800, 480, 0, 0);
+
+        Display.displays[5].SetParams(1920, 1080, 0, 0);*/
+        Screen.SetResolution(9600, 1080, false);
     }
 
     // Update is called once per frame

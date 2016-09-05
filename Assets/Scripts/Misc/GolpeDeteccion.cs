@@ -2,57 +2,57 @@
 using System.Collections;
 
 public class GolpeDeteccion : MonoBehaviour {
-	/*ControlExcavadora controlExcavadora;
-	Central central;
+	ControlCamion controlCamion;
+	InGame inGame;
 	// Use this for initialization
 	void Start () {
-		controlExcavadora = GameObject.FindWithTag ("Maquina").GetComponent<ControlExcavadora>();
-		central = GameObject.FindWithTag ("Central").GetComponent<Central>();
+		controlCamion = GameObject.FindWithTag ("Maquina").GetComponent<ControlCamion>();
+		inGame = GameObject.FindWithTag ("InGame").GetComponent<InGame>();
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		//print ("detectado " + collision.gameObject.tag + ", " + collision.contacts[0].thisCollider.tag);
-		ControlExcavadora.LugarMaquina l = ControlExcavadora.LugarMaquina.Brazo;
+		print ("detectado " + collision.gameObject.tag + ", " + collision.contacts[0].thisCollider.tag);
+		ControlCamion.LugarMaquina l = ControlCamion.LugarMaquina.Frontal;
 		switch (collision.contacts [0].thisCollider.tag) {
-		case "MaquinaPosteriorIzq": l = ControlExcavadora.LugarMaquina.PosteriorIzquierdo; break;
-		case "MaquinaPosteriorDer": l = ControlExcavadora.LugarMaquina.PosteriorDerecho; break;
-		case "MaquinaMedioIzq": l = ControlExcavadora.LugarMaquina.Cabina; break;
-		case "MaquinaMedioDer": l = ControlExcavadora.LugarMaquina.MedioDerecho; break;
+		case "CamionMotorDer": l = ControlCamion.LugarMaquina.MotorDer; break;
+		case "CamionMotorIzq": l = ControlCamion.LugarMaquina.MotorIzq; break;
+		case "CamionTolvaDer": l = ControlCamion.LugarMaquina.TolvaDer; break;
+		case "CamionTolvaIzq": l = ControlCamion.LugarMaquina.TolvaIzq; break;
 		}
-		controlExcavadora.golpe (collision.relativeVelocity.magnitude, collision.contacts[0].point, collision.gameObject.tag, l);
+		controlCamion.golpe (collision.relativeVelocity.magnitude, collision.contacts[0].point, collision.gameObject.tag, l);
 
-		if (collision.gameObject.CompareTag ("Camioneta")) {
+		/*if (collision.gameObject.CompareTag ("Camioneta")) {
 			collision.gameObject.SendMessage ("recibirGolpe", collision.relativeVelocity.magnitude);
             if (collision.relativeVelocity.magnitude > 2f)
             {
-                central.integridadCamioneta -= central.configuracion.DescuentoCamioneta;
-                central.cantidadChoquesCamioneta++;
+                inGame.integridadCamioneta -= inGame.configuracion.DescuentoCamioneta;
+                inGame.cantidadChoquesCamioneta++;
             }
-		} else {
+		} else {*/
 			if (collision.gameObject.CompareTag ("Obstaculo")) {
-				if(collision.relativeVelocity.magnitude > 2f) central.cantidadChoquesZipper++;
+				if(collision.relativeVelocity.magnitude > 2f) inGame.cantidadChoquesZipper++;
 			}
 			else{
 				if (collision.gameObject.CompareTag ("ObstaculoZipperPlastico")) {
-					if(collision.relativeVelocity.magnitude > 2f) central.cantidadChoquesZipper++;
+					if(collision.relativeVelocity.magnitude > 2f) inGame.cantidadChoquesZipper++;
 				}
 				else{
-					if (collision.gameObject.transform.root.name == "Camion") {
+					if (collision.gameObject.transform.root.name == "Buzon") {
 						if(collision.relativeVelocity.magnitude > 2f){
-							central.cantidadChoquesCamion++;
-							central.integridadCamion -= central.configuracion.DescuentoCamion;
+							inGame.cantidadChoquesBuzon++;
+							inGame.integridadCamion -= inGame.configuracion.DescuentoBuzonCarga;
 						}
 					}
-					//else{
-						//if(collision.relativeVelocity.magnitude > 1f) central.cantidadChoquesTunel++;
-					//}
+					else{
+						if(collision.relativeVelocity.magnitude > 1f) inGame.cantidadChoquesTunel++;
+					}
 				}
 			}
-		}
+		//}
 	}
 
 	// Update is called once per frame
 	void Update () {
 	
-	}*/
+	}
 }

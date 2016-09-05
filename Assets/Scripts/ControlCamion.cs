@@ -27,11 +27,11 @@ public class ControlCamion : MonoBehaviour {
 	Vector2 limitePala = new Vector2 (-30f, 50f);
 	
 	public TweenRotation manillaEncendidoExterior;
-	public ControlUsuarioChecklist controlUsuarioChecklist;
 	public bool vistaExterior = true;
 	public GameObject[] PartesMaquina;
 	public GameObject[] PartesMaquinaChecklist;
     */
+    public ControlUsuarioChecklist controlUsuarioChecklist;
     public Light[] lucesDelanteras;
 	public Light[] lucesCarga;
 	public Light[] lucesTraseras;
@@ -55,9 +55,10 @@ public class ControlCamion : MonoBehaviour {
 	public ControlPantallaTactil controlPantallaTactil;
 
 	public TweenAlpha mensajeApagar;
-
+    */
 	public GameObject sonidoGolpePrefab;
-	public bool enTopePala = false;
+	/*
+    public bool enTopePala = false;
 	public bool enTopeBrazo = false;
 	public bool enTopeEje = false;
     */
@@ -68,9 +69,10 @@ public class ControlCamion : MonoBehaviour {
 	public int ordenEjecucion = 0;
 	public bool ordenEjecucionCorrecta = false;
 	ConfiguracionControles configuracionControles;
-	Configuracion configuracion;
-	LectorControles lectorControles;
     */
+	Configuracion configuracion;
+	//LectorControles lectorControles;
+    
 	public enum senaletica {ninguno, recta, flechaIzq, flechaDer, giroT, giroTReves, giroU, giroUReves, giroX, giroXReves};
 	public senaletica senalActual = senaletica.ninguno;
 	public GameObject[] senales;
@@ -81,20 +83,21 @@ public class ControlCamion : MonoBehaviour {
 	public ControlCamion controlCamion;
 	float tiempoSenal = 0f;
 	float tiempoSenalSalida = 0f;
+    */
+	public enum LugarMaquina {Frontal, MotorDer, MotorIzq, TolvaDer, TolvaIzq, Tunel, Buzon};
+	public float integridadFrontal = 100f;
+	public float integridadMotorDer = 100f;
+	public float integridadMotorIzq = 100f;
+	public float integridadTolvaDer = 100f;
+	public float integridadTolvaIzq = 100f;
 
-	public enum LugarMaquina {Brazo, Cabina, MedioDerecho, Posterior, PosteriorDerecho, PosteriorIzquierdo, Tunel, Camioneta, Camion};
-	public float integridadBrazo = 100f;
-	public float integridadCabina = 100f;
-	public float integridadMedioDerecho = 100f;
-	public float integridadPosterior = 100f;
-	public float integridadPosteriorDerecho = 100f;
-	public float integridadPosteriorIzquierdo = 100f;
-
+    
 	//float tiempoDobleClickConteo = -1f;
 
-	public bool test = false;
+	//public bool test = false;
     float cooldownGolpe = 0f;
 
+    /*
     bool clickHecho = false;
 	bool dobleClickHecho = false;
 
@@ -105,8 +108,9 @@ public class ControlCamion : MonoBehaviour {
 	public int tipoAdvertenciaAtras = 0;
 	public int tipoAdvertenciaAdelante = 0;
 	public AudioSource audioRetroceso;
-
+    */
 	float tiempoGolpeSonido = 0f;
+    /*
     [HideInInspector]
     public float tiempoOrdenEjecucion = 0f;
     */
@@ -115,10 +119,11 @@ public class ControlCamion : MonoBehaviour {
         ingame = GameObject.FindWithTag("InGame").GetComponent<InGame>();
         controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
         animator = GetComponent<Animator>();
-        /*
-        cilindroEmpuje = jointBrazo.transform.FindChild ("Eje_empuje_medio/Pomo");
+        
+        //cilindroEmpuje = jointBrazo.transform.FindChild ("Eje_empuje_medio/Pomo");
 		configuracion = GameObject.FindWithTag ("Configuracion").GetComponent<Configuracion>();
-		configuracionControles = GameObject.FindWithTag ("Configuracion").GetComponent<ConfiguracionControles>();
+        /*
+        configuracionControles = GameObject.FindWithTag ("Configuracion").GetComponent<ConfiguracionControles>();
 		connectedAnchorBrazo = jointBrazo.connectedAnchor;
 		connectedAnchorPala = jointBrazo.connectedAnchor;
 		central = GameObject.FindWithTag ("Central").GetComponent<Central>();
@@ -611,8 +616,18 @@ public class ControlCamion : MonoBehaviour {
 
     public void isoSwitchActivado(bool activado)
     {
-        estado = EstadoMaquina.apagada;
-        controlCamionMotor.estado = EstadoMaquina.apagada;
+        if (activado)
+        {
+            estado = EstadoMaquina.apagada;
+            controlCamionMotor.estado = EstadoMaquina.apagada;
+            print("iso activado");
+        }
+        else
+        {
+            estado = EstadoMaquina.apagadaTotal;
+            controlCamionMotor.estado = EstadoMaquina.apagadaTotal;
+            print("iso desactivado");
+        }
     }
 
     public void resetMaquina(){
@@ -811,6 +826,10 @@ public class ControlCamion : MonoBehaviour {
         encenderLucesTraseras(controlTarjetaControladora.ControlLucesTraseras() == 1 && estado == EstadoMaquina.encendida);
         encenderLucesCarga(controlTarjetaControladora.ControlLucesCarga() == 1 && estado == EstadoMaquina.encendida);
 
+        if ((estado == EstadoMaquina.apagadaTotal || estado == EstadoMaquina.apagada) && (Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire3")))
+        {
+            controlUsuarioChecklist.ingresarCabina(false);
+        }
         //    }
         //}
         /*if ((central.estado == Central.EstadoSimulacion.Finalizando || central.estado == Central.EstadoSimulacion.ApagadoExterior) && estado == EstadoMaquina.encendida)
@@ -822,13 +841,13 @@ public class ControlCamion : MonoBehaviour {
     //void OnGUI(){
     //GUI.Box (new Rect (3f * Screen.width / 5f, 0f, 400f, 60f), "orden ejecucion: " + ordenEjecucion + "\nFreno parqueo: " + controlExcavadoraMotor.frenoParqueoActivado);
     //}
-    /*
+    
 	public void salirCabina(){
 		print ("salir cabina");
-		ingresarCabina (false);
-		central.salirCabina ();
+		//ingresarCabina (false);
+		//ingame.salirCabina ();
 	}
-
+    /*
 	public void ingresarCabina(bool ingresar){
 		resetMaquina ();
 		vistaExterior = !ingresar;
@@ -838,7 +857,7 @@ public class ControlCamion : MonoBehaviour {
 			g2.SetActive (!ingresar);
 	}
     */
-	void manejarBrazoLimites(float accionControl){
+    void manejarBrazoLimites(float accionControl){
         //print(animacionEnInicio + " " + animacionEnFinal + " " + accionControl);
         /*if (animacionEnInicio && accionControl > 0f)
         {
@@ -987,22 +1006,16 @@ public class ControlCamion : MonoBehaviour {
         camaraTrasera.SetActive(!camaraTrasera.activeSelf);
         camaraBalde.SetActive(!camaraBalde.activeSelf);
     }
-    /*
-	void overrideMotor(bool activar){
-		print ("override");
-
-	}
-	void RRC(bool activar){
-
-	}
+    
 	void salirCabinaFinal(){
-		if (central.estado == Central.EstadoSimulacion.Finalizando || central.estado == Central.EstadoSimulacion.ApagadoExterior || central.estado == Central.EstadoSimulacion.EncendidoExterior) {
+		if (ingame.estado == InGame.EstadoSimulacion.Finalizando || ingame.estado == InGame.EstadoSimulacion.ApagadoExterior || ingame.estado == InGame.EstadoSimulacion.EncendidoExterior) {
 				print ("salir cabina");
 				salirCabina ();
-				controlUsuarioChecklist.mensajeInteraccion.gameObject.SetActive (false);
-				controlUsuarioChecklist.enfocandoCabina = false;
+				//controlUsuarioChecklist.mensajeInteraccion.gameObject.SetActive (false);
+				//controlUsuarioChecklist.enfocandoCabina = false;
 		}
 	}
+    /*
 	void claxon(bool activar){
 		if (!activar && controlCamion != null && controlCamion.estado == ControlCamion.estadoCamion.enPosicion && Vector3.Distance(controlExcavadoraMotor.transform.position, controlCamion.camiones.transform.position) < 30f) {
 			if (tiempoSenalSalida > 0f && tiempoSenalSalida > Time.time)
@@ -1060,43 +1073,43 @@ public class ControlCamion : MonoBehaviour {
 	public void fallaOperacionalCamioneta(){
 		central.fallaOperacion (LugarMaquina.Camioneta);
 	}
-
-	public void golpe(float intensidad, Vector3 position, string tag, LugarMaquina lugarGolpe){
+    */
+    public void golpe(float intensidad, Vector3 position, string tag, LugarMaquina lugarGolpe){
         if (cooldownGolpe > Time.time) return;
         cooldownGolpe = Time.time + 1f;
 		//print ("golpe " + intensidad + " * " + configuracion.getMultiplicadorDanio(tag));
 		float mult = configuracion.getMultiplicadorDanio (tag);
 		switch (lugarGolpe) {
-		case LugarMaquina.Brazo:
+		case LugarMaquina.Frontal:
 			if(intensidad * mult > 1f)
-				integridadBrazo -= configuracion.DescuentoChoque;
-			if(integridadBrazo < configuracion.IntBrazo) central.fallaOperacion(LugarMaquina.Brazo);
+				integridadFrontal -= configuracion.DescuentoChoque;
+			if(integridadFrontal < configuracion.IntFrontal) ingame.fallaOperacion(LugarMaquina.Frontal);
 			break;
-		case LugarMaquina.Cabina:
+		case LugarMaquina.MotorDer:
 			if(intensidad * mult > 1f)
-				integridadCabina -= configuracion.DescuentoChoque;
-			if(integridadCabina < configuracion.IntCabina) central.fallaOperacion(LugarMaquina.Cabina);
+				integridadMotorDer -= configuracion.DescuentoChoque;
+			if(integridadMotorDer < configuracion.IntMotorDer) ingame.fallaOperacion(LugarMaquina.MotorDer);
 			break;
-		case LugarMaquina.MedioDerecho:
+		case LugarMaquina.MotorIzq:
 			if(intensidad * mult > 1f)
-				integridadMedioDerecho -= configuracion.DescuentoChoque;
-			if(integridadMedioDerecho < configuracion.IntMedioDer) central.fallaOperacion(LugarMaquina.MedioDerecho);
+				integridadMotorIzq -= configuracion.DescuentoChoque;
+			if(integridadMotorIzq < configuracion.IntMedioDer) ingame.fallaOperacion(LugarMaquina.MotorIzq);
 			break;
-		case LugarMaquina.PosteriorDerecho:
+		case LugarMaquina.TolvaDer:
 			if(intensidad * mult > 1f){
-				integridadPosteriorDerecho -= configuracion.DescuentoChoque;
-				integridadPosterior -= configuracion.DescuentoChoque;
+				integridadTolvaDer -= configuracion.DescuentoChoque;
+				//integridadPosterior -= configuracion.DescuentoChoque;
 			}
-			if(integridadPosteriorDerecho < configuracion.IntPostDer) central.fallaOperacion(LugarMaquina.PosteriorDerecho);
-			if(integridadPosterior < configuracion.IntPosterior) central.fallaOperacion(LugarMaquina.Posterior);
+			if(integridadTolvaDer < configuracion.IntTolvaDer) ingame.fallaOperacion(LugarMaquina.TolvaDer);
+			//if(integridadPosterior < configuracion.IntPosterior) central.fallaOperacion(LugarMaquina.Posterior);
 			break;
-		case LugarMaquina.PosteriorIzquierdo:
+		case LugarMaquina.TolvaIzq:
 			if(intensidad * mult > 1f){
-				integridadPosteriorIzquierdo -= configuracion.DescuentoChoque;
-				integridadPosterior -= configuracion.DescuentoChoque;
+				integridadTolvaIzq -= configuracion.DescuentoChoque;
+			//	integridadPosterior -= configuracion.DescuentoChoque;
 			}
-			if(integridadPosteriorIzquierdo < configuracion.IntPostIzq) central.fallaOperacion(LugarMaquina.PosteriorIzquierdo);
-			if(integridadPosterior < configuracion.IntPosterior) central.fallaOperacion(LugarMaquina.Posterior);
+			if(integridadTolvaIzq < configuracion.IntTolvaIzq) ingame.fallaOperacion(LugarMaquina.TolvaIzq);
+			//if(integridadPosterior < configuracion.IntPosterior) central.fallaOperacion(LugarMaquina.Posterior);
 			break;
 		}
 		if (tiempoGolpeSonido < Time.time) {
@@ -1105,12 +1118,12 @@ public class ControlCamion : MonoBehaviour {
 			//g.GetComponent<AudioSource> ().Play ();
 			tiempoGolpeSonido = Time.time + 0.1f;
 		}
-		if(position.y >= controlExcavadoraMotor.transform.position.y + 2f && tag == "pared")
-			central.choqueTunel ();
+		if(position.y >= controlCamionMotor.transform.position.y + 2f && tag == "pared")
+			ingame.choqueTunel ();
 
 	}
 
 	public void reset(){
 		SceneManager.LoadScene (SceneManager.GetActiveScene().name);
-	}*/
+	}
 }

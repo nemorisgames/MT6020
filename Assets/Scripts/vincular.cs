@@ -76,6 +76,7 @@ public class vincular : MonoBehaviour {
 			conf.TiempoFaena=int.Parse (ret[2]);
 
 			conf.CantidadVueltas=int.Parse (ret[5]);
+            /*
 			conf.ChoqueZipper=int.Parse (ret[6]);
 			conf.IntAreaExtraccion=int.Parse (ret[7]);
 			conf.IntCamion=int.Parse (ret[8]);
@@ -85,6 +86,7 @@ public class vincular : MonoBehaviour {
 			conf.IntMedioDer=int.Parse (ret[12]);
 			conf.IntCabina=int.Parse (ret[13]);
 			conf.IntBrazo=int.Parse (ret[14]);
+            */
 			if(ret[15] != "")conf.ExitoPreguntas=int.Parse (ret[15]);
             if (ret[16] != "") conf.CantidadPreguntas=int.Parse (ret[16]);
 			conf.fallaOperacion=(ret[17]);
@@ -95,9 +97,11 @@ public class vincular : MonoBehaviour {
 			conf.check1=int.Parse (ret[22]);
 			conf.check2=int.Parse (ret[23]);
 			conf.DescuentoTunel=int.Parse (ret[24]);
+            /*
 			conf.DescuentoCamion=int.Parse (ret[25]);
             conf.IntCamioneta = int.Parse(ret[26]==""?"0":ret[26]);
             conf.DescuentoCamioneta = int.Parse(ret[27] == "" ? "0" : ret[27]);
+            */
             //interfazOperador.SendMessage("simulacionConfigurada");
             print(ret[0]);
 			if(ret[0]=="Módulo 1"){

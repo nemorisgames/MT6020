@@ -22,7 +22,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
     public bool enfocandoEncendidoActual = false;
 
     public ControlCamion controlCamion;
-    bool puertaIsoSwitchAbierta = false;
+    public bool puertaIsoSwitchAbierta = false;
     public TweenRotation puertaIsoSwitch;
     public TweenRotation isoSwitch;
 
@@ -274,23 +274,21 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 
 		if (enfocandoCabina && (Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire3")))
         {
-            operarioAnimator.gameObject.SetActive(true);
-            operarioAnimator.SetTrigger("Entrar");
-            camionAnimator.SetTrigger("Entrada");
-            camaraEntradaAnimator.gameObject.SetActive(true);
-            camaraEntradaAnimator.SetTrigger("Entrar");
-            print("entrar aqui");
-            inGame.ejecutarEntradaMaquina();
-            gameObject.SetActive(false);
+            ingresarCabina(true);
         }
 
         if (enfocandoEncendido && (Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire3")))
         {
-            if(!puertaIsoSwitchAbierta)
-                puertaIsoSwitch.PlayForward();
-            else
+            switch (inGame.estado)
             {
-                isoSwitch.PlayForward();
+                case InGame.EstadoSimulacion.EncendidoExterior:
+                    if (!puertaIsoSwitchAbierta)
+                        puertaIsoSwitch.Toggle();
+                    else
+                    {
+                        isoSwitch.Toggle();
+                    }
+                    break;
                 
             }
             /*camionAnimator.SetTrigger("Entrada");
@@ -302,15 +300,32 @@ public class ControlUsuarioChecklist : MonoBehaviour {
         }
     }
 
+    public void ingresarCabina(bool ingresar)
+    {
+        operarioAnimator.gameObject.SetActive(ingresar);
+        camaraEntradaAnimator.gameObject.SetActive(ingresar);
+        if (ingresar)
+        {
+            operarioAnimator.SetTrigger("Entrar");
+            camionAnimator.SetTrigger("Entrada");
+            camaraEntradaAnimator.SetTrigger("Entrar");
+            print("entrar aqui");
+        }
+        inGame.ejecutarEntradaMaquina(ingresar);
+        gameObject.SetActive(!ingresar);
+    }
+    
+    //se ejecuta cuando la animacion de switch termina
     public void isoSwitchEncendidoTotal()
     {
         puertaIsoSwitch.PlayReverse();
-        controlCamion.isoSwitchActivado(true);
+        controlCamion.isoSwitchActivado(controlCamion.estado == ControlCamion.EstadoMaquina.apagadaTotal);
+        //inGame.cambiarEstado(InGame.EstadoSimulacion.EncendidoExterior);
     }
-
+    //se ejecuta cuando la animacion de puerta de switch termina
     public void puertaIsoSwitchAbiertaTotal()
     {
-        puertaIsoSwitchAbierta = true;
+        puertaIsoSwitchAbierta = puertaIsoSwitch.direction == AnimationOrTween.Direction.Forward;
     }
 
     void OnDisable(){
