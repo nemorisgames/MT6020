@@ -47,7 +47,7 @@ public class InGame : MonoBehaviour {
     public GameObject preguntasGUI;
     public GameObject diapositivaSalir;
     public GameObject diapositivaFinal;
-    public GameObject diapositivaFinalizar;
+    public GameObject diapositivaFinalResumen;
     GameObject diapositivaFalla;
     GameObject diapositivaFallaMensajeMaquina;
     GameObject diapositivaFallaMensajeTunel;
@@ -89,12 +89,12 @@ public class InGame : MonoBehaviour {
     
         configuracion.ResultadoTerminoFaena = "Si";
 
-        if (diapositivaFinalizar != null && diapositivaFinalizar.transform.parent.FindChild("DiapositivaFalla") != null)
+        if (diapositivaFinalResumen != null && diapositivaFinalResumen.transform.parent.FindChild("DiapositivaFalla") != null)
         {
-            diapositivaFalla = diapositivaFinalizar.transform.parent.FindChild("DiapositivaFalla").gameObject;
-            diapositivaFallaMensajeMaquina = diapositivaFinalizar.transform.parent.FindChild("DiapositivaFalla/Maquina").gameObject;
-            diapositivaFallaMensajeTunel = diapositivaFinalizar.transform.parent.FindChild("DiapositivaFalla/Tunel").gameObject;
-            diapositivaFallaMensajeVolcado = diapositivaFinalizar.transform.parent.FindChild("DiapositivaFalla/Volcamiento").gameObject;
+            diapositivaFalla = diapositivaFinalResumen.transform.parent.FindChild("DiapositivaFalla").gameObject;
+            diapositivaFallaMensajeMaquina = diapositivaFinalResumen.transform.parent.FindChild("DiapositivaFalla/Maquina").gameObject;
+            diapositivaFallaMensajeTunel = diapositivaFinalResumen.transform.parent.FindChild("DiapositivaFalla/Tunel").gameObject;
+            diapositivaFallaMensajeVolcado = diapositivaFinalResumen.transform.parent.FindChild("DiapositivaFalla/Volcamiento").gameObject;
             diapositivaFalla.SetActive(false);
         }
         //if (controlChecklistFinal != null)
@@ -130,10 +130,15 @@ public class InGame : MonoBehaviour {
 			Display.displays[i].Activate();
 		}
 		Display.displays[0].SetParams(1366, 768, 0, 0);
+		if (Display.displays.Length > 1) 
 		Display.displays[1].SetParams(1920, 1080, 0, 0);
+		if (Display.displays.Length > 2) 
 		Display.displays[2].SetParams(1920, 1080, 0, 0);
+		if (Display.displays.Length > 3) 
 		Display.displays[3].SetParams(1920, 1080, 0, 0);
+		if (Display.displays.Length > 4) 
 		Display.displays[4].SetParams(800, 480, 0, 0);
+		if (Display.displays.Length > 5) 
 		Display.displays[5].SetParams(1920, 1080, 0, 0);
     }
 
@@ -225,18 +230,18 @@ public class InGame : MonoBehaviour {
         diapositivaFinal.SetActive(true);
         //controlMouseOperador.enabled = true;
         maquina.SendMessage("resetMaquina");
-        maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(false);
+        //maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(false);
     }
 
     IEnumerator delayPanelFinal()
     {
         yield return new WaitForSeconds(2f);
-        if (maquina != null) maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(false);
+        //if (maquina != null) maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(false);
         //controlMouseOperador.enabled = true;
-        diapositivaFinalizar.SetActive(true);
-        diapositivaFinalizar.transform.FindChild("NombreOperario").gameObject.GetComponent<UILabel>().text = configuracion.alumno;
-        diapositivaFinalizar.transform.FindChild("TiempoPractica").gameObject.GetComponent<UILabel>().text = calcularReloj(tiempoUtilizado);
-        diapositivaFinalizar.transform.FindChild("Repeticiones").gameObject.GetComponent<UILabel>().text = "" + repeticiones;
+        diapositivaFinalResumen.SetActive(true);
+        diapositivaFinalResumen.transform.FindChild("NombreOperario").gameObject.GetComponent<UILabel>().text = configuracion.alumno;
+        diapositivaFinalResumen.transform.FindChild("TiempoPractica").gameObject.GetComponent<UILabel>().text = calcularReloj(tiempoUtilizado);
+        diapositivaFinalResumen.transform.FindChild("Repeticiones").gameObject.GetComponent<UILabel>().text = "" + repeticiones;
 
         //SceneManager.LoadScene ("Login");
     }
@@ -247,11 +252,12 @@ public class InGame : MonoBehaviour {
             return;
         //controlMouseOperador.enabled = false;
         print("finalizar");
+		estado = EstadoSimulacion.ApagadoExterior;
         //test 
         Time.timeScale = 0f;
-        maquina.FindChild("Back").gameObject.SetActive(maquina.FindChild("Back").gameObject.activeSelf);
-        maquina.FindChild("Front").gameObject.SetActive(maquina.FindChild("Front").gameObject.activeSelf);
-        maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(true);
+		maquina.FindChild("Trasero_B").gameObject.SetActive(maquina.FindChild("Trasero_B").gameObject.activeSelf);
+		maquina.FindChild("Delantera_B").gameObject.SetActive(maquina.FindChild("Delantera_B").gameObject.activeSelf);
+        //maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(true);
         maquinaFinal.gameObject.SetActive(maquinaFinal.gameObject.activeSelf);
         diapositivaFinal.SetActive(false);
         Time.timeScale = 1f;
@@ -567,7 +573,7 @@ public class InGame : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void Update()
+    void  Update()
     {
         /*if (avpro != null && avpro.GetCaptureFileSize() > 10000000)
         {
@@ -623,8 +629,8 @@ public class InGame : MonoBehaviour {
 
     public void condicionesTerminoListas()
     {
-        if (diapositivaFalla == null || diapositivaFalla.activeSelf || estado == EstadoSimulacion.Finalizando || estado == EstadoSimulacion.ApagadoExterior)
-            return;
+        //if (diapositivaFalla == null || diapositivaFalla.activeSelf || estado == EstadoSimulacion.Finalizando || estado == EstadoSimulacion.ApagadoExterior)
+        //    return;
         if (estado != EstadoSimulacion.EncendidoExterior && estado != EstadoSimulacion.PanelInicial)
         {
             tiempoUtilizado = Time.time - tiempoFaenaActual;
@@ -708,7 +714,7 @@ public class InGame : MonoBehaviour {
 	float shake_intensity;
 	public GameObject controlExterior;
 	public GameObject diapositivaFinal;
-	public GameObject diapositivaFinalizar;
+	public GameObject diapositivaFinalResumen;
 	GameObject diapositivaFalla;
 	GameObject diapositivaFallaMensajeMaquina;
 	GameObject diapositivaFallaMensajeTunel;
@@ -789,11 +795,11 @@ public class InGame : MonoBehaviour {
 		foreach (GameObject g1 in rocas) {
 			pesoEnEscena += g1.GetComponent<Rigidbody>().mass * 0.001f;
 		}
-		if (diapositivaFinalizar != null && diapositivaFinalizar.transform.parent.FindChild ("DiapositivaFalla") != null) {
-			diapositivaFalla = diapositivaFinalizar.transform.parent.FindChild ("DiapositivaFalla").gameObject;
-			diapositivaFallaMensajeMaquina = diapositivaFinalizar.transform.parent.FindChild ("DiapositivaFalla/Maquina").gameObject;
-			diapositivaFallaMensajeTunel = diapositivaFinalizar.transform.parent.FindChild ("DiapositivaFalla/Tunel").gameObject;
-			diapositivaFallaMensajeVolcado = diapositivaFinalizar.transform.parent.FindChild ("DiapositivaFalla/Volcamiento").gameObject;
+		if (diapositivaFinalResumen != null && diapositivaFinalResumen.transform.parent.FindChild ("DiapositivaFalla") != null) {
+			diapositivaFalla = diapositivaFinalResumen.transform.parent.FindChild ("DiapositivaFalla").gameObject;
+			diapositivaFallaMensajeMaquina = diapositivaFinalResumen.transform.parent.FindChild ("DiapositivaFalla/Maquina").gameObject;
+			diapositivaFallaMensajeTunel = diapositivaFinalResumen.transform.parent.FindChild ("DiapositivaFalla/Tunel").gameObject;
+			diapositivaFallaMensajeVolcado = diapositivaFinalResumen.transform.parent.FindChild ("DiapositivaFalla/Volcamiento").gameObject;
 			diapositivaFalla.SetActive (false);
 		}
 		Time.timeScale = 1f;
@@ -966,10 +972,10 @@ IEnumerator delayPanelFinal()
     yield return new WaitForSeconds(2f);
     if (maquina != null) maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(false);
     controlMouseOperador.enabled = true;
-    diapositivaFinalizar.SetActive(true);
-    diapositivaFinalizar.transform.FindChild("NombreOperario").gameObject.GetComponent<UILabel>().text = configuracion.alumno;
-    diapositivaFinalizar.transform.FindChild("TiempoPractica").gameObject.GetComponent<UILabel>().text = calcularReloj(tiempoUtilizado);
-    diapositivaFinalizar.transform.FindChild("Repeticiones").gameObject.GetComponent<UILabel>().text = "" + repeticiones;
+    diapositivaFinalResumen.SetActive(true);
+    diapositivaFinalResumen.transform.FindChild("NombreOperario").gameObject.GetComponent<UILabel>().text = configuracion.alumno;
+    diapositivaFinalResumen.transform.FindChild("TiempoPractica").gameObject.GetComponent<UILabel>().text = calcularReloj(tiempoUtilizado);
+    diapositivaFinalResumen.transform.FindChild("Repeticiones").gameObject.GetComponent<UILabel>().text = "" + repeticiones;
 
     //SceneManager.LoadScene ("Login");
 }

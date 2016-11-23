@@ -1047,19 +1047,19 @@ public partial class VLight : MonoBehaviour
 	void SetShaderPropertiesBlock(MaterialPropertyBlock propertyBlock)
 	{
 		propertyBlock.Clear();
-		propertyBlock.AddVector(_idNoiseOffset, _angle);
-		propertyBlock.AddVector(_idMinBounds, _minBounds);
-		propertyBlock.AddVector(_idMaxBounds, _maxBounds);
-		propertyBlock.AddMatrix(_idProjection, _projectionMatrixCached);
-		propertyBlock.AddMatrix(_idViewWorldLight, _viewWorldLight);
-		propertyBlock.AddMatrix(_idLocalRotation, _localRotation);
-		propertyBlock.AddMatrix(_idRotation, _rotation);
-		propertyBlock.AddColor(_idColorTint, colorTint);
-		propertyBlock.AddFloat(_idLightMultiplier, lightMultiplier);
+		propertyBlock.SetVector(_idNoiseOffset, _angle);
+		propertyBlock.SetVector(_idMinBounds, _minBounds);
+		propertyBlock.SetVector(_idMaxBounds, _maxBounds);
+		propertyBlock.SetMatrix(_idProjection, _projectionMatrixCached);
+		propertyBlock.SetMatrix(_idViewWorldLight, _viewWorldLight);
+		propertyBlock.SetMatrix(_idLocalRotation, _localRotation);
+		propertyBlock.SetMatrix(_idRotation, _rotation);
+		propertyBlock.SetColor(_idColorTint, colorTint);
+		propertyBlock.SetFloat(_idLightMultiplier, lightMultiplier);
 
 		if(useDithering)
 		{
-			propertyBlock.AddFloat(_idJitterAmount, ditherAmount);
+			propertyBlock.SetFloat(_idJitterAmount, ditherAmount);
 			propertyBlock.SetTexture(_idDitherTex, DitherTexture);
 			LightMaterial.EnableKeyword("_DITHER_ON");
 
@@ -1083,16 +1083,16 @@ public partial class VLight : MonoBehaviour
 		{
 		case LightTypes.Point:
 		case LightTypes.Spot:
-			propertyBlock.AddFloat(_idSpotExponent, spotExponent);
-			propertyBlock.AddFloat(_idConstantAttenuation, constantAttenuation);
-			propertyBlock.AddFloat(_idLinearAttenuation, linearAttenuation);
-			propertyBlock.AddFloat(_idQuadraticAttenuation, quadraticAttenuation);
+			propertyBlock.SetFloat(_idSpotExponent, spotExponent);
+			propertyBlock.SetFloat(_idConstantAttenuation, constantAttenuation);
+			propertyBlock.SetFloat(_idLinearAttenuation, linearAttenuation);
+			propertyBlock.SetFloat(_idQuadraticAttenuation, quadraticAttenuation);
 			break;
 		case LightTypes.Area:
 			Vector4 p = volumeTextureOffset;
 			p.w = volumeTextureScale;
-			propertyBlock.AddVector(_idVolumeOffset, p);
-			propertyBlock.AddFloat(_idVolumeParams, shapeValue);
+			propertyBlock.SetVector(_idVolumeOffset, p);
+			propertyBlock.SetFloat(_idVolumeParams, shapeValue);
 			switch(volumeShape)
 			{
 			case VolumeShape.Cube:
@@ -1190,7 +1190,7 @@ public partial class VLight : MonoBehaviour
 		float near = cam.near;	
 		float fov = cam.fov;
 #endif
-		propertyBlock.AddVector(_idLightParams, new Vector4(near, far, far - near, (cam.orthographic) ? Mathf.PI : fov * 0.5f * Mathf.Deg2Rad));
+		propertyBlock.SetVector(_idLightParams, new Vector4(near, far, far - near, (cam.orthographic) ? Mathf.PI : fov * 0.5f * Mathf.Deg2Rad));
 	}
 
 	void SafeDestroy(UnityEngine.Object obj, bool forceImmediate = false)

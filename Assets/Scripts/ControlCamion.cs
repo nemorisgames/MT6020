@@ -627,6 +627,18 @@ public class ControlCamion : MonoBehaviour {
             estado = EstadoMaquina.apagadaTotal;
             controlCamionMotor.estado = EstadoMaquina.apagadaTotal;
             print("iso desactivado");
+
+			print ("encendido exterior");
+
+			estado = EstadoMaquina.apagadaTotal;
+			if(ingame.estado == InGame.EstadoSimulacion.ApagadoExterior){
+				//if(ingame.controlChecklistFinal != null){
+				//	if(!central.controlChecklistFinal.activa)
+				//		central.moduloFinalizar();
+				//}
+				//else
+				ingame.moduloFinalizar();
+			}
         }
     }
 
@@ -983,6 +995,7 @@ public class ControlCamion : MonoBehaviour {
 			return;
 		//print ("arranque" + activar);
 		estado = activar?EstadoMaquina.encendida:EstadoMaquina.apagada;
+		ingame.estado = activar?InGame.EstadoSimulacion.Conduciendo:ingame.estado;
         controlCamionMotor.encender(activar);
         //enciende leds iniciales
         /*controlPantallaTactil.motorEncendido (activar);

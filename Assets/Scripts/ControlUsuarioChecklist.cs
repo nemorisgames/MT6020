@@ -281,7 +281,8 @@ public class ControlUsuarioChecklist : MonoBehaviour {
         {
             switch (inGame.estado)
             {
-                case InGame.EstadoSimulacion.EncendidoExterior:
+					case InGame.EstadoSimulacion.EncendidoExterior:
+					case InGame.EstadoSimulacion.ApagadoExterior:
                     if (!puertaIsoSwitchAbierta)
                         puertaIsoSwitch.Toggle();
                     else

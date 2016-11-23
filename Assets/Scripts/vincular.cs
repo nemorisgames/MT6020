@@ -87,7 +87,7 @@ public class vincular : MonoBehaviour {
 			conf.IntCabina=int.Parse (ret[13]);
 			conf.IntBrazo=int.Parse (ret[14]);
             */
-			if(ret[15] != "")conf.ExitoPreguntas=int.Parse (ret[15]);
+			if (ret[15] != "") conf.ExitoPreguntas=int.Parse (ret[15]);
             if (ret[16] != "") conf.CantidadPreguntas=int.Parse (ret[16]);
 			conf.fallaOperacion=(ret[17]);
 			//conf.MaximoCargar=int.Parse (ret[18]);

@@ -309,193 +309,315 @@ public class Configuracion : MonoBehaviour {
         string f = fecha.ToString();
         f = "Modulo " + NumeroModulo + " " + f;
         print("tiempo empleado " + ResultadoTiempo);
+        ///////////////////////
+        //public string usuario;
+    /*
+		//public string pass;
+    //public string alumno;
+    //public string mailInstructor;
+    /*configuracion
+    //public string idModulo;
+    //public string NumeroModulo;
+    //public int TiempoVuelta;
+    //public int TiempoFaena;
+    //public int CantidadVueltas;
+    //public int ChoqueZipper;
+    public int IntTunel;
+    public int IntBuzonCarga;
+    //public int IntCamioneta;
+    public int IntFrontal;
+    public int IntMotorDer;
+    public int IntMotorIzq;
+    public int IntMedioDer;
+    public int IntTolvaDer;
+    public int IntTolvaIzq;
+    public int ExitoPreguntas;
+    public int CantidadPreguntas;
+    //public float MinimoCargar;
+    //public float MaximoCargar;
+    public int TonelajeTotal;
+    public int CaidaPermitida;
+    public int DescuentoChoque;
+    public int DescuentoTunel;
+    public int DescuentoBuzonCarga;
+    //public int DescuentoCamioneta;
+    public int check1;
+    public int check2;
+    /*resultados
+    public string Fecha;
+    public int ResultadoPreguntasCorta1;
+    public int ResultadoRespuestaCorta1;
+    public int ResultadoPreguntasCorta2;
+    public int ResultadoRespuestaCorta2;
+    public int ResultadoPreguntasCorta3;
+    public int ResultadoRespuestaCorta3;
+    public int ResultadoPreguntasCorta4;
+    public int ResultadoRespuestaCorta4;
+    public int ResultadoPreguntas;
+    public int ResultadoTiempo;
+    public int ResultadoCheck1;
+    //public int ResultadoRevFunc1;
+    //public int ResultadoRevCab1;
+    //public int ResultadoRevEst1;
+    //public int ResultadoPrevRies1;
+    public int ResultadoCheck2;
+    //public int ResultadoRevFunc2;
+    //public int ResultadoRevCab2;
+    //public int ResultadoRevEst2;
+    //public int ResultadoPrevRies2;
+    //public string ResultadoOrdenEjecucion;
+    //public string ResultadoMotorPunta;
+    //public string ResultadoBaldePunta;
+    public int ResultadoVueltasRealizadas;
+    public int ResultadoVueltasCorrectas;
+    //public string ResultadoEntregaNombrada;
+    //public string ResultadoEntregaNombradaSup;
+    public int ResultadoTonelajeTotal;
+    public int ResultadoCaidaMat;
+    public int ResultadoCorrectoCargio;
+    //public int ResultadoPatinaje;
+    public int ResultadoIntMaquina;
+    public int ResultadoIntFrontal;
+    public int ResultadoIntMotorDer;
+    public int ResultadoIntMotorIzq;
+    public int ResultadoIntMedioDer;
+    public int ResultadoIntTolvaDer;
+    public int ResultadoIntTolvaIzq;
+    //public int ResultadoZipper;
+    //public int ResultadoCantidadZipper;
+    public int ResultadoIntTunel;
+    public int ResultadoIntBuzonCarga;
+    //public int ResultadoIntCamioneta;
+    //public int ResultadoCantidadTunel;
+    //public int ResultadoCantidadCamion;
+    public string ResultadoTraslado;
+    public string ResultadoTerminoFaena;
 
-        /*form.AddField("Mail", mailInstructor);
+    public string fallaOperacion;*/
+    /// <summary>
+    /// ////////////
+    /// 
+    /// </summary>
+		form.AddField("idInstanceModule", idModulo);
+		form.AddField("alumno", alumno);
+		form.AddField("supervisor", usuario);
+		form.AddField("Fecha", f);
+		form.AddField("ResultadoPreguntasCorta1", ResultadoPreguntasCorta1);
+		form.AddField("ResultadoRespuestaCorta1", ResultadoRespuestaCorta1);
+		form.AddField("ResultadoPreguntasCorta2", ResultadoPreguntasCorta2);
+		form.AddField("ResultadoRespuestaCorta2", ResultadoRespuestaCorta2);
+		form.AddField("ResultadoPreguntasCorta3", ResultadoPreguntasCorta3);
+		form.AddField("ResultadoRespuestaCorta3", ResultadoRespuestaCorta3);
+		form.AddField("ResultadoPreguntasCorta4", ResultadoPreguntasCorta4);
+		form.AddField("ResultadoRespuestaCorta4", ResultadoRespuestaCorta4);
+		form.AddField("ResultadoPreguntas", ResultadoPreguntas);
+		form.AddField("ResultadoTiempo", ResultadoTiempo);
+		form.AddField("ResultadoCheck1", ResultadoCheck1);
+		form.AddField("ResultadoCheck2", ResultadoCheck2);
+		form.AddField("ResultadoVueltasRealizadas", ResultadoVueltasRealizadas);
+		form.AddField("ResultadoVueltasCorrectas", ResultadoVueltasCorrectas);
+		form.AddField("ResultadoTonelajeTotal", ResultadoTonelajeTotal);
+		form.AddField("ResultadoCaidaMat", ResultadoCaidaMat);
+		form.AddField("ResultadoCorrectoCargio", ResultadoCorrectoCargio);
 
-        form.AddField("ResultadoFallaOperacion", fallaOperacion);
-        form.AddField("Fecha", f); 
-        form.AddField("ResultadoPreguntasCorta1", ResultadoPreguntasCorta1);
-        form.AddField("ResultadoPreguntasCorta2", ResultadoPreguntasCorta2);
-        form.AddField("ResultadoPreguntasCorta3", ResultadoPreguntasCorta3);
-        form.AddField("ResultadoPreguntasCorta4", ResultadoPreguntasCorta4);
-        form.AddField("IdNivel", idModulo); form.AddField("PorPreguntas", ResultadoPreguntas); form.AddField("TiempoEmpleado", ResultadoTiempo);
-        form.AddField("Check1", ResultadoCheck1); form.AddField("revFunc1", ResultadoRevFunc1); form.AddField("revEst1", ResultadoRevEst1); form.AddField("revCab1", ResultadoRevCab1);
-        form.AddField("prevRies1", ResultadoPrevRies1); form.AddField("Check2", ResultadoCheck2); form.AddField("revFunc2", ResultadoRevFunc2); form.AddField("revEst2", ResultadoRevEst2);
-        form.AddField("revCab2", ResultadoRevCab2); form.AddField("prevRies2", ResultadoPrevRies2); form.AddField("OrdenEj", ResultadoOrdenEjecucion); form.AddField("MotorPunta", ResultadoMotorPunta);
-        form.AddField("BaldePunta", ResultadoBaldePunta); form.AddField("VueltasCorrectas", ResultadoVueltasCorrectas); form.AddField("EntregaNombrada", ResultadoEntregaNombrada); form.AddField("EntregaNombradaSup", ResultadoEntregaNombradaSup);
+		form.AddField("ResultadoIntMaquina", ResultadoIntMaquina);
+		form.AddField("ResultadoIntFrontal", ResultadoIntFrontal);
+		form.AddField("ResultadoIntMotorDer", ResultadoIntMotorDer);
+		form.AddField("ResultadoIntMotorIzq", ResultadoIntMotorIzq);
+		form.AddField("ResultadoIntMedioDer", ResultadoIntMedioDer);
+		form.AddField("ResultadoIntTolvaDer", ResultadoIntTolvaDer);
+		form.AddField("ResultadoIntTolvaIzq", ResultadoIntTolvaIzq);
 
-        form.AddField("TonelajeTotal", ResultadoTonelajeTotal); form.AddField("CaidaMat", ResultadoCaidaMat); form.AddField("CorrectoCarguio", ResultadoCorrectoCargio); form.AddField("Patinaje", ResultadoPatinaje);
-        form.AddField("IntMaquina", ResultadoIntMaquina); form.AddField("IntBalde", ResultadoIntTolvaIzq); form.AddField("IntTolvaDer", ResultadoIntTolvaDer); form.AddField("IntMedioDer", ResultadoIntMedioDer);
-        form.AddField("IntPost", ResultadoIntFrontal); form.AddField("IntMotorIzq", ResultadoIntMotorIzq); form.AddField("IntMotorDer", ResultadoIntMotorDer); form.AddField("Zipper", ResultadoZipper);
-        form.AddField("CantZipper", ResultadoCantidadZipper); form.AddField("Tunel", ResultadoIntTunel); form.AddField("CantTunel", ResultadoCantidadTunel);
+		form.AddField("ResultadoIntTunel", ResultadoIntTunel);
+		form.AddField("ResultadoIntBuzonCarga", ResultadoIntBuzonCarga);
+		form.AddField("ResultadoTraslado", ResultadoTraslado);
+		form.AddField("ResultadoTerminoFaena", ResultadoTerminoFaena);
+    /*form.AddField("Mail", mailInstructor);
+/*
+    form.AddField("ResultadoFallaOperacion", fallaOperacion);
+    form.AddField("Fecha", f); 
+    form.AddField("ResultadoPreguntasCorta1", ResultadoPreguntasCorta1);
+    form.AddField("ResultadoPreguntasCorta2", ResultadoPreguntasCorta2);
+    form.AddField("ResultadoPreguntasCorta3", ResultadoPreguntasCorta3);
+    form.AddField("ResultadoPreguntasCorta4", ResultadoPreguntasCorta4);
+    form.AddField("IdNivel", idModulo); form.AddField("PorPreguntas", ResultadoPreguntas); form.AddField("TiempoEmpleado", ResultadoTiempo);
+    form.AddField("Check1", ResultadoCheck1); form.AddField("revFunc1", ResultadoRevFunc1); form.AddField("revEst1", ResultadoRevEst1); form.AddField("revCab1", ResultadoRevCab1);
+    form.AddField("prevRies1", ResultadoPrevRies1); form.AddField("Check2", ResultadoCheck2); form.AddField("revFunc2", ResultadoRevFunc2); form.AddField("revEst2", ResultadoRevEst2);
+    form.AddField("revCab2", ResultadoRevCab2); form.AddField("prevRies2", ResultadoPrevRies2); form.AddField("OrdenEj", ResultadoOrdenEjecucion); form.AddField("MotorPunta", ResultadoMotorPunta);
+    form.AddField("BaldePunta", ResultadoBaldePunta); form.AddField("VueltasCorrectas", ResultadoVueltasCorrectas); form.AddField("EntregaNombrada", ResultadoEntregaNombrada); form.AddField("EntregaNombradaSup", ResultadoEntregaNombradaSup);
 
-        form.AddField("CamionMin", IntBuzonCarga); form.AddField("CamionDes", DescuentoBuzonCarga); form.AddField("Camion", ResultadoIntBuzonCarga);
-        form.AddField("CamionetaMin", IntCamioneta); form.AddField("CamionetaDes", DescuentoCamioneta); form.AddField("Camioneta", ResultadoIntCamioneta);
+    form.AddField("TonelajeTotal", ResultadoTonelajeTotal); form.AddField("CaidaMat", ResultadoCaidaMat); form.AddField("CorrectoCarguio", ResultadoCorrectoCargio); form.AddField("Patinaje", ResultadoPatinaje);
+    form.AddField("IntMaquina", ResultadoIntMaquina); form.AddField("IntBalde", ResultadoIntTolvaIzq); form.AddField("IntTolvaDer", ResultadoIntTolvaDer); form.AddField("IntMedioDer", ResultadoIntMedioDer);
+    form.AddField("IntPost", ResultadoIntFrontal); form.AddField("IntMotorIzq", ResultadoIntMotorIzq); form.AddField("IntMotorDer", ResultadoIntMotorDer); form.AddField("Zipper", ResultadoZipper);
+    form.AddField("CantZipper", ResultadoCantidadZipper); form.AddField("Tunel", ResultadoIntTunel); form.AddField("CantTunel", ResultadoCantidadTunel);
 
-        form.AddField("CantCamion", ResultadoCantidadCamion); form.AddField("Traslado", ResultadoTraslado); form.AddField("CantVueltas", ResultadoVueltasRealizadas); form.AddField("TerminoFaena", ResultadoTerminoFaena);
-        form.AddField("idAlumno", alumno);
+    form.AddField("CamionMin", IntBuzonCarga); form.AddField("CamionDes", DescuentoBuzonCarga); form.AddField("Camion", ResultadoIntBuzonCarga);
+    form.AddField("CamionetaMin", IntCamioneta); form.AddField("CamionetaDes", DescuentoCamioneta); form.AddField("Camioneta", ResultadoIntCamioneta);
 
-        //if (NumeroModulo == "4" || NumeroModulo == "16" || NumeroModulo == "17" || NumeroModulo == "18")
-        //{
-            form.AddField("ResultadoCheckNivPet", ResultadoCheckNivPet);
-            form.AddField("ResultadoCheckNivAceMot", ResultadoCheckNivAceMot);
-            form.AddField("ResultadoCheckNivAceHid", ResultadoCheckNivAceHid);
-            form.AddField("ResultadoCheckEstLuc", ResultadoCheckEstLuc);
-            form.AddField("ResultadoCheckEstNeu", ResultadoCheckEstNeu);
-            form.AddField("ResultadoCheckEstNeu", ResultadoCheckEstNeu);
-            form.AddField("ResultadoCheckNivRef", ResultadoCheckNivRef);
-            form.AddField("ResultadoCheckNivAceTra", ResultadoCheckNivAceTra);
-            form.AddField("ResultadoCheckNivAceTransf", ResultadoCheckNivAceTransf);
-            form.AddField("ResultadoCheckFiltro", ResultadoCheckFiltro);
-            form.AddField("ResultadoCheckIndObs", ResultadoCheckIndObs);
-            form.AddField("ResultadoCheckLucGen", ResultadoCheckLucGen);
-            form.AddField("ResultadoCheckFug", ResultadoCheckFug);
-            form.AddField("ResultadoCheckLimPar", ResultadoCheckLimPar);
-            form.AddField("ResultadoCheckAirAco", ResultadoCheckAirAco);
-            form.AddField("ResultadoCheckEstEsc", ResultadoCheckEstEsc);
-            form.AddField("ResultadoCheckMan", ResultadoCheckMan);
-            form.AddField("ResultadoCheckMon", ResultadoCheckMon);
-            form.AddField("ResultadoCheckBoc", ResultadoCheckBoc);
-            form.AddField("ResultadoCheckAseCab", ResultadoCheckAseCab);
-            form.AddField("ResultadoCheckTol", ResultadoCheckTol);
-            form.AddField("ResultadoNumPreguntasContestadas", ResultadoNumPreguntasContestadas);
-            form.AddField("ResultadoOrdenEjecTiempo", ResultadoOrdenEjecTiempo);
-            form.AddField("ResultadoPuntoPartidaTiempo", ResultadoPuntoPartidaTiempo);
-        form.AddField("ResultadoCheckArtDir", ResultadoCheckArtDir);
-        form.AddField("ResultadoCheckPasGen", ResultadoCheckPasGen);
-        form.AddField("ResultadoCheckFugCil", ResultadoCheckFugCil);
-        form.AddField("ResultadoCheckMotEnf", ResultadoCheckMotEnf);
-        form.AddField("ResultadoCheckEstExtMan", ResultadoCheckEstExtMan);
-        form.AddField("ResultadoCheckEstExtInc", ResultadoCheckEstExtInc);
+    form.AddField("CantCamion", ResultadoCantidadCamion); form.AddField("Traslado", ResultadoTraslado); form.AddField("CantVueltas", ResultadoVueltasRealizadas); form.AddField("TerminoFaena", ResultadoTerminoFaena);
+    form.AddField("idAlumno", alumno);
 
-        form.AddField("CheckNivPet", CheckNivPet);
-            form.AddField("CheckNivAceMot", CheckNivAceMot);
-            form.AddField("CheckNivAceHid", CheckNivAceHid);
-            form.AddField("CheckEstLuc", CheckEstLuc);
-            form.AddField("CheckEstNeu", CheckEstNeu);
-            form.AddField("CheckEstNeu", CheckEstNeu);
-            form.AddField("CheckNivRef", CheckNivRef);
-            form.AddField("CheckNivAceTra", CheckNivAceTra);
-            form.AddField("CheckNivAceTransf", CheckNivAceTransf);
-            form.AddField("CheckFiltro", CheckFiltro);
-            form.AddField("CheckIndObs", CheckIndObs);
-            form.AddField("CheckLucGen", CheckLucGen);
-            form.AddField("CheckFug", CheckFug);
-            form.AddField("CheckLimPar", CheckLimPar);
-            form.AddField("CheckAirAco", CheckAirAco);
-            form.AddField("CheckEstEsc", CheckEstEsc);
-            form.AddField("CheckMan", CheckMan);
-            form.AddField("CheckMon", CheckMon);
-            form.AddField("CheckBoc", CheckBoc);
-            form.AddField("CheckAseCab", CheckAseCab);
-            form.AddField("CheckTol", CheckTol);
-        form.AddField("CheckArtDir", CheckArtDir);
-        form.AddField("CheckPasGen", CheckPasGen);
-        form.AddField("CheckFugCil", CheckFugCil);
-        form.AddField("CheckMotEnf", CheckMotEnf);
-        form.AddField("CheckEstExtMan", CheckEstExtMan);
-        form.AddField("CheckEstExtInc", CheckEstExtInc);
+    //if (NumeroModulo == "4" || NumeroModulo == "16" || NumeroModulo == "17" || NumeroModulo == "18")
+    //{
+        form.AddField("ResultadoCheckNivPet", ResultadoCheckNivPet);
+        form.AddField("ResultadoCheckNivAceMot", ResultadoCheckNivAceMot);
+        form.AddField("ResultadoCheckNivAceHid", ResultadoCheckNivAceHid);
+        form.AddField("ResultadoCheckEstLuc", ResultadoCheckEstLuc);
+        form.AddField("ResultadoCheckEstNeu", ResultadoCheckEstNeu);
+        form.AddField("ResultadoCheckEstNeu", ResultadoCheckEstNeu);
+        form.AddField("ResultadoCheckNivRef", ResultadoCheckNivRef);
+        form.AddField("ResultadoCheckNivAceTra", ResultadoCheckNivAceTra);
+        form.AddField("ResultadoCheckNivAceTransf", ResultadoCheckNivAceTransf);
+        form.AddField("ResultadoCheckFiltro", ResultadoCheckFiltro);
+        form.AddField("ResultadoCheckIndObs", ResultadoCheckIndObs);
+        form.AddField("ResultadoCheckLucGen", ResultadoCheckLucGen);
+        form.AddField("ResultadoCheckFug", ResultadoCheckFug);
+        form.AddField("ResultadoCheckLimPar", ResultadoCheckLimPar);
+        form.AddField("ResultadoCheckAirAco", ResultadoCheckAirAco);
+        form.AddField("ResultadoCheckEstEsc", ResultadoCheckEstEsc);
+        form.AddField("ResultadoCheckMan", ResultadoCheckMan);
+        form.AddField("ResultadoCheckMon", ResultadoCheckMon);
+        form.AddField("ResultadoCheckBoc", ResultadoCheckBoc);
+        form.AddField("ResultadoCheckAseCab", ResultadoCheckAseCab);
+        form.AddField("ResultadoCheckTol", ResultadoCheckTol);
+        form.AddField("ResultadoNumPreguntasContestadas", ResultadoNumPreguntasContestadas);
+        form.AddField("ResultadoOrdenEjecTiempo", ResultadoOrdenEjecTiempo);
+        form.AddField("ResultadoPuntoPartidaTiempo", ResultadoPuntoPartidaTiempo);
+    form.AddField("ResultadoCheckArtDir", ResultadoCheckArtDir);
+    form.AddField("ResultadoCheckPasGen", ResultadoCheckPasGen);
+    form.AddField("ResultadoCheckFugCil", ResultadoCheckFugCil);
+    form.AddField("ResultadoCheckMotEnf", ResultadoCheckMotEnf);
+    form.AddField("ResultadoCheckEstExtMan", ResultadoCheckEstExtMan);
+    form.AddField("ResultadoCheckEstExtInc", ResultadoCheckEstExtInc);
 
-
-        form.AddField("CheckTopEjeCen", CheckTopEjeCen);
-        form.AddField("ResultadoCheckTopEjeCen", ResultadoCheckTopEjeCen);
-        form.AddField("CheckSalEme", CheckSalEme);
-        form.AddField("ResultadoCheckSalEme", ResultadoCheckSalEme);
-        form.AddField("CheckArtCen", CheckArtCen);
-        form.AddField("ResultadoCheckArtCen", ResultadoCheckArtCen);
-        
-        // if (NumeroModulo != "4")
-        //{
-        form.AddField("ResultadoCheckNivPet2", ResultadoCheckNivPet2);
-                form.AddField("ResultadoCheckNivAceMot2", ResultadoCheckNivAceMot2);
-                form.AddField("ResultadoCheckNivAceHid2", ResultadoCheckNivAceHid2);
-                form.AddField("ResultadoCheckEstLuc2", ResultadoCheckEstLuc2);
-                form.AddField("ResultadoCheckEstNeu2", ResultadoCheckEstNeu2);
-                form.AddField("ResultadoCheckEstNeu2", ResultadoCheckEstNeu2);
-                form.AddField("ResultadoCheckNivRef2", ResultadoCheckNivRef2);
-                form.AddField("ResultadoCheckNivAceTra2", ResultadoCheckNivAceTra2);
-                form.AddField("ResultadoCheckNivAceTransf2", ResultadoCheckNivAceTransf2);
-                form.AddField("ResultadoCheckFiltro2", ResultadoCheckFiltro2);
-                form.AddField("ResultadoCheckIndObs2", ResultadoCheckIndObs2);
-                form.AddField("ResultadoCheckLucGen2", ResultadoCheckLucGen2);
-                form.AddField("ResultadoCheckFug2", ResultadoCheckFug2);
-                form.AddField("ResultadoCheckLimPar2", ResultadoCheckLimPar2);
-                form.AddField("ResultadoCheckAirAco2", ResultadoCheckAirAco2);
-                form.AddField("ResultadoCheckEstEsc2", ResultadoCheckEstEsc2);
-                form.AddField("ResultadoCheckMan2", ResultadoCheckMan2);
-                form.AddField("ResultadoCheckMon2", ResultadoCheckMon2);
-                form.AddField("ResultadoCheckBoc2", ResultadoCheckBoc2);
-                form.AddField("ResultadoCheckAseCab2", ResultadoCheckAseCab2);
-                form.AddField("ResultadoCheckTol2", ResultadoCheckTol2);
-        form.AddField("ResultadoCheckArtDir2", ResultadoCheckArtDir2);
-        form.AddField("ResultadoCheckPasGen2", ResultadoCheckPasGen2);
-        form.AddField("ResultadoCheckFugCil2", ResultadoCheckFugCil2);
-        form.AddField("ResultadoCheckMotEnf2", ResultadoCheckMotEnf2);
-        form.AddField("ResultadoCheckEstExtMan2", ResultadoCheckEstExtMan2);
-        form.AddField("ResultadoCheckEstExtInc2", ResultadoCheckEstExtInc2);
-
-        form.AddField("CheckNivPet2", CheckNivPet2);
-                form.AddField("CheckNivAceMot2", CheckNivAceMot2);
-                form.AddField("CheckNivAceHid2", CheckNivAceHid2);
-                form.AddField("CheckEstLuc2", CheckEstLuc2);
-                form.AddField("CheckEstNeu2", CheckEstNeu2);
-                form.AddField("CheckEstNeu2", CheckEstNeu2);
-                form.AddField("CheckNivRef2", CheckNivRef2);
-                form.AddField("CheckNivAceTra2", CheckNivAceTra2);
-                form.AddField("CheckNivAceTransf2", CheckNivAceTransf2);
-                form.AddField("CheckFiltro2", CheckFiltro2);
-                form.AddField("CheckIndObs2", CheckIndObs2);
-                form.AddField("CheckLucGen2", CheckLucGen2);
-                form.AddField("CheckFug2", CheckFug2);
-                form.AddField("CheckLimPar2", CheckLimPar2);
-                form.AddField("CheckAirAco2", CheckAirAco2);
-                form.AddField("CheckEstEsc2", CheckEstEsc2);
-                form.AddField("CheckMan2", CheckMan2);
-                form.AddField("CheckMon2", CheckMon2);
-                form.AddField("CheckBoc2", CheckBoc2);
-                form.AddField("CheckAseCab2", CheckAseCab2);
-                form.AddField("CheckTol2", CheckTol2);
-        form.AddField("CheckArtDir2", CheckArtDir2);
-        form.AddField("CheckPasGen2", CheckPasGen2);
-        form.AddField("CheckFugCil2", CheckFugCil2);
-        form.AddField("CheckMotEnf2", CheckMotEnf2);
-        form.AddField("CheckEstExtMan2", CheckEstExtMan2);
-        form.AddField("CheckEstExtInc2", CheckEstExtInc2);
-
-        form.AddField("CheckTopEjeCen2", CheckTopEjeCen2);
-        form.AddField("ResultadoCheckTopEjeCen2", ResultadoCheckTopEjeCen2);
-        form.AddField("CheckSalEme2", CheckSalEme2);
-        form.AddField("ResultadoCheckSalEme2", ResultadoCheckSalEme2);
-        form.AddField("CheckArtCen2", CheckArtCen2);
-        form.AddField("ResultadoCheckArtCen2", ResultadoCheckArtCen2);
-        // }
-        //}
-        if(vuelta != null)
-            for (int i = 0; i < vuelta.Count; i++){
-                form.AddField("ResultadoVuelta" + (i + 1), vuelta[i].ToString());
-            }
-
-        for (int i = 0; i < cicloCarguio.Count; i++)
-        {
-            form.AddField("ResultadoCarguioNumero" + (i + 1), "" + ((CicloCarguio)(cicloCarguio[i])).numero);
-            form.AddField("ResultadoCarguioCarguio" + (i + 1), "" + ((CicloCarguio)(cicloCarguio[i])).carguio * 1000);
-            form.AddField("ResultadoCarguioPatinaje" + (i + 1), "" + (((CicloCarguio)(cicloCarguio[i])).patinaje?1:0));
-            form.AddField("ResultadoCarguioLevante" + (i + 1), "" + (((CicloCarguio)(cicloCarguio[i])).levante?1:0));
-            form.AddField("ResultadoCarguioCaida" + (i + 1), "" + ((CicloCarguio)(cicloCarguio[i])).caida * 1000);
-            form.AddField("ResultadoCarguioVaciado" + (i + 1), "" + ((CicloCarguio)(cicloCarguio[i])).vaciado * 1000);
-            form.AddField("ResultadoCarguioTiempo" + (i + 1), "" + ((CicloCarguio)(cicloCarguio[i])).tiempo);
+    form.AddField("CheckNivPet", CheckNivPet);
+        form.AddField("CheckNivAceMot", CheckNivAceMot);
+        form.AddField("CheckNivAceHid", CheckNivAceHid);
+        form.AddField("CheckEstLuc", CheckEstLuc);
+        form.AddField("CheckEstNeu", CheckEstNeu);
+        form.AddField("CheckEstNeu", CheckEstNeu);
+        form.AddField("CheckNivRef", CheckNivRef);
+        form.AddField("CheckNivAceTra", CheckNivAceTra);
+        form.AddField("CheckNivAceTransf", CheckNivAceTransf);
+        form.AddField("CheckFiltro", CheckFiltro);
+        form.AddField("CheckIndObs", CheckIndObs);
+        form.AddField("CheckLucGen", CheckLucGen);
+        form.AddField("CheckFug", CheckFug);
+        form.AddField("CheckLimPar", CheckLimPar);
+        form.AddField("CheckAirAco", CheckAirAco);
+        form.AddField("CheckEstEsc", CheckEstEsc);
+        form.AddField("CheckMan", CheckMan);
+        form.AddField("CheckMon", CheckMon);
+        form.AddField("CheckBoc", CheckBoc);
+        form.AddField("CheckAseCab", CheckAseCab);
+        form.AddField("CheckTol", CheckTol);
+    form.AddField("CheckArtDir", CheckArtDir);
+    form.AddField("CheckPasGen", CheckPasGen);
+    form.AddField("CheckFugCil", CheckFugCil);
+    form.AddField("CheckMotEnf", CheckMotEnf);
+    form.AddField("CheckEstExtMan", CheckEstExtMan);
+    form.AddField("CheckEstExtInc", CheckEstExtInc);
 
 
-            print("ciclo " + "" + ((CicloCarguio)(cicloCarguio[i])).numero);
-            print("cargio " + "" + ((CicloCarguio)(cicloCarguio[i])).carguio * 1000);
-            print("caida " + "" + ((CicloCarguio)(cicloCarguio[i])).caida * 1000);
-            print("vaciado " + "" + ((CicloCarguio)(cicloCarguio[i])).vaciado * 1000);
-            print("tiempo " + ((CicloCarguio)(cicloCarguio[i])).tiempo);
+    form.AddField("CheckTopEjeCen", CheckTopEjeCen);
+    form.AddField("ResultadoCheckTopEjeCen", ResultadoCheckTopEjeCen);
+    form.AddField("CheckSalEme", CheckSalEme);
+    form.AddField("ResultadoCheckSalEme", ResultadoCheckSalEme);
+    form.AddField("CheckArtCen", CheckArtCen);
+    form.AddField("ResultadoCheckArtCen", ResultadoCheckArtCen);
+
+    // if (NumeroModulo != "4")
+    //{
+    form.AddField("ResultadoCheckNivPet2", ResultadoCheckNivPet2);
+            form.AddField("ResultadoCheckNivAceMot2", ResultadoCheckNivAceMot2);
+            form.AddField("ResultadoCheckNivAceHid2", ResultadoCheckNivAceHid2);
+            form.AddField("ResultadoCheckEstLuc2", ResultadoCheckEstLuc2);
+            form.AddField("ResultadoCheckEstNeu2", ResultadoCheckEstNeu2);
+            form.AddField("ResultadoCheckEstNeu2", ResultadoCheckEstNeu2);
+            form.AddField("ResultadoCheckNivRef2", ResultadoCheckNivRef2);
+            form.AddField("ResultadoCheckNivAceTra2", ResultadoCheckNivAceTra2);
+            form.AddField("ResultadoCheckNivAceTransf2", ResultadoCheckNivAceTransf2);
+            form.AddField("ResultadoCheckFiltro2", ResultadoCheckFiltro2);
+            form.AddField("ResultadoCheckIndObs2", ResultadoCheckIndObs2);
+            form.AddField("ResultadoCheckLucGen2", ResultadoCheckLucGen2);
+            form.AddField("ResultadoCheckFug2", ResultadoCheckFug2);
+            form.AddField("ResultadoCheckLimPar2", ResultadoCheckLimPar2);
+            form.AddField("ResultadoCheckAirAco2", ResultadoCheckAirAco2);
+            form.AddField("ResultadoCheckEstEsc2", ResultadoCheckEstEsc2);
+            form.AddField("ResultadoCheckMan2", ResultadoCheckMan2);
+            form.AddField("ResultadoCheckMon2", ResultadoCheckMon2);
+            form.AddField("ResultadoCheckBoc2", ResultadoCheckBoc2);
+            form.AddField("ResultadoCheckAseCab2", ResultadoCheckAseCab2);
+            form.AddField("ResultadoCheckTol2", ResultadoCheckTol2);
+    form.AddField("ResultadoCheckArtDir2", ResultadoCheckArtDir2);
+    form.AddField("ResultadoCheckPasGen2", ResultadoCheckPasGen2);
+    form.AddField("ResultadoCheckFugCil2", ResultadoCheckFugCil2);
+    form.AddField("ResultadoCheckMotEnf2", ResultadoCheckMotEnf2);
+    form.AddField("ResultadoCheckEstExtMan2", ResultadoCheckEstExtMan2);
+    form.AddField("ResultadoCheckEstExtInc2", ResultadoCheckEstExtInc2);
+
+    form.AddField("CheckNivPet2", CheckNivPet2);
+            form.AddField("CheckNivAceMot2", CheckNivAceMot2);
+            form.AddField("CheckNivAceHid2", CheckNivAceHid2);
+            form.AddField("CheckEstLuc2", CheckEstLuc2);
+            form.AddField("CheckEstNeu2", CheckEstNeu2);
+            form.AddField("CheckEstNeu2", CheckEstNeu2);
+            form.AddField("CheckNivRef2", CheckNivRef2);
+            form.AddField("CheckNivAceTra2", CheckNivAceTra2);
+            form.AddField("CheckNivAceTransf2", CheckNivAceTransf2);
+            form.AddField("CheckFiltro2", CheckFiltro2);
+            form.AddField("CheckIndObs2", CheckIndObs2);
+            form.AddField("CheckLucGen2", CheckLucGen2);
+            form.AddField("CheckFug2", CheckFug2);
+            form.AddField("CheckLimPar2", CheckLimPar2);
+            form.AddField("CheckAirAco2", CheckAirAco2);
+            form.AddField("CheckEstEsc2", CheckEstEsc2);
+            form.AddField("CheckMan2", CheckMan2);
+            form.AddField("CheckMon2", CheckMon2);
+            form.AddField("CheckBoc2", CheckBoc2);
+            form.AddField("CheckAseCab2", CheckAseCab2);
+            form.AddField("CheckTol2", CheckTol2);
+    form.AddField("CheckArtDir2", CheckArtDir2);
+    form.AddField("CheckPasGen2", CheckPasGen2);
+    form.AddField("CheckFugCil2", CheckFugCil2);
+    form.AddField("CheckMotEnf2", CheckMotEnf2);
+    form.AddField("CheckEstExtMan2", CheckEstExtMan2);
+    form.AddField("CheckEstExtInc2", CheckEstExtInc2);
+
+    form.AddField("CheckTopEjeCen2", CheckTopEjeCen2);
+    form.AddField("ResultadoCheckTopEjeCen2", ResultadoCheckTopEjeCen2);
+    form.AddField("CheckSalEme2", CheckSalEme2);
+    form.AddField("ResultadoCheckSalEme2", ResultadoCheckSalEme2);
+    form.AddField("CheckArtCen2", CheckArtCen2);
+    form.AddField("ResultadoCheckArtCen2", ResultadoCheckArtCen2);
+    // }*/
+    //}
+    if(vuelta != null)
+        for (int i = 0; i < vuelta.Count; i++){
+            form.AddField("ResultadoVuelta" + (i + 1), vuelta[i].ToString());
         }
 
-        
-        */
-        WWW download = new WWW( VariablesGlobales.direccion + "SimuladorMT6020/crearHistorial.php", form);
+    for (int i = 0; i < cicloCarguio.Count; i++)
+    {
+        form.AddField("ResultadoCarguioNumero" + (i + 1), "" + ((CicloCarguio)(cicloCarguio[i])).numero);
+        form.AddField("ResultadoCarguioCarguio" + (i + 1), "" + ((CicloCarguio)(cicloCarguio[i])).carguio * 1000);
+        form.AddField("ResultadoCarguioPatinaje" + (i + 1), "" + (((CicloCarguio)(cicloCarguio[i])).patinaje?1:0));
+        form.AddField("ResultadoCarguioLevante" + (i + 1), "" + (((CicloCarguio)(cicloCarguio[i])).levante?1:0));
+        form.AddField("ResultadoCarguioCaida" + (i + 1), "" + ((CicloCarguio)(cicloCarguio[i])).caida * 1000);
+        form.AddField("ResultadoCarguioVaciado" + (i + 1), "" + ((CicloCarguio)(cicloCarguio[i])).vaciado * 1000);
+        form.AddField("ResultadoCarguioTiempo" + (i + 1), "" + ((CicloCarguio)(cicloCarguio[i])).tiempo);
+
+
+        print("ciclo " + "" + ((CicloCarguio)(cicloCarguio[i])).numero);
+        print("cargio " + "" + ((CicloCarguio)(cicloCarguio[i])).carguio * 1000);
+        print("caida " + "" + ((CicloCarguio)(cicloCarguio[i])).caida * 1000);
+        print("vaciado " + "" + ((CicloCarguio)(cicloCarguio[i])).vaciado * 1000);
+        print("tiempo " + ((CicloCarguio)(cicloCarguio[i])).tiempo);
+    }
+
+
+    
+    WWW download = new WWW( VariablesGlobales.direccion + "SimuladorMT6020/crearHistorial.php", form);
 		yield return download;
 		if (download.error != null) {
 		}
