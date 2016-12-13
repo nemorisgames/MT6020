@@ -323,7 +323,7 @@ public class InGame : MonoBehaviour {
                 foreach (CapturaPeso c in pesoIntermedio)
                     pesoCaido += (c.enCarga);
                 configuracion.ResultadoTonelajeTotal = Mathf.RoundToInt(pesoEnFinal.acumulado + pesoCaido);//Mathf.RoundToInt (pesoEnFinal.enCarga + (pesoEnEscena - (pesoEnFinal.enCarga + pesoEnInicio.enCarga)));
-                configuracion.ResultadoCaidaMat = Mathf.RoundToInt((100f * pesoCaido) / (1f * configuracion.ResultadoTonelajeTotal)); //%
+				configuracion.ResultadoPorcentajeCaidaMat = Mathf.RoundToInt((100f * pesoCaido) / (1f * configuracion.ResultadoTonelajeTotal)); //%
 
                 //configuracion.ResultadoCantidadCamion = Mathf.RoundToInt(cantidadChoquesCamion / 2);
             }
@@ -636,10 +636,10 @@ public class InGame : MonoBehaviour {
             tiempoUtilizado = Time.time - tiempoFaenaActual;
             estado = EstadoSimulacion.Finalizando;
             mostrarPanelFinal();
-            maquina.FindChild("Back").localPosition = new Vector3(0.0002759445f, 0.7498303f, 0f);
-            maquina.FindChild("Front").localPosition = new Vector3(0.0002759445f, 0.7498303f, 0f);
-            maquina.FindChild("Back").localRotation = Quaternion.identity;
-            maquina.FindChild("Front").localRotation = Quaternion.identity;
+			maquina.FindChild("Trasero_B").localPosition = new Vector3(0.0002759445f, 0.7498303f, 0f);
+			maquina.FindChild("Delantera_B").localPosition = new Vector3(0.0002759445f, 0.7498303f, 0f);
+			maquina.FindChild("Trasero_B").localRotation = Quaternion.identity;
+			maquina.FindChild("Delantera_B").localRotation = Quaternion.identity;
             maquina.position = posicionFinal.position;
             maquina.rotation = posicionFinal.rotation;
             maquinaFinal.position = posicionFinal.position;

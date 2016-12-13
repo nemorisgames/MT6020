@@ -69,7 +69,7 @@ public class Configuracion : MonoBehaviour {
 	//public string ResultadoEntregaNombrada;
 	//public string ResultadoEntregaNombradaSup;
 	public int ResultadoTonelajeTotal;
-	public int ResultadoCaidaMat;
+	public int ResultadoPorcentajeCaidaMat;
 	public int ResultadoCorrectoCargio;
 	//public int ResultadoPatinaje;
 	public int ResultadoIntMaquina;
@@ -306,8 +306,8 @@ public class Configuracion : MonoBehaviour {
 
         WWWForm form = new WWWForm();
         System.DateTime fecha = System.DateTime.Now;
-        string f = fecha.ToString();
-        f = "Modulo " + NumeroModulo + " " + f;
+        //string f = fecha.ToString();
+        //f = "Modulo " + NumeroModulo + " " + f;
         print("tiempo empleado " + ResultadoTiempo);
         ///////////////////////
         //public string usuario;
@@ -373,7 +373,7 @@ public class Configuracion : MonoBehaviour {
     //public string ResultadoEntregaNombrada;
     //public string ResultadoEntregaNombradaSup;
     public int ResultadoTonelajeTotal;
-    public int ResultadoCaidaMat;
+    public int ResultadoPorcentajeCaidaMat;
     public int ResultadoCorrectoCargio;
     //public int ResultadoPatinaje;
     public int ResultadoIntMaquina;
@@ -401,7 +401,7 @@ public class Configuracion : MonoBehaviour {
 		form.AddField("idInstanceModule", idModulo);
 		form.AddField("alumno", alumno);
 		form.AddField("supervisor", usuario);
-		form.AddField("Fecha", f);
+		form.AddField("Fecha", fecha.ToString()); //almacenado
 		form.AddField("ResultadoPreguntasCorta1", ResultadoPreguntasCorta1);
 		form.AddField("ResultadoRespuestaCorta1", ResultadoRespuestaCorta1);
 		form.AddField("ResultadoPreguntasCorta2", ResultadoPreguntasCorta2);
@@ -410,23 +410,23 @@ public class Configuracion : MonoBehaviour {
 		form.AddField("ResultadoRespuestaCorta3", ResultadoRespuestaCorta3);
 		form.AddField("ResultadoPreguntasCorta4", ResultadoPreguntasCorta4);
 		form.AddField("ResultadoRespuestaCorta4", ResultadoRespuestaCorta4);
-		form.AddField("ResultadoPreguntas", ResultadoPreguntas);
-		form.AddField("ResultadoTiempo", ResultadoTiempo);
-		form.AddField("ResultadoCheck1", ResultadoCheck1);
-		form.AddField("ResultadoCheck2", ResultadoCheck2);
-		form.AddField("ResultadoVueltasRealizadas", ResultadoVueltasRealizadas);
+		form.AddField("ResultadoPreguntas", ResultadoPreguntas); //almacenado
+		form.AddField("ResultadoTiempo", ResultadoTiempo); //almacenado
+		form.AddField("ResultadoCheck1", ResultadoCheck1); //almacenado
+		form.AddField("ResultadoCheck2", ResultadoCheck2); //almacenado
+		form.AddField("ResultadoVueltasRealizadas", ResultadoVueltasRealizadas); //almacenado
 		form.AddField("ResultadoVueltasCorrectas", ResultadoVueltasCorrectas);
-		form.AddField("ResultadoTonelajeTotal", ResultadoTonelajeTotal);
-		form.AddField("ResultadoCaidaMat", ResultadoCaidaMat);
-		form.AddField("ResultadoCorrectoCargio", ResultadoCorrectoCargio);
+		form.AddField("ResultadoTonelajeTotal", ResultadoTonelajeTotal); //almacenado
+		form.AddField("ResultadoPorcentajeCaidaMat", ResultadoPorcentajeCaidaMat); //almacenado
+		form.AddField("ResultadoCorrectoCargio", ResultadoCorrectoCargio); //no es necesario(?)
 
-		form.AddField("ResultadoIntMaquina", ResultadoIntMaquina);
-		form.AddField("ResultadoIntFrontal", ResultadoIntFrontal);
-		form.AddField("ResultadoIntMotorDer", ResultadoIntMotorDer);
-		form.AddField("ResultadoIntMotorIzq", ResultadoIntMotorIzq);
-		form.AddField("ResultadoIntMedioDer", ResultadoIntMedioDer);
-		form.AddField("ResultadoIntTolvaDer", ResultadoIntTolvaDer);
-		form.AddField("ResultadoIntTolvaIzq", ResultadoIntTolvaIzq);
+		form.AddField("ResultadoIntMaquina", ResultadoIntMaquina);//almacenado
+		form.AddField("ResultadoIntFrontal", ResultadoIntFrontal);//almacenado
+		form.AddField("ResultadoIntMotorDer", ResultadoIntMotorDer);//almacenado
+		form.AddField("ResultadoIntMotorIzq", ResultadoIntMotorIzq);//almacenado
+		form.AddField("ResultadoIntMedioDer", ResultadoIntMedioDer);//almacenado
+		form.AddField("ResultadoIntTolvaDer", ResultadoIntTolvaDer);//almacenado
+		form.AddField("ResultadoIntTolvaIzq", ResultadoIntTolvaIzq);//almacenado
 
 		form.AddField("ResultadoIntTunel", ResultadoIntTunel);
 		form.AddField("ResultadoIntBuzonCarga", ResultadoIntBuzonCarga);
@@ -446,7 +446,7 @@ public class Configuracion : MonoBehaviour {
     form.AddField("revCab2", ResultadoRevCab2); form.AddField("prevRies2", ResultadoPrevRies2); form.AddField("OrdenEj", ResultadoOrdenEjecucion); form.AddField("MotorPunta", ResultadoMotorPunta);
     form.AddField("BaldePunta", ResultadoBaldePunta); form.AddField("VueltasCorrectas", ResultadoVueltasCorrectas); form.AddField("EntregaNombrada", ResultadoEntregaNombrada); form.AddField("EntregaNombradaSup", ResultadoEntregaNombradaSup);
 
-    form.AddField("TonelajeTotal", ResultadoTonelajeTotal); form.AddField("CaidaMat", ResultadoCaidaMat); form.AddField("CorrectoCarguio", ResultadoCorrectoCargio); form.AddField("Patinaje", ResultadoPatinaje);
+    form.AddField("TonelajeTotal", ResultadoTonelajeTotal); form.AddField("CaidaMat", ResultadoPorcentajeCaidaMat); form.AddField("CorrectoCarguio", ResultadoCorrectoCargio); form.AddField("Patinaje", ResultadoPatinaje);
     form.AddField("IntMaquina", ResultadoIntMaquina); form.AddField("IntBalde", ResultadoIntTolvaIzq); form.AddField("IntTolvaDer", ResultadoIntTolvaDer); form.AddField("IntMedioDer", ResultadoIntMedioDer);
     form.AddField("IntPost", ResultadoIntFrontal); form.AddField("IntMotorIzq", ResultadoIntMotorIzq); form.AddField("IntMotorDer", ResultadoIntMotorDer); form.AddField("Zipper", ResultadoZipper);
     form.AddField("CantZipper", ResultadoCantidadZipper); form.AddField("Tunel", ResultadoIntTunel); form.AddField("CantTunel", ResultadoCantidadTunel);
@@ -614,7 +614,12 @@ public class Configuracion : MonoBehaviour {
         print("vaciado " + "" + ((CicloCarguio)(cicloCarguio[i])).vaciado * 1000);
         print("tiempo " + ((CicloCarguio)(cicloCarguio[i])).tiempo);
     }
-
+		string tipoModulo = "informacion";
+		if (NumeroModulo == "5" || NumeroModulo == "6" || NumeroModulo == "7" || NumeroModulo == "8" )
+			tipoModulo = "operacional";
+		else if(NumeroModulo == "4")
+				tipoModulo = "checklist";
+		form.AddField ("tipoModulo", tipoModulo);
 
     
     WWW download = new WWW( VariablesGlobales.direccion + "SimuladorMT6020/crearHistorial.php", form);
