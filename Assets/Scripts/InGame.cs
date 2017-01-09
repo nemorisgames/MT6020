@@ -509,7 +509,7 @@ public class InGame : MonoBehaviour {
             configuracion.guardarHistorial();
         }
         //gameObject.SendMessage ("apagarLeds");
-        SceneManager.LoadScene("Login");
+        //SceneManager.LoadScene("Login");
     }
 
     public void iniciarSimulacion()
@@ -645,8 +645,8 @@ public class InGame : MonoBehaviour {
             maquinaFinal.position = posicionFinal.position;
             maquinaFinal.rotation = posicionFinal.rotation;
         }
-        else
-            SceneManager.LoadScene("Login");
+        //else
+        //    SceneManager.LoadScene("Login");
     }
 
     string calcularReloj(float tiempo)

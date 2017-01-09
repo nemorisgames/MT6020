@@ -283,6 +283,7 @@ public class Configuracion : MonoBehaviour {
 	public void guardarHistorial(){
 		StartCoroutine (guardarHistorialEjecutar());
 	}
+
     IEnumerator guardarHistorialEjecutar() {
 
         /*vuelta.Add(Random.Range(1, 100));
@@ -596,7 +597,7 @@ public class Configuracion : MonoBehaviour {
         for (int i = 0; i < vuelta.Count; i++){
             form.AddField("ResultadoVuelta" + (i + 1), vuelta[i].ToString());
         }
-
+		print ("1");
     for (int i = 0; i < cicloCarguio.Count; i++)
     {
         form.AddField("ResultadoCarguioNumero" + (i + 1), "" + ((CicloCarguio)(cicloCarguio[i])).numero);
@@ -614,26 +615,37 @@ public class Configuracion : MonoBehaviour {
         print("vaciado " + "" + ((CicloCarguio)(cicloCarguio[i])).vaciado * 1000);
         print("tiempo " + ((CicloCarguio)(cicloCarguio[i])).tiempo);
     }
+
+		print ("2");
 		string tipoModulo = "informacion";
-		if (NumeroModulo == "5" || NumeroModulo == "6" || NumeroModulo == "7" || NumeroModulo == "8" )
+		if (NumeroModulo == "Módulo 5" || NumeroModulo == "Módulo 6" || NumeroModulo == "Módulo 7" || NumeroModulo == "Módulo 8" )
 			tipoModulo = "operacional";
-		else if(NumeroModulo == "4")
+		else if(NumeroModulo == "Módulo 4")
 				tipoModulo = "checklist";
 		form.AddField ("tipoModulo", tipoModulo);
 
-    
-    WWW download = new WWW( VariablesGlobales.direccion + "SimuladorMT6020/crearHistorial.php", form);
+		print (tipoModulo);
+		print (VariablesGlobales.direccion + "SimuladorMT6020/crearHistorial.php");
+		WWW download = new WWW (VariablesGlobales.direccion + "SimuladorMT6020/crearHistorial.php", form);
+		print ("3a");
+		print(download.url);
+		print(download.progress);
 		yield return download;
+		print(download.progress);
+		print ("3b");
 		if (download.error != null) {
+			print ("3c");
+			print (download.error);
 		}
 		else{
+			print ("3d");
             //string retorno = download.text;
             print(download.text);
 
 		}
         vuelta.RemoveRange(0, vuelta.Count);
         cicloCarguio.RemoveRange(0, cicloCarguio.Count);
-
+		print ("4");
     }
 
 	public static string calcularReloj(float tiempo){
