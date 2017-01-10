@@ -10,7 +10,7 @@ public class InGame : MonoBehaviour {
     public TableroControl tableroControl;
 
     public enum EstadoSimulacion { PanelInicial, EncendidoExterior, Conduciendo, Finalizando, ApagadoExterior, Resultados };
-    public EstadoSimulacion estado = EstadoSimulacion.EncendidoExterior;
+	public EstadoSimulacion estado = EstadoSimulacion.PanelInicial;
 
     [HideInInspector]
     public Configuracion configuracion;
@@ -229,7 +229,7 @@ public class InGame : MonoBehaviour {
         
         diapositivaFinal.SetActive(true);
         //controlMouseOperador.enabled = true;
-        maquina.SendMessage("resetMaquina");
+		maquina.SendMessage("resetMaquina", SendMessageOptions.DontRequireReceiver);
         //maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(false);
     }
 
@@ -248,8 +248,16 @@ public class InGame : MonoBehaviour {
 
     public void simulacionFinalizar()
     {
-        if (estado == EstadoSimulacion.ApagadoExterior)
-            return;
+		//caso en el que nunca se encendió la maquina
+		if ((estado == EstadoSimulacion.EncendidoExterior && (maquina == null || !maquina.gameObject.active))|| estado == EstadoSimulacion.PanelInicial) {
+			print ("nunca se encendio");
+			moduloFinalizar ();
+			return;
+		}
+
+		if (estado == EstadoSimulacion.ApagadoExterior) {
+			return;
+		}
         //controlMouseOperador.enabled = false;
         print("finalizar");
 		estado = EstadoSimulacion.ApagadoExterior;
@@ -508,8 +516,9 @@ public class InGame : MonoBehaviour {
             */
             configuracion.guardarHistorial();
         }
+		else
+			SceneManager.LoadScene("Login");
         //gameObject.SendMessage ("apagarLeds");
-        //SceneManager.LoadScene("Login");
     }
 
     public void iniciarSimulacion()

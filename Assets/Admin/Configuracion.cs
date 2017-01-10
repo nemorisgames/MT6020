@@ -404,7 +404,7 @@ public class Configuracion : MonoBehaviour {
 		form.AddField("idInstanceModule", idModulo);
 		form.AddField("alumno", alumno);
 		//form.AddField("supervisor", usuario);
-		form.AddField("supervisor",supervisor);
+		form.AddField("supervisor",PlayerPrefs.GetString("idAdmin", "1"));
 		form.AddField("Fecha", fechaStr); //almacenado
 		form.AddField("ResultadoPreguntasCorta1", ResultadoPreguntasCorta1);
 		form.AddField("ResultadoRespuestaCorta1", ResultadoRespuestaCorta1);
@@ -600,7 +600,6 @@ public class Configuracion : MonoBehaviour {
         for (int i = 0; i < vuelta.Count; i++){
             form.AddField("ResultadoVuelta" + (i + 1), vuelta[i].ToString());
         }
-		print ("1");
     for (int i = 0; i < cicloCarguio.Count; i++)
     {
         form.AddField("ResultadoCarguioNumero" + (i + 1), "" + ((CicloCarguio)(cicloCarguio[i])).numero);
@@ -619,7 +618,6 @@ public class Configuracion : MonoBehaviour {
         print("tiempo " + ((CicloCarguio)(cicloCarguio[i])).tiempo);
     }
 
-		print ("2");
 		string tipoModulo = "informacion";
 		if (NumeroModulo == "Módulo 5" || NumeroModulo == "Módulo 6" || NumeroModulo == "Módulo 7" || NumeroModulo == "Módulo 8" )
 			tipoModulo = "operacional";
@@ -629,26 +627,19 @@ public class Configuracion : MonoBehaviour {
 
 		print (tipoModulo);
 		print (VariablesGlobales.direccion + "SimuladorMT6020/crearHistorial.php");
+		//return null;
 		WWW download = new WWW (VariablesGlobales.direccion + "SimuladorMT6020/crearHistorial.php", form);
-		print ("3a");
-		print(download.url);
-		print(download.progress);
 		yield return download;
-		print(download.progress);
-		print ("3b");
 		if (download.error != null) {
-			print ("3c");
 			print (download.error);
 		}
 		else{
-			print ("3d");
             //string retorno = download.text;
             print(download.text);
 
 		}
         vuelta.RemoveRange(0, vuelta.Count);
         cicloCarguio.RemoveRange(0, cicloCarguio.Count);
-		print ("4");
     }
 
 	public static string calcularReloj(float tiempo){
