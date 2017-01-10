@@ -305,8 +305,10 @@ public class Configuracion : MonoBehaviour {
             cicloCarguio.Add(c);
         }*/
 
+		int supervisor = int.Parse(usuario.Substring(usuario.Length-1,1));
         WWWForm form = new WWWForm();
         System.DateTime fecha = System.DateTime.Now;
+		string fechaStr = fecha.ToString ().Substring (0, fecha.ToString ().Length - 3);
         //string f = fecha.ToString();
         //f = "Modulo " + NumeroModulo + " " + f;
         print("tiempo empleado " + ResultadoTiempo);
@@ -401,8 +403,9 @@ public class Configuracion : MonoBehaviour {
     /// </summary>
 		form.AddField("idInstanceModule", idModulo);
 		form.AddField("alumno", alumno);
-		form.AddField("supervisor", usuario);
-		form.AddField("Fecha", fecha.ToString()); //almacenado
+		//form.AddField("supervisor", usuario);
+		form.AddField("supervisor",supervisor);
+		form.AddField("Fecha", fechaStr); //almacenado
 		form.AddField("ResultadoPreguntasCorta1", ResultadoPreguntasCorta1);
 		form.AddField("ResultadoRespuestaCorta1", ResultadoRespuestaCorta1);
 		form.AddField("ResultadoPreguntasCorta2", ResultadoPreguntasCorta2);
