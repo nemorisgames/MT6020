@@ -1,0 +1,18 @@
+﻿<Window x:Class="CreadorModulos.SeleccionDiseño"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CreadorModulos"
+        mc:Ignorable="d"
+        Title="SeleccionDiseño" Height="433.543" Width="463.636" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="113" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="203" MouseUp="Rectangle_MouseUp"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="113" Margin="231,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="203"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="113" Margin="11,139,0,0" Stroke="Black" VerticalAlignment="Top" Width="203"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="113" Margin="232,139,0,0" Stroke="Black" VerticalAlignment="Top" Width="203"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="113" Margin="11,269,0,0" Stroke="Black" VerticalAlignment="Top" Width="203"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="113" Margin="232,269,0,0" Stroke="Black" VerticalAlignment="Top" Width="203"/>
+
+    </Grid>
+</Window>

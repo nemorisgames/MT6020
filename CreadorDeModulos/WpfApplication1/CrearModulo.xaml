@@ -1,0 +1,46 @@
+﻿<Window x:Class="CreadorModulos.CrearModulo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CreadorModulos"
+        mc:Ignorable="d"
+        Title="CrearModulo" Height="608.405" Width="464.439" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label x:Name="lbNombre" Content="Ingrese el nombre del Módulo" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbSeleccionarTipo" Content="Seleccione tipo de Módulo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbSeleccioneTipo" HorizontalAlignment="Left" Margin="202,10,0,0" VerticalAlignment="Top" Width="239" ItemsSource="{Binding Modulo}" SelectedValuePath="Key" 
+ DisplayMemberPath="Value"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="202,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239"/>
+        <Button x:Name="btCrearModulo" Content="Crear" HorizontalAlignment="Left" Margin="366,67,0,0" VerticalAlignment="Top" Width="75" Click="btCrearModulo_Click"/>
+        <ListView x:Name="lvLista" HorizontalAlignment="Left" Height="432" Margin="10,108,0,0" VerticalAlignment="Top" Width="431" MouseDoubleClick="lvLista_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="0">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding ID}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Nombre" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Nombre}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Tipo" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label  Content="{Binding Tipo}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="366,545,0,0" VerticalAlignment="Top" Width="75" Click="btEliminar_Click"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,21 @@
+﻿<Window x:Class="CreadorModulos.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CreadorModulos"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="588.194" Width="1156.944" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Menu x:Name="menu" Height="30" Margin="10,10,10,0" VerticalAlignment="Top" RenderTransformOrigin="-0.698,-0.454">
+            <MenuItem Header="Modulos">
+                <MenuItem Header="Administrar" Click="CrearNuevoModulo"/>
+            </MenuItem>
+
+
+        </Menu>
+        <Image x:Name="image" Margin="364,126,379,128" Source="camion.jpg"/>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,47 @@
+﻿<Window x:Class="CreadorModulos.Respuestas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CreadorModulos"
+        mc:Ignorable="d"
+        Title="Respuestas" Height="340.777" Width="550.485" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,-8,-7">
+        <ListView x:Name="MyList" HorizontalAlignment="Left" Height="187" Margin="10,73,0,0" VerticalAlignment="Top" Width="516" MouseUp="MyList_MouseUp">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="0">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding idRespuesta}"></Label>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Respuesta" Width="400">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Respuesta}"></Label>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Correcta" Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Correcta}"></Label>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="tbRespuesta" HorizontalAlignment="Left" Height="23" Margin="82,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="444"/>
+        <Label x:Name="label" Content="Respuesta:" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.149,-0.131"/>
+        <CheckBox x:Name="ckCorrecta" Content="Es correcta" HorizontalAlignment="Left" Margin="82,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.215,0.231"/>
+        <Button x:Name="btAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="451,38,0,0" VerticalAlignment="Top" Width="75" Click="btAgregar_Click"/>
+        <Button x:Name="btTerminar" Content="Terminar" HorizontalAlignment="Left" Margin="451,265,0,0" VerticalAlignment="Top" Width="75" Click="btTerminar_Click"/>
+        <Button x:Name="btEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="371,265,0,0" VerticalAlignment="Top" Width="75" Click="btEliminar_Click"/>
+        <Button x:Name="btModificar" Content="Modificar" HorizontalAlignment="Left" Margin="291,265,0,0" VerticalAlignment="Top" Width="75" Click="btModificar_Click"/>
+        <Button x:Name="btActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="371,38,0,0" VerticalAlignment="Top" Width="75" Click="btActualizar_Click"/>
+
+    </Grid>
+</Window>

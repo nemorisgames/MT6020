@@ -1,0 +1,41 @@
+﻿<Window x:Class="CreadorModulos.Preguntas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CreadorModulos"
+        mc:Ignorable="d"
+        Title="Preguntas" Height="424.43" Width="677.337" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBox x:Name="tbPregunta" HorizontalAlignment="Left" Height="23" Margin="131,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="516"/>
+        <Label x:Name="label" Content="Escriba su pregunta:" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
+        <ListView x:Name="myList" HorizontalAlignment="Left" Height="280" Margin="10,69,0,0" VerticalAlignment="Top" Width="637" MouseDoubleClick="listView_MouseDoubleClick" MouseUp="myList_MouseUp">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="0">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding idModule}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+                    <GridViewColumn Header="Preguntas" Width="600">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Txt}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btTerminar" Content="Terminar" HorizontalAlignment="Left" Margin="572,354,0,0" VerticalAlignment="Top" Width="75" Click="btTerminar_Click"/>
+        <Button x:Name="btAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="572,38,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="btEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="492,354,0,0" VerticalAlignment="Top" Width="75" Click="btEliminar_Click"/>
+        <Button x:Name="btModificar" Content="Modificar" HorizontalAlignment="Left" Margin="412,354,0,0" VerticalAlignment="Top" Width="75" Click="btModificar_Click"/>
+        <Button x:Name="btActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="492,38,0,0" VerticalAlignment="Top" Width="75" Click="btActualizar_Click"/>
+
+    </Grid>
+</Window>

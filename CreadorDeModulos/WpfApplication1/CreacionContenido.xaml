@@ -1,0 +1,262 @@
+﻿<Window x:Class="CreadorModulos.CreacionContenido"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CreadorModulos"
+        mc:Ignorable="d"
+        Title="CreacionContenido" Height="519.346" Width="1112.654" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,-8,-7">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="cbSelecionarIcono" HorizontalAlignment="Left" Margin="131,10,0,0" Width="233" Height="39" VerticalAlignment="Top" SelectedValuePath="Name">
+            <ComboBoxItem IsSelected="True">Sin icono</ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/1a.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/2a.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/3a.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/4a.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/5a.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/6a.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/7a.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/8a.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/9a.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/1v.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/2v.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/3v.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/4v.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/5v.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/6v.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/7v.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/8v.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/9v.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/a.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/b.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/c.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/d.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/e.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/f.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/g.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/h.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/i.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/j.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/a_verde.png" />
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/b_verde.png" />
+                </StackPanel>
+            </ComboBoxItem>
+
+
+        </ComboBox>
+        <Label x:Name="label" Content="Seleccionar ícono:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Seleccionar fondo:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbSeleccionarFondo" HorizontalAlignment="Left" Margin="131,54,0,0" VerticalAlignment="Top" Width="233">
+            <ComboBoxItem IsSelected="True">Sin fondo</ComboBoxItem>
+            <ComboBoxItem>Rojo</ComboBoxItem>
+            <ComboBoxItem>Azul</ComboBoxItem>
+            <ComboBoxItem>Amarillo</ComboBoxItem>
+            <ComboBoxItem>Verde</ComboBoxItem>
+            <ComboBoxItem>Celeste</ComboBoxItem>
+            <ComboBoxItem>Naranjo</ComboBoxItem>
+            <ComboBoxItem>Negro</ComboBoxItem>
+        </ComboBox>
+        <Label x:Name="label_Copy1" Content="Nombre audio:" HorizontalAlignment="Left" Margin="381,355,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy2" Content="Ingresar texto:" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbTextoContenido" HorizontalAlignment="Left" Height="242" Margin="131,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
+        <Button x:Name="btAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="253,355,0,0" VerticalAlignment="Top" Width="111" Click="btAgregar_Click" Foreground="White" Height="43">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                    <GradientStop Color="#FF4FD11E"/>
+                    <GradientStop Color="#FF396827" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <ListView x:Name="MyList" HorizontalAlignment="Left" Height="299" Margin="381,10,0,0" VerticalAlignment="Top" Width="699">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Icono">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Path=Icon}"/>
+
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Texto" Width="600">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Txt}" Background="{Binding Back}" Foreground="{Binding FontColor}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ComboBox x:Name="cbColorTexto" HorizontalAlignment="Left" Margin="131,81,0,0" VerticalAlignment="Top" Width="233">
+            <ComboBoxItem IsSelected="True">Negro</ComboBoxItem>
+            <ComboBoxItem>Blanco</ComboBoxItem>
+            <ComboBoxItem>Rojo</ComboBoxItem>
+            <ComboBoxItem>Azul</ComboBoxItem>
+            <ComboBoxItem>Amarillo</ComboBoxItem>
+            <ComboBoxItem>Verde</ComboBoxItem>
+            <ComboBoxItem>Celeste</ComboBoxItem>
+            <ComboBoxItem>Naranjo</ComboBoxItem>
+
+        </ComboBox>
+        <Label x:Name="label_Copy3" Content="Color Letra:" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btLimpiarLista" Content="Limpiar Lista" HorizontalAlignment="Left" Margin="978,314,0,0" VerticalAlignment="Top" Width="102" Click="btLimpiarLista_Click" Height="36" AllowDrop="True" Foreground="White">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                    <GradientStop Color="#FFFF003A" Offset="1"/>
+                    <GradientStop Color="#FFFF426D"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="894,414,0,0" VerticalAlignment="Top" Width="186" Height="43" FontSize="24" Foreground="White" BorderBrush="{x:Null}" Click="btGuardar_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                    <GradientStop Color="#FFDDDDDD"/>
+                    <GradientStop Color="#FF396827" Offset="1"/>
+                    <GradientStop Color="#FF4FD11E" Offset="0.004"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btEliminarÚltimo" Content="Eliminar" HorizontalAlignment="Left" Margin="871,314,0,0" VerticalAlignment="Top" Width="102" Click="btEliminarÚltimo_Click" Height="36" AllowDrop="True" Foreground="White">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                    <GradientStop Color="#FF1A23E6" Offset="1"/>
+                    <GradientStop Color="#FF6870DE"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+
+        <Button x:Name="btCargarImagen" Content="Cargar Imagen" HorizontalAlignment="Left" Margin="978,386,0,0" VerticalAlignment="Top" Width="102" Click="button_Click"/>
+        <TextBox x:Name="txtImagen" HorizontalAlignment="Left" Height="23" Margin="492,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="481"/>
+        <Label x:Name="label_Copy4" Content="Nombre imagen:" HorizontalAlignment="Left" Margin="381,382,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtAudio" HorizontalAlignment="Left" Height="23" Margin="492,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="481"/>
+    </Grid>
+</Window>
