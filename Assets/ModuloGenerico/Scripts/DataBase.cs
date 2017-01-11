@@ -8,6 +8,7 @@ using MySql.Data.MySqlClient;
 /// </summary>
 public class DataBase
 {
+	public string direccion = "http://localhost/";
     private string source;
     private MySqlConnection conexion;
     public bool conectado = false;
