@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 /// </summary>
 public class DataBase
 {
-	public string direccion = "http://localhost/";
+	public string direccion = "http://localhost/SimuladorMT6020/CreadorModulos/";
     private string source;
     private MySqlConnection conexion;
     public bool conectado = false;
