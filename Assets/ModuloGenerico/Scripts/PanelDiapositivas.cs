@@ -11,11 +11,15 @@ ArrayList diapositivas;
 
     DataBase db = new DataBase();
 
-    MySqlDataReader infoPageDesign;
-    MySqlDataReader infoStructureSlider;
-    MySqlDataReader sliders;
+    //MySqlDataReader infoPageDesign;
+    //MySqlDataReader infoStructureSlider;
+    //MySqlDataReader sliders;
     MySqlDataReader module;
     MySqlDataReader moduleType;
+
+	string[,] sliders;
+	string[,] infoStructureSlider;
+	string[] infoPageDesign;
 
     int SliderCount = 0;
     int i = 0;
@@ -35,7 +39,8 @@ ArrayList diapositivas;
 
     void Start ()
     {
-        module = db.Consultar("SELECT * FROM Module WHERE id = "+idModule);
+		
+        /*module = db.Consultar("SELECT * FROM Module WHERE id = "+idModule);
         while (module.Read())
         {
             moduleName = (string)module["name"];
@@ -52,142 +57,195 @@ ArrayList diapositivas;
         }
 
         db = new DataBase();
-        sliders = db.Consultar("SELECT * FROM Slider WHERE fk_module = "+idModule+" ORDER BY orderSlider");
+        sliders = db.Consultar("SELECT * FROM Slider WHERE fk_module = "+idModule+" ORDER BY orderSlider");*/
 
-        traerInformacion();
+		StartCoroutine (Inicializar ());
     }
 
-    void traerInformacion()
+    IEnumerator traerInformacion()
     {
         diapositivas = new ArrayList();
         diapositivaTitulo.titulo.text = moduleName;
         diapositivaTitulo.subTitulo.text = moduleTypeName;
         diapositivas.Add(diapositivaTitulo.gameObject);
 
-        while (sliders.Read())
+        //while (sliders.Read())
+		for(int i=0;i<sliders.GetLength(1);i++)
         {
             
             //recibimos el tipo de la diapositiva. En este caso, todas del mismo tipo
             Diapositiva.TipoDispositiva tipo = Diapositiva.TipoDispositiva.TextoDerecha;
             switch (tipo)
             {
-                case Diapositiva.TipoDispositiva.TextoDerecha:
-                    GameObject g = NGUITools.AddChild(gameObject, (GameObject)Resources.Load("Diapositiva_Tipo1"));
-                    Diapositiva d = g.GetComponent<Diapositiva>();
-                    d.panelDiapositivas = this;
+			case Diapositiva.TipoDispositiva.TextoDerecha:
+				GameObject g = NGUITools.AddChild (gameObject, (GameObject)Resources.Load ("Diapositiva_Tipo1"));
+				Diapositiva d = g.GetComponent<Diapositiva> ();
+				d.panelDiapositivas = this;
 
-                    //SEGMENTO DE CODIGO A CONFIGURAR SEGUN LA INFORMACION
-                    d.titulo.text = moduleName;
-                    d.subTitulo.text = moduleTypeName;
+                //SEGMENTO DE CODIGO A CONFIGURAR SEGUN LA INFORMACION
+				d.titulo.text = moduleName;
+				d.subTitulo.text = moduleTypeName;
 
-                    //CONSULTO POR LA INFORMACION QUE TIENE CADA SLIDER
+                //CONSULTO POR LA INFORMACION QUE TIENE CADA SLIDER
 
-                      db = new DataBase();
-                      infoPageDesign = db.Consultar("SELECT * FROM InformationPageDesign WHERE fk_slider = "+ sliders["id"]);
+                //db = new DataBase();
+                //infoPageDesign = db.Consultar("SELECT * FROM InformationPageDesign WHERE fk_slider = "+ sliders["id"]);
 
-                      //TODO
-                      //PONGO IMAGEN Y SONIDO
-                      while (infoPageDesign.Read())
-                      {
-                          imagenPrincipal = (string)infoPageDesign["image"];
-                          imagenPrincipal = imagenPrincipal.Split('.')[0].ToString();
-                          if ((string)infoPageDesign["sound"].ToString().Trim() != "")
-                          {
-                              d.sonidoBotones[0].SetActive(true);
-                              d.sonidoBotones[1].SetActive(true);
-                              d.sound = (string)infoPageDesign["sound"];
-                          }
-                          else
-                          {
-                              d.sonidoBotones[0].SetActive(false);
-                              d.sonidoBotones[1].SetActive(false);
-                          }
+				WWWForm form = new WWWForm ();
+				form.AddField ("id", int.Parse (sliders [0, i]));
 
-                      }
+				WWW download = new WWW (db.direccion + "obtenerInfoPageDesign.php", form);
+				yield return download;
+				if (download.error != null) {
+					print ("Error downloading: " + download.error);
+					//mostrarError("Error de conexion");
+					return false;
+				} else {
+					infoPageDesign = download.text.Split (new char[]{ '|' });
+				}
 
+                //TODO
+                //PONGO IMAGEN Y SONIDO
+                //while (infoPageDesign.Read())
+                //{
+					//imagenPrincipal = (string)infoPageDesign["image"];
+					//imagenPrincipal = imagenPrincipal.Split('.')[0].ToString();
+					//if ((string)infoPageDesign["sound"].ToString().Trim() != "")
+					imagenPrincipal = infoPageDesign [1].Split ('.') [0];
+					if (infoPageDesign [2].Trim () != "") {
+						d.sonidoBotones [0].SetActive (true);
+						d.sonidoBotones [1].SetActive (true);
+						//d.sound = (string)infoPageDesign["sound"];
+						d.sound = infoPageDesign [2];
+					} else {
+						d.sonidoBotones [0].SetActive (false);
+						d.sonidoBotones [1].SetActive (false);
+					}
+
+                //}
+
+                
+				d.imagenPrincipal.mainTexture = (Texture)Resources.Load ("Diapositivas/Modulo1/" + imagenPrincipal);
+
+                //db = new DataBase();
+                //infoStructureSlider = db.Consultar("SELECT * FROM Structure WHERE fk_informationPageDesign IN (SELECT id FROM InformationPageDesign WHERE fk_slider = "+sliders["id"]+")");
+
+				form = new WWWForm ();
+				form.AddField ("id", int.Parse (sliders [0, i]));
+				download = new WWW (db.direccion + "obtenerInfoStructureSlider.php", form);
+				yield return download;
+				if (download.error != null) {
+					print ("Error downloading: " + download.error);
+					//mostrarError("Error de conexion");
+					return false;
+				} else {
+					string[] retorno = download.text.Split (new char[]{'*'});
+					StructureCount = retorno.Length;
+					infoStructureSlider = new string[3, StructureCount];
+					for(int j=0;j<StructureCount;j++){
+						string []row = retorno[j].Split(new char[]{'|'});
+						for (int k = 0; k < row.Length; k++) {
+							infoStructureSlider [k, j] = row [k];
+						}
+					}
+				}
+					
+                //StructureCount = 0;
+
+                /*while (infoStructureSlider.Read())
+                {
+                    StructureCount++;
+                }*/
+
+                //db = new DataBase();
+                //infoStructureSlider = db.Consultar("SELECT * FROM Structure WHERE fk_informationPageDesign IN (SELECT id FROM InformationPageDesign WHERE fk_slider = " + sliders["id"] + ") ORDER BY orderStructure");
+
+                InformacionBullet[] bullets = new InformacionBullet[StructureCount];
+
+                for (int countBullets = 0; countBullets < StructureCount; countBullets++)
+                {
+                    bullets[countBullets] = new InformacionBullet();
+                }
+
+                //i = 0;
+                //while (infoStructureSlider.Read())
+				for(int j = 0;j<StructureCount;j++)
+                {
+
+                    //la forma en que se maneja la informacion en cada panel de informacion depende de su diseño. en este caso, solo hay uno
+
+                    //icoFullName = (string)infoStructureSlider["icon"];
+					//bullets[i].sprite = icoFullName.Split('.')[0].ToString();
+					//fontColor = (string)infoStructureSlider["fontColor"];
+
+					icoFullName = infoStructureSlider[1,i];
+					bullets[j].sprite = icoFullName.Split('.')[0];
+					fontColor = infoStructureSlider[2,i];
                     
-                    d.imagenPrincipal.mainTexture = (Texture)Resources.Load("Diapositivas/Modulo1/"+imagenPrincipal);
-
-                    db = new DataBase();
-                    infoStructureSlider = db.Consultar("SELECT * FROM Structure WHERE fk_informationPageDesign IN (SELECT id FROM InformationPageDesign WHERE fk_slider = "+sliders["id"]+")");
-                   
-                    StructureCount = 0;
-
-                    while (infoStructureSlider.Read())
-                    {
-                        StructureCount++;
-                    }
-
-                    db = new DataBase();
-                    infoStructureSlider = db.Consultar("SELECT * FROM Structure WHERE fk_informationPageDesign IN (SELECT id FROM InformationPageDesign WHERE fk_slider = " + sliders["id"] + ") ORDER BY orderStructure");
-
-                    InformacionBullet[] bullets = new InformacionBullet[StructureCount];
-
-                    for (int countBullets = 0; countBullets < StructureCount; countBullets++)
-                    {
-                        bullets[countBullets] = new InformacionBullet();
-                    }
-
-                    i = 0;
-                    while (infoStructureSlider.Read())
+                    switch (fontColor.Trim())
                     {
 
-                        //la forma en que se maneja la informacion en cada panel de informacion depende de su diseño. en este caso, solo hay uno
+                        case "White":
+                            hexaColor = "ffffff";
+                            break;
+                        case "Black":
+                            hexaColor = "000000";
+                            break;
+                        case "Green":
+                            hexaColor = "00ff00";
+                            break;
+                        case "Red":
+                            hexaColor = "ff0000";
+                            break;
+                        case "Blue":
+                            hexaColor = "0000ff";
+                            break;
+                        case "Yellow":
+                            hexaColor = "ffff00";
+                            break;
+                        default:
+                            hexaColor = "000000";
+                            break;
 
-                        icoFullName = (string)infoStructureSlider["icon"];
-                        bullets[i].sprite = icoFullName.Split('.')[0].ToString();
-                        fontColor = (string)infoStructureSlider["fontColor"];
-                        
-                        switch (fontColor.Trim())
-                        {
-
-                            case "White":
-                                hexaColor = "ffffff";
-                                break;
-                            case "Black":
-                                hexaColor = "000000";
-                                break;
-                            case "Green":
-                                hexaColor = "00ff00";
-                                break;
-                            case "Red":
-                                hexaColor = "ff0000";
-                                break;
-                            case "Blue":
-                                hexaColor = "0000ff";
-                                break;
-                            case "Yellow":
-                                hexaColor = "ffff00";
-                                break;
-                            default:
-                                hexaColor = "000000";
-                                break;
-
-                        }
-
-                        bullets[i].texto = "["+hexaColor+"]"+(string)infoStructureSlider["text"]+"[-]";
-                        if (bullets[i].texto.Length < 32)
-                        {
-                            bullets[i].texto = "\n" + bullets[i].texto+"\n";
-                        }
-                        else
-                        {
-                            if (bullets[i].texto.Length < 64)
-                            {
-                                bullets[i].texto += "\n";
-                            }
-
-                        }
-                        i++;
                     }
 
-                    d.panelInformacionBullets[0].inicializar((string)sliders["Title"], bullets);
-                    //FIN SEGMENTO
+                    /*bullets[i].texto = "["+hexaColor+"]"+(string)infoStructureSlider["text"]+"[-]";
+                    if (bullets[i].texto.Length < 32)
+                    {
+                        bullets[i].texto = "\n" + bullets[i].texto+"\n";
+                    }
+                    else
+                    {
+                        if (bullets[i].texto.Length < 64)
+                        {
+                            bullets[i].texto += "\n";
+                        }
 
-                    g.SetActive(false);
-                    diapositivas.Add(g);
+                    }*/
 
-                    break;
+					bullets[j].texto = "["+hexaColor+"]"+infoStructureSlider[3,i]+"[-]";
+					if (bullets[j].texto.Length < 32)
+					{
+						bullets[j].texto = "\n" + bullets[j].texto+"\n";
+					}
+					else
+					{
+						if (bullets[j].texto.Length < 64)
+						{
+							bullets[j].texto += "\n";
+						}
+
+					}
+                    //i++;
+                }
+
+                //d.panelInformacionBullets[0].inicializar((string)sliders["Title"], bullets);
+                //FIN SEGMENTO
+
+                g.SetActive(false);
+                diapositivas.Add(g);
+
+                break;
             }
           //  i++;
 
@@ -205,10 +263,58 @@ ArrayList diapositivas;
         }
     }
 
-   
 	
-	// Update is called once per frame
-	void Update () {
-	
+	IEnumerator Inicializar(){
+		//Obtiene id de modulo
+		WWWForm form = new WWWForm ();
+		form.AddField ("idModule",idModule);
+		WWW download = new WWW (db.direccion+"obtenerModulo.php",form);
+		yield return download;
+		if (download.error != null) {
+			print ("Error downloading: " + download.error);
+			//mostrarError("Error de conexion");
+			return false;
+		} else {
+			string retorno = download.text;
+			string[] retArr = retorno.Split (new char[]{ '|' });
+			moduleName = retArr [0];
+			idTipoModule = int.Parse(retArr [1]);
+		}
+
+		//Obtiene id del tipo de modulo
+		form = new WWWForm ();
+		form.AddField ("idTipoModule",idTipoModule);
+		download = new WWW (db.direccion + "obtenerNombreTipoModulo.php", form);
+		yield return download;
+		if (download.error != null) {
+			print ("Error downloading: " + download.error);
+			//mostrarError("Error de conexion");
+			return false;
+		} else {
+			moduleTypeName = download.text;
+		}
+
+		//Obtiene sliders del modulo
+		form = new WWWForm ();
+		form.AddField ("idModule", idModule);
+		download = new WWW (db.direccion+"obtenerSliders.php",form);
+		yield return download;
+		if (download.error != null) {
+			print ("Error downloading: " + download.error);
+			//mostrarError("Error de conexion");
+			return false;
+		} else {
+			string retorno = download.text;
+			string[] retArr = retorno.Split (new char[]{'*'});
+			sliders = new string[3, retArr.Length];
+			for (int i = 0; i < retArr.Length; i++) {
+				string [] row = retArr [i].Split (new char[]{ '|' });
+				for (int j = 0; j < row.Length; j++) {
+					sliders [j, i] = row [j];
+				}
+			}
+		}
+
+		StartCoroutine (traerInformacion ());
 	}
 }

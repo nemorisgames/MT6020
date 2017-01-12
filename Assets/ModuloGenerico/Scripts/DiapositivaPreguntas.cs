@@ -8,9 +8,12 @@ public class DiapositivaPreguntas : MonoBehaviour {
     public UILabel titulo;
     public UILabel subTitulo;
     DataBase db = new DataBase();
-    MySqlDataReader question;
-    MySqlDataReader answerIncorrect;
-    MySqlDataReader answerCorrect;
+    //MySqlDataReader question;
+	string [,] question;
+    //MySqlDataReader answerIncorrect;
+	string [,] answerIncorrect;
+	//MySqlDataReader answerCorrect;
+	string [] answerCorrect;
     //public int respuestaCorrectaID;
     public int preguntaID;
     public int[] respuestaIncorrectaID;
@@ -22,84 +25,172 @@ public class DiapositivaPreguntas : MonoBehaviour {
     int idModule = 10;
     int idTipoModule;
 
-
     int questions = 0;
 
     public string[] respuestas = new string[4];
 
     // Use this for initialization
     void Start () {
-        inicializar();
+		StartCoroutine(inicializar());
     }
 
-    public void inicializar()
+	public IEnumerator inicializar()
     {
 
-        module = db.Consultar("SELECT * FROM Module WHERE id = " + idModule);
+		WWWForm form = new WWWForm ();
+		form.AddField ("idModule",idModule);
+		WWW download = new WWW (db.direccion+"obtenerModulo.php",form);
+		yield return download;
+		if (download.error != null) {
+			print ("Error downloading: " + download.error);
+			//mostrarError("Error de conexion");
+			return false;
+		} else {
+			string retorno = download.text;
+			string[] retArr = retorno.Split (new char[]{ '|' });
+			titulo.text = retArr [0];
+			idTipoModule = int.Parse(retArr [1]);
+		}
+			
+        /*module = db.Consultar("SELECT * FROM Module WHERE id = " + idModule);
         while (module.Read())
         {
             titulo.text = (string)module["name"];
             idTipoModule = int.Parse(module["fk_moduleType"].ToString());
 
-        }
+        }*/
 
-        db = new DataBase();
+
+		form = new WWWForm ();
+		form.AddField ("idTipoModule",idTipoModule);
+		download = new WWW (db.direccion + "obtenerNombreTipoModulo.php", form);
+		yield return download;
+		if (download.error != null) {
+			print ("Error downloading: " + download.error);
+			//mostrarError("Error de conexion");
+			return false;
+		} else {
+			subTitulo.text = download.text;
+		}
+
+        /*db = new DataBase();
         moduleType = db.Consultar("SELECT * FROM ModuleType WHERE id = " + idTipoModule);
 
         while (moduleType.Read())
         {
             subTitulo.text = (string)moduleType["name"];
-        }
+        }*/
 
-        db = new DataBase();
-        question = db.Consultar("SELECT * FROM InformationModuleQuestion WHERE fk_module = 10");
+		form = new WWWForm ();
+		form.AddField ("idModule",idModule);
+		download = new WWW (db.direccion + "obtenerInfoModuleQuestions.php", form);
+		yield return download;
+		if (download.error != null) {
+			print ("Error downloading: " + download.error);
+			//mostrarError("Error de conexion");
+			return false;
+		} else {
+			string[] resultado = download.text.Split (new char[]{ '*' });
+			question = new string[2, resultado.Length];
+			for (int i = 0; i < resultado.Length; i++) {
+				string[] row = resultado [i].Split (new char[]{ '|' });
+				for (int j = 0; j < row.Length; j++) {
+					question [j, i] = row [j];
+				}
+			}
+		}
+
+        /*db = new DataBase();
+        question = db.Consultar("SELECT * FROM InformationModuleQuestion WHERE fk_module = 10");*/
 
         preguntas = new ArrayList();
 
-        while (question.Read())
+        //while (question.Read())
+		for(int i=0;i<question.GetLength(1);i++)
         {
-            preguntaID = int.Parse(question["id"].ToString());
-            preguntaText = (string)question["question"];
+            //preguntaID = int.Parse(question["id"].ToString());
+            //preguntaText = (string)question["question"];
+			preguntaID = int.Parse(question[0,i]);
+			preguntaText = question [1, i];
 
-            db = new DataBase();
-            answerIncorrect = db.Consultar("SELECT * FROM InformationModuleAnswers WHERE fk_informationModuleQuestions = " + preguntaID + " AND Correct = 'False' ORDER BY RAND() LIMIT 3");
+            //db = new DataBase();
+            //answerIncorrect = db.Consultar("SELECT * FROM InformationModuleAnswers WHERE fk_informationModuleQuestions = " + preguntaID + " AND Correct = 'False' ORDER BY RAND() LIMIT 3");
 
-            db = new DataBase();
+			form = new WWWForm ();
+			form.AddField ("preguntaID",preguntaID);
+			download = new WWW (db.direccion + "obtenerInfoModuleIncorrectAnswers.php", form);
+			yield return download;
+			if (download.error != null) {
+				print ("Error downloading: " + download.error);
+				//mostrarError("Error de conexion");
+				return false;
+			} else {
+				string[] resultado = download.text.Split (new char[]{ '*' });
+				answerIncorrect = new string[2, resultado.Length];
+				for (int j = 0; j < resultado.Length; j++) {
+					string[] row = resultado [j].Split (new char[]{ '|' });
+					for (int k = 0; k < row.Length; k++) {
+						answerIncorrect [k, k] = row [k];
+					}
+				}
+			}
+
+
+            /*db = new DataBase();
             answerCorrect = db.Consultar("SELECT * FROM InformationModuleAnswers WHERE fk_informationModuleQuestions = " + preguntaID + " AND Correct = 'True' ORDER BY RAND() LIMIT 1");
+			*/
+
+			form = new WWWForm ();
+			form.AddField ("preguntaID",preguntaID);
+			download = new WWW (db.direccion + "obtenerInfoModuleCorrectAnswers.php", form);
+			yield return download;
+			if (download.error != null) {
+				print ("Error downloading: " + download.error);
+				//mostrarError("Error de conexion");
+				return false;
+			} else {
+				answerCorrect = download.text.Split (new char[]{ '|' });
+			}
+
 
             int[] respuestasID = new int[4];
             string[] respuestas = new string[4];
 
             int randomCorrecta = Random.Range(0, 4);
-            while (answerCorrect.Read())
-            {
-                respuestasID[randomCorrecta] = int.Parse(answerCorrect["id"].ToString());
-                respuestas[randomCorrecta] = answerCorrect["text"].ToString();
-            }
+            //while (answerCorrect.Read())
+            //{
+                //respuestasID[randomCorrecta] = int.Parse(answerCorrect["id"].ToString());
+                //respuestas[randomCorrecta] = answerCorrect["text"].ToString();
+				respuestasID[randomCorrecta] = int.Parse(answerCorrect[0]);
+				respuestas[randomCorrecta] = answerCorrect[1];
+            //}
 
             int resp = 0;
             respuestaIncorrectaID = new int[3];
             respuestaIncorrecta = new string[3];
-            while (answerIncorrect.Read())
+            //while (answerIncorrect.Read())
+
+			for(int j=0;j<answerIncorrect.GetLength(1);j++)
             {
                 //this.respuestaID = respuestaID;
-               
-                respuestaIncorrectaID[resp] = int.Parse(answerIncorrect["id"].ToString());
-                respuestaIncorrecta[resp] = answerIncorrect["text"].ToString();
+                //respuestaIncorrectaID[resp] = int.Parse(answerIncorrect["id"].ToString());
+                //respuestaIncorrecta[resp] = answerIncorrect["text"].ToString();
+
+				respuestaIncorrectaID[resp] = int.Parse(answerIncorrect[0,j]);
+				respuestaIncorrecta[resp] = answerIncorrect[1,j];
                 resp++;
             }
 
-             int j = 0;
-             for (int i = 0; i < 4; i++)
-             {
-                 if (i != randomCorrecta)
-                 {
-                    respuestasID[i] = respuestaIncorrectaID[j];
-                    respuestas[i] = respuestaIncorrecta[j];
-                    j++;
-                 }
-
-             }
+            int aux = 0;
+            for (int j = 0; j < 4; j++)
+            {
+                if (j != randomCorrecta)
+                {
+                   respuestasID[j] = respuestaIncorrectaID[aux];
+                   respuestas[j] = respuestaIncorrecta[aux];
+                   aux++;
+                }
+            }
 
             //int preguntaID, string pregunta, int[] respuestaID, string[] respuesta, int respuestaCorrecta
 
@@ -114,26 +205,60 @@ public class DiapositivaPreguntas : MonoBehaviour {
             preguntas.Add(d);
             questions++;
 
-            for (int i = 0; i < 4; i++)
+
+            /*for (int j = 0; j < 4; j++)
             {
                 db = new DataBase();
                 db.EjecutarConsultar("INSERT INTO QuestionMakedInformationModule (fk_realizationModule, fk_questionID, fk_answerID ) VALUES (1," + preguntaID + "," +respuestasID[i]+")");
-            }
+			}*/
+
+			form = new WWWForm ();
+			form.AddField ("preguntaID",preguntaID);
+			form.AddField ("respuestasID0", respuestasID [0]);
+			form.AddField ("respuestasID1", respuestasID [1]);
+			form.AddField ("respuestasID2", respuestasID [2]);
+			form.AddField ("respuestasID3", respuestasID [3]);
+			download = new WWW (db.direccion + "crearPreguntaHechaInfoModule.php", form);
+			yield return download;
+			if (download.error != null) {
+				print ("Error downloading: " + download.error);
+				//mostrarError("Error de conexion");
+				return false;
+			} else {
+				print (download.text);
+			}
+
         }
     }
 
-    public void entregarEvaluacion()
+	public IEnumerator entregarEvaluacion()
     {
         int correcta = 0;
         
         foreach (Pregunta p in preguntas)
         {
-            db = new DataBase();
+            /*db = new DataBase();
             db.EjecutarConsultar("INSERT INTO InformationModuleDetail (fk_realizationModule, fk_questionID, fk_informationModuleAnswers) VALUES (1," + preguntaID + "," + p.respuestaUsuarioID + ")");
-            if (p.respuestaToggle[p.respuestaCorrectaID].isChecked == true)
+            */
+
+			WWWForm form = new WWWForm ();
+			form.AddField ("preguntaID",preguntaID);
+			form.AddField ("respuestaUsuarioID",p.respuestaUsuarioID);
+			WWW download = new WWW (db.direccion+"crearInfoModuleDetail.php",form);
+			yield return download;
+			if (download.error != null) {
+				print ("Error downloading: " + download.error);
+				//mostrarError("Error de conexion");
+				return false;
+			} else {
+				print (download.text);
+			}
+
+			if (p.respuestaToggle[p.respuestaCorrectaID].isChecked == true)
             {
                 correcta++;
             }
+
             Debug.Log(correcta.ToString());
         }
        
