@@ -92,8 +92,8 @@ ArrayList diapositivas;
                 //infoPageDesign = db.Consultar("SELECT * FROM InformationPageDesign WHERE fk_slider = "+ sliders["id"]);
 
 				WWWForm form = new WWWForm ();
-				form.AddField ("id", int.Parse (sliders [0, i]));
-
+				//Debug.Log (sliders [0, i]);
+				form.AddField ("id", int.Parse (sliders [0, i].ToString().Trim()));
 				WWW download = new WWW (db.direccion + "obtenerInfoPageDesign.php", form);
 				yield return download;
 				if (download.error != null) {
@@ -131,7 +131,7 @@ ArrayList diapositivas;
                 //infoStructureSlider = db.Consultar("SELECT * FROM Structure WHERE fk_informationPageDesign IN (SELECT id FROM InformationPageDesign WHERE fk_slider = "+sliders["id"]+")");
 
 				form = new WWWForm ();
-				form.AddField ("id", int.Parse (sliders [0, i]));
+				form.AddField ("id", int.Parse (sliders [0, i].ToString().Trim()));
 				download = new WWW (db.direccion + "obtenerInfoStructureSlider.php", form);
 				yield return download;
 				if (download.error != null) {
@@ -141,9 +141,10 @@ ArrayList diapositivas;
 				} else {
 					string[] retorno = download.text.Split (new char[]{'*'});
 					StructureCount = retorno.Length;
-					infoStructureSlider = new string[3, StructureCount];
+					string [] rowAux = retorno [0].Split (new char[]{ '|' });
+					infoStructureSlider = new string[rowAux.Length, StructureCount];
 					for(int j=0;j<StructureCount;j++){
-						string []row = retorno[j].Split(new char[]{'|'});
+						string [] row = retorno[j].Split(new char[]{'|'});
 						for (int k = 0; k < row.Length; k++) {
 							infoStructureSlider [k, j] = row [k];
 						}
@@ -171,43 +172,40 @@ ArrayList diapositivas;
                 //while (infoStructureSlider.Read())
 				for(int j = 0;j<StructureCount;j++)
                 {
-
                     //la forma en que se maneja la informacion en cada panel de informacion depende de su diseño. en este caso, solo hay uno
 
                     //icoFullName = (string)infoStructureSlider["icon"];
 					//bullets[i].sprite = icoFullName.Split('.')[0].ToString();
 					//fontColor = (string)infoStructureSlider["fontColor"];
-
-					icoFullName = infoStructureSlider[1,i];
+					icoFullName = infoStructureSlider[1,j].ToString();
 					bullets[j].sprite = icoFullName.Split('.')[0];
-					fontColor = infoStructureSlider[2,i];
-                    
-                    switch (fontColor.Trim())
-                    {
+					fontColor = infoStructureSlider [2, j];
 
-                        case "White":
-                            hexaColor = "ffffff";
-                            break;
-                        case "Black":
-                            hexaColor = "000000";
-                            break;
-                        case "Green":
-                            hexaColor = "00ff00";
-                            break;
-                        case "Red":
-                            hexaColor = "ff0000";
-                            break;
-                        case "Blue":
-                            hexaColor = "0000ff";
-                            break;
-                        case "Yellow":
-                            hexaColor = "ffff00";
-                            break;
-                        default:
-                            hexaColor = "000000";
-                            break;
+					switch (fontColor.Trim ()) {
 
-                    }
+					case "White":
+						hexaColor = "ffffff";
+						break;
+					case "Black":
+						hexaColor = "000000";
+						break;
+					case "Green":
+						hexaColor = "00ff00";
+						break;
+					case "Red":
+						hexaColor = "ff0000";
+						break;
+					case "Blue":
+						hexaColor = "0000ff";
+						break;
+					case "Yellow":
+						hexaColor = "ffff00";
+						break;
+					default:
+						hexaColor = "000000";
+						break;
+					}
+						
 
                     /*bullets[i].texto = "["+hexaColor+"]"+(string)infoStructureSlider["text"]+"[-]";
                     if (bullets[i].texto.Length < 32)
@@ -223,7 +221,7 @@ ArrayList diapositivas;
 
                     }*/
 
-					bullets[j].texto = "["+hexaColor+"]"+infoStructureSlider[3,i]+"[-]";
+					bullets[j].texto = "["+hexaColor+"]"+infoStructureSlider[3,j]+"[-]";
 					if (bullets[j].texto.Length < 32)
 					{
 						bullets[j].texto = "\n" + bullets[j].texto+"\n";
@@ -314,7 +312,6 @@ ArrayList diapositivas;
 				}
 			}
 		}
-
 		StartCoroutine (traerInformacion ());
 	}
 }

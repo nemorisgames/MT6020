@@ -49,7 +49,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
 			string retorno = download.text;
 			string[] retArr = retorno.Split (new char[]{ '|' });
 			titulo.text = retArr [0];
-			idTipoModule = int.Parse(retArr [1]);
+			idTipoModule = int.Parse(retArr [1].ToString().Trim());
 		}
 			
         /*module = db.Consultar("SELECT * FROM Module WHERE id = " + idModule);
@@ -110,7 +110,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
         {
             //preguntaID = int.Parse(question["id"].ToString());
             //preguntaText = (string)question["question"];
-			preguntaID = int.Parse(question[0,i]);
+			preguntaID = int.Parse(question[0,i].ToString().Trim());
 			preguntaText = question [1, i];
 
             //db = new DataBase();
@@ -130,7 +130,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
 				for (int j = 0; j < resultado.Length; j++) {
 					string[] row = resultado [j].Split (new char[]{ '|' });
 					for (int k = 0; k < row.Length; k++) {
-						answerIncorrect [k, k] = row [k];
+						answerIncorrect [k, j] = row [k];
 					}
 				}
 			}
@@ -153,6 +153,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
 			}
 
 
+
             int[] respuestasID = new int[4];
             string[] respuestas = new string[4];
 
@@ -161,7 +162,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
             //{
                 //respuestasID[randomCorrecta] = int.Parse(answerCorrect["id"].ToString());
                 //respuestas[randomCorrecta] = answerCorrect["text"].ToString();
-				respuestasID[randomCorrecta] = int.Parse(answerCorrect[0]);
+				respuestasID[randomCorrecta] = int.Parse(answerCorrect[0].ToString().Trim());
 				respuestas[randomCorrecta] = answerCorrect[1];
             //}
 
@@ -176,7 +177,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
                 //respuestaIncorrectaID[resp] = int.Parse(answerIncorrect["id"].ToString());
                 //respuestaIncorrecta[resp] = answerIncorrect["text"].ToString();
 
-				respuestaIncorrectaID[resp] = int.Parse(answerIncorrect[0,j]);
+				respuestaIncorrectaID[resp] = int.Parse(answerIncorrect[0,j].ToString().Trim());
 				respuestaIncorrecta[resp] = answerIncorrect[1,j];
                 resp++;
             }
@@ -193,8 +194,6 @@ public class DiapositivaPreguntas : MonoBehaviour {
             }
 
             //int preguntaID, string pregunta, int[] respuestaID, string[] respuesta, int respuestaCorrecta
-
-
 
             
             GameObject g = NGUITools.AddChild(transform.FindChild("PanelCentral").gameObject, preguntaPrefab);
@@ -231,7 +230,11 @@ public class DiapositivaPreguntas : MonoBehaviour {
         }
     }
 
-	public IEnumerator entregarEvaluacion()
+	public void entregarEvaluacion(){
+		StartCoroutine (evaluacion ());
+	}
+
+	public IEnumerator evaluacion()
     {
         int correcta = 0;
         
