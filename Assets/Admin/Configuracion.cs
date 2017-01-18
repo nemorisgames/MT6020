@@ -635,7 +635,7 @@ public class Configuracion : MonoBehaviour {
 		}
 		else{
             //string retorno = download.text;
-            print(download.text);
+            //print(download.text);
 
 		}
 

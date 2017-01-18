@@ -259,6 +259,12 @@ ArrayList diapositivas;
         {
             ((GameObject)diapositivas[i]).SetActive(i == diapositivaActual);
         }
+            
+        if (diapositivaActual == diapositivas.Count-1)
+        {
+            print("ultima diapo");
+            diapositivaPreguntas.IniciarContador();
+        }
     }
 
 	

@@ -36,6 +36,10 @@ public class DiapositivaPreguntas : MonoBehaviour {
 
     private Configuracion conf;
 
+    public int tiempoInicial = -1;
+    public int tiempoFinal = -1;
+    public int tiempoGet = -1;
+
     // Use this for initialization
     void Start () {
 		StartCoroutine(inicializar());
@@ -239,6 +243,15 @@ public class DiapositivaPreguntas : MonoBehaviour {
 
 	public void entregarEvaluacion(){
 		StartCoroutine (evaluacion ());
+        /*
+        if (tiempoFinal < 0)
+        {
+            tiempoFinal = Mathf.RoundToInt(Time.time);
+            tiempoGet = tiempoFinal - tiempoInicial;
+
+            print("tiempo: " + tiempoGet);
+        }
+        */
     }
 
 	public IEnumerator evaluacion()
@@ -272,13 +285,9 @@ public class DiapositivaPreguntas : MonoBehaviour {
 
             Debug.Log("CORRECTA!" + correcta.ToString());
         }
-        print("total: " + correcta);
-        print("preguntas: " + preguntas.Count);
         int j = preguntas.Count;
         int k = correcta;
         percentageGet = (k * 100) / j;
-        print("porcentaje obtenido: " + percentageGet.ToString());
-        print(k);
 
         if (GameObject.Find("Configuracion") != null)
         {
@@ -286,7 +295,13 @@ public class DiapositivaPreguntas : MonoBehaviour {
             conf = GameObject.Find("Configuracion").GetComponent<Configuracion>();
         }
         conf.ResultadoPreguntas = Mathf.RoundToInt(percentageGet);
-        print(conf.ResultadoPreguntas);
+        if (tiempoFinal < 0)
+        {
+            tiempoFinal = Mathf.RoundToInt(Time.time);
+            conf.ResultadoTiempo = tiempoFinal - tiempoInicial;
+        }
+        //conf.ResultadoTiempo = tiempoGet;
+        //print(conf.ResultadoPreguntas);
         conf.guardarHistorial();
         StartCoroutine(verificarResultados());
     }
@@ -305,16 +320,23 @@ public class DiapositivaPreguntas : MonoBehaviour {
         }
         else
         {
-            print("holssdaa");
+            //print("holssdaa");
             string retorno = download.text;
-            print("retorno: " + retorno);
+            //print("retorno: " + retorno);
             string[] ret = retorno.Split(new char[] { '|' });
             percentageAproval = System.Convert.ToInt32(ret[1]);
-            print("return " + ret[0]);
-            print("return2 " + ret[1]);
+            //print("return " + ret[0]);
+            //print("return2 " + ret[1]);
         }
     }
 	
+    public void IniciarContador()
+    {
+        if (tiempoInicial < 0)
+            tiempoInicial = Mathf.RoundToInt(Time.time);
+        print(tiempoInicial);
+    }
+
 	// Update is called once per frame
 	void Update () {
 	
