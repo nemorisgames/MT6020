@@ -79,6 +79,7 @@ ArrayList diapositivas;
             {
 			case Diapositiva.TipoDispositiva.TextoDerecha:
 				GameObject g = NGUITools.AddChild (gameObject, (GameObject)Resources.Load ("Diapositiva_Tipo1"));
+				g.SetActive(false);
 				Diapositiva d = g.GetComponent<Diapositiva> ();
 				d.panelDiapositivas = this;
 
@@ -151,6 +152,7 @@ ArrayList diapositivas;
 					}
 				}
 					
+					
                 //StructureCount = 0;
 
                 /*while (infoStructureSlider.Read())
@@ -179,7 +181,7 @@ ArrayList diapositivas;
 					//fontColor = (string)infoStructureSlider["fontColor"];
 					icoFullName = infoStructureSlider[1,j].ToString();
 					bullets[j].sprite = icoFullName.Split('.')[0];
-					fontColor = infoStructureSlider [2, j];
+					fontColor = infoStructureSlider [2, j].ToString();
 
 					switch (fontColor.Trim ()) {
 
@@ -220,7 +222,6 @@ ArrayList diapositivas;
                         }
 
                     }*/
-
 					bullets[j].texto = "["+hexaColor+"]"+infoStructureSlider[3,j]+"[-]";
 					if (bullets[j].texto.Length < 32)
 					{
@@ -237,10 +238,9 @@ ArrayList diapositivas;
                     //i++;
                 }
 
-                //d.panelInformacionBullets[0].inicializar((string)sliders["Title"], bullets);
+                d.panelInformacionBullets[0].inicializar((string)sliders[1,i], bullets);
                 //FIN SEGMENTO
 
-                g.SetActive(false);
                 diapositivas.Add(g);
 
                 break;
