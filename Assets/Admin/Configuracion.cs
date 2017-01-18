@@ -638,9 +638,12 @@ public class Configuracion : MonoBehaviour {
             print(download.text);
 
 		}
+
+
         vuelta.RemoveRange(0, vuelta.Count);
         cicloCarguio.RemoveRange(0, cicloCarguio.Count);
     }
+
 
 	public static string calcularReloj(float tiempo){
 		int minutos = (int)tiempo / 60;

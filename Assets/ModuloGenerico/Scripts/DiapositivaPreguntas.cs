@@ -29,6 +29,13 @@ public class DiapositivaPreguntas : MonoBehaviour {
 
     public string[] respuestas = new string[4];
 
+    public string idModulo;
+    public string alumno;
+    public int percentageAproval;
+    public float percentageGet;
+
+    private Configuracion conf;
+
     // Use this for initialization
     void Start () {
 		StartCoroutine(inicializar());
@@ -232,7 +239,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
 
 	public void entregarEvaluacion(){
 		StartCoroutine (evaluacion ());
-	}
+    }
 
 	public IEnumerator evaluacion()
     {
@@ -259,12 +266,53 @@ public class DiapositivaPreguntas : MonoBehaviour {
 
 			if (p.respuestaToggle[p.respuestaCorrectaID].isChecked == true)
             {
+                //print("Pregunta: " + correcta + " es correcta");
                 correcta++;
             }
 
-            Debug.Log(correcta.ToString());
+            Debug.Log("CORRECTA!" + correcta.ToString());
         }
-       
+        print("total: " + correcta);
+        print("preguntas: " + preguntas.Count);
+        int j = preguntas.Count;
+        int k = correcta;
+        percentageGet = (k * 100) / j;
+        print("porcentaje obtenido: " + percentageGet.ToString());
+        print(k);
+
+        if (GameObject.Find("Configuracion") != null)
+        {
+            print("Configuracion Existe");
+            conf = GameObject.Find("Configuracion").GetComponent<Configuracion>();
+        }
+        conf.ResultadoPreguntas = Mathf.RoundToInt(percentageGet);
+        print(conf.ResultadoPreguntas);
+        conf.guardarHistorial();
+        StartCoroutine(verificarResultados());
+    }
+
+    IEnumerator verificarResultados()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("idModulo", idModulo);
+        WWW download = new WWW(VariablesGlobales.direccion + "SimuladorMT6020/infoModule.php", form);
+        yield return download;
+
+        if (download.error != null)
+        {
+            print("Error downloading: " + download.error);
+            yield break;
+        }
+        else
+        {
+            print("holssdaa");
+            string retorno = download.text;
+            print("retorno: " + retorno);
+            string[] ret = retorno.Split(new char[] { '|' });
+            percentageAproval = System.Convert.ToInt32(ret[1]);
+            print("return " + ret[0]);
+            print("return2 " + ret[1]);
+        }
     }
 	
 	// Update is called once per frame
