@@ -237,12 +237,12 @@ public class InGame : MonoBehaviour {
     {
         yield return new WaitForSeconds(2f);
         //if (maquina != null) maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(false);
-        //controlMouseOperador.enabled = true;
+        //controlMouseOperador.enabled = true
         diapositivaFinalResumen.SetActive(true);
+		if(preguntasGUI != null) preguntasGUI.SetActive (false);
         diapositivaFinalResumen.transform.FindChild("NombreOperario").gameObject.GetComponent<UILabel>().text = configuracion.alumno;
         diapositivaFinalResumen.transform.FindChild("TiempoPractica").gameObject.GetComponent<UILabel>().text = calcularReloj(tiempoUtilizado);
         diapositivaFinalResumen.transform.FindChild("Repeticiones").gameObject.GetComponent<UILabel>().text = "" + repeticiones;
-
         //SceneManager.LoadScene ("Login");
     }
 
@@ -271,12 +271,23 @@ public class InGame : MonoBehaviour {
         Time.timeScale = 1f;
     }
 
+	public void moduloResumen(){
+		StartCoroutine(delayPanelFinal());
+	}
+
     public void moduloFinalizar()
     {
         //if ((controlChecklistFinal == null || controlChecklistFinal.activa) || (!controlChecklistFinal.activa && controlChecklistFinal.controlUsuarioChecklist.realizarChecklist))
         //{
-            print("finalizar modulo");
+            
+		if(preguntasGUI == null){
+			print("finalizar modulo");
             StartCoroutine(delayPanelFinal());
+		}
+		else{
+			//StartCoroutine (preguntasGUI.GetComponent<DiapositivaPreguntas> ().inicializar ());
+			preguntasGUI.SetActive (true);
+		}
         /*}
         else
         {
