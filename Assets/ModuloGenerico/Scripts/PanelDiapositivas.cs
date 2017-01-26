@@ -24,7 +24,7 @@ ArrayList diapositivas;
     int SliderCount = 0;
     int i = 0;
     //int idModule = PlayerPrefs.GetInt("idModule");
-    int idModule = 10;
+    public int idModule = 10;
     int idTipoModule;
     int StructureCount = 0;
 

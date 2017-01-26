@@ -22,7 +22,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
 
     MySqlDataReader module;
     MySqlDataReader moduleType;
-    int idModule = 10;
+    public int idModule = 10;
     int idTipoModule;
 
     int questions = 0;
