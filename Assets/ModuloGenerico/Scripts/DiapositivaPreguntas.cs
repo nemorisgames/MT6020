@@ -314,23 +314,17 @@ public class DiapositivaPreguntas : MonoBehaviour {
     {
         WWWForm form = new WWWForm();
         form.AddField("idModule", idModule);
-        WWW download = new WWW(VariablesGlobales.direccion + "SimuladorMT6020/infoModule.php", form);
+		WWW download = new WWW(VariablesGlobales.direccion+"/SimuladorMT6020/infoModule.php", form);
         yield return download;
-
         if (download.error != null)
         {
             print("Error downloading: " + download.error);
-            yield break;
+			return false;
         }
         else
         {
-            //print("holssdaa");
-            string retorno = download.text;
-            //print("retorno: " + retorno);
-            string[] ret = retorno.Split(new char[] { '|' });
-            percentageAproval = System.Convert.ToInt32(ret[1]);
-            //print("return " + ret[0]);
-            //print("return2 " + ret[1]);
+			string retorno = download.text.ToString().Trim();
+			percentageAproval = int.Parse(retorno);
         }
     }
 	
