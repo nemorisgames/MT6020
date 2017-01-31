@@ -22,14 +22,14 @@ public class DiapositivaPreguntas : MonoBehaviour {
 
     MySqlDataReader module;
     MySqlDataReader moduleType;
-    int idModule = 10;
+    public int idModule = 10;
     int idTipoModule;
 
     int questions = 0;
 
     public string[] respuestas = new string[4];
 
-    public string idModulo;
+    public int idModulo;
     public string alumno;
     public int percentageAproval;
     public float percentageGet;
@@ -265,6 +265,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
             */
 
 			WWWForm form = new WWWForm ();
+            form.AddField("idModulo", idModulo);
 			form.AddField ("preguntaID",preguntaID);
 			form.AddField ("respuestaUsuarioID",p.respuestaUsuarioID);
 			WWW download = new WWW (db.direccion+"crearInfoModuleDetail.php",form);
@@ -295,10 +296,13 @@ public class DiapositivaPreguntas : MonoBehaviour {
             conf = GameObject.Find("Configuracion").GetComponent<Configuracion>();
         }
         conf.ResultadoPreguntas = Mathf.RoundToInt(percentageGet);
-        if (tiempoFinal < 0)
+        if (idModulo == 1)
         {
-            tiempoFinal = Mathf.RoundToInt(Time.time);
-            conf.ResultadoTiempo = tiempoFinal - tiempoInicial;
+            if (tiempoFinal < 0)
+            {
+                tiempoFinal = Mathf.RoundToInt(Time.time);
+                conf.ResultadoTiempo = tiempoFinal - tiempoInicial;
+            }
         }
         //conf.ResultadoTiempo = tiempoGet;
         //print(conf.ResultadoPreguntas);
@@ -309,24 +313,18 @@ public class DiapositivaPreguntas : MonoBehaviour {
     IEnumerator verificarResultados()
     {
         WWWForm form = new WWWForm();
-        form.AddField("idModulo", idModulo);
-        WWW download = new WWW(VariablesGlobales.direccion + "SimuladorMT6020/infoModule.php", form);
+        form.AddField("idModule", idModule);
+		WWW download = new WWW(VariablesGlobales.direccion+"/SimuladorMT6020/infoModule.php", form);
         yield return download;
-
         if (download.error != null)
         {
             print("Error downloading: " + download.error);
-            yield break;
+			return false;
         }
         else
         {
-            //print("holssdaa");
-            string retorno = download.text;
-            //print("retorno: " + retorno);
-            string[] ret = retorno.Split(new char[] { '|' });
-            percentageAproval = System.Convert.ToInt32(ret[1]);
-            //print("return " + ret[0]);
-            //print("return2 " + ret[1]);
+			string retorno = download.text.ToString().Trim();
+			percentageAproval = int.Parse(retorno);
         }
     }
 	

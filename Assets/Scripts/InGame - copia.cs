@@ -65,6 +65,8 @@ public class InGame : MonoBehaviour {
 
     public bool pausado = false;
     public GameObject panelAyuda;
+
+	bool tiempoTerminado = false;
     //AVProMovieCaptureFromCamera avpro;
     //int secuenciaGrabacion = 0;
 
@@ -237,7 +239,12 @@ public class InGame : MonoBehaviour {
     {
         yield return new WaitForSeconds(2f);
         //if (maquina != null) maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(false);
+<<<<<<< HEAD
+		//controlMouseOperador.enabled = true;
+		diapositivaFinal.SetActive(false);
+=======
         //controlMouseOperador.enabled = true
+>>>>>>> eb972a390579432d33a2dc7f21c7de0d5d5ca81b
         diapositivaFinalResumen.SetActive(true);
 		if(preguntasGUI != null) preguntasGUI.SetActive (false);
         diapositivaFinalResumen.transform.FindChild("NombreOperario").gameObject.GetComponent<UILabel>().text = configuracion.alumno;
@@ -317,59 +324,56 @@ public class InGame : MonoBehaviour {
 
     public void salirSimulacion()
     {
-        if (estado != EstadoSimulacion.EncendidoExterior && estado != EstadoSimulacion.PanelInicial)
-        {
-            ControlCamion controlExcavadora = maquina.gameObject.GetComponent<ControlCamion>();
-            //configuracion.ResultadoOrdenEjecucion = (controlExcavadora.ordenEjecucionCorrecta ? "Si" : "No");
-            //configuracion.ResultadoOrdenEjecTiempo = Mathf.RoundToInt(controlExcavadora.tiempoOrdenEjecucion);
-            //if (avanceEnBalde && controlCheckpoints != null)
-            //    configuracion.ResultadoBaldePunta = (controlCheckpoints.indiceActual >= 1 || controlCheckpoints.nVueltas > 0) ? "Si" : "No";
-            //if (!avanceEnBalde && controlCheckpoints != null)
-            //    configuracion.ResultadoMotorPunta = (controlCheckpoints.indiceActual >= 1 || controlCheckpoints.nVueltas > 0) ? "Si" : "No";
-            //se almacena en segundos
-            if (tiempoUtilizado <= 0) tiempoUtilizado = Time.time - tiempoFaenaActual;
-            configuracion.ResultadoTiempo = Mathf.RoundToInt(tiempoUtilizado);
+		if (estado != EstadoSimulacion.EncendidoExterior && estado != EstadoSimulacion.PanelInicial) {
+			ControlCamion controlExcavadora = maquina.gameObject.GetComponent<ControlCamion> ();
+			//configuracion.ResultadoOrdenEjecucion = (controlExcavadora.ordenEjecucionCorrecta ? "Si" : "No");
+			//configuracion.ResultadoOrdenEjecTiempo = Mathf.RoundToInt(controlExcavadora.tiempoOrdenEjecucion);
+			//if (avanceEnBalde && controlCheckpoints != null)
+			//    configuracion.ResultadoBaldePunta = (controlCheckpoints.indiceActual >= 1 || controlCheckpoints.nVueltas > 0) ? "Si" : "No";
+			//if (!avanceEnBalde && controlCheckpoints != null)
+			//    configuracion.ResultadoMotorPunta = (controlCheckpoints.indiceActual >= 1 || controlCheckpoints.nVueltas > 0) ? "Si" : "No";
+			//se almacena en segundos
+			if (tiempoUtilizado <= 0)
+				tiempoUtilizado = Time.time - tiempoFaenaActual;
+			configuracion.ResultadoTiempo = Mathf.RoundToInt (tiempoUtilizado);
 
-            if (controlCheckpoints != null)
-            {
-                configuracion.ResultadoVueltasRealizadas = controlCheckpoints.nVueltas;
-                configuracion.vuelta = new ArrayList();
-                configuracion.vuelta = controlCheckpoints.tiempos;
-            }
-            if (controlCheckpoints != null && pesoEnInicio != null && pesoEnFinal != null)
-            {
-                float pesoCaido = 0;
-                foreach (CapturaPeso c in pesoIntermedio)
-                    pesoCaido += (c.enCarga);
-                configuracion.ResultadoTonelajeTotal = Mathf.RoundToInt(pesoEnFinal.acumulado + pesoCaido);//Mathf.RoundToInt (pesoEnFinal.enCarga + (pesoEnEscena - (pesoEnFinal.enCarga + pesoEnInicio.enCarga)));
-				configuracion.ResultadoPorcentajeCaidaMat = Mathf.RoundToInt((100f * pesoCaido) / (1f * configuracion.ResultadoTonelajeTotal)); //%
+			if (controlCheckpoints != null) {
+				configuracion.ResultadoVueltasRealizadas = controlCheckpoints.nVueltas;
+				configuracion.vuelta = new ArrayList ();
+				configuracion.vuelta = controlCheckpoints.tiempos;
+			}
+			if (controlCheckpoints != null && pesoEnInicio != null && pesoEnFinal != null) {
+				float pesoCaido = 0;
+				foreach (CapturaPeso c in pesoIntermedio)
+					pesoCaido += (c.enCarga);
+				configuracion.ResultadoTonelajeTotal = Mathf.RoundToInt (pesoEnFinal.acumulado + pesoCaido);//Mathf.RoundToInt (pesoEnFinal.enCarga + (pesoEnEscena - (pesoEnFinal.enCarga + pesoEnInicio.enCarga)));
+				configuracion.ResultadoPorcentajeCaidaMat = Mathf.RoundToInt ((100f * pesoCaido) / (1f * configuracion.ResultadoTonelajeTotal)); //%
 
-                //configuracion.ResultadoCantidadCamion = Mathf.RoundToInt(cantidadChoquesCamion / 2);
-            }
-            if (controlCheckpoints != null && pesoEnInicio != null && pesoEnFinal != null)
-                configuracion.ResultadoCorrectoCargio = Mathf.RoundToInt(100f * pesoEnFinal.acumulado / configuracion.ResultadoTonelajeTotal);
+				//configuracion.ResultadoCantidadCamion = Mathf.RoundToInt(cantidadChoquesCamion / 2);
+			}
+			if (controlCheckpoints != null && pesoEnInicio != null && pesoEnFinal != null)
+				configuracion.ResultadoCorrectoCargio = Mathf.RoundToInt (100f * pesoEnFinal.acumulado / configuracion.ResultadoTonelajeTotal);
 
-            configuracion.ResultadoIntFrontal = Mathf.RoundToInt(controlExcavadora.integridadFrontal);
-            configuracion.ResultadoIntMotorDer = Mathf.RoundToInt(controlExcavadora.integridadMotorDer);
-            configuracion.ResultadoIntMotorIzq = Mathf.RoundToInt(controlExcavadora.integridadMotorIzq);
-            configuracion.ResultadoIntTolvaDer = Mathf.RoundToInt(controlExcavadora.integridadTolvaDer);
-            configuracion.ResultadoIntTolvaIzq = Mathf.RoundToInt(controlExcavadora.integridadTolvaIzq);
-            //configuracion.ResultadoIntPostIzq = Mathf.RoundToInt(controlExcavadora.integridadPosteriorIzquierdo);
-            configuracion.ResultadoIntMaquina = Mathf.RoundToInt((configuracion.ResultadoIntFrontal + configuracion.ResultadoIntMotorDer + configuracion.ResultadoIntMotorIzq + configuracion.ResultadoIntTolvaDer + configuracion.ResultadoIntTolvaIzq) / 5f);
-            configuracion.ResultadoIntTunel = Mathf.RoundToInt(integridadTunel);
-            //configuracion.ResultadoCantidadTunel = Mathf.RoundToInt(cantidadChoquesTunel / 2);
-            //configuracion.ResultadoZipper = Mathf.RoundToInt(cantidadChoquesZipper / 2);
-            //print("porcentaje zipper " + Mathf.Clamp(Mathf.RoundToInt((100f * (cantidadChoquesZipper / 200f))), 0, 100));
-            //configuracion.ResultadoCantidadZipper = Mathf.Clamp(Mathf.RoundToInt((100f * (cantidadChoquesZipper / 200f))), 0, 100);
-            configuracion.CantidadPreguntas = 4;
+			configuracion.ResultadoIntFrontal = Mathf.RoundToInt (controlExcavadora.integridadFrontal);
+			configuracion.ResultadoIntMotorDer = Mathf.RoundToInt (controlExcavadora.integridadMotorDer);
+			configuracion.ResultadoIntMotorIzq = Mathf.RoundToInt (controlExcavadora.integridadMotorIzq);
+			configuracion.ResultadoIntTolvaDer = Mathf.RoundToInt (controlExcavadora.integridadTolvaDer);
+			configuracion.ResultadoIntTolvaIzq = Mathf.RoundToInt (controlExcavadora.integridadTolvaIzq);
+			//configuracion.ResultadoIntPostIzq = Mathf.RoundToInt(controlExcavadora.integridadPosteriorIzquierdo);
+			configuracion.ResultadoIntMaquina = Mathf.RoundToInt ((configuracion.ResultadoIntFrontal + configuracion.ResultadoIntMotorDer + configuracion.ResultadoIntMotorIzq + configuracion.ResultadoIntTolvaDer + configuracion.ResultadoIntTolvaIzq) / 5f);
+			configuracion.ResultadoIntTunel = Mathf.RoundToInt (integridadTunel);
+			//configuracion.ResultadoCantidadTunel = Mathf.RoundToInt(cantidadChoquesTunel / 2);
+			//configuracion.ResultadoZipper = Mathf.RoundToInt(cantidadChoquesZipper / 2);
+			//print("porcentaje zipper " + Mathf.Clamp(Mathf.RoundToInt((100f * (cantidadChoquesZipper / 200f))), 0, 100));
+			//configuracion.ResultadoCantidadZipper = Mathf.Clamp(Mathf.RoundToInt((100f * (cantidadChoquesZipper / 200f))), 0, 100);
+			configuracion.CantidadPreguntas = 4;
 
-            GameObject gcap = GameObject.Find("CapturadorCarguio");
-            if (gcap != null)
-            {
-                //configuracion.cicloCarguio = gcap.GetComponent<CapturadorCarguio>().ciclosCarguio;
-            }
+			GameObject gcap = GameObject.Find ("CapturadorCarguio");
+			if (gcap != null) {
+				//configuracion.cicloCarguio = gcap.GetComponent<CapturadorCarguio>().ciclosCarguio;
+			}
 
-            /*if (controlChecklistInicial != null)
+			/*if (controlChecklistInicial != null)
             {
                 configuracion.ResultadoCheck1 = (int)controlChecklistInicial.resultadoTotal;
                 configuracion.ResultadoRevFunc1 = (int)controlChecklistInicial.resultadoSeccion1;
@@ -525,10 +529,11 @@ public class InGame : MonoBehaviour {
                 print("integridad " + integridadCamion + " " + configuracion.ResultadoIntCamion);
             }
             */
-            configuracion.guardarHistorial();
-        }
-		else
-			SceneManager.LoadScene("Login");
+			configuracion.guardarHistorial ();
+		} else {
+			print ("Goto login");
+			SceneManager.LoadScene ("Login");
+		}
         //gameObject.SendMessage ("apagarLeds");
     }
 
@@ -631,12 +636,14 @@ public class InGame : MonoBehaviour {
                 originRotation.w + Random.Range(-shake_intensity, shake_intensity) * .1f);
             shake_intensity -= shake_decay;
         }*/
-        if (estado == EstadoSimulacion.EncendidoExterior || estado == EstadoSimulacion.Conduciendo || tiempoFaenaActual >= 0f)
+		if (estado == EstadoSimulacion.EncendidoExterior || estado == EstadoSimulacion.Conduciendo || (tiempoFaenaActual >= 0f && !tiempoTerminado))
         {
-            tiempoFaenaLabel.text = "" + calcularReloj(tiempoFaena * 1f - Time.time + tiempoFaenaActual);
-            if (tiempoFaena * 1f - Time.time + tiempoFaenaActual <= 0f)
+			tiempoFaenaLabel.text = "" + calcularReloj(Mathf.Clamp(tiempoFaena * 1f - Time.time + tiempoFaenaActual, 0f, 1000000f));
+			if (!tiempoTerminado && tiempoFaena * 1f - Time.time + tiempoFaenaActual <= 0f)
             {
-                condicionesTerminoListas();
+				tiempoTerminado = true;
+				mostrarPanelFinal ();
+				//condicionesTerminoListas();
             }
         }
         
@@ -649,6 +656,7 @@ public class InGame : MonoBehaviour {
 
     public void condicionesTerminoListas()
     {
+		print ("condiciones termino listas");
         //if (diapositivaFalla == null || diapositivaFalla.activeSelf || estado == EstadoSimulacion.Finalizando || estado == EstadoSimulacion.ApagadoExterior)
         //    return;
         if (estado != EstadoSimulacion.EncendidoExterior && estado != EstadoSimulacion.PanelInicial)
