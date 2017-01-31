@@ -995,7 +995,8 @@ public class ControlCamion : MonoBehaviour {
 			return;
 		//print ("arranque" + activar);
 		estado = activar?EstadoMaquina.encendida:EstadoMaquina.apagada;
-		ingame.estado = activar?InGame.EstadoSimulacion.Conduciendo:ingame.estado;
+		if(ingame.estado != InGame.EstadoSimulacion.ApagadoExterior && ingame.estado != InGame.EstadoSimulacion.Finalizando)
+			ingame.estado = activar?InGame.EstadoSimulacion.Conduciendo:ingame.estado;
         controlCamionMotor.encender(activar);
         //enciende leds iniciales
         /*controlPantallaTactil.motorEncendido (activar);

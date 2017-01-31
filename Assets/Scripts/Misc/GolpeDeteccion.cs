@@ -14,6 +14,7 @@ public class GolpeDeteccion : MonoBehaviour {
 		print ("detectado " + collision.gameObject.tag + ", " + collision.contacts[0].thisCollider.tag);
 		ControlCamion.LugarMaquina l = ControlCamion.LugarMaquina.Frontal;
 		switch (collision.contacts [0].thisCollider.tag) {
+		case "CamionFrente": l = ControlCamion.LugarMaquina.Frontal; break;
 		case "CamionMotorDer": l = ControlCamion.LugarMaquina.MotorDer; break;
 		case "CamionMotorIzq": l = ControlCamion.LugarMaquina.MotorIzq; break;
 		case "CamionTolvaDer": l = ControlCamion.LugarMaquina.TolvaDer; break;
