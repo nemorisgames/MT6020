@@ -4,9 +4,16 @@ using System.Collections;
 public class ActivadorRocas : MonoBehaviour {
     bool enProceso = false;
     public Animator dispensadorRocas;
+
 	// Use this for initialization
 	void Start () {
-	
+
+	}
+
+	void Update(){
+		if (Input.GetKeyDown (KeyCode.P)) {
+			dispensadorRocas.SetTrigger("Activar");
+		}
 	}
 	
     void OnTriggerEnter(Collider c)
@@ -22,8 +29,4 @@ public class ActivadorRocas : MonoBehaviour {
     {
         enProceso = false;
     }
-
-	// Update is called once per frame
-	void Update () {
-	}
 }
