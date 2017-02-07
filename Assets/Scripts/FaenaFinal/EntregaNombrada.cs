@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EntregaNombrada : MonoBehaviour {
 	[HideInInspector]
-	public NavMeshAgent navmesh;
+	public UnityEngine.AI.NavMeshAgent navmesh;
 	public bool activo = false;
 	public puntosEntrega[] puntos;
 	public int puntoActual = 0;
@@ -17,7 +17,7 @@ public class EntregaNombrada : MonoBehaviour {
 	public TweenRotation[] ruedas;
 	// Use this for initialization
 	void Start () {
-		navmesh = GetComponent<NavMeshAgent> ();
+		navmesh = GetComponent<UnityEngine.AI.NavMeshAgent> ();
 		navmesh.SetDestination (puntos [puntoActual].punto.position);
 		velocidad = navmesh.speed;
 		velocidadObjetivo = velocidad;

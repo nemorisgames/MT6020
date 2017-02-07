@@ -886,7 +886,7 @@ public class InGame : MonoBehaviour {
 		if(download.error != null) {
 			print( "Error downloading: " + download.error );
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} else {
 			string retorno = download.text;
 			print ("repeticiones = " + retorno);

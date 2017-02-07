@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
 
 public class DiapositivaPreguntas : MonoBehaviour {
     ArrayList preguntas; //arreglo de tipo Pregunta
@@ -20,8 +20,8 @@ public class DiapositivaPreguntas : MonoBehaviour {
     public string[] respuestaIncorrecta;
     public string preguntaText;
 
-    MySqlDataReader module;
-    MySqlDataReader moduleType;
+//    MySqlDataReader module;
+//    MySqlDataReader moduleType;
     public int idModule = 10;
     int idTipoModule;
 
@@ -55,7 +55,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
 		if (download.error != null) {
 			print ("Error downloading: " + download.error);
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} else {
 			string retorno = download.text;
 			string[] retArr = retorno.Split (new char[]{ '|' });
@@ -79,7 +79,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
 		if (download.error != null) {
 			print ("Error downloading: " + download.error);
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} else {
 			subTitulo.text = download.text;
 		}
@@ -99,7 +99,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
 		if (download.error != null) {
 			print ("Error downloading: " + download.error);
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} else {
 			string[] resultado = download.text.Split (new char[]{ '*' });
 			question = new string[2, resultado.Length];
@@ -134,7 +134,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
 			if (download.error != null) {
 				print ("Error downloading: " + download.error);
 				//mostrarError("Error de conexion");
-				return false;
+				yield return false;
 			} else {
 				string[] resultado = download.text.Split (new char[]{ '*' });
 				answerIncorrect = new string[2, resultado.Length];
@@ -158,7 +158,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
 			if (download.error != null) {
 				print ("Error downloading: " + download.error);
 				//mostrarError("Error de conexion");
-				return false;
+				yield return false;
 			} else {
 				answerCorrect = download.text.Split (new char[]{ '|' });
 			}
@@ -233,7 +233,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
 			if (download.error != null) {
 				print ("Error downloading: " + download.error);
 				//mostrarError("Error de conexion");
-				return false;
+				yield return false;
 			} else {
 				print (download.text);
 			}
@@ -273,7 +273,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
 			if (download.error != null) {
 				print ("Error downloading: " + download.error);
 				//mostrarError("Error de conexion");
-				return false;
+				yield return false;
 			} else {
 				print (download.text);
 			}
@@ -319,7 +319,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
         if (download.error != null)
         {
             print("Error downloading: " + download.error);
-			return false;
+			yield return false;
         }
         else
         {

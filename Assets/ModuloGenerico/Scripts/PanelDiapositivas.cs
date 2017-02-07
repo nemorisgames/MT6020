@@ -14,8 +14,8 @@ ArrayList diapositivas;
     //MySqlDataReader infoPageDesign;
     //MySqlDataReader infoStructureSlider;
     //MySqlDataReader sliders;
-    MySqlDataReader module;
-    MySqlDataReader moduleType;
+    //MySqlDataReader module;
+    //MySqlDataReader moduleType;
 
 	string[,] sliders;
 	string[,] infoStructureSlider;
@@ -100,7 +100,7 @@ ArrayList diapositivas;
 				if (download.error != null) {
 					print ("Error downloading: " + download.error);
 					//mostrarError("Error de conexion");
-					return false;
+					yield return false;
 				} else {
 					infoPageDesign = download.text.Split (new char[]{ '|' });
 				}
@@ -138,7 +138,7 @@ ArrayList diapositivas;
 				if (download.error != null) {
 					print ("Error downloading: " + download.error);
 					//mostrarError("Error de conexion");
-					return false;
+					yield return false;
 				} else {
 					string[] retorno = download.text.Split (new char[]{'*'});
 					StructureCount = retorno.Length;
@@ -277,7 +277,7 @@ ArrayList diapositivas;
 		if (download.error != null) {
 			print ("Error downloading: " + download.error);
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} else {
 			string retorno = download.text;
 			string[] retArr = retorno.Split (new char[]{ '|' });
@@ -293,7 +293,7 @@ ArrayList diapositivas;
 		if (download.error != null) {
 			print ("Error downloading: " + download.error);
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} else {
 			moduleTypeName = download.text;
 		}
@@ -306,7 +306,7 @@ ArrayList diapositivas;
 		if (download.error != null) {
 			print ("Error downloading: " + download.error);
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} else {
 			string retorno = download.text;
 			string[] retArr = retorno.Split (new char[]{'*'});

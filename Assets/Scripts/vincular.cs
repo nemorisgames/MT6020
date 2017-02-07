@@ -37,7 +37,7 @@ public class vincular : MonoBehaviour {
 		if(download.error != null) {
 			print( "Error downloading: " + download.error );
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} else {
 			popup.GetComponent<UILabel>().text="Módulo Vinculado Exitosamente";
 			popup.transform.FindChild ("Boton").gameObject.SetActive (true);
@@ -59,7 +59,7 @@ public class vincular : MonoBehaviour {
 		if (download.error != null) {
 			print ("Error downloading: " + download.error);
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} else {
 			//print ("hola");
 			string retorno = download.text;

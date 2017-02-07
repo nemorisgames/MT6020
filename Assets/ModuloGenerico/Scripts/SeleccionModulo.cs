@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class SeleccionModulo : MonoBehaviour {
 
     DataBase db = new DataBase();
-    MySqlDataReader datos;
-    MySqlDataReader datos2;
+ //   MySqlDataReader datos;
+   // MySqlDataReader datos2;
     public UIPopupList CBSeleccionTipo;
     string nombre;
 
@@ -32,7 +32,7 @@ public class SeleccionModulo : MonoBehaviour {
 	
 	}
 
-    IEnumerator espera(MySqlDataReader datos)
+    /*IEnumerator espera(MySqlDataReader datos)
     {
 
         for (int i = 0; i < 500; i++)
@@ -56,7 +56,7 @@ public class SeleccionModulo : MonoBehaviour {
             }
         }
         Debug.Log("Información no recibida");
-    }
+    }*/
 
     IEnumerator wait(){
         WWW download = new WWW(db.direccion + "seleccionModulo.php");

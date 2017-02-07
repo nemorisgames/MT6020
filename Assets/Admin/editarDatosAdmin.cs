@@ -276,7 +276,7 @@ public class editarDatosAdmin : MonoBehaviour {
 					if (download.error != null) {
 						print ("Error downloading: " + download.error);
 						//mostrarError("Error de conexion");
-						return false;
+						yield return false;
 					} else {
 						if(download.text!="ya creado"){
 							//string retorno = download.text;

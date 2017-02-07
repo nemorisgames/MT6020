@@ -528,7 +528,7 @@ public class obtenerHistorial : MonoBehaviour {
 			if (download.error != null) {
 				print ("Error downloading: " + download.error);
 				//mostrarError("Error de conexion");
-				return false;
+				yield return false;
 			} else {
 			//	print ("numero niv "+ download.text);
 				numeroNivel=download.text;

@@ -27,7 +27,7 @@ public class detalleHistorial : MonoBehaviour {
 		if(download.error != null) {
 			print( "Error downloading: " + download.error );
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} else {
 			//print ("hola");
 			string retorno = download.text;

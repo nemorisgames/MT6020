@@ -36,7 +36,7 @@ public class OperacionalPreguntas : MonoBehaviour {
             {
                 print("Error downloading: " + download.error);
                 //mostrarError("Error de conexion");
-                return false;
+				yield return false;
             }
             else
             {

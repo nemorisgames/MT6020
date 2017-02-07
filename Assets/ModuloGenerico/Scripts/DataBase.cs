@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
 
 
 /// <summary>
@@ -8,9 +8,9 @@ using MySql.Data.MySqlClient;
 /// </summary>
 public class DataBase
 {
-	public string direccion = "http://localhost/SimuladorMT6020/CreadorModulos/";
+public string direccion = "http://localhost/SimuladorMT6020/CreadorModulos/";
     private string source;
-    private MySqlConnection conexion;
+	/*	private MySqlConnection conexion;
     public bool conectado = false;
    
     public DataBase()
@@ -67,6 +67,6 @@ public class DataBase
         
     }
 
-   
+   */
 }
 

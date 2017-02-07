@@ -680,7 +680,7 @@ public class HistorialOpcionAdmin : MonoBehaviour {
 			//mostrarError("Error de conexion");
 			popup.GetComponent<UILabel>().text="No se puede realizar lo solicitado en este momento.";
 			popup.transform.FindChild ("Boton").gameObject.SetActive (true);
-			return false;
+			yield return false;
 		} else {
 			string retorno= download.text;
 			print (retorno);
@@ -702,7 +702,7 @@ public class HistorialOpcionAdmin : MonoBehaviour {
 		if (download.error != null) {
 			print ("Error downloading: " + download.error);
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} else {
 			//print ("hola");
 			string retorno = download.text;

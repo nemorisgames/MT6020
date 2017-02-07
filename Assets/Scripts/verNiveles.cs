@@ -69,7 +69,7 @@ public class verNiveles : MonoBehaviour {
 		if(download.error != null) {
 			print( "Error downloading: " + download.error );
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} 
 		else {
 			//print ("hola");
@@ -114,7 +114,7 @@ public class verNiveles : MonoBehaviour {
 		if(download.error != null) {
 			print( "Error downloading: " + download.error );
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} 
 		else {
 			//print ("hola");
@@ -147,7 +147,7 @@ public class verNiveles : MonoBehaviour {
 		if(download.error != null) {
 			print( "Error downloading: " + download.error );
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} else {
 			//print ("hola");
 			string retorno = download.text;
@@ -190,7 +190,7 @@ public class verNiveles : MonoBehaviour {
 				if (download.error != null) {
 						print ("Error downloading: " + download.error);
 						//mostrarError("Error de conexion");
-						return false;
+			yield return false;
 				} else {
 						//print ("hola");
 						string retorno = download.text;

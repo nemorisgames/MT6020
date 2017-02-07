@@ -98,7 +98,7 @@ public class login : MonoBehaviour
         {
             print("Error downloading: " + download.error);
             //mostrarError("Error de conexion");
-            return false;
+			yield return false;
         }
         else
         {
@@ -174,7 +174,7 @@ public class login : MonoBehaviour
                 print("Error downloading: " + download.error);
                 if (operador && teclado != null) teclado.SetActive(true);
                 //mostrarError("Error de conexion");
-                return false;
+				yield return false;
             }
             else
             {

@@ -660,7 +660,7 @@ public class crearNivel : MonoBehaviour {
 				popup.SetActive (true);
 				popup.GetComponent<UILabel> ().text = "Debe Seleccionar un Instructor";
 				popup.transform.FindChild ("Boton").gameObject.SetActive (true);
-				return false;
+				yield return false;
 			}
 		}
 		if (nombre.value != "") {
@@ -728,7 +728,7 @@ public class crearNivel : MonoBehaviour {
 						if (download.error != null) {
 								print ("Error downloading: " + download.error);
 								//mostrarError("Error de conexion");
-								return false;
+				yield return false;
 						} else {
 								string retorno = download.text;
 								print (retorno);

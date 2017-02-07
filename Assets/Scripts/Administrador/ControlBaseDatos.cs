@@ -12,7 +12,7 @@ public class ControlBaseDatos : MonoBehaviour {
         //loginSupervisor("Administrador", "admin");
     }
 
-    public void login(string username, string password, bool operador, Action<ArrayList, string[]> callback)
+/*    public void login(string username, string password, bool operador, Action<ArrayList, string[]> callback)
     {
         MySqlDataReader datos;
         if (!operador)
@@ -42,7 +42,7 @@ public class ControlBaseDatos : MonoBehaviour {
     {
         db.EjecutarConsultar("INSERT INTO supervisor_user(fk_supervisor, fk_user) values( " + idUser + ", " + idSupervisor + ")");
         print("INSERT INTO supervisor_user(fk_supervisor, fk_user) values( " + idUser + ", " + idSupervisor + ")");
-    }
+    }*/
 
     /*void procesarLoginAdministrador(ArrayList resultado, string[] nombreCampos)
     {
@@ -52,7 +52,7 @@ public class ControlBaseDatos : MonoBehaviour {
         }
     }*/
 
-    IEnumerator espera(MySqlDataReader datos, string[] campos, Action<ArrayList, string[]> callback)
+ /*   IEnumerator espera(MySqlDataReader datos, string[] campos, Action<ArrayList, string[]> callback)
     {
         ArrayList resultado = new ArrayList();
         for (int i = 0; i < 100; i++)
@@ -82,7 +82,7 @@ public class ControlBaseDatos : MonoBehaviour {
         }
         Debug.Log("Información no recibida " + callback.ToString());
         callback(resultado, campos);
-    }
+    }*/
 
     // Update is called once per frame
     void Update () {

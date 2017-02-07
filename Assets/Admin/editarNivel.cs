@@ -678,7 +678,7 @@ public class editarNivel : MonoBehaviour {
 		if (download.error != null) {
 			print ("Error downloading: " + download.error);
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 	    } else {
 			//print ("hola");
 			string retorno = download.text;
@@ -799,7 +799,7 @@ public class editarNivel : MonoBehaviour {
 		if(download.error != null) {
 			print( "Error downloading: " + download.error );
 			//mostrarError("Error de conexion");
-			return false;
+			yield return false;
 		} else {
 			string retorno = download.text;
             print(retorno);
