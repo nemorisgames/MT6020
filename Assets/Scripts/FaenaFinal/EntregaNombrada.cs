@@ -11,6 +11,7 @@ public class EntregaNombrada : MonoBehaviour {
 	public GameObject callbackFinal;
 	public bool detenido = false;
 	public bool autodestruir = true;
+	public bool carga = true;
 	float velocidad;
 	public float velocidadActual = 0f;
 	float velocidadObjetivo;
@@ -86,13 +87,17 @@ public class EntregaNombrada : MonoBehaviour {
 	IEnumerator cambiarPunto(){
 		enEspera = true;
 //		print ("stop");
-		if (puntos [puntoActual].tiempoEspera > 0f) 
+		if (puntos [puntoActual].tiempoEspera > 0f) { 
 			detenerse ();
+		}
 		yield return new WaitForSeconds (puntos [puntoActual].tiempoEspera);
 		puntoActual++;
 		if (puntoActual >= puntos.Length) {
 			if (callbackFinal != null) 
 				callbackFinal.SendMessage ("entregaTerminada");
+			if (carga) {
+				AnimacionCarga ();
+			}
 			if(autodestruir) 
 				destruir();
 			activar(false);
@@ -106,6 +111,10 @@ public class EntregaNombrada : MonoBehaviour {
 
 	public void destruir(){
 		Destroy (gameObject);
+	}
+
+	public void AnimacionCarga(){
+		GetComponent<Animator> ().SetTrigger ("Brazo");
 	}
 
 }
