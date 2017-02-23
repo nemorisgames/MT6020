@@ -609,7 +609,7 @@ public class Configuracion : MonoBehaviour {
     form.AddField("CheckArtCen2", CheckArtCen2);
     form.AddField("ResultadoCheckArtCen2", ResultadoCheckArtCen2);
     }*/
-    //}
+	}
     if(vuelta != null)
         for (int i = 0; i < vuelta.Count; i++){
             form.AddField("ResultadoVuelta" + (i + 1), vuelta[i].ToString());
@@ -656,7 +656,7 @@ public class Configuracion : MonoBehaviour {
 
         vuelta.RemoveRange(0, vuelta.Count);
         cicloCarguio.RemoveRange(0, cicloCarguio.Count);
-    }
+	}
 
 
 	public static string calcularReloj(float tiempo){
