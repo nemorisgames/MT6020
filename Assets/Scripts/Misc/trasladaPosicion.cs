@@ -9,17 +9,22 @@ public class trasladaPosicion : MonoBehaviour {
 	bool detectado = false;
 	bool enBalde = false;
     Vector3 escalaOriginal;
+	public GameObject posicionDinamica;
 	// Use this for initialization
 	void Start () {
-		posicionInicial = transform.position;
+		posicionInicial = transform.parent.position;
         escalaOriginal = transform.localScale;
     }
 
 	public void respawn()
     {
-        transform.parent = null;
-        transform.position = posicionInicial;
-        transform.localScale = escalaOriginal;
+        //transform.parent = null;
+		if (posicionDinamica != null) {
+			transform.position = posicionDinamica.transform.position;
+		} else {
+			transform.position = transform.parent.position;
+		}
+		transform.localScale = escalaOriginal;
     }
 
 	void OnTriggerEnter(Collider other){

@@ -42,7 +42,7 @@ public class EntregaNombrada : MonoBehaviour {
 		if (detenido && !enEspera) {
 //			print ("continuar");
 			detenido = false;
-			navmesh.angularSpeed = 60f;
+			navmesh.angularSpeed = 25f;
 			navmesh.enabled = true; 
 			velocidadObjetivo = velocidad;
 			navmesh.SetDestination (puntos [puntoActual].punto.position);
@@ -55,7 +55,7 @@ public class EntregaNombrada : MonoBehaviour {
 		if (activo) {
 			navmesh.enabled = true;
 			velocidadObjetivo = velocidad;
-			navmesh.angularSpeed = 60f;
+			navmesh.angularSpeed = 25f;
 			//navmesh.Resume();
 		}
 	}

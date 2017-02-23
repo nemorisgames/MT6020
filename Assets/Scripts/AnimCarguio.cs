@@ -9,17 +9,20 @@ public class AnimCarguio : MonoBehaviour {
 	public GameObject cargaPosicion;
 
 	GameObject carga2;
+	bool cargado = false;
 
 	// Use this for initialization
 	void Start () {
-		barrera.SetActive (true);
+		if(barrera != null)
+			barrera.SetActive (true);
 		cargaTapa.SetActive (true);
 		carga2 = (GameObject)Instantiate (cargaRocas, cargaPosicion.transform.position, cargaPosicion.transform.rotation);
 		carga2.SetActive (false);
 	}
 
 	public void QuitarBarrera(){
-		barrera.SetActive (false);
+		if(barrera != null)
+			barrera.SetActive (false);
 	}
 
 	public void ToggleTapa(){
@@ -27,10 +30,16 @@ public class AnimCarguio : MonoBehaviour {
 	}
 
 	public void GenerarCarga(){
-		carga2.SetActive (true);
+		if (!cargado) {
+			carga2.SetActive (true);
+			cargado = true;
+		} else {
+			Instantiate (cargaRocas, cargaPosicion.transform.position, cargaPosicion.transform.rotation);
+		}
 	}
 
 	public void Update(){
-		carga2.transform.position = cargaPosicion.transform.position;		
+		if(!cargado)
+			carga2.transform.position = cargaPosicion.transform.position;	
 	}
 }

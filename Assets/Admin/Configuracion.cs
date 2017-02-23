@@ -154,8 +154,10 @@ public class Configuracion : MonoBehaviour {
     public int ResultadoCheckSalEme;
     public int CheckCheFirCab;
     public int ResultadoCheckCheFirCab;
-    public int CheckPabCheFir;
-    public int ResultadoCheckPabCheFir;
+    public int CheckCabCheFir;
+    public int ResultadoCheckCabCheFir;
+	public int CheckSistAnsul;
+	public int ResultadoCheckSistAnsul;
 
 
     public int CheckNivPet2;
@@ -437,7 +439,7 @@ public class Configuracion : MonoBehaviour {
 		form.AddField("ResultadoTraslado", ResultadoTraslado);
 		form.AddField("ResultadoTerminoFaena", ResultadoTerminoFaena);
     /*form.AddField("Mail", mailInstructor);
-/*
+
     form.AddField("ResultadoFallaOperacion", fallaOperacion);
     form.AddField("Fecha", f); 
     form.AddField("ResultadoPreguntasCorta1", ResultadoPreguntasCorta1);
@@ -459,16 +461,16 @@ public class Configuracion : MonoBehaviour {
     form.AddField("CamionetaMin", IntCamioneta); form.AddField("CamionetaDes", DescuentoCamioneta); form.AddField("Camioneta", ResultadoIntCamioneta);
 
     form.AddField("CantCamion", ResultadoCantidadCamion); form.AddField("Traslado", ResultadoTraslado); form.AddField("CantVueltas", ResultadoVueltasRealizadas); form.AddField("TerminoFaena", ResultadoTerminoFaena);
-    form.AddField("idAlumno", alumno);
+    form.AddField("idAlumno", alumno);*/
 
-    //if (NumeroModulo == "4" || NumeroModulo == "16" || NumeroModulo == "17" || NumeroModulo == "18")
-    //{
+    if (NumeroModulo == "4" || NumeroModulo == "16" || NumeroModulo == "17" || NumeroModulo == "18")
+    {
         form.AddField("ResultadoCheckNivPet", ResultadoCheckNivPet);
         form.AddField("ResultadoCheckNivAceMot", ResultadoCheckNivAceMot);
         form.AddField("ResultadoCheckNivAceHid", ResultadoCheckNivAceHid);
         form.AddField("ResultadoCheckEstLuc", ResultadoCheckEstLuc);
         form.AddField("ResultadoCheckEstNeu", ResultadoCheckEstNeu);
-        form.AddField("ResultadoCheckEstNeu", ResultadoCheckEstNeu);
+        //form.AddField("ResultadoCheckEstNeu", ResultadoCheckEstNeu);
         form.AddField("ResultadoCheckNivRef", ResultadoCheckNivRef);
         form.AddField("ResultadoCheckNivAceTra", ResultadoCheckNivAceTra);
         form.AddField("ResultadoCheckNivAceTransf", ResultadoCheckNivAceTransf);
@@ -493,23 +495,26 @@ public class Configuracion : MonoBehaviour {
     form.AddField("ResultadoCheckMotEnf", ResultadoCheckMotEnf);
     form.AddField("ResultadoCheckEstExtMan", ResultadoCheckEstExtMan);
     form.AddField("ResultadoCheckEstExtInc", ResultadoCheckEstExtInc);
+		form.AddField ("ResultadoCheckCheFirCab", ResultadoCheckCheFirCab);
+		form.AddField ("ResultadoCheckCabCheFir", ResultadoCheckCabCheFir);
+		form.AddField ("ResultadoCheckSistAnsul", ResultadoCheckSistAnsul);
 
     form.AddField("CheckNivPet", CheckNivPet);
         form.AddField("CheckNivAceMot", CheckNivAceMot);
         form.AddField("CheckNivAceHid", CheckNivAceHid);
         form.AddField("CheckEstLuc", CheckEstLuc);
         form.AddField("CheckEstNeu", CheckEstNeu);
-        form.AddField("CheckEstNeu", CheckEstNeu);
+        //form.AddField("CheckEstNeu", CheckEstNeu);
         form.AddField("CheckNivRef", CheckNivRef);
         form.AddField("CheckNivAceTra", CheckNivAceTra);
         form.AddField("CheckNivAceTransf", CheckNivAceTransf);
         form.AddField("CheckFiltro", CheckFiltro);
         form.AddField("CheckIndObs", CheckIndObs);
         form.AddField("CheckLucGen", CheckLucGen);
-        form.AddField("CheckFug", CheckFug);
+        form.AddField("CheckFug", CheckFug);//
         form.AddField("CheckLimPar", CheckLimPar);
         form.AddField("CheckAirAco", CheckAirAco);
-        form.AddField("CheckEstEsc", CheckEstEsc);
+        form.AddField("CheckEstEsc", CheckEstEsc);//
         form.AddField("CheckMan", CheckMan);
         form.AddField("CheckMon", CheckMon);
         form.AddField("CheckBoc", CheckBoc);
@@ -521,6 +526,9 @@ public class Configuracion : MonoBehaviour {
     form.AddField("CheckMotEnf", CheckMotEnf);
     form.AddField("CheckEstExtMan", CheckEstExtMan);
     form.AddField("CheckEstExtInc", CheckEstExtInc);
+			form.AddField ("CheckCheFirCab", CheckCheFirCab);
+			form.AddField ("CheckCabCheFir", CheckCabCheFir);
+			form.AddField ("CheckSistAnsul", CheckSistAnsul);
 
 
     form.AddField("CheckTopEjeCen", CheckTopEjeCen);
@@ -529,7 +537,7 @@ public class Configuracion : MonoBehaviour {
     form.AddField("ResultadoCheckSalEme", ResultadoCheckSalEme);
     form.AddField("CheckArtCen", CheckArtCen);
     form.AddField("ResultadoCheckArtCen", ResultadoCheckArtCen);
-
+			/*
     // if (NumeroModulo != "4")
     //{
     form.AddField("ResultadoCheckNivPet2", ResultadoCheckNivPet2);
@@ -559,6 +567,9 @@ public class Configuracion : MonoBehaviour {
     form.AddField("ResultadoCheckMotEnf2", ResultadoCheckMotEnf2);
     form.AddField("ResultadoCheckEstExtMan2", ResultadoCheckEstExtMan2);
     form.AddField("ResultadoCheckEstExtInc2", ResultadoCheckEstExtInc2);
+			form.AddField ("ResultadoCheckCheFirCab2", ResultadoCheckCheFirCab2);
+			form.AddField ("ResultadoCheckCabCheFir2", ResultadoCheckCabCheFir2);
+			form.AddField ("ResultadoCheckSistAnsul2", ResultadoCheckSistAnsul2);
 
     form.AddField("CheckNivPet2", CheckNivPet2);
             form.AddField("CheckNivAceMot2", CheckNivAceMot2);
@@ -587,6 +598,9 @@ public class Configuracion : MonoBehaviour {
     form.AddField("CheckMotEnf2", CheckMotEnf2);
     form.AddField("CheckEstExtMan2", CheckEstExtMan2);
     form.AddField("CheckEstExtInc2", CheckEstExtInc2);
+			form.AddField ("CheckCheFirCab2", CheckCheFirCab2);
+			form.AddField ("CheckCabCheFir2", CheckCabCheFir2);
+			form.AddField ("CheckSistAnsul2", CheckSistAnsul2);
 
     form.AddField("CheckTopEjeCen2", CheckTopEjeCen2);
     form.AddField("ResultadoCheckTopEjeCen2", ResultadoCheckTopEjeCen2);
@@ -594,7 +608,7 @@ public class Configuracion : MonoBehaviour {
     form.AddField("ResultadoCheckSalEme2", ResultadoCheckSalEme2);
     form.AddField("CheckArtCen2", CheckArtCen2);
     form.AddField("ResultadoCheckArtCen2", ResultadoCheckArtCen2);
-    // }*/
+    }*/
     //}
     if(vuelta != null)
         for (int i = 0; i < vuelta.Count; i++){
