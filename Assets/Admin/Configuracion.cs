@@ -182,8 +182,8 @@ public class Configuracion : MonoBehaviour {
     public int ResultadoCheckIndObs2;
     public int CheckLucGen2;
     public int ResultadoCheckLucGen2;
-    public int CheckFug2;
-    public int ResultadoCheckFug2;
+   // public int CheckFug2;
+    //public int ResultadoCheckFug2;
     public int CheckLimPar2;
     public int ResultadoCheckLimPar2;
     public int CheckAirAco2;
@@ -463,7 +463,8 @@ public class Configuracion : MonoBehaviour {
     form.AddField("CantCamion", ResultadoCantidadCamion); form.AddField("Traslado", ResultadoTraslado); form.AddField("CantVueltas", ResultadoVueltasRealizadas); form.AddField("TerminoFaena", ResultadoTerminoFaena);
     form.AddField("idAlumno", alumno);*/
 
-    if (NumeroModulo == "4" || NumeroModulo == "16" || NumeroModulo == "17" || NumeroModulo == "18")
+    //if (NumeroModulo == "4" || NumeroModulo == "16" || NumeroModulo == "17" || NumeroModulo == "18")
+	if (NumeroModulo == "Módulo 4" || NumeroModulo == "Módulo 16" || NumeroModulo == "Módulo 17" || NumeroModulo == "Módulo 18")
     {
         form.AddField("ResultadoCheckNivPet", ResultadoCheckNivPet);
         form.AddField("ResultadoCheckNivAceMot", ResultadoCheckNivAceMot);
@@ -477,7 +478,7 @@ public class Configuracion : MonoBehaviour {
         form.AddField("ResultadoCheckFiltro", ResultadoCheckFiltro);
         form.AddField("ResultadoCheckIndObs", ResultadoCheckIndObs);
         form.AddField("ResultadoCheckLucGen", ResultadoCheckLucGen);
-        form.AddField("ResultadoCheckFug", ResultadoCheckFug);
+        //form.AddField("ResultadoCheckFug", ResultadoCheckFug);
         form.AddField("ResultadoCheckLimPar", ResultadoCheckLimPar);
         form.AddField("ResultadoCheckAirAco", ResultadoCheckAirAco);
         form.AddField("ResultadoCheckEstEsc", ResultadoCheckEstEsc);
@@ -487,7 +488,7 @@ public class Configuracion : MonoBehaviour {
         form.AddField("ResultadoCheckAseCab", ResultadoCheckAseCab);
         form.AddField("ResultadoCheckTol", ResultadoCheckTol);
         form.AddField("ResultadoNumPreguntasContestadas", ResultadoNumPreguntasContestadas);
-        form.AddField("ResultadoOrdenEjecTiempo", ResultadoOrdenEjecTiempo);
+        //form.AddField("ResultadoOrdenEjecTiempo", ResultadoOrdenEjecTiempo);
         form.AddField("ResultadoPuntoPartidaTiempo", ResultadoPuntoPartidaTiempo);
     form.AddField("ResultadoCheckArtDir", ResultadoCheckArtDir);
     form.AddField("ResultadoCheckPasGen", ResultadoCheckPasGen);
@@ -511,7 +512,7 @@ public class Configuracion : MonoBehaviour {
         form.AddField("CheckFiltro", CheckFiltro);
         form.AddField("CheckIndObs", CheckIndObs);
         form.AddField("CheckLucGen", CheckLucGen);
-        form.AddField("CheckFug", CheckFug);//
+        //form.AddField("CheckFug", CheckFug);//
         form.AddField("CheckLimPar", CheckLimPar);
         form.AddField("CheckAirAco", CheckAirAco);
         form.AddField("CheckEstEsc", CheckEstEsc);//
@@ -583,7 +584,7 @@ public class Configuracion : MonoBehaviour {
             form.AddField("CheckFiltro2", CheckFiltro2);
             form.AddField("CheckIndObs2", CheckIndObs2);
             form.AddField("CheckLucGen2", CheckLucGen2);
-            form.AddField("CheckFug2", CheckFug2);
+            //form.AddField("CheckFug2", CheckFug2);
             form.AddField("CheckLimPar2", CheckLimPar2);
             form.AddField("CheckAirAco2", CheckAirAco2);
             form.AddField("CheckEstEsc2", CheckEstEsc2);
