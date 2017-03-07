@@ -12,6 +12,8 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 	public Camera camara;
 	public bool enfocandoPuertaHidraulica = false;
 	public bool enfocandoPuertaHidraulicaActual = false;
+	public bool enfocandoEscalera = false;
+	public bool enfocandoEscaleraActual = false;
 
 	public bool enfocandoCabina = false;
 	public bool enfocandoCabinaActual = false;
@@ -19,7 +21,10 @@ public class ControlUsuarioChecklist : MonoBehaviour {
     public bool enfocandoBrazoActual = false;
 
     public bool enfocandoEncendido = false;
-    public bool enfocandoEncendidoActual = false;
+	public bool enfocandoEncendidoActual = false;
+
+	public bool enfocandoAceite = false;
+	public bool enfocandoAceiteActual = false;
 
     public ControlCamion controlCamion;
     public bool puertaIsoSwitchAbierta = false;
@@ -120,11 +125,12 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 			GetComponent<Rigidbody>().AddForce ((hor2 * transform.right + ver2 * new Vector3(transform.forward.x, 0f, transform.forward.z)) * 450f * 1f *  Time.deltaTime);
 		transform.Rotate (Vector3.right, ver * velocidadRotacion * 1.5f * Time.deltaTime);
 		transform.Rotate (Vector3.up, hor * velocidadRotacion * 1.5f * Time.deltaTime);
-		transform.eulerAngles = new Vector3 (Mathf.Clamp((transform.eulerAngles.x>270f?(transform.eulerAngles.x - 360f):transform.eulerAngles.x), -20f, 30f), transform.eulerAngles.y, 0f);
+		transform.eulerAngles = new Vector3 (Mathf.Clamp((transform.eulerAngles.x>270f?(transform.eulerAngles.x - 360f):transform.eulerAngles.x), -20f, 60f), transform.eulerAngles.y, 0f);
 
 
         enfocandoCabina = false;
-        enfocandoEncendido = false;
+		enfocandoEscalera = false;
+		enfocandoAceite = false;
         
         enfocandoPuertaHidraulica = false;
 		enfocandoBrazo = false;
@@ -170,6 +176,8 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 					case "sistemaAnsul": controlChecklist.sistemaAnsulActivada = true; break;
 
 					case "TapaRadiador": enfocandoPuertaHidraulica = true; break;
+					case "Escalera": enfocandoEscalera = true; break;
+					case "TapaAceite": enfocandoAceite = true; break;
 						case "puertaCabina": enfocandoCabina = true; break;
 						case "Brazo": enfocandoBrazo = true; break;
 						case "ISO_switch": enfocandoEncendido = true; break;
@@ -192,6 +200,34 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 					mensajeInteraccion.gameObject.SetActive (enfocandoPuertaHidraulica);
 
 			}
+			if (enfocandoEscaleraActual != enfocandoEscalera) {
+				enfocandoEscaleraActual = enfocandoEscalera;
+				if (enfocandoEscalera) {
+					controlChecklist.habilitarEscalera ();
+					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo6" || SceneManager.GetActiveScene ().name == "Modulo7") {
+						print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
+						mensajeInteraccion.text = "Presione el gatillo derecho para subir";
+					}
+				} else
+					controlChecklist.deshabilitarCabina ();
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo6" || SceneManager.GetActiveScene ().name == "Modulo7")
+					mensajeInteraccion.gameObject.SetActive (enfocandoEscalera);
+
+		}
+		if (enfocandoAceiteActual != enfocandoAceite) {
+			enfocandoAceiteActual = enfocandoAceite;
+			if (enfocandoAceite) {
+				controlChecklist.habilitarAceite ();
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo6" || SceneManager.GetActiveScene ().name == "Modulo7") {
+					print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
+					mensajeInteraccion.text = "Presione el gatillo derecho para abrir/cerrar";
+				}
+			} else
+				controlChecklist.deshabilitarCabina ();
+			if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo6" || SceneManager.GetActiveScene ().name == "Modulo7")
+				mensajeInteraccion.gameObject.SetActive (enfocandoAceite);
+
+		}
 			if (enfocandoCabinaActual != enfocandoCabina) {
 				enfocandoCabinaActual = enfocandoCabina;
 				if (enfocandoCabina) {

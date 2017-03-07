@@ -63,12 +63,21 @@ public class ControlChecklist : MonoBehaviour {
 	[HideInInspector]
 	public bool sistemaAnsulActivada = false;
 
+	public Transform posicionSobreMaquina;
+	bool escaleraHabilitada = false;
+	bool escaleraActivada = false;
+
 	public TweenRotation[] puertaHidraulica;
 	bool puertaHidraulicaHabilitada = false;
 	bool puertaHidraulicaActivada = false;
 	public TweenRotation[] puertaCabina;
 	public bool puertaCabinaHabilitada = false;
 	public bool puertaCabinaActivada = false;
+
+	public TweenRotation[] puertaAceite;
+	public bool puertaAceiteHabilitada = false;
+	public bool puertaAceiteActivada = false;
+
 	public TweenRotation[] brazo;
 	public TweenPosition cilindroBrazo;
 
@@ -369,6 +378,22 @@ public class ControlChecklist : MonoBehaviour {
 		puertaHidraulicaHabilitada = false;
 	}
 
+	public void habilitarEscalera(){
+		print ("habilitar escalera");
+		escaleraHabilitada = true;
+	}
+	public void deshabilitarEscalera(){
+		print ("deshabilitar escalera");
+		escaleraHabilitada = false;
+	}
+	public void habilitarAceite(){
+		print ("habilitar aceite");
+		puertaAceiteHabilitada = true;
+	}
+	public void deshabilitarAceite(){
+		print ("deshabilitar aceite");
+		puertaAceiteHabilitada = false;
+	}
 	public void habilitarCabina(){
 		print ("habilitar cabina");
 		puertaCabinaHabilitada = true;
@@ -391,6 +416,13 @@ public class ControlChecklist : MonoBehaviour {
 			t.Play(puertaHidraulicaActivada);
 		}
 	}
+	public void abrirPuertaAceite(){
+		puertaAceiteActivada = !puertaAceiteActivada;
+		foreach (TweenRotation t in puertaAceite) {
+			t.Play(puertaAceiteActivada);
+		}
+	}
+
 
 	public void abrirCabina(){
 		puertaCabinaActivada = !puertaCabinaActivada;
@@ -649,6 +681,16 @@ public class ControlChecklist : MonoBehaviour {
 				return;
 			if (puertaHidraulicaHabilitada)
 				abrirPuertaHidraulica ();
+			if (puertaAceiteHabilitada)
+				abrirPuertaAceite ();
+			if (escaleraHabilitada) {
+				controlUsuarioChecklist.transform.position = posicionSobreMaquina.position;
+				controlUsuarioChecklist.transform.rotation = posicionSobreMaquina.rotation;
+				mensajeInteraccion.text = "";
+				mensajeInteraccion.gameObject.SetActive(false);
+				controlUsuarioChecklist.enfocandoEscalera = false;
+				controlUsuarioChecklist.enfocandoEscaleraActual = false;
+			}
 			if (puertaCabinaHabilitada && (estado == estadoChequeo.exterior || estado == estadoChequeo.interior) && !checkeandoControles && !checkeandoPanel) {
 				if (estado == estadoChequeo.exterior)
 					estado = estadoChequeo.interior;
