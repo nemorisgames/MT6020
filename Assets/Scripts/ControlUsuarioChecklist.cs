@@ -10,13 +10,13 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 	public Vector2 limiteAlturas;
 	public float limiteHorizontal;
 	public Camera camara;
-	//public bool enfocandoPuertaHidraulica = false;
-	//public bool enfocandoPuertaHidraulicaActual = false;
+	public bool enfocandoPuertaHidraulica = false;
+	public bool enfocandoPuertaHidraulicaActual = false;
 
 	public bool enfocandoCabina = false;
 	public bool enfocandoCabinaActual = false;
-    //public bool enfocandoBrazo = false;
-    //public bool enfocandoBrazoActual = false;
+    public bool enfocandoBrazo = false;
+    public bool enfocandoBrazoActual = false;
 
     public bool enfocandoEncendido = false;
     public bool enfocandoEncendidoActual = false;
@@ -25,15 +25,16 @@ public class ControlUsuarioChecklist : MonoBehaviour {
     public bool puertaIsoSwitchAbierta = false;
     public TweenRotation puertaIsoSwitch;
     public TweenRotation isoSwitch;
+	public TweenRotation tapaRadiador;
 
-    /*public ControlChecklist controlChecklist;
+    public ControlChecklist controlChecklist;
 	public UILabel mensajeInteraccion;
 	public bool realizarChecklist = true;
 	GameObject maquina;
-	ControlExcavadora controlExcavadora;
-	Central central;
-	int[] valoresPotenciometro = new int[6];
-    */
+	ControlCamion controlExcavadora;
+	InGame central;
+	//int[] valoresPotenciometro = new int[6];
+    
 
     public LayerMask mascaraLayers;
 
@@ -48,29 +49,34 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 	void Start () {
         inGame = GameObject.FindWithTag("InGame").GetComponent<InGame>();
         controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
-        /*central = GameObject.FindWithTag ("Central").GetComponent<Central>();
-		maquina = GameObject.FindWithTag ("Maquina");
+		central = GameObject.FindWithTag ("InGame").GetComponent<InGame>();
+		/*maquina = GameObject.FindWithTag ("Maquina");
 		if(maquina != null) controlExcavadora = maquina.GetComponent<ControlExcavadora> ();
 		mensajeInteraccion.gameObject.SetActive (false);*/
     }
 
-	public void desactivar(){
-        /*
+	public void desactivar(){  
 		print("desactiva");
 		mensajeInteraccion.gameObject.SetActive(false);
 		enfocandoPuertaHidraulicaActual = false;
 		enfocandoCabinaActual = false;
 		enfocandoBrazoActual = false;
-		controlChecklist.extintorFrontActivada = false;
-		controlChecklist.extintorBackActivada = false;
-		controlChecklist.extintorAutomaticoActivada = false;
-		controlChecklist.nivelRefrigeranteActivada = false;
 		controlChecklist.nivelPetroleoActivada = false;
 		controlChecklist.nivelAceiteActivada = false;
-		controlChecklist.nivelHidraulicoActivada = false;*/
+		controlChecklist.nivelHidraulicoActivada = false;
+		controlChecklist.nivelRefrigeranteActivada = false;
+		controlChecklist.nivelAceiteTransActivada = false;
+		controlChecklist.nivelAceiteCajaTransfActivada = false;
+		controlChecklist.filtroAireActivada = false;
+		controlChecklist.filtroCombustibleActivada = false;
+		controlChecklist.topeEjeCentralActivada = false;
+		controlChecklist.indicadoresObstruccionActivada = false;
+		controlChecklist.articulacionCentralActivada = false;
+		controlChecklist.articulacionDireccionalActivada = false;
+		controlChecklist.pasadoresGeneralActivada = false;
+		controlChecklist.fugasCilindrosManguerasActivada = false;
+		controlChecklist.sistemaAnsulActivada = false;
 	}
-
-
 
 	//0: freno
 	//1: acelerador
@@ -95,7 +101,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
         hor = Input.GetAxis("Manubrio");
 #endif
         hor2 = 0f;// Input.GetAxis("Horizontal");
-        ver = 0f;
+		ver = controlTarjetaControladora.Retardador() + controlTarjetaControladora.Freno();
         ver2 = controlTarjetaControladora.Acelerador();
         //#else
         /*hor = ((valoresPotenciometro[2] * 1f) - 512f) / 1024f; //Input.GetAxis ("Joy1 Axis 1"); 
@@ -119,59 +125,70 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 
         enfocandoCabina = false;
         enfocandoEncendido = false;
-        /*
+        
         enfocandoPuertaHidraulica = false;
 		enfocandoBrazo = false;
 		enfocandoEncendido = false;
         if (controlChecklist != null) {
+			controlChecklist.nivelPetroleoActivada = false;
 			controlChecklist.nivelAceiteActivada = false;
 			controlChecklist.nivelHidraulicoActivada = false;
-			controlChecklist.nivelPetroleoActivada = false;
 			controlChecklist.nivelRefrigeranteActivada = false;
-			controlChecklist.extintorBackActivada = false;
-			controlChecklist.extintorFrontActivada = false;
-			controlChecklist.extintorAutomaticoActivada = false;
-			controlChecklist.pasadorActivada = false;
-			controlChecklist.ejeCentralActivada = false;
-			controlChecklist.ejeCentralBajoActivada = false;
+			controlChecklist.nivelAceiteTransActivada = false;
+			controlChecklist.nivelAceiteCajaTransfActivada = false;
+			controlChecklist.filtroAireActivada = false;
+			controlChecklist.filtroCombustibleActivada = false;
+			controlChecklist.topeEjeCentralActivada = false;
+			controlChecklist.indicadoresObstruccionActivada = false;
+			controlChecklist.articulacionCentralActivada = false;
+			controlChecklist.articulacionDireccionalActivada = false;
+			controlChecklist.pasadoresGeneralActivada = false;
+			controlChecklist.fugasCilindrosManguerasActivada = false;
+			controlChecklist.sistemaAnsulActivada = false;
 		}
 		if(controlChecklist == null || (controlChecklist != null && (!controlChecklist.activa || !controlChecklist.listaActiva))){
 				RaycastHit hit;
 				
 				Debug.DrawRay(camara.transform.position, camara.transform.forward);
-				if (Physics.Raycast (camara.transform.position, camara.transform.forward, out hit, 1.2f, mascaraLayers)) {
+				if (Physics.Raycast (camara.transform.position, camara.transform.forward, out hit, 2f, mascaraLayers)) {
 					//print (hit.transform.gameObject.name + " " + hit.distance);
 					switch(hit.transform.gameObject.name){
-						case "nivelExtintorFront": controlChecklist.extintorFrontActivada = true; break;
-						case "nivelExtintorBack": controlChecklist.extintorBackActivada = true; break;
-						case "nivelExtintorAutomatico": controlChecklist.extintorAutomaticoActivada = true; break;
-						case "nivelRefrigerante": controlChecklist.nivelRefrigeranteActivada = true; break;
-						case "FiltroAceite": controlChecklist.nivelPetroleoActivada = true; break;
-						case "nivelAceite": controlChecklist.nivelAceiteActivada = true; break;
-						case "nivelHidraulico": controlChecklist.nivelHidraulicoActivada = true; break;
-						case "PuertaHidraulica": enfocandoPuertaHidraulica = true; break;
+					case "nivelPetroleo": controlChecklist.nivelPetroleoActivada = true; break;
+					case "nivelAceite": controlChecklist.nivelAceiteActivada = true; break;
+					case "nivelHidraulico": controlChecklist.nivelHidraulicoActivada = true; break;
+					case "nivelRefrigerante": controlChecklist.nivelRefrigeranteActivada = true; break;
+					case "nivelAceiteTrans": controlChecklist.nivelAceiteTransActivada = true; break;
+					case "nivelAceiteCajaTransf": controlChecklist.nivelAceiteCajaTransfActivada = true; break;
+					case "filtroAire": controlChecklist.filtroAireActivada = true; break;
+					case "filtroCombustible": controlChecklist.filtroCombustibleActivada = true; break;
+					case "topeEjeCentral": controlChecklist.topeEjeCentralActivada = true; break;
+					case "indicadoresObstruccion": controlChecklist.indicadoresObstruccionActivada = true; break;
+					case "articulacionCentral": controlChecklist.articulacionCentralActivada = true; break;
+					case "articulacionDireccional": controlChecklist.articulacionDireccionalActivada = true; break;
+					case "pasadoresGeneral": controlChecklist.pasadoresGeneralActivada = true; break;
+					case "fugasCilindrosMangueras": controlChecklist.fugasCilindrosManguerasActivada = true; break;
+					case "sistemaAnsul": controlChecklist.sistemaAnsulActivada = true; break;
+
+					case "TapaRadiador": enfocandoPuertaHidraulica = true; break;
 						case "puertaCabina": enfocandoCabina = true; break;
 						case "Brazo": enfocandoBrazo = true; break;
 						case "ISO_switch": enfocandoEncendido = true; break;
-						case "Pasador": controlChecklist.pasadorActivada = true; break;
-						case "EjeCentral": controlChecklist.ejeCentralActivada = true; break;
-						case "EjeCentralBajo": controlChecklist.ejeCentralBajoActivada = true; break;
 					}
 				}
 
 		}
-		if (realizarChecklist) {
+		//if (realizarChecklist) {
 			if (enfocandoPuertaHidraulicaActual != enfocandoPuertaHidraulica) {
 				enfocandoPuertaHidraulicaActual = enfocandoPuertaHidraulica;
 				if (enfocandoPuertaHidraulica) {
 					controlChecklist.habilitarPuertaHidraulica ();
-					if(SceneManager.GetActiveScene().name == "Modulo5" || SceneManager.GetActiveScene().name == "Modulo4" || SceneManager.GetActiveScene().name == "Modulo16" || SceneManager.GetActiveScene().name == "Modulo17" || SceneManager.GetActiveScene().name == "Modulo18"){
-						print ("enfocando puerta h " + SceneManager.GetActiveScene().name);
+					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo6" || SceneManager.GetActiveScene ().name == "Modulo7") {
+						print ("enfocando puerta h " + SceneManager.GetActiveScene ().name);
 						mensajeInteraccion.text = "Presione el gatillo derecho para abrir/cerrar la puerta hidráulica";
 					}
-				} else 
+				} else
 					controlChecklist.deshabilitarPuertaHidraulica ();
-				if(SceneManager.GetActiveScene().name == "Modulo5" || SceneManager.GetActiveScene().name == "Modulo4" || SceneManager.GetActiveScene().name == "Modulo16" || SceneManager.GetActiveScene().name == "Modulo17" || SceneManager.GetActiveScene().name == "Modulo18") 
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo6" || SceneManager.GetActiveScene ().name == "Modulo7")
 					mensajeInteraccion.gameObject.SetActive (enfocandoPuertaHidraulica);
 
 			}
@@ -179,126 +196,153 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				enfocandoCabinaActual = enfocandoCabina;
 				if (enfocandoCabina) {
 					controlChecklist.habilitarCabina ();
-					if(SceneManager.GetActiveScene().name == "Modulo5" || SceneManager.GetActiveScene().name == "Modulo4" || SceneManager.GetActiveScene().name == "Modulo16" || SceneManager.GetActiveScene().name == "Modulo17" || SceneManager.GetActiveScene().name == "Modulo18"){
-						print ("enfocando puerta " + SceneManager.GetActiveScene().name);
+					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo6" || SceneManager.GetActiveScene ().name == "Modulo7") {
+						print ("enfocando puerta " + SceneManager.GetActiveScene ().name);
 						mensajeInteraccion.text = "Presione el gatillo derecho para ingresar a la cabina";
 					}
-				} else 
+				} else
 					controlChecklist.deshabilitarCabina ();
-				if(SceneManager.GetActiveScene().name == "Modulo5" || SceneManager.GetActiveScene().name == "Modulo4" || SceneManager.GetActiveScene().name == "Modulo16" || SceneManager.GetActiveScene().name == "Modulo17" || SceneManager.GetActiveScene().name == "Modulo18") 
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo6" || SceneManager.GetActiveScene ().name == "Modulo7")
 					mensajeInteraccion.gameObject.SetActive (enfocandoCabina);
 
 			}
 			if (enfocandoBrazoActual != enfocandoBrazo) {
-					enfocandoBrazoActual = enfocandoBrazo;
-					if (enfocandoBrazo) {
-						controlChecklist.habilitarBrazo ();
-					if(SceneManager.GetActiveScene().name == "Modulo5" || SceneManager.GetActiveScene().name == "Modulo4" || SceneManager.GetActiveScene().name == "Modulo16" || SceneManager.GetActiveScene().name == "Modulo17" || SceneManager.GetActiveScene().name == "Modulo18"){
-							print ("enfocando brazo " + SceneManager.GetActiveScene().name);
-							mensajeInteraccion.text = "Presione el gatillo derecho para subir/bajar el brazo";
-						}
-					} else 
-							controlChecklist.deshabilitarBrazo ();
-				if(SceneManager.GetActiveScene().name == "Modulo5" || SceneManager.GetActiveScene().name == "Modulo4" || SceneManager.GetActiveScene().name == "Modulo16" || SceneManager.GetActiveScene().name == "Modulo17" || SceneManager.GetActiveScene().name == "Modulo18") mensajeInteraccion.gameObject.SetActive (enfocandoBrazo);
+				enfocandoBrazoActual = enfocandoBrazo;
+				if (enfocandoBrazo) {
+					controlChecklist.habilitarBrazo ();
+					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo6" || SceneManager.GetActiveScene ().name == "Modulo7") {
+						print ("enfocando brazo " + SceneManager.GetActiveScene ().name);
+						mensajeInteraccion.text = "Presione el gatillo derecho para subir/bajar el brazo";
+					}
+				} else
+					controlChecklist.deshabilitarBrazo ();
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo6" || SceneManager.GetActiveScene ().name == "Modulo7")
+					mensajeInteraccion.gameObject.SetActive (enfocandoBrazo);
 
 			}
 			if (enfocandoEncendidoActual != enfocandoEncendido) {
 				enfocandoEncendidoActual = enfocandoEncendido;
 				if (enfocandoEncendido) {
-					if(controlChecklist.estadoExcavadoraChecklist == ControlExcavadora.EstadoMaquina.apagadaTotal)
+					print ("enfocando iso " + SceneManager.GetActiveScene ().name);
+					if (controlChecklist.estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagadaTotal)
 						mensajeInteraccion.text = "Presione el gatillo derecho para girar la llave de encendido";
 					else
 						mensajeInteraccion.text = "La acción ya fue realizada. Entre a la cabina";
 				}
 				mensajeInteraccion.gameObject.SetActive (enfocandoEncendido);
 			}
-		} else {
-			if(central.estado != Central.EstadoSimulacion.ApagadoExterior && central.estado != Central.EstadoSimulacion.Finalizando){
+		//} else {
+			if (central.estado != InGame.EstadoSimulacion.ApagadoExterior && central.estado != InGame.EstadoSimulacion.Finalizando) {
 				if (enfocandoCabinaActual != enfocandoCabina) {
 					enfocandoCabinaActual = enfocandoCabina;
 					if (enfocandoCabina) {
-						if(SceneManager.GetActiveScene().name == "Modulo5" || SceneManager.GetActiveScene().name == "Modulo4" || SceneManager.GetActiveScene().name == "Modulo16" || SceneManager.GetActiveScene().name == "Modulo17" || SceneManager.GetActiveScene().name == "Modulo18") 
+						if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo6" || SceneManager.GetActiveScene ().name == "Modulo7") {
 							mensajeInteraccion.text = "Presione el gatillo derecho para ingresar a la cabina";
-					} 
-					if(SceneManager.GetActiveScene().name == "Modulo5" || SceneManager.GetActiveScene().name == "Modulo4" || SceneManager.GetActiveScene().name == "Modulo16" || SceneManager.GetActiveScene().name == "Modulo17" || SceneManager.GetActiveScene().name == "Modulo18") 
-						mensajeInteraccion.gameObject.SetActive (enfocandoCabina);
+						} 
+						if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo6" || SceneManager.GetActiveScene ().name == "Modulo7") {
+							mensajeInteraccion.gameObject.SetActive (enfocandoCabina);
 					
-				}
-				if (enfocandoEncendidoActual != enfocandoEncendido) {
-					enfocandoEncendidoActual = enfocandoEncendido;
-					if (enfocandoEncendido) {
-						if(controlExcavadora.estado == ControlExcavadora.EstadoMaquina.apagadaTotal)
-							if(SceneManager.GetActiveScene().name == "Modulo5") mensajeInteraccion.text = "Presione el gatillo derecho para girar la llave de encendido";
-						else
-							if(SceneManager.GetActiveScene().name == "Modulo5") mensajeInteraccion.text = "La acción ya fue realizada. Entre a la cabina";
-					}
-					if(SceneManager.GetActiveScene().name == "Modulo5") mensajeInteraccion.gameObject.SetActive (enfocandoEncendido);
-				}
-			}
-			else{
-				if (enfocandoCabinaActual != enfocandoCabina) {
-					enfocandoCabinaActual = enfocandoCabina;
-					if (enfocandoCabina) {
-						if(SceneManager.GetActiveScene().name == "Modulo5") mensajeInteraccion.text = "Vaya al área del Iso Switch";
-					} 
-					if(SceneManager.GetActiveScene().name == "Modulo5") mensajeInteraccion.gameObject.SetActive (enfocandoCabina);
+						}
+						if (enfocandoEncendidoActual != enfocandoEncendido) {
+							enfocandoEncendidoActual = enfocandoEncendido;
+							if (enfocandoEncendido) {
+								if (controlExcavadora.estado == ControlCamion.EstadoMaquina.apagadaTotal)
+								if (SceneManager.GetActiveScene ().name == "Modulo5")
+									mensajeInteraccion.text = "Presione el gatillo derecho para girar la llave de encendido";
+								else if (SceneManager.GetActiveScene ().name == "Modulo5")
+									mensajeInteraccion.text = "La acción ya fue realizada. Entre a la cabina";
+							}
+							if (SceneManager.GetActiveScene ().name == "Modulo5")
+								mensajeInteraccion.gameObject.SetActive (enfocandoEncendido);
+						}
+					} else {
+						if (enfocandoCabinaActual != enfocandoCabina) {
+							enfocandoCabinaActual = enfocandoCabina;
+							if (enfocandoCabina) {
+								if (SceneManager.GetActiveScene ().name == "Modulo5")
+									mensajeInteraccion.text = "Vaya al área del Iso Switch";
+							} 
+							if (SceneManager.GetActiveScene ().name == "Modulo5")
+								mensajeInteraccion.gameObject.SetActive (enfocandoCabina);
 					
-				}
-				if (enfocandoEncendidoActual != enfocandoEncendido) {
-					enfocandoEncendidoActual = enfocandoEncendido;
-					if (enfocandoEncendido) {
-						if(controlExcavadora.estado == ControlExcavadora.EstadoMaquina.apagada)
-							if(SceneManager.GetActiveScene().name == "Modulo5") mensajeInteraccion.text = "Para finalizar el apagado de equipo, presione el gatillo derecho";
+						}
+						if (enfocandoEncendidoActual != enfocandoEncendido) {
+							enfocandoEncendidoActual = enfocandoEncendido;
+							if (enfocandoEncendido) {
+								if (controlExcavadora.estado == ControlCamion.EstadoMaquina.apagada)
+								if (SceneManager.GetActiveScene ().name == "Modulo5")
+									mensajeInteraccion.text = "Para finalizar el apagado de equipo, presione el gatillo derecho";
+							}
+							if (SceneManager.GetActiveScene ().name == "Modulo5")
+								mensajeInteraccion.gameObject.SetActive (enfocandoEncendido);
+						}
 					}
-					if(SceneManager.GetActiveScene().name == "Modulo5") mensajeInteraccion.gameObject.SetActive (enfocandoEncendido);
 				}
-			}
-		}*/
 
-        //NUEVO
-        //if (!enfocandoCabina)
-        //{
-            RaycastHit hit;
+				//NUEVO
+				//if (!enfocandoCabina)
+				//{
+				RaycastHit hit2;
 
-            Debug.DrawRay(camara.transform.position, camara.transform.forward);
-            if (Physics.Raycast(camara.transform.position, camara.transform.forward, out hit, 4.2f, mascaraLayers))
-            {
-                //print (hit.transform.gameObject.name + " " + hit.distance);
-                switch (hit.transform.gameObject.name)
-                {
-                    case "Puerta": enfocandoCabina = true; break;
-                    case "IsoSwitch": enfocandoEncendido = true; break;
-                }
-            }
-        //}
+				Debug.DrawRay (camara.transform.position, camara.transform.forward);
+				if (Physics.Raycast (camara.transform.position, camara.transform.forward, out hit2, 4.2f, mascaraLayers)) {
+					print (hit2.transform.gameObject.name + " " + hit2.distance);
+					switch (hit2.transform.gameObject.name) {
+					case "Puerta":
+						enfocandoCabina = true;
+						break;
+					case "puertaCabina":
+						enfocandoCabina = true;
+						break;
+					case "IsoSwitch":
+						enfocandoEncendido = true;
+						break;
+					case "Brazo":
+						enfocandoBrazo = true;
+						break;
+					case "ISO_switch":
+						enfocandoEncendido = true;
+						break;
+					}
+				}
+				//}
 
-		if (enfocandoCabina && (Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire3")))
-        {
-            ingresarCabina(true);
-        }
+				if (enfocandoCabina && (Input.GetKeyDown (KeyCode.E) || Input.GetButton ("Fire3"))) {
+					ingresarCabina (true);
+				}
 
-        if (enfocandoEncendido && (Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire3")))
-        {
-            switch (inGame.estado)
-            {
+				if (enfocandoEncendido && (Input.GetKeyDown (KeyCode.E) || Input.GetButton ("Fire3"))) {
+					switch (inGame.estado) {
 					case InGame.EstadoSimulacion.EncendidoExterior:
 					case InGame.EstadoSimulacion.ApagadoExterior:
-                    if (!puertaIsoSwitchAbierta)
-                        puertaIsoSwitch.Toggle();
-                    else
-                    {
-                        isoSwitch.Toggle();
-                    }
-                    break;
+						if (!puertaIsoSwitchAbierta)
+							puertaIsoSwitch.Toggle ();
+						else {
+							isoSwitch.Toggle ();
+						}
+						break;
                 
-            }
-            /*camionAnimator.SetTrigger("Entrada");
+					}
+					/*camionAnimator.SetTrigger("Entrada");
             camaraEntradaAnimator.gameObject.SetActive(true);
             camaraEntradaAnimator.SetTrigger("Entrar");
             print("entrar aqui");
             inGame.ejecutarEntradaMaquina();
             gameObject.SetActive(false);*/
-        }
+				}
+
+				if (enfocandoPuertaHidraulica && (Input.GetKeyDown (KeyCode.E) || Input.GetButton ("Fire3"))) {
+					tapaRadiador.Toggle ();
+
+					/*camionAnimator.SetTrigger("Entrada");
+	            camaraEntradaAnimator.gameObject.SetActive(true);
+	            camaraEntradaAnimator.SetTrigger("Entrar");
+	            print("entrar aqui");
+	            inGame.ejecutarEntradaMaquina();
+	            gameObject.SetActive(false);*/
+				}
+			}
+		//}			
     }
 
     public void ingresarCabina(bool ingresar)

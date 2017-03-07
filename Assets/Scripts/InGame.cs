@@ -123,7 +123,8 @@ public class InGame : MonoBehaviour {
             Debug.Log("Joystick" + (i + 1) + " = " + names[i]);
         }
         */
-        activarMaquinaAlta(true);
+		if(maquinaAlta != null)
+        	activarMaquinaAlta(true);
 		print("pantallas: " + Display.displays.Length);
 		for (int i = 0; i < Display.displays.Length; i++)
 		{
@@ -160,7 +161,8 @@ public class InGame : MonoBehaviour {
     public IEnumerator ejecutarEntradaMaquinaDelay(bool ingresar) { 
         yield return new WaitForSeconds(ingresar?10f:0f);
         print(ingresar?"entrar":"salir");
-        activarMaquinaAlta(!ingresar);
+		if(maquinaAlta != null)
+			activarMaquinaAlta(!ingresar);
     }
 
     public void cambiarEstado(EstadoSimulacion e)

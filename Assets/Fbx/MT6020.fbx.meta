@@ -207,6 +207,13 @@ ModelImporter:
     100398: Metales
     100400: Metales 1
     100402: PerillaFiltro
+    100404: BarroM
+    100406: Eje_Interior
+    100408: TopeFreno
+    100410: Espejo_B1
+    100412: Espejo_B2
+    100414: Espejo_B3
+    100416: Espejo_B4
     400000: Amarillo1
     400002: Amarillo3
     400004: Asiento
@@ -409,6 +416,13 @@ ModelImporter:
     400398: Metales
     400400: Metales 1
     400402: PerillaFiltro
+    400404: BarroM
+    400406: Eje_Interior
+    400408: TopeFreno
+    400410: Espejo_B1
+    400412: Espejo_B2
+    400414: Espejo_B3
+    400416: Espejo_B4
     2300000: Amarillo1
     2300002: Amarillo3
     2300004: Asiento
@@ -575,6 +589,12 @@ ModelImporter:
     2300326: Metales
     2300328: Metales 1
     2300330: PerillaFiltro
+    2300332: BarroM
+    2300334: TopeFreno
+    2300336: Espejo_B1
+    2300338: Espejo_B2
+    2300340: Espejo_B3
+    2300342: Espejo_B4
     3300000: Amarillo1
     3300002: Amarillo3
     3300004: Asiento
@@ -741,6 +761,12 @@ ModelImporter:
     3300326: Metales
     3300328: Metales 1
     3300330: PerillaFiltro
+    3300332: BarroM
+    3300334: TopeFreno
+    3300336: Espejo_B1
+    3300338: Espejo_B2
+    3300340: Espejo_B3
+    3300342: Espejo_B4
     4300000: TapaIso
     4300002: Asiento
     4300004: Botones_Tab
@@ -907,6 +933,12 @@ ModelImporter:
     4300326: Metales
     4300328: Conectors_1
     4300330: PerillaFiltro
+    4300332: TopeFreno
+    4300334: BarroM
+    4300336: Espejo_B3
+    4300338: Espejo_B4
+    4300340: Espejo_B2
+    4300342: Espejo_B1
     7400000: Take 001
     9500000: //RootNode
   materials:
@@ -929,7 +961,439 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 950
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 2
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Foco
+        weight: 1
+      - path: Foco/FocosB
+        weight: 1
+      - path: Foco/FocosB/Foco_1
+        weight: 1
+      - path: Foco/FocosB/Foco_2
+        weight: 1
+      - path: Foco/FocosB/Foco_3
+        weight: 1
+      - path: Foco/FocosB/Foco_4
+        weight: 1
+      - path: Foco/FocosB/Foco_5
+        weight: 1
+      - path: Foco/FocosB/Foco_6
+        weight: 1
+      - path: Foco/FocosB/Foco_7
+        weight: 1
+      - path: Foco/FocosB/Foco_8
+        weight: 1
+      - path: Foco/FocosB/Foco_9
+        weight: 1
+      - path: Foco/FocosB/Foco_10
+        weight: 1
+      - path: Foco/FocosB/Foco_11
+        weight: 1
+      - path: Foco/FocosB/Foco_12
+        weight: 1
+      - path: Foco/FocosB/Foco_13
+        weight: 1
+      - path: Foco/FocosB/Foco_14
+        weight: 1
+      - path: Foco/FocosB/Foco_15
+        weight: 1
+      - path: Gomas
+        weight: 1
+      - path: Gomas/Gomas_B
+        weight: 1
+      - path: Gomas/Gomas_B/Conex_B02
+        weight: 1
+      - path: Gomas/Gomas_B/Conex_B04
+        weight: 1
+      - path: Gomas/Gomas_B/Conex_B07
+        weight: 1
+      - path: Gomas/Gomas_B/Conex_B08
+        weight: 1
+      - path: Gomas/Gomas_B/Conex_B13
+        weight: 1
+      - path: Gomas/Gomas_B/Conex_B22
+        weight: 1
+      - path: Gomas/Gomas_B/Conex_B23
+        weight: 1
+      - path: Gomas/Gomas_B/Conex_B28
+        weight: 1
+      - path: Gomas/Gomas_B/Conex_B30
+        weight: 1
+      - path: Gomas/Gomas_B/Conex_B33
+        weight: 1
+      - path: Gomas/Gomas_B/polySurface227
+        weight: 1
+      - path: Gomas/Gomas_B/polySurface229
+        weight: 1
+      - path: Gomas/Gomas_B/polySurface230
+        weight: 1
+      - path: Gomas/Gomas_B/polySurface232
+        weight: 1
+      - path: Gomas/Gomas_B/polySurface234
+        weight: 1
+      - path: Gomas/Gomas_B/polySurface236
+        weight: 1
+      - path: Gomas/Gomas_B/polySurface244
+        weight: 1
+      - path: Gomas/Gomas_B/polySurface245
+        weight: 1
+      - path: Gomas/Gomas_M
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_03B
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_04B
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_07B
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_08B
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_10B
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_11B
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_12B
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_13B
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_22B
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_23B
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_24B
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_28B
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_29B
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_30B
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_M01
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_M02
+        weight: 1
+      - path: Gomas/Gomas_M/Malos_1_Conex_M34
+        weight: 1
+      - path: Gomas/Gomas_M/polySurface222
+        weight: 1
+      - path: Gomas/Gomas_M/polySurface224
+        weight: 1
+      - path: Gomas/GomasVarios
+        weight: 1
+      - path: Gomas/GomasVarios/Gomas_Oculto
+        weight: 1
+      - path: Gomas/GomasVarios/Varios_1
+        weight: 1
+      - path: Gomas/GomasVarios/Varios_2
+        weight: 1
+      - path: Gomas/GomasVarios/Varios_3
+        weight: 1
+      - path: Gomas/GomasVarios/Varios_4
+        weight: 1
+      - path: Gomas/GomasVarios/Varios_5
+        weight: 1
+      - path: Gomas/GomasVarios/Varios_6
+        weight: 1
+      - path: Gomas/GomasVarios/Varios_7
+        weight: 1
+      - path: Gomas/GomasVarios/Varios_8
+        weight: 1
+      - path: Gomas/GomasVarios/Varios_9
+        weight: 1
+      - path: Gomas/GomasVarios/Varios_10
+        weight: 1
+      - path: PasaManos
+        weight: 1
+      - path: PasaManos/PasaM_MarcoEspj_B
+        weight: 1
+      - path: PasaManos/PasaM_MarcoEspj_B/MarcoEspejo_B1
+        weight: 1
+      - path: PasaManos/PasaM_MarcoEspj_B/MarcoEspejo_B2
+        weight: 1
+      - path: PasaManos/PasaM_MarcoEspj_B/PasaManos_B1
+        weight: 1
+      - path: PasaManos/PasaM_MarcoEspj_B/PasaManos_B2
+        weight: 1
+      - path: PasaManos/PasaM_MarcoEspj_B/PasaManos_B3
+        weight: 1
+      - path: PasaManos/PasaM_MarcoEspj_B/PasaManos_B4
+        weight: 1
+      - path: PasaManos/PasaM_MarcoEspj_M
+        weight: 1
+      - path: PasaManos/PasaM_MarcoEspj_M/MarcoEspejo_M1
+        weight: 1
+      - path: PasaManos/PasaM_MarcoEspj_M/MarcoEspejo_M2
+        weight: 1
+      - path: PasaManos/PasaM_MarcoEspj_M/PasaManos_M1
+        weight: 1
+      - path: PasaManos/PasaM_MarcoEspj_M/PasaManos_M2
+        weight: 1
+      - path: PasaManos/PasaM_MarcoEspj_M/PasaManos_M3
+        weight: 1
+      - path: PasaManos/PasaM_MarcoEspj_M/PasaManos_M4
+        weight: 1
+      - path: Puerta
+        weight: 1
+      - path: Puerta/PuertaB
+        weight: 1
+      - path: Puerta/PuertaB/Cubierta_Puerta
+        weight: 1
+      - path: Puerta/PuertaB/Metales
+        weight: 1
+      - path: Puerta/PuertaB/PuertaEntrada
+        weight: 1
+      - path: Puerta/PuertaM
+        weight: 1
+      - path: Puerta/PuertaM/Cubierta_Puerta 1
+        weight: 1
+      - path: Puerta/PuertaM/Metales 1
+        weight: 1
+      - path: Puerta/PuertaM/PuertaEntrada 1
+        weight: 1
+      - path: Puerta/Varios 1
+        weight: 1
+      - path: Puerta/Varios 1/MarcoManilla
+        weight: 1
+      - path: Puerta/Varios 1/Salida2
+        weight: 1
+      - path: Puerta/Varios 1/SimboloP
+        weight: 1
+      - path: Puerta/Varios 1/VidriosPuerta
+        weight: 1
+      - path: RadiadorBarro
+        weight: 1
+      - path: RadiadorBarro/RadiadorBarro1
+        weight: 1
+      - path: Ruedas
+        weight: 1
+      - path: Ruedas/B
+        weight: 1
+      - path: Ruedas/B/Rueda1B
+        weight: 1
+      - path: Ruedas/B/Rueda2B
+        weight: 1
+      - path: Ruedas/B/Rueda3B
+        weight: 1
+      - path: Ruedas/B/Rueda4B
+        weight: 1
+      - path: Ruedas/M
+        weight: 1
+      - path: Ruedas/M/Rueda1M
+        weight: 1
+      - path: Ruedas/M/Rueda2M
+        weight: 1
+      - path: Ruedas/M/Rueda3M
+        weight: 1
+      - path: Ruedas/M/Rueda4M
+        weight: 1
+      - path: Tolva
+        weight: 1
+      - path: Tolva/Cables
+        weight: 1
+      - path: Tolva/Tolva_B
+        weight: 1
+      - path: Tolva/Tolva_M
+        weight: 1
+      - path: Tolva/TopeFreno
+        weight: 1
+      - path: Tolva/Topes
+        weight: 1
+      - path: Tolva/Tuercas
+        weight: 1
+      - path: TopeEjes
+        weight: 1
+      - path: TopeEjes/TopeEjeDe_B
+        weight: 1
+      - path: TopeEjes/TopeEjeDe_B/polySurface68
+        weight: 1
+      - path: TopeEjes/TopeEjeDe_B/polySurface69
+        weight: 1
+      - path: TopeEjes/TopeEjeDe_M
+        weight: 1
+      - path: TopeEjes/TopeEjeDe_M/Malos_1_polySurface68
+        weight: 1
+      - path: TopeEjes/TopeEjeDe_M/Malos_1_polySurface69
+        weight: 1
+      - path: TopeEjes/TopeEjeIz_B
+        weight: 1
+      - path: TopeEjes/TopeEjeIz_B/polySurface46
+        weight: 1
+      - path: TopeEjes/TopeEjeIz_B/polySurface64
+        weight: 1
+      - path: TopeEjes/TopeEjeIz_M
+        weight: 1
+      - path: TopeEjes/TopeEjeIz_M/Malos_1_polySurface46
+        weight: 1
+      - path: TopeEjes/TopeEjeIz_M/Malos_1_polySurface64
+        weight: 1
+      - path: Varios
+        weight: 1
+      - path: Varios/Amarillo1
+        weight: 1
+      - path: Varios/Amarillo3
+        weight: 1
+      - path: Varios/Bloqueo
+        weight: 1
+      - path: Varios/C_Pelados
+        weight: 1
+      - path: Varios/Cabina_In
+        weight: 1
+      - path: Varios/Cabina_In/Asiento
+        weight: 1
+      - path: Varios/Cabina_In/BasePedales
+        weight: 1
+      - path: Varios/Cabina_In/Botones_Tab
+        weight: 1
+      - path: Varios/Cabina_In/Control_Manual
+        weight: 1
+      - path: Varios/Cabina_In/Cubierta_Cabina
+        weight: 1
+      - path: Varios/Cabina_In/Marco_Tablero
+        weight: 1
+      - path: Varios/Cabina_In/Salida1
+        weight: 1
+      - path: Varios/Cabina_In/Tablero_Odometro
+        weight: 1
+      - path: Varios/Cadenas
+        weight: 1
+      - path: Varios/CilindInterEmpuje
+        weight: 1
+      - path: Varios/CilindrosEmpuje
+        weight: 1
+      - path: Varios/CilindrosEmpuje/Eje_Interior
+        weight: 1
+      - path: Varios/CilindrosEmpuje/Eje_Interior/ConexBisagra
+        weight: 1
+      - path: Varios/CilindrosEmpuje/Eje_Interior/Pano_1
+        weight: 1
+      - path: Varios/CilindrosEmpuje/Eje_Interior/Pano_2
+        weight: 1
+      - path: Varios/CilindrosEmpuje/Eje_Interior/TapaPano2
+        weight: 1
+      - path: Varios/CilindrosEmpuje/Funda
+        weight: 1
+      - path: Varios/ConecMotorIn_B
+        weight: 1
+      - path: Varios/ConecMotorIn_M
+        weight: 1
+      - path: Varios/Conectors_1
+        weight: 1
+      - path: Varios/Conectors_2
+        weight: 1
+      - path: Varios/Conex_31B
+        weight: 1
+      - path: Varios/ConexHidrauPernos
+        weight: 1
+      - path: Varios/Ejes
+        weight: 1
+      - path: Varios/Estructura1
+        weight: 1
+      - path: Varios/IsoManilla
+        weight: 1
+      - path: Varios/MT_Varios_1
+        weight: 1
+      - path: Varios/MT_Varios_2
+        weight: 1
+      - path: Varios/PerillaFiltro
+        weight: 1
+      - path: Varios/Simbolos
+        weight: 1
+      - path: Varios/Tapa_Iso
+        weight: 1
+      - path: Varios/Tapa_Iso/TapaIso
+        weight: 1
+      - path: Varios/TapaAceite
+        weight: 1
+      - path: Varios/TapaAceite/Cerrojo
+        weight: 1
+      - path: Varios/TapaAceite/Cerrojo/Manilla 1
+        weight: 1
+      - path: Varios/TapaAceite/Cerrojo/Marco
+        weight: 1
+      - path: Varios/TapaAceite/TapaAceite 1
+        weight: 1
+      - path: Varios/TapaAnsu
+        weight: 1
+      - path: Varios/TapaAnsu/Enganche
+        weight: 1
+      - path: Varios/TapaAnsu/Manilla
+        weight: 1
+      - path: Varios/TapaAnsu/TapaAnsu 1
+        weight: 1
+      - path: Varios/TapaIntroDropBox
+        weight: 1
+      - path: Varios/TapaIntroDropBox/DropBox_2
+        weight: 1
+      - path: Varios/TapaIntroDropBox/Tapa
+        weight: 1
+      - path: Varios/TapaIntroDropBox/Tapa/DropBox_1
+        weight: 1
+      - path: Varios/TapaIntroDropBox/Tapa/SimbolDropBox
+        weight: 1
+      - path: Varios/TapaIntroDropBox/Tapa/TapaDropBox
+        weight: 1
+      - path: Varios/TapaMotor
+        weight: 1
+      - path: Varios/TapaMotor/Enganche 1
+        weight: 1
+      - path: Varios/TapaMotor/ManillaPalanca
+        weight: 1
+      - path: Varios/TapaMotor/ManillaPalanca/ManillaPalanca 1
+        weight: 1
+      - path: Varios/TapaMotor/ManillaPalanca/Pernos
+        weight: 1
+      - path: Varios/TapaMotor/ManillaPalanca/TopeTapaMotor
+        weight: 1
+      - path: Varios/TapaMotor/Manillas
+        weight: 1
+      - path: Varios/TapaMotor/TapaMotor 1
+        weight: 1
+      - path: Varios/TapaRadiador
+        weight: 1
+      - path: Varios/TapaRadiador/BarroM
+        weight: 1
+      - path: Varios/TapaRadiador/Conexiones
+        weight: 1
+      - path: Varios/TapaRadiador/Radiador
+        weight: 1
+      - path: Varios/TapaRadiador/TapaRadiador 1
+        weight: 1
+      - path: Varios/TapaRadiador/Tuberia
+        weight: 1
+      - path: Varios/TapaSup1
+        weight: 1
+      - path: Varios/TopeBalde
+        weight: 1
+      - path: Varios/Vidrios_Cabina
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -955,7 +1419,6 @@ ModelImporter:
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -966,10 +1429,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
-    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   humanoidOversampling: 1

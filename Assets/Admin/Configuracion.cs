@@ -117,7 +117,9 @@ public class Configuracion : MonoBehaviour {
     public int CheckIndObs;
     public int ResultadoCheckIndObs;
     public int CheckLucGen;
-    public int ResultadoCheckLucGen;
+	public int ResultadoCheckLucGen;
+	public int CheckFug;
+	public int ResultadoCheckFug;
     public int CheckLimPar;
     public int ResultadoCheckLimPar;
     public int CheckAirAco;
@@ -181,9 +183,9 @@ public class Configuracion : MonoBehaviour {
     public int CheckIndObs2;
     public int ResultadoCheckIndObs2;
     public int CheckLucGen2;
-    public int ResultadoCheckLucGen2;
-    public int CheckFug2;
-    public int ResultadoCheckFug2;
+	public int ResultadoCheckLucGen2;
+	public int CheckFug2;
+	public int ResultadoCheckFug2;
     public int CheckLimPar2;
     public int ResultadoCheckLimPar2;
     public int CheckAirAco2;
@@ -224,7 +226,7 @@ public class Configuracion : MonoBehaviour {
     public int ResultadoCheckPabCheFir2;
 
     public int ResultadoNumPreguntasContestadas;
-    //public int ResultadoOrdenEjecTiempo;
+    public int ResultadoOrdenEjecTiempo;
     public int ResultadoPuntoPartidaTiempo;
 
     public ArrayList vuelta = new ArrayList();
@@ -463,7 +465,7 @@ public class Configuracion : MonoBehaviour {
     form.AddField("CantCamion", ResultadoCantidadCamion); form.AddField("Traslado", ResultadoTraslado); form.AddField("CantVueltas", ResultadoVueltasRealizadas); form.AddField("TerminoFaena", ResultadoTerminoFaena);
     form.AddField("idAlumno", alumno);*/
 
-    if (NumeroModulo == "4" || NumeroModulo == "16" || NumeroModulo == "17" || NumeroModulo == "18")
+    if (NumeroModulo == "4" || NumeroModulo == "6" || NumeroModulo == "7")
     {
         form.AddField("ResultadoCheckNivPet", ResultadoCheckNivPet);
         form.AddField("ResultadoCheckNivAceMot", ResultadoCheckNivAceMot);
