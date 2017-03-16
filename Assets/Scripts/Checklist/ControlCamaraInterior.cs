@@ -12,7 +12,7 @@ public class ControlCamaraInterior : MonoBehaviour {
 	bool enfocandoControles = false;
 	bool enfocandoControlesActual = false;
 	public ControlChecklist controlChecklist;
-	
+	ControlTarjetaControladora controlTarjetaControladora;
 	int[] valoresPotenciometro = new int[6];
 
 	//0: freno
@@ -31,6 +31,7 @@ public class ControlCamaraInterior : MonoBehaviour {
 		if (g != null)
 			configuracionControles = g.GetComponent<ConfiguracionControles> ();
 		mensajeInteraccion.gameObject.SetActive (false);
+		controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
 	}
 
 	public void desactivar(){
@@ -44,27 +45,15 @@ public class ControlCamaraInterior : MonoBehaviour {
 		float hor = 0f;
 		float ver = 0f;
 		#if UNITY_EDITOR
-		hor = Input.GetAxis("Horizontal");
-		ver = Input.GetAxis("Vertical");
+		hor = Input.GetAxis("ManubrioEditor");
 		#else
-		hor = ((valoresPotenciometro[2] * 1f) - ((configuracionControles.joystickIzquierdoXRangoMaximo - configuracionControles.joystickIzquierdoXRangoMinimo)/2f)) / ((configuracionControles.joystickIzquierdoXRangoMaximo - configuracionControles.joystickIzquierdoXRangoMinimo) / 2f);
-		ver = ((valoresPotenciometro[3] * 1f) - ((configuracionControles.joystickIzquierdoYRangoMaximo - configuracionControles.joystickIzquierdoYRangoMinimo)/2f)) / ((configuracionControles.joystickIzquierdoYRangoMaximo - configuracionControles.joystickIzquierdoYRangoMinimo) / 2f);
-
-		hor = VariablesGlobales.calcularPresicion(hor);
-		//hor2 = VariablesGlobales.calcularPresicion(hor2);
-		ver = VariablesGlobales.calcularPresicion(ver);
-		//ver2 = VariablesGlobales.calcularPresicion(ver2);
-
-		/*
-		 * hor = Input.GetAxis ("Joy1 Axis 3");
-		//hor2 = Input.GetAxis("Joy1 Axis 2");
-		ver = Input.GetAxis("Joy1 Axis 4");
-		//ver2 = Input.GetAxis("VerticalJoy2");
-		 */
+		//print(Input.GetAxis("Manubrio"));
+		hor = Input.GetAxis("Manubrio");
 		#endif
-		transform.Rotate (Vector3.up, hor * velocidadRotacion * Time.deltaTime, Space.World);
+		ver = controlTarjetaControladora.Retardador() + controlTarjetaControladora.Freno();
+		transform.Rotate (Vector3.up, hor * velocidadRotacion * 3f * Time.deltaTime, Space.World);
 		
-		transform.Rotate (Vector3.right, - ver * velocidadRotacion * Time.deltaTime);
+		transform.Rotate (Vector3.right, - ver * velocidadRotacion * 3f * Time.deltaTime);
 		//Vector3 correccion = new Vector3 (transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0f);
 		//transform. = correccion;
 		enfocandoCabina = false;

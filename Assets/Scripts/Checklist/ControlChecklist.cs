@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class ControlChecklist : MonoBehaviour {
+	ControlTarjetaControladora controlTarjetaControladora;
 	Configuracion configuracion;
 
 	public ChecklistLista checklistLista;
@@ -66,6 +67,12 @@ public class ControlChecklist : MonoBehaviour {
 	public Transform posicionSobreMaquina;
 	bool escaleraHabilitada = false;
 	bool escaleraActivada = false;
+	public TweenRotation[] ansu;
+	bool ansuHabilitada = false;
+	bool ansuActivada = false;
+	public TweenRotation[] motor;
+	bool motorHabilitada = false;
+	bool motorActivada = false;
 
 	public TweenRotation[] puertaHidraulica;
 	bool puertaHidraulicaHabilitada = false;
@@ -147,13 +154,14 @@ public class ControlChecklist : MonoBehaviour {
 	public AudioClip sonidoApagadoMotor;
     public AudioSource audioEncendido;
 
-    public Light[] lucesDelanterasAltas;
-	public Light[] lucesDelanterasBajas;
-	public Light[] lucesTraserasAltas;
+    public Light[] lucesDelanteras;
+	public Light[] lucesCarga;
+	public Light[] lucesTraseras;
 	public Light[] lucesTraserasBajas;
 
 	// Use this for initialization
 	void Start () {
+		controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
 		//Central central = GameObject.FindWithTag ("Central").GetComponent<Central>();
 		camara = transform.FindChild ("Camera").gameObject;
 		//pantallaTactil = controlPantallaTactil.transform.parent.parent.parent.gameObject;
@@ -386,6 +394,22 @@ public class ControlChecklist : MonoBehaviour {
 		print ("deshabilitar escalera");
 		escaleraHabilitada = false;
 	}
+	public void habilitarAnsu(){
+		print ("habilitar escalera");
+		ansuHabilitada = true;
+	}
+	public void deshabilitarAnsu(){
+		print ("deshabilitar escalera");
+		ansuHabilitada = false;
+	}
+	public void habilitarMotor(){
+		print ("habilitar escalera");
+		motorHabilitada = true;
+	}
+	public void deshabilitarMotor(){
+		print ("deshabilitar escalera");
+		motorHabilitada = false;
+	}
 	public void habilitarAceite(){
 		print ("habilitar aceite");
 		puertaAceiteHabilitada = true;
@@ -420,6 +444,18 @@ public class ControlChecklist : MonoBehaviour {
 		puertaAceiteActivada = !puertaAceiteActivada;
 		foreach (TweenRotation t in puertaAceite) {
 			t.Play(puertaAceiteActivada);
+		}
+	}
+	public void abrirAnsu(){
+		ansuActivada = !ansuActivada;
+		foreach (TweenRotation t in ansu) {
+			t.Play(ansuActivada);
+		}
+	}
+	public void abrirMotor(){
+		motorActivada = !motorActivada;
+		foreach (TweenRotation t in motor) {
+			t.Play(motorActivada);
 		}
 	}
 
@@ -486,19 +522,19 @@ public class ControlChecklist : MonoBehaviour {
 	public void lucesAltasPala(bool activar){
 		print ("luces altas pala " + activa);
 		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) {
-			foreach (Light l in lucesDelanterasAltas)
+			foreach (Light l in lucesDelanteras)
 				l.gameObject.SetActive (activar);
 		}
 	}
 	public void lucesAltasMotor(bool activar){
 		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) {
-			foreach (Light l in lucesTraserasAltas)
+			foreach (Light l in lucesTraseras)
 				l.gameObject.SetActive (activar);
 		}
 	}
 	public void lucesBajasPala(bool activar){
 		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) {
-			foreach (Light l in lucesDelanterasBajas)
+			foreach (Light l in lucesCarga)
 				l.gameObject.SetActive (activar);
 		}
 	}
@@ -609,73 +645,113 @@ public class ControlChecklist : MonoBehaviour {
 			controlPantallaTactil.setOp3OperadorConvert ("0.0%");
 			controlPantallaTactil.setOp4OperadorConvert ("0");
 		}*/
-		/*
-		if(indice == configuracionControles.idBotonLucesAltasDelanteras || indice == configuracionControles.idJIzquierdoBotonSupIzq){
+
+		if(controlTarjetaControladora.ControlLucesDelanteras() == 1 ){
 			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)
-			if(lucesDelanterasAltas.Length > 0){
-				lucesAltasPala(!lucesDelanterasAltas[0].gameObject.activeSelf);
-				lectorControles.OutCmd(byte.Parse("" + configuracionControles.idLedLucesAltasDelanteras), lucesDelanterasAltas[0].gameObject.activeSelf);
+			if(lucesDelanteras.Length > 0){
+				lucesAltasPala(!lucesDelanteras[0].gameObject.activeSelf);
+				lectorControles.OutCmd(byte.Parse("" + configuracionControles.idLedLucesAltasDelanteras), lucesDelanteras[0].gameObject.activeSelf);
 			}
 
 		}
-		if (indice == configuracionControles.idBotonLucesAltasTraseras || indice == configuracionControles.idJIzquierdoBotonSupDer) {
+		if (controlTarjetaControladora.ControlLucesTraseras() == 1) {
 			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)
-			if (lucesTraserasAltas.Length > 0){
-				lucesAltasMotor (!lucesTraserasAltas [0].gameObject.activeSelf);
-				lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesAltasTraseras), lucesTraserasAltas [0].gameObject.activeSelf);
+			if (lucesTraseras.Length > 0){
+				lucesAltasMotor (!lucesTraseras [0].gameObject.activeSelf);
+				lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesAltasTraseras), lucesTraseras [0].gameObject.activeSelf);
 			}
 		}
-		if(indice == configuracionControles.idBotonLucesBajasDelanteras || indice == configuracionControles.idJIzquierdoBotonInfIzq){
+		if(controlTarjetaControladora.ControlLucesCarga() == 1){
 			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)
-			if(lucesDelanterasBajas.Length > 0){
-				lucesBajasPala(!lucesDelanterasBajas[0].gameObject.activeSelf);
-				lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesBajasDelanteras), lucesDelanterasBajas [0].gameObject.activeSelf);
+			if(lucesCarga.Length > 0){
+				lucesBajasPala(!lucesCarga[0].gameObject.activeSelf);
+				lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesBajasDelanteras), lucesCarga [0].gameObject.activeSelf);
 			}
 		}
-		if(indice == configuracionControles.idBotonLucesBajasTraseras || indice == configuracionControles.idJIzquierdoBotonInfDer){
-			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)
-			if(lucesTraserasBajas.Length > 0){
-				lucesBajasMotor(!lucesTraserasBajas[0].gameObject.activeSelf);
-				lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesBajasTraseras), lucesTraserasBajas [0].gameObject.activeSelf);
+		float c = Input.GetAxis("Cambio");
+		int cambioActual = 0;
+		if (c > 0.9f)
+		{
+			cambioActual = 1;
+		}
+		else
+		{
+			if(c > 0.6f)
+			{
+				cambioActual = 2;
+			}
+			else
+			{
+				if (c > 0.1f)
+				{
+					cambioActual = 3;
+				}
+				else
+				{
+					if (c > -0.3f)
+					{
+						cambioActual = 4;
+					}
+					else
+					{
+						if (c > -0.7f)
+						{
+							cambioActual = 0;
+						}
+					}
+				}
 			}
 		}
-		if(indice == configuracionControles.idJDerechoBotonSupIzq){
-			if (estado != estadoChequeo.revisionControles && estado != estadoChequeo.revisionPanel) {
-				if(listaActiva && checklistLista.listaSelec == 0) activarLista(false);
-				else{
+		print("cambio " + cambioActual);
+
+		if(cambioActual == 1){
+			//if (estado != estadoChequeo.revisionControles && estado != estadoChequeo.revisionPanel) {
+				//if(listaActiva && checklistLista.listaSelec == 0) activarLista(false);
+				//else{
 					activarLista(true);
 					verLista1();
-				}
-			}
+				//}
+				//}
 		}
-		if (indice == configuracionControles.idJDerechoBotonInfIzq) {
-			if (estado != estadoChequeo.revisionControles && estado != estadoChequeo.revisionPanel) {
-				if(listaActiva && checklistLista.listaSelec == 1) activarLista(false);
-				else{
+		if (cambioActual == 2) {
+			//if (estado != estadoChequeo.revisionControles && estado != estadoChequeo.revisionPanel) {
+				//if(listaActiva && checklistLista.listaSelec == 1) activarLista(false);
+				//else{
 					activarLista(true);
 					verLista2();
-				}
-			}
+				//}
+				//}
 		}
-		if (indice == configuracionControles.idJDerechoBotonSupDer) {
-			if (estado != estadoChequeo.revisionControles && estado != estadoChequeo.revisionPanel) {
-				if(listaActiva && checklistLista.listaSelec == 2) activarLista(false);
-				else{
+		if (cambioActual == 3) {
+			//if (estado != estadoChequeo.revisionControles && estado != estadoChequeo.revisionPanel) {
+				//if(listaActiva && checklistLista.listaSelec == 2) activarLista(false);
+				//else{
 					activarLista(true);
 					verLista3();
-				}
-			}
+				//}
+			//}
 		}
-		if (indice == configuracionControles.idJDerechoBotonInfDer) {
-			if (estado != estadoChequeo.revisionControles && estado != estadoChequeo.revisionPanel) {
+		if (cambioActual == 4) {
+			//if (estado != estadoChequeo.revisionControles && estado != estadoChequeo.revisionPanel) {
 
-				if(listaActiva && checklistLista.listaSelec == 3) activarLista(false);
-				else{
+			//	if(listaActiva && checklistLista.listaSelec == 3) activarLista(false);
+			//	else{
 					activarLista(true);
 					verLista4();
-				}
-			}
-		}*/
+			//	}
+			//}
+		}
+
+		if (cambioActual == 0) {
+			//if (estado != estadoChequeo.revisionControles && estado != estadoChequeo.revisionPanel) {
+
+			//	if(listaActiva && checklistLista.listaSelec == 3) activarLista(false);
+			//	else{
+			activarLista(false);
+			//	}
+			//}
+		}
+
 		if (Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire3")) {
 			if (listaActiva) 
 				return;
@@ -683,6 +759,10 @@ public class ControlChecklist : MonoBehaviour {
 				abrirPuertaHidraulica ();
 			if (puertaAceiteHabilitada)
 				abrirPuertaAceite ();
+			if (ansuHabilitada)
+				abrirAnsu ();
+			if (motorHabilitada)
+				abrirMotor ();
 			if (escaleraHabilitada) {
 				controlUsuarioChecklist.transform.position = posicionSobreMaquina.position;
 				controlUsuarioChecklist.transform.rotation = posicionSobreMaquina.rotation;
@@ -690,6 +770,7 @@ public class ControlChecklist : MonoBehaviour {
 				mensajeInteraccion.gameObject.SetActive(false);
 				controlUsuarioChecklist.enfocandoEscalera = false;
 				controlUsuarioChecklist.enfocandoEscaleraActual = false;
+				escaleraHabilitada = false;
 			}
 			if (puertaCabinaHabilitada && (estado == estadoChequeo.exterior || estado == estadoChequeo.interior) && !checkeandoControles && !checkeandoPanel) {
 				if (estado == estadoChequeo.exterior)

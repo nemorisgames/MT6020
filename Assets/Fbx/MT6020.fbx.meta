@@ -214,6 +214,27 @@ ModelImporter:
     100412: Espejo_B2
     100414: Espejo_B3
     100416: Espejo_B4
+    100418: B 1
+    100420: Basura_M
+    100422: Brazo
+    100424: Brazo 1
+    100426: Espejo_Iz_B1
+    100428: Espejo_Iz_B2
+    100430: Espejo_Iz_M
+    100432: Espejo_Iz_M1
+    100434: FiltroAire_M_1
+    100436: FiltroAire_M_2
+    100438: LimpiaParabrisas
+    100440: LimpiaParabrisas_B
+    100442: LimpiaParabrisas_M
+    100444: M 1
+    100446: PanelChekFire_B
+    100448: PanelChekFire_M
+    100450: PasaM_B
+    100452: PasaM_M
+    100454: Plumilla
+    100456: Plumilla 1
+    100458: Retrovisores
     400000: Amarillo1
     400002: Amarillo3
     400004: Asiento
@@ -423,6 +444,27 @@ ModelImporter:
     400412: Espejo_B2
     400414: Espejo_B3
     400416: Espejo_B4
+    400418: B 1
+    400420: Basura_M
+    400422: Brazo
+    400424: Brazo 1
+    400426: Espejo_Iz_B1
+    400428: Espejo_Iz_B2
+    400430: Espejo_Iz_M
+    400432: Espejo_Iz_M1
+    400434: FiltroAire_M_1
+    400436: FiltroAire_M_2
+    400438: LimpiaParabrisas
+    400440: LimpiaParabrisas_B
+    400442: LimpiaParabrisas_M
+    400444: M 1
+    400446: PanelChekFire_B
+    400448: PanelChekFire_M
+    400450: PasaM_B
+    400452: PasaM_M
+    400454: Plumilla
+    400456: Plumilla 1
+    400458: Retrovisores
     2300000: Amarillo1
     2300002: Amarillo3
     2300004: Asiento
@@ -595,6 +637,19 @@ ModelImporter:
     2300338: Espejo_B2
     2300340: Espejo_B3
     2300342: Espejo_B4
+    2300344: Basura_M
+    2300346: Brazo
+    2300348: Brazo 1
+    2300350: Espejo_Iz_B1
+    2300352: Espejo_Iz_B2
+    2300354: Espejo_Iz_M
+    2300356: Espejo_Iz_M1
+    2300358: FiltroAire_M_1
+    2300360: FiltroAire_M_2
+    2300362: PanelChekFire_B
+    2300364: PanelChekFire_M
+    2300366: Plumilla
+    2300368: Plumilla 1
     3300000: Amarillo1
     3300002: Amarillo3
     3300004: Asiento
@@ -767,6 +822,19 @@ ModelImporter:
     3300338: Espejo_B2
     3300340: Espejo_B3
     3300342: Espejo_B4
+    3300344: Basura_M
+    3300346: Brazo
+    3300348: Brazo 1
+    3300350: Espejo_Iz_B1
+    3300352: Espejo_Iz_B2
+    3300354: Espejo_Iz_M
+    3300356: Espejo_Iz_M1
+    3300358: FiltroAire_M_1
+    3300360: FiltroAire_M_2
+    3300362: PanelChekFire_B
+    3300364: PanelChekFire_M
+    3300366: Plumilla
+    3300368: Plumilla 1
     4300000: TapaIso
     4300002: Asiento
     4300004: Botones_Tab
@@ -939,6 +1007,19 @@ ModelImporter:
     4300338: Espejo_B4
     4300340: Espejo_B2
     4300342: Espejo_B1
+    4300344: Espejo_Iz_M
+    4300346: Espejo_Iz_M1
+    4300348: Espejo_Iz_B2
+    4300350: Espejo_Iz_B1
+    4300352: PanelChekFire_B
+    4300354: PanelChekFire_M
+    4300356: Basura_M
+    4300358: Brazo
+    4300360: Plumilla
+    4300362: Brazo
+    4300364: Plumilla
+    4300366: FiltroAire_M_1
+    4300368: FiltroAire_M_2
     7400000: Take 001
     9500000: //RootNode
   materials:
@@ -966,7 +1047,7 @@ ModelImporter:
       name: Take 001
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 950
+      lastFrame: 1100
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1121,41 +1202,31 @@ ModelImporter:
         weight: 1
       - path: Gomas/GomasVarios/Varios_7
         weight: 1
-      - path: Gomas/GomasVarios/Varios_8
-        weight: 1
       - path: Gomas/GomasVarios/Varios_9
         weight: 1
       - path: Gomas/GomasVarios/Varios_10
         weight: 1
       - path: PasaManos
         weight: 1
-      - path: PasaManos/PasaM_MarcoEspj_B
+      - path: PasaManos/PasaM_B
         weight: 1
-      - path: PasaManos/PasaM_MarcoEspj_B/MarcoEspejo_B1
+      - path: PasaManos/PasaM_B/PasaManos_B1
         weight: 1
-      - path: PasaManos/PasaM_MarcoEspj_B/MarcoEspejo_B2
+      - path: PasaManos/PasaM_B/PasaManos_B2
         weight: 1
-      - path: PasaManos/PasaM_MarcoEspj_B/PasaManos_B1
+      - path: PasaManos/PasaM_B/PasaManos_B3
         weight: 1
-      - path: PasaManos/PasaM_MarcoEspj_B/PasaManos_B2
+      - path: PasaManos/PasaM_B/PasaManos_B4
         weight: 1
-      - path: PasaManos/PasaM_MarcoEspj_B/PasaManos_B3
+      - path: PasaManos/PasaM_M
         weight: 1
-      - path: PasaManos/PasaM_MarcoEspj_B/PasaManos_B4
+      - path: PasaManos/PasaM_M/PasaManos_M1
         weight: 1
-      - path: PasaManos/PasaM_MarcoEspj_M
+      - path: PasaManos/PasaM_M/PasaManos_M2
         weight: 1
-      - path: PasaManos/PasaM_MarcoEspj_M/MarcoEspejo_M1
+      - path: PasaManos/PasaM_M/PasaManos_M3
         weight: 1
-      - path: PasaManos/PasaM_MarcoEspj_M/MarcoEspejo_M2
-        weight: 1
-      - path: PasaManos/PasaM_MarcoEspj_M/PasaManos_M1
-        weight: 1
-      - path: PasaManos/PasaM_MarcoEspj_M/PasaManos_M2
-        weight: 1
-      - path: PasaManos/PasaM_MarcoEspj_M/PasaManos_M3
-        weight: 1
-      - path: PasaManos/PasaM_MarcoEspj_M/PasaManos_M4
+      - path: PasaManos/PasaM_M/PasaManos_M4
         weight: 1
       - path: Puerta
         weight: 1
@@ -1189,27 +1260,49 @@ ModelImporter:
         weight: 1
       - path: RadiadorBarro/RadiadorBarro1
         weight: 1
+      - path: Retrovisores
+        weight: 1
+      - path: Retrovisores/B
+        weight: 1
+      - path: Retrovisores/B/Espejo_Iz_B1
+        weight: 1
+      - path: Retrovisores/B/Espejo_Iz_B2
+        weight: 1
+      - path: Retrovisores/B/MarcoEspejo_B1
+        weight: 1
+      - path: Retrovisores/B/MarcoEspejo_B2
+        weight: 1
+      - path: Retrovisores/M
+        weight: 1
+      - path: Retrovisores/M/Espejo_Iz_M
+        weight: 1
+      - path: Retrovisores/M/Espejo_Iz_M1
+        weight: 1
+      - path: Retrovisores/M/MarcoEspejo_M1
+        weight: 1
+      - path: Retrovisores/M/MarcoEspejo_M2
+        weight: 1
       - path: Ruedas
         weight: 1
-      - path: Ruedas/B
+      - path: Ruedas/B 1
         weight: 1
-      - path: Ruedas/B/Rueda1B
+      - path: Ruedas/B 1/Rueda1B
         weight: 1
-      - path: Ruedas/B/Rueda2B
+      - path: Ruedas/B 1/Rueda2B
         weight: 1
-      - path: Ruedas/B/Rueda3B
+      - path: Ruedas/B 1/Rueda3B
         weight: 1
-      - path: Ruedas/B/Rueda4B
+      - path: Ruedas/B 1/Rueda4B
         weight: 1
-      - path: Ruedas/M
+      - path: Ruedas/M 1
         weight: 1
-      - path: Ruedas/M/Rueda1M
+      - path: Ruedas/M 1/Rueda1M
         weight: 1
-      - path: Ruedas/M/Rueda2M
+      - path: Ruedas/M 1/Rueda2M
         weight: 1
-      - path: Ruedas/M/Rueda3M
+      - path: Ruedas/M 1/Rueda3M
         weight: 1
-      - path: Ruedas/M/Rueda4M
+      - path: Ruedas/M 1/Rueda4M
         weight: 1
       - path: Tolva
         weight: 1
@@ -1267,6 +1360,8 @@ ModelImporter:
         weight: 1
       - path: Varios/Cabina_In/BasePedales
         weight: 1
+      - path: Varios/Cabina_In/Basura_M
+        weight: 1
       - path: Varios/Cabina_In/Botones_Tab
         weight: 1
       - path: Varios/Cabina_In/Control_Manual
@@ -1274,6 +1369,10 @@ ModelImporter:
       - path: Varios/Cabina_In/Cubierta_Cabina
         weight: 1
       - path: Varios/Cabina_In/Marco_Tablero
+        weight: 1
+      - path: Varios/Cabina_In/PanelChekFire_B
+        weight: 1
+      - path: Varios/Cabina_In/PanelChekFire_M
         weight: 1
       - path: Varios/Cabina_In/Salida1
         weight: 1
@@ -1313,7 +1412,25 @@ ModelImporter:
         weight: 1
       - path: Varios/Estructura1
         weight: 1
+      - path: Varios/FiltroAire_M_1
+        weight: 1
+      - path: Varios/FiltroAire_M_2
+        weight: 1
       - path: Varios/IsoManilla
+        weight: 1
+      - path: Varios/LimpiaParabrisas
+        weight: 1
+      - path: Varios/LimpiaParabrisas/LimpiaParabrisas_B
+        weight: 1
+      - path: Varios/LimpiaParabrisas/LimpiaParabrisas_B/Brazo
+        weight: 1
+      - path: Varios/LimpiaParabrisas/LimpiaParabrisas_B/Plumilla
+        weight: 1
+      - path: Varios/LimpiaParabrisas/LimpiaParabrisas_M
+        weight: 1
+      - path: Varios/LimpiaParabrisas/LimpiaParabrisas_M/Brazo 1
+        weight: 1
+      - path: Varios/LimpiaParabrisas/LimpiaParabrisas_M/Plumilla 1
         weight: 1
       - path: Varios/MT_Varios_1
         weight: 1
