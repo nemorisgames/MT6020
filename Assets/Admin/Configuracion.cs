@@ -52,10 +52,10 @@ public class Configuracion : MonoBehaviour {
     public int ResultadoPreguntas;
 	public int ResultadoTiempo;
 	public int ResultadoCheck1;
-	//public int ResultadoRevFunc1;
-	//public int ResultadoRevCab1;
-	//public int ResultadoRevEst1;
-	//public int ResultadoPrevRies1;
+	public int ResultadoRevFunc1;
+	public int ResultadoRevCab1;
+	public int ResultadoRevEst1;
+	public int ResultadoPrevRies1;
 	public int ResultadoCheck2;
 	//public int ResultadoRevFunc2;
 	//public int ResultadoRevCab2;
@@ -230,6 +230,11 @@ public class Configuracion : MonoBehaviour {
     public ArrayList vuelta = new ArrayList();
     public ArrayList cicloCarguio = new ArrayList();
 
+	public GameObject resultadosAdminGO;
+	public GameObject resultadosUserGO;
+	UILabel [] resultadosAdmin;
+	UILabel [] resultadosUser;
+
     // Use this for initialization
     void Start ()
     {
@@ -258,6 +263,9 @@ public class Configuracion : MonoBehaviour {
 
             SceneManager.LoadScene("Login");
         }
+
+		resultadosAdmin = resultadosAdminGO.GetComponentsInChildren<UILabel>();
+		resultadosUser = resultadosUserGO.GetComponentsInChildren<UILabel> ();
 	}
 	
 	// Update is called once per frame
@@ -681,7 +689,23 @@ public class Configuracion : MonoBehaviour {
 		}
 		return 0f;
 	}
+	
+	public void loadLabels(){
+		resultadosAdmin [0].text = ResultadoTiempo.ToString();
+		resultadosUser [0].text = ResultadoTiempo.ToString();
+		resultadosAdmin [2].text = ResultadoRevFunc1.ToString();
+		resultadosUser [2].text = ResultadoRevFunc1.ToString();
+		resultadosAdmin [3].text = ResultadoRevEst1.ToString();
+		resultadosUser [3].text = ResultadoRevEst1.ToString();
+		resultadosAdmin [4].text = ResultadoRevCab1.ToString();
+		resultadosUser [4].text = ResultadoRevCab1.ToString();
+		resultadosAdmin [5].text = ResultadoPrevRies1.ToString();
+		resultadosUser [5].text = ResultadoPrevRies1.ToString();
+	}	
+	
 }
+
+
 
 [System.Serializable]
 public class MatrizDanio{
