@@ -356,7 +356,7 @@ public class Configuracion : MonoBehaviour {
     //public int DescuentoCamioneta;
     public int check1;
     public int check2;
-    /*resultados
+    resultados
     public string Fecha;
     public int ResultadoPreguntasCorta1;
     public int ResultadoRespuestaCorta1;
@@ -369,10 +369,10 @@ public class Configuracion : MonoBehaviour {
     public int ResultadoPreguntas;
     public int ResultadoTiempo;
     public int ResultadoCheck1;
-    //public int ResultadoRevFunc1;
-    //public int ResultadoRevCab1;
-    //public int ResultadoRevEst1;
-    //public int ResultadoPrevRies1;
+    public int ResultadoRevFunc1;
+    public int ResultadoRevCab1;
+    public int ResultadoRevEst1;
+    public int ResultadoPrevRies1;
     public int ResultadoCheck2;
     //public int ResultadoRevFunc2;
     //public int ResultadoRevCab2;
@@ -454,11 +454,25 @@ public class Configuracion : MonoBehaviour {
     form.AddField("ResultadoPreguntasCorta2", ResultadoPreguntasCorta2);
     form.AddField("ResultadoPreguntasCorta3", ResultadoPreguntasCorta3);
     form.AddField("ResultadoPreguntasCorta4", ResultadoPreguntasCorta4);
-    form.AddField("IdNivel", idModulo); form.AddField("PorPreguntas", ResultadoPreguntas); form.AddField("TiempoEmpleado", ResultadoTiempo);
-    form.AddField("Check1", ResultadoCheck1); form.AddField("revFunc1", ResultadoRevFunc1); form.AddField("revEst1", ResultadoRevEst1); form.AddField("revCab1", ResultadoRevCab1);
-    form.AddField("prevRies1", ResultadoPrevRies1); form.AddField("Check2", ResultadoCheck2); form.AddField("revFunc2", ResultadoRevFunc2); form.AddField("revEst2", ResultadoRevEst2);
-    form.AddField("revCab2", ResultadoRevCab2); form.AddField("prevRies2", ResultadoPrevRies2); form.AddField("OrdenEj", ResultadoOrdenEjecucion); form.AddField("MotorPunta", ResultadoMotorPunta);
-    form.AddField("BaldePunta", ResultadoBaldePunta); form.AddField("VueltasCorrectas", ResultadoVueltasCorrectas); form.AddField("EntregaNombrada", ResultadoEntregaNombrada); form.AddField("EntregaNombradaSup", ResultadoEntregaNombradaSup);
+    form.AddField("IdNivel", idModulo);
+    form.AddField("PorPreguntas", ResultadoPreguntas);
+    form.AddField("TiempoEmpleado", ResultadoTiempo);
+    form.AddField("Check1", ResultadoCheck1);
+    form.AddField("revFunc1", ResultadoRevFunc1);
+    form.AddField("revEst1", ResultadoRevEst1);
+    form.AddField("revCab1", ResultadoRevCab1);
+    form.AddField("prevRies1", ResultadoPrevRies1);
+    form.AddField("Check2", ResultadoCheck2);
+    form.AddField("revFunc2", ResultadoRevFunc2);
+    form.AddField("revEst2", ResultadoRevEst2);
+    form.AddField("revCab2", ResultadoRevCab2);
+    form.AddField("prevRies2", ResultadoPrevRies2);
+    form.AddField("OrdenEj", ResultadoOrdenEjecucion);
+    form.AddField("MotorPunta", ResultadoMotorPunta);
+    form.AddField("BaldePunta", ResultadoBaldePunta);
+    form.AddField("VueltasCorrectas", ResultadoVueltasCorrectas); 
+    form.AddField("EntregaNombrada", ResultadoEntregaNombrada); 
+    form.AddField("EntregaNombradaSup", ResultadoEntregaNombradaSup);
 
     form.AddField("TonelajeTotal", ResultadoTonelajeTotal); form.AddField("CaidaMat", ResultadoPorcentajeCaidaMat); form.AddField("CorrectoCarguio", ResultadoCorrectoCargio); form.AddField("Patinaje", ResultadoPatinaje);
     form.AddField("IntMaquina", ResultadoIntMaquina); form.AddField("IntBalde", ResultadoIntTolvaIzq); form.AddField("IntTolvaDer", ResultadoIntTolvaDer); form.AddField("IntMedioDer", ResultadoIntMedioDer);
