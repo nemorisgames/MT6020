@@ -421,11 +421,11 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 
     public void ingresarCabina(bool ingresar)
     {
-        operarioAnimator.gameObject.SetActive(ingresar);
+		if(operarioAnimator != null) operarioAnimator.gameObject.SetActive(ingresar);
         camaraEntradaAnimator.gameObject.SetActive(ingresar);
         if (ingresar)
         {
-            operarioAnimator.SetTrigger("Entrar");
+			if(operarioAnimator != null) operarioAnimator.SetTrigger("Entrar");
             camionAnimator.SetTrigger("Entrada");
             camaraEntradaAnimator.SetTrigger("Entrar");
             print("entrar aqui");
@@ -438,7 +438,8 @@ public class ControlUsuarioChecklist : MonoBehaviour {
     public void isoSwitchEncendidoTotal()
     {
         puertaIsoSwitch.PlayReverse();
-        controlCamion.isoSwitchActivado(controlCamion.estado == ControlCamion.EstadoMaquina.apagadaTotal);
+		controlCamion.isoSwitchActivado(controlCamion.estado == ControlCamion.EstadoMaquina.apagadaTotal);
+		controlChecklist.estadoExcavadoraChecklist = controlCamion.estado;
         //inGame.cambiarEstado(InGame.EstadoSimulacion.EncendidoExterior);
     }
     //se ejecuta cuando la animacion de puerta de switch termina

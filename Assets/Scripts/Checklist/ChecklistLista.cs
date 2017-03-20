@@ -21,6 +21,8 @@ public class ChecklistLista : MonoBehaviour {
 	public int[] respuestas4;
 	public string[] checkLists4;
 
+	public int listaViendo = 0;
+
 	// Use this for initialization
 	void Start () {
 		respuestas1 = new int[checkLists1.Length];
@@ -47,20 +49,32 @@ public class ChecklistLista : MonoBehaviour {
 	}
 
 	public void verLista1(){
+		if (listaViendo == 1)
+			return;
 		resetLista ();
 		crearLista (0);
+		listaViendo = 1;
 	}
 	public void verLista2(){
+		if (listaViendo == 2)
+			return;
 		resetLista ();
 		crearLista (1);
+		listaViendo = 2;
 	}
 	public void verLista3(){
+		if (listaViendo == 3)
+			return;
 		resetLista ();
 		crearLista (2);
+		listaViendo = 3;
 	}
 	public void verLista4(){
+		if (listaViendo == 4)
+			return;
 		resetLista ();
 		crearLista (3);
+		listaViendo = 4;
 	}
 
 	public void guardarRespuestaVerde(int indice){
@@ -82,7 +96,7 @@ public class ChecklistLista : MonoBehaviour {
 	}
 
 	void crearLista(int indice){
-//		print ("crearLista " + indice);
+		print ("crearLista " + indice);
 		listaSelec = indice;
 		tituloLabel.text = titulos [listaSelec];
 		string[] checkLists = null;

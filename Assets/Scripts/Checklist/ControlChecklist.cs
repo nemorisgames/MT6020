@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class ControlChecklist : MonoBehaviour {
 	ControlTarjetaControladora controlTarjetaControladora;
+	public AudioClip sonidoBomba;
 	Configuracion configuracion;
 
 	public ChecklistLista checklistLista;
@@ -108,7 +109,7 @@ public class ControlChecklist : MonoBehaviour {
 	public GameObject instruccionesPantalla;
 
 	public ControlChecklistControles controlChecklistControles;
-	public ControlPantallaTactil controlPantallaTactil;
+	public TableroControl tableroControl;
 
 	GameObject pantallaTactil;
 
@@ -157,14 +158,15 @@ public class ControlChecklist : MonoBehaviour {
     public Light[] lucesDelanteras;
 	public Light[] lucesCarga;
 	public Light[] lucesTraseras;
-	public Light[] lucesTraserasBajas;
+
+	public Animator animatorTolba;
 
 	// Use this for initialization
 	void Start () {
 		controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
 		//Central central = GameObject.FindWithTag ("Central").GetComponent<Central>();
 		camara = transform.FindChild ("Camera").gameObject;
-		//pantallaTactil = controlPantallaTactil.transform.parent.parent.parent.gameObject;
+		//pantallaTactil = tableroControl.transform.parent.parent.parent.gameObject;
 		GameObject g = GameObject.FindGameObjectWithTag ("Configuracion");
 		configuracionControles = GameObject.FindWithTag ("Configuracion").GetComponent<ConfiguracionControles> ();
 		//lectorControles = central.gameObject.GetComponent<LectorControles> ();
@@ -180,7 +182,7 @@ public class ControlChecklist : MonoBehaviour {
 		mensajeInteraccion.text = "";
 	}
 
-	void BotonDown(int indice){
+	/*void BotonDown(int indice){
 		//if (estado == EstadoMaquina.apagadaTotal)
 		//	return;
 		indice = indice + 1;
@@ -192,7 +194,7 @@ public class ControlChecklist : MonoBehaviour {
 				if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida) audioEncendido.Play();
             }
 		}
-	}
+	}*/
 	
 	public void arranque(bool activar){
 		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagadaTotal)
@@ -206,18 +208,18 @@ public class ControlChecklist : MonoBehaviour {
 			lucesAltasPala(false);
 			lucesAltasMotor(false);
 			lucesBajasPala(false);
-			lucesBajasMotor(false);
-			lectorControles.OutCmd(byte.Parse("" + configuracionControles.idLedLucesAltasDelanteras), false);
+			//lucesBajasMotor(false);
+			/*lectorControles.OutCmd (byte.Parse("" + configuracionControles.idLedLucesAltasDelanteras), false);
 			lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesAltasTraseras), false);
 			lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesBajasDelanteras), false);
-			lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesBajasTraseras), false);
+			lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesBajasTraseras), false);*/
 		}
 		print ("arranque" + activar);
 		estadoExcavadoraChecklist = activar?ControlCamion.EstadoMaquina.encendida:ControlCamion.EstadoMaquina.apagada;
 		//enciende leds iniciales
 		//lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedTransmisionAutomatica), true);
-		//controlPantallaTactil.motorEncendido (activar);
-		//controlPantallaTactil.neutro (true);
+		//tableroControl.motorEncendido (activar);
+		//tableroControl.neutro (true);
 	}
 
 	public void arreglarMaquina(){
@@ -231,14 +233,14 @@ public class ControlChecklist : MonoBehaviour {
 				for(int j = 0; j < p.parteMala.Length; j++)
 					p.parteMala[j].SetActive(false);
 		}
-		/*controlPantallaTactil.setPorcentajePetroleo ("90.0");
+		/*tableroControl.setPorcentajePetroleo ("90.0");
 		
-		controlPantallaTactil.setOilTemp ("10.0");
-		controlPantallaTactil.setOp4OperadorConvert ("10.0");
+		tableroControl.setOilTemp ("10.0");
+		tableroControl.setOp4OperadorConvert ("10.0");
 		
-		controlPantallaTactil.setOp4OperadorConvert ("10.0");
+		tableroControl.setOp4OperadorConvert ("10.0");
 
-		controlPantallaTactil.tiempoMotorFuncionando = 0f;*/
+		tableroControl.tiempoMotorFuncionando = 0f;*/
 
 		//iso_switch.PlayReverse ();
 		iso_switch.ResetToBeginning();
@@ -349,12 +351,12 @@ public class ControlChecklist : MonoBehaviour {
 		}
 */
 		
-		/*controlPantallaTactil.setPorcentajePetroleo (partesMaquina [19].danado ? "10.0" : "90.0");
+		/*tableroControl.setPorcentajePetroleo (partesMaquina [19].danado ? "10.0" : "90.0");
 
-		controlPantallaTactil.setOilTemp (partesMaquina [24].danado ? "85.0" : "20.0");
-		controlPantallaTactil.setOp4OperadorConvert (partesMaquina [25].danado ? "20.0" : "35.0");
+		tableroControl.setOilTemp (partesMaquina [24].danado ? "85.0" : "20.0");
+		tableroControl.setOp4OperadorConvert (partesMaquina [25].danado ? "20.0" : "35.0");
 
-		controlPantallaTactil.setOp4OperadorConvert (partesMaquina [26].danado ? "100.0" : "10.0");*/
+		tableroControl.setOp4OperadorConvert (partesMaquina [26].danado ? "100.0" : "10.0");*/
 	}
 
 	public void comenzarTiempo(){
@@ -460,19 +462,19 @@ public class ControlChecklist : MonoBehaviour {
 	}
 
 
-	public void abrirCabina(){
+	/*public void abrirCabina(){
 		puertaCabinaActivada = !puertaCabinaActivada;
 		foreach (TweenRotation t in puertaCabina) {
 			t.Play(puertaCabinaActivada);
 		}
-	}
+	}*/
 
 	public void abrirBrazo(){
 		brazoActivado = !brazoActivado;
 		foreach (TweenRotation t in brazo) {
 			t.Play(brazoActivado);
 		}
-		cilindroBrazo.Play (brazoActivado);
+		if(cilindroBrazo != null) cilindroBrazo.Play (brazoActivado);
 	}
 	
 	public void verLista1(){
@@ -538,11 +540,12 @@ public class ControlChecklist : MonoBehaviour {
 				l.gameObject.SetActive (activar);
 		}
 	}
+	/*
 	public void lucesBajasMotor(bool activar){
 		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) 
 			foreach (Light l in lucesTraserasBajas)
 				l.gameObject.SetActive (activar);
-	}
+	}*/
 
 
 	void BotonUp(int indice){
@@ -563,16 +566,71 @@ public class ControlChecklist : MonoBehaviour {
 	void Update () {
 		if (!activa)
 			return;
-		if (Input.GetKey(KeyCode.Q)) {
-			print ("press lista 4");
-			if (estado != estadoChequeo.revisionControles && estado != estadoChequeo.revisionPanel) {
-				
-				if(listaActiva && checklistLista.listaSelec == 3) activarLista(false);
-				else{
-					activarLista(true);
-					verLista4();
+		if (controlTarjetaControladora.ignicion() == 0)
+		{
+			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)
+			{
+				tiempoEncendido = 0f;
+				arranque(false);
+			}
+		}
+		else
+		{
+			if (controlTarjetaControladora.ignicion() == 1)
+			{
+				if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagada && tiempoEncendido <= 0f)
+				{
+					tiempoEncendido = Time.time + 5f;
+					audioEncendido.loop = true;
+					audioEncendido.clip = sonidoBomba;
+					audioEncendido.Play();
+					//audioRetroceso.clip = Resources.Load("camion") as AudioClip;
+					//if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
+				}
+				else
+				{
+					if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)
+					{
+						tiempoEncendido = 0f;
+						arranque(false);
+					}
 				}
 			}
+			else
+			{
+				if (controlTarjetaControladora.ignicion() == 2)
+				{
+					if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))
+					{
+						tiempoEncendido = 0f;
+						audioEncendido.clip = Resources.Load("camion") as AudioClip;
+						if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida) audioEncendido.Play();
+						arranque(true);
+					}
+				}
+			}
+		}
+		if (Input.GetButtonDown("Encendido"))
+		{
+			if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal)
+			{
+				tiempoEncendido = Time.time + 5f;
+				//audioRetroceso.clip = Resources.Load("camion") as AudioClip;
+				//if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
+			}
+		}
+		if (Input.GetButtonUp("Encendido"))
+		{
+			if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))
+			{
+				tiempoEncendido = 0f;
+				arranque(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagada);
+
+				//audioEncendido.clip = Resources.Load("camion") as AudioClip;
+				if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida) audioEncendido.Play();
+			}
+			//audioRetroceso.Stop();
+			//if ((central.estado == Central.EstadoSimulacion.Finalizando || central.estado == Central.EstadoSimulacion.ApagadoExterior) && estado == EstadoMaquina.encendida) mensajeApagar.Toggle();
 		}
 		if (tiempoFaenaLabel != null) {
 			tiempoFaenaLabel.text = "" + calcularReloj (configuracion.TiempoFaena * 60f + tiempo * 1f - Time.timeSinceLevelLoad);
@@ -612,64 +670,92 @@ public class ControlChecklist : MonoBehaviour {
 			if (sistemaAnsul != null)
 				sistemaAnsul.SetActive (sistemaAnsulActivada);
 		}
-		/*if (partesMaquina [13].danado) {
+		if (partesMaquina [14].danado) {
 			//manometros dañados
 		} else {
 			if(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida){
-				controlPantallaTactil.setOp1menuD2("" + Random.Range(790, 810));
-				controlPantallaTactil.setOp2menuD2("" + Random.Range(60, 64));
-				controlPantallaTactil.setOp3menuD2(partesMaquina [20].danado ? "0.0" : "2.5");
+				tableroControl.setPetroleo(partesMaquina [0].danado ? 0f : 90f);
+				tableroControl.setTemperatura(Random.Range(47f, 50f));
+				tableroControl.setRevoluciones(Random.Range(10f, 12f));
 			}
 			else{
-				controlPantallaTactil.setOp1menuD2("0.0");
-				controlPantallaTactil.setOp2menuD2("0.0");
-				controlPantallaTactil.setOp3menuD2("0.0");
+				tableroControl.setTemperatura(0f);
+				tableroControl.setPetroleo(0f);
+				tableroControl.setRevoluciones(0f);
 			}
 		}
+		//nivel aceite transmision
+		if(estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida)
+			partesMaquina [6].parteBuena[0].transform.parent.gameObject.SetActive(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
+		if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida) {
+			float brazo = 0f;
+			#if UNITY_EDITOR
+			brazo = Input.GetAxis("ControlTolbaEditor");
+			#else
+			print("Tolba: " + Input.GetAxis("ControlTolba") + ", Cambio: " + Input.GetAxis("Cambio"));
+			brazo = Input.GetAxis("ControlTolba");
+			#endif
+			if(animatorTolba != null) animatorTolba.SetFloat ("multiplicadorVelocidadBalde", Mathf.Clamp (brazo, -1f, 1f));
+		}
+		/*
 		if(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida){
-			controlPantallaTactil.setOp1menuD3 ("" + Random.Range(43, 45));
-			controlPantallaTactil.setOp2menuD3 ("" + Random.Range(18, 19));
-			//controlPantallaTactil.setOp3menuD3 ("" + Random.Range(100, 102));
+			tableroControl.setOp1menuD3 ("" + Random.Range(43, 45));
+			tableroControl.setOp2menuD3 ("" + Random.Range(18, 19));
+			//tableroControl.setOp3menuD3 ("" + Random.Range(100, 102));
 
-			controlPantallaTactil.setOp1OperadorConvert ("799");
-			controlPantallaTactil.setOp2OperadorConvert ("62");
-			controlPantallaTactil.setOp3OperadorConvert ("14.0%");
-			controlPantallaTactil.setOp4OperadorConvert ("54.0");
+			tableroControl.setOp1OperadorConvert ("799");
+			tableroControl.setOp2OperadorConvert ("62");
+			tableroControl.setOp3OperadorConvert ("14.0%");
+			tableroControl.setOp4OperadorConvert ("54.0");
 		}
 		else{
-			controlPantallaTactil.setOp1menuD3 ("0.0");
-			controlPantallaTactil.setOp2menuD3 ("0.0");
-			//controlPantallaTactil.setOp3menuD3 ("0.0");
-			controlPantallaTactil.setOp1OperadorConvert ("0");
-			controlPantallaTactil.setOp2OperadorConvert ("0");
-			controlPantallaTactil.setOp3OperadorConvert ("0.0%");
-			controlPantallaTactil.setOp4OperadorConvert ("0");
+			tableroControl.setOp1menuD3 ("0.0");
+			tableroControl.setOp2menuD3 ("0.0");
+			//tableroControl.setOp3menuD3 ("0.0");
+			tableroControl.setOp1OperadorConvert ("0");
+			tableroControl.setOp2OperadorConvert ("0");
+			tableroControl.setOp3OperadorConvert ("0.0%");
+			tableroControl.setOp4OperadorConvert ("0");
 		}*/
-
-		if(controlTarjetaControladora.ControlLucesDelanteras() == 1 ){
-			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)
+		//if(controlTarjetaControladora.ControlLucesDelanteras() == 1 ){
+		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida){
 			if(lucesDelanteras.Length > 0){
-				lucesAltasPala(!lucesDelanteras[0].gameObject.activeSelf);
-				lectorControles.OutCmd(byte.Parse("" + configuracionControles.idLedLucesAltasDelanteras), lucesDelanteras[0].gameObject.activeSelf);
+				lucesAltasPala(controlTarjetaControladora.ControlLucesDelanteras() == 1);
+				//lectorControles.OutCmd(byte.Parse("" + configuracionControles.idLedLucesAltasDelanteras), lucesDelanteras[0].gameObject.activeSelf);
 			}
-
+			if (lucesTraseras.Length > 0){
+				lucesAltasMotor (controlTarjetaControladora.ControlLucesTraseras() == 1);
+				//lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesAltasTraseras), lucesTraseras [0].gameObject.activeSelf);
+			}
+			if(lucesCarga.Length > 0){
+				lucesBajasPala(controlTarjetaControladora.ControlLucesCarga() == 1);
+				//lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesBajasDelanteras), lucesCarga [0].gameObject.activeSelf);
+			}
 		}
 		if (controlTarjetaControladora.ControlLucesTraseras() == 1) {
 			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)
 			if (lucesTraseras.Length > 0){
 				lucesAltasMotor (!lucesTraseras [0].gameObject.activeSelf);
-				lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesAltasTraseras), lucesTraseras [0].gameObject.activeSelf);
+				//lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesAltasTraseras), lucesTraseras [0].gameObject.activeSelf);
 			}
 		}
 		if(controlTarjetaControladora.ControlLucesCarga() == 1){
 			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)
 			if(lucesCarga.Length > 0){
 				lucesBajasPala(!lucesCarga[0].gameObject.activeSelf);
-				lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesBajasDelanteras), lucesCarga [0].gameObject.activeSelf);
+				//lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesBajasDelanteras), lucesCarga [0].gameObject.activeSelf);
 			}
 		}
+
 		float c = Input.GetAxis("Cambio");
 		int cambioActual = 0;
+		#if UNITY_EDITOR
+		if(Input.GetKey(KeyCode.Alpha1)) cambioActual = 1;
+		if(Input.GetKey(KeyCode.Alpha2)) cambioActual = 2;
+		if(Input.GetKey(KeyCode.Alpha3)) cambioActual = 3;
+		if(Input.GetKey(KeyCode.Alpha4)) cambioActual = 4;
+
+		#else
 		if (c > 0.9f)
 		{
 			cambioActual = 1;
@@ -702,6 +788,7 @@ public class ControlChecklist : MonoBehaviour {
 				}
 			}
 		}
+		#endif
 		print("cambio " + cambioActual);
 
 		if(cambioActual == 1){
@@ -873,12 +960,13 @@ public class ControlChecklist : MonoBehaviour {
 	}
 
 	public void terminarSimulacion(bool mostrarPanelFinal){
+		GameObject.FindGameObjectWithTag ("InGame").GetComponent<InGame> ().estado = InGame.EstadoSimulacion.Finalizando;
 		activarLista (false);
 		arranque (false);
 		puertaHidraulicaActivada = true;
 		abrirPuertaHidraulica();
 		puertaCabinaActivada = true;
-		abrirCabina ();
+		//abrirCabina ();
 		brazoActivado = true;
 		abrirBrazo ();
 		for (int i = 0; i < partesMaquina.Length; i++) {
@@ -933,14 +1021,23 @@ public class ControlChecklist : MonoBehaviour {
 		resultadoSeccion4 = (int)((resultadoSeccion4 / (1f * checklistLista.respuestas4.Length)) * 100);
 		resultadoTotal = (int)((resultadoSeccion1 + resultadoSeccion2 + resultadoSeccion3 + resultadoSeccion4 ) / 4);
 
-		resultadoSeccion1Label.text = resultadoSeccion1 + "%";
+		/*resultadoSeccion1Label.text = resultadoSeccion1 + "%";
 		resultadoSeccion2Label.text = resultadoSeccion2 + "%";
 		resultadoSeccion3Label.text = resultadoSeccion3 + "%";
 		resultadoSeccion4Label.text = resultadoSeccion4 + "%";
 		
-		resultadoTotalLabel.text = resultadoTotal + "%";
+		resultadoTotalLabel.text = resultadoTotal + "%";*/
+
 		tiempo = (int)(Time.timeSinceLevelLoad - tiempo);
-		resultadoTiempoLabel.text = Configuracion.calcularReloj(tiempo); 
+
+		configuracion.ResultadoRevFunc1 = (int)resultadoSeccion1;
+		configuracion.ResultadoRevCab1 = (int)resultadoSeccion2;
+		configuracion.ResultadoRevEst1 = (int)resultadoSeccion3;
+		configuracion.ResultadoPrevRies1 = (int)resultadoSeccion4;
+		configuracion.ResultadoTiempo = (int)tiempo;
+		configuracion.loadLabels ();
+
+		//resultadoTiempoLabel.text = Configuracion.calcularReloj(tiempo); 
 		InGame central = GameObject.FindWithTag ("InGame").GetComponent<InGame> ();
 		if(resultadoRepeticionesLabel != null)resultadoRepeticionesLabel.text = "" + central.repeticiones;
 

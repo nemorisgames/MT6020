@@ -9,9 +9,13 @@ public class ControlMouseOperador : MonoBehaviour {
 	int[] valoresPotenciometro = new int[6];
 
 	ConfiguracionControles configuracionControles;
+	ControlTarjetaControladora controlTarjetaControladora;
+
+	public UISprite mouseSprite;
 	// Use this for initialization
 	void Start () {
-		mousePosition2 = new Vector2 (Screen.width * 7f / 10f, Screen.height / 2f);
+		mousePosition2 = new Vector2 (Screen.width / 2f, Screen.height / 2f);
+		controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
 
 		configuracionControles = GameObject.FindWithTag ("Configuracion").GetComponent<ConfiguracionControles> ();
 	}
@@ -30,15 +34,15 @@ public class ControlMouseOperador : MonoBehaviour {
 		valoresPotenciometro[4] = valores[configuracionControles.idJoystickDerechoX];
 		valoresPotenciometro[5] = valores[configuracionControles.idJoystickDerechoY];
 	}
-
+	/*
 	void BotonUp(int indice){
 		if (!this.enabled)
 			return;
 		indice = indice + 1;
 		//print ("recibido " + indice);
-		if(configuracionControles == null) configuracionControles = GameObject.FindWithTag ("Configuracion").GetComponent<ConfiguracionControles> ();
-		if(indice == configuracionControles.idJDerechoGatillo){
-			//print ("recibo");
+		//if(configuracionControles == null) configuracionControles = GameObject.FindWithTag ("Configuracion").GetComponent<ConfiguracionControles> ();
+		if(controlTarjetaControladora.BotonAccion() == 1){//indice == configuracionControles.idJDerechoGatillo){
+			print ("recibo");
 			Ray ray = camara.ScreenPointToRay(new Vector2(mousePosition2.x, Screen.height - mousePosition2.y));
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit, 1000000)){
@@ -58,9 +62,9 @@ public class ControlMouseOperador : MonoBehaviour {
 			}
 			return;
 		}
-	}
+	}*/
 
-	void OnGUI(){
+	/*void OnGUI(){
 		float hor = 0f;
 		float ver = 0f;
 		#if UNITY_EDITOR
@@ -73,11 +77,18 @@ public class ControlMouseOperador : MonoBehaviour {
 		ver = VariablesGlobales.calcularPresicion(ver);
 		#endif
 		mousePosition2 += new Vector2 (16f * hor, - 16f * ver);
-		mousePosition2 = new Vector2 (Mathf.Clamp (mousePosition2.x, Screen.width * 6 / 10, Screen.width * 8 / 10), Mathf.Clamp (mousePosition2.y, 0, Screen.height));
+		mousePosition2 = new Vector2 (Mathf.Clamp (mousePosition2.x, 0f, Screen.width), Mathf.Clamp (mousePosition2.y, 0, Screen.height));
 		GUI.Box (new Rect(mousePosition2.x, mousePosition2.y, 12, 24), cursor, GUIStyle.none);
 
 		//GUI.Box(new Rect(Screen.width * 7f / 10f, 0f, 300f, 200f), "freno: " + valoresPotenciometro[0] + "\n" + "acelerador: " + valoresPotenciometro[1]);
 		//GUI.Box (new Rect (Screen.width * 7f / 10f, Screen.height / 2f, 400f, 300f), "mousex: " + hor + "\n" + "mousey: " + ver + "\n" + valoresPotenciometro[0] + "\n" + valoresPotenciometro[1] + "\n" + valoresPotenciometro[2] + "\n" + valoresPotenciometro[3] + "\n" + valoresPotenciometro[4] + "\n" + valoresPotenciometro[5]);
+	}*/
+
+	void OnEnable(){
+		mouseSprite.gameObject.SetActive (true);
+	}
+	void OnDisable(){
+		mouseSprite.gameObject.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -89,5 +100,40 @@ public class ControlMouseOperador : MonoBehaviour {
 		//if (Input.GetKeyUp(KeyCode.JoystickButton1)) {
 
 		//}
+		float hor = 0f;
+		float ver = 0f;
+		#if UNITY_EDITOR
+		hor = Input.GetAxis("ManubrioEditor");
+		ver = controlTarjetaControladora.Retardador() + controlTarjetaControladora.Freno();
+		#else
+		//print(Input.GetAxis("Manubrio"));
+		hor = Input.GetAxis("Manubrio");
+		ver = controlTarjetaControladora.Retardador() + controlTarjetaControladora.Freno();
+		#endif
+		mousePosition2 += new Vector2 (16f * hor, - 16f * ver);
+		mousePosition2 = new Vector2 (Mathf.Clamp (mousePosition2.x, 0f, Screen.width), Mathf.Clamp (mousePosition2.y, 0, Screen.height));
+		mouseSprite.transform.localPosition = new Vector2(mousePosition2.x - Screen.width / 2f, Screen.height / 2f - mousePosition2.y);
+
+		if(controlTarjetaControladora.BotonAccion() == 0){//indice == configuracionControles.idJDerechoGatillo){
+			print ("recibo");
+			Ray ray = camara.ScreenPointToRay(new Vector2(mousePosition2.x, Screen.height - mousePosition2.y));
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit, 1000000)){
+				//print ("click " + hit.transform.gameObject.name);
+				if(hit.transform.gameObject.activeSelf)
+					hit.transform.gameObject.SendMessage("OnClick", SendMessageOptions.DontRequireReceiver);
+				//Debug.DrawLine(ray.origin, hit.point);
+			}
+			if(camaraSecundaria != null){
+				ray = camaraSecundaria.ScreenPointToRay(new Vector2(mousePosition2.x, Screen.height - mousePosition2.y));
+				if (Physics.Raycast(ray, out hit, 1000000)){
+					//print ("click " + hit.transform.gameObject.name);
+					if(hit.transform.gameObject.activeSelf)
+						hit.transform.gameObject.SendMessage("OnClick", SendMessageOptions.DontRequireReceiver);
+					//Debug.DrawLine(ray.origin, hit.point);
+				}
+			}
+			return;
+		}
 	}
 }
