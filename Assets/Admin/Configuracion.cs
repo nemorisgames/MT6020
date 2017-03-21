@@ -264,8 +264,10 @@ public class Configuracion : MonoBehaviour {
             SceneManager.LoadScene("Login");
         }
 
-		resultadosAdmin = resultadosAdminGO.GetComponentsInChildren<UILabel>();
-		resultadosUser = resultadosUserGO.GetComponentsInChildren<UILabel> ();
+		if (NumeroModulo == "Módulo 4") {
+			resultadosAdmin = resultadosAdminGO.GetComponentsInChildren<UILabel> ();
+			resultadosUser = resultadosUserGO.GetComponentsInChildren<UILabel> ();
+		}
 	}
 	
 	// Update is called once per frame
