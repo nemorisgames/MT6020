@@ -94,8 +94,8 @@ public class vincular : MonoBehaviour {
 			conf.TonelajeTotal=int.Parse (ret[19]);
 			conf.CaidaPermitida=int.Parse (ret[20]);
 			conf.DescuentoChoque=int.Parse (ret[21]);
-			conf.check1=int.Parse (ret[22]);
-			conf.check2=int.Parse (ret[23]);
+			if (ret[22] != "")conf.check1=int.Parse (ret[22]);
+			if (ret[23] != "")conf.check2=int.Parse (ret[23]);
 			conf.DescuentoTunel=int.Parse (ret[24]);
             /*
 			conf.DescuentoCamion=int.Parse (ret[25]);
