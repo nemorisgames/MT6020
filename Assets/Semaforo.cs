@@ -27,7 +27,7 @@ public class Semaforo : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		if (other.gameObject.transform.root.CompareTag("semaforo_dummy") && !active) {
+		if ((other.gameObject.transform.root.CompareTag("semaforo_dummy")||other.gameObject.transform.root.CompareTag("Maquina")) && !active) {
 			semaforo.material = stop;
 			dummy.SetActive (true);
 			StartCoroutine (SemaforoRojo ());
