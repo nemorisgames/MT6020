@@ -4,11 +4,14 @@ using System.Collections;
 public class TableroControl : MonoBehaviour {
     public GameObject[] indicadoresSuperiores;
 
-	public Transform agujaTemperatura;
-	public Transform agujaRevoluciones;
-	public Transform agujaPetroleo;
+	Transform agujaTemperatura;
+	Transform agujaRevoluciones;
+	Transform agujaPetroleo;
 	// Use this for initialization
 	void Start () {
+		agujaTemperatura = transform.FindChild ("IndicadorTemperatura");
+		agujaRevoluciones = transform.FindChild ("IndicadorRevoluciones");
+		agujaPetroleo = transform.FindChild ("IndicadorPetroleo");
 	}
 
     public void encenderReversa(bool encender){ indicadoresSuperiores[13].SetActive(!encender); }
@@ -21,7 +24,7 @@ public class TableroControl : MonoBehaviour {
 		agujaPetroleo.rotation = Quaternion.Euler (0f, 0f, -179f * porcentaje / 100f);
 	}
 	public void setRevoluciones(float porcentaje){
-		agujaRevoluciones.rotation = Quaternion.Euler (0f, 0f, -179f * porcentaje / 100f);
+		agujaRevoluciones.rotation = Quaternion.Euler (0f, 0f, 15f -210f * porcentaje / 100f);
 	}
 	public void setTemperatura(float porcentaje){
 		agujaTemperatura.rotation = Quaternion.Euler (0f, 0f, -179f * porcentaje / 100f);

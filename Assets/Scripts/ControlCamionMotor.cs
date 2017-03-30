@@ -36,6 +36,7 @@ public class ControlCamionMotor : MonoBehaviour {
     public AudioClip sonidoEncendido;
     public AudioClip sonidoRetroceso;
     public AudioClip sonidoPitido;
+
     /*
 
     public AudioClip sonidoClaxon;
@@ -135,14 +136,7 @@ public class ControlCamionMotor : MonoBehaviour {
         float throttle = controlTarjetaControladora.Acelerador();
 		float brake = controlTarjetaControladora.Freno();
         float retardador = controlTarjetaControladora.Retardador();
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            retroceso = !retroceso;
-            camaraMedicionAdelante.SetActive(!camaraMedicionAdelante.activeSelf);
-            camaraMedicionAtras.SetActive(!camaraMedicionAtras.activeSelf);
-        }
-        ingame.tableroControl.encenderReversa(retroceso);
-        ingame.tableroControl.encenderAdelante(!retroceso);
+        
         //print(brake + " " + retardador);
 #if UNITY_EDITOR
         /*throttle = ((valoresPotenciometro[0] * 1f) - 310f) / 520f;
@@ -242,6 +236,14 @@ public class ControlCamionMotor : MonoBehaviour {
             }
             print("cambio " + cambioActual);
         }
+
+		if (Input.GetKeyUp(KeyCode.Q) || factorRetroceso == -1)
+		{
+			retroceso = !retroceso;
+			camaraMedicionAdelante.SetActive(!camaraMedicionAdelante.activeSelf);
+			camaraMedicionAtras.SetActive(!camaraMedicionAtras.activeSelf);
+		}
+
         //print(velocidadActual / ((velocidades[cambioActual] * 100000f) + 1f));
 		audioSource.pitch = Mathf.Clamp (1f + velocidadActual / (velocidades[cambioActual] * 100000f + 1f), 1f, 1.5f);
 
@@ -269,6 +271,11 @@ public class ControlCamionMotor : MonoBehaviour {
 			}
 
 
+		ingame.tableroControl.encenderReversa(retroceso);
+		ingame.tableroControl.encenderAdelante(!retroceso);
+		ingame.tableroControl.setPetroleo(90f);
+		ingame.tableroControl.setRevoluciones(throttle * 100f);
+		ingame.tableroControl.setTemperatura(20f);
         //print(GetComponent<Rigidbody>().velocity.magnitude);
     }
     
@@ -285,5 +292,11 @@ public class ControlCamionMotor : MonoBehaviour {
         //print("cambio " + cambioActual);
         //transform.parent.gameObject.SendMessage("cambio" + (cambioActual), true);
     }
+
+	void OnGUI(){
+		GUI.Label (new Rect(10f, 200f, 200f, 20f), "Cambio " + Input.GetAxis("Cambio"));
+		GUI.Label (new Rect(10f, 220f, 200f, 20f), "Freno " + controlTarjetaControladora.Freno());
+		GUI.Label (new Rect(10f, 240f, 200f, 20f), "Retardador " + controlTarjetaControladora.Retardador());
+	}
 
 }
