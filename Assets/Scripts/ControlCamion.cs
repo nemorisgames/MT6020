@@ -620,15 +620,15 @@ public class ControlCamion : MonoBehaviour {
         {
             estado = EstadoMaquina.apagada;
             controlCamionMotor.estado = EstadoMaquina.apagada;
-            print("iso activado");
+            //print("iso activado");
         }
         else
         {
             estado = EstadoMaquina.apagadaTotal;
             controlCamionMotor.estado = EstadoMaquina.apagadaTotal;
-            print("iso desactivado");
+            //print("iso desactivado");
 
-			print ("encendido exterior");
+			//print ("encendido exterior");
 
 			estado = EstadoMaquina.apagadaTotal;
 			if(ingame.estado == InGame.EstadoSimulacion.ApagadoExterior){
@@ -762,7 +762,7 @@ public class ControlCamion : MonoBehaviour {
         */
         
         //print(controlTarjetaControladora.ignicion());
-        if (controlTarjetaControladora.ignicion() == 0)
+        if (controlTarjetaControladora.ignicion() == 2)
         {
             if (estado == EstadoMaquina.encendida)
             {
@@ -794,7 +794,7 @@ public class ControlCamion : MonoBehaviour {
             }
             else
             {
-                if (controlTarjetaControladora.ignicion() == 2)
+                if (controlTarjetaControladora.ignicion() == 0)
                 {
                     if (estado != EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))
                     {
@@ -805,7 +805,12 @@ public class ControlCamion : MonoBehaviour {
             }
         }
 
-        controlCamionMotor.frenoParqueoActivado = controlTarjetaControladora.BotonAccion() == 0;
+        
+		#if UNITY_EDITOR
+		controlCamionMotor.frenoParqueoActivado = controlTarjetaControladora.BotonAccion() == 0;
+		#else
+		controlCamionMotor.frenoParqueoActivado = controlTarjetaControladora.BotonAccion() == 1;
+		#endif
 
         if (Input.GetButtonDown("Encendido"))
         {
@@ -849,13 +854,9 @@ public class ControlCamion : MonoBehaviour {
             mensajeApagar.Toggle();
         }*/
     }
-
-    //void OnGUI(){
-    //GUI.Box (new Rect (3f * Screen.width / 5f, 0f, 400f, 60f), "orden ejecucion: " + ordenEjecucion + "\nFreno parqueo: " + controlExcavadoraMotor.frenoParqueoActivado);
-    //}
     
 	public void salirCabina(){
-		print ("salir cabina");
+		//print ("salir cabina");
 		//ingresarCabina (false);
 		//ingame.salirCabina ();
 	}
@@ -1023,7 +1024,7 @@ public class ControlCamion : MonoBehaviour {
     
 	void salirCabinaFinal(){
 		if (ingame.estado == InGame.EstadoSimulacion.Finalizando || ingame.estado == InGame.EstadoSimulacion.ApagadoExterior || ingame.estado == InGame.EstadoSimulacion.EncendidoExterior) {
-				print ("salir cabina");
+				//print ("salir cabina");
 				salirCabina ();
 				//controlUsuarioChecklist.mensajeInteraccion.gameObject.SetActive (false);
 				//controlUsuarioChecklist.enfocandoCabina = false;
@@ -1139,5 +1140,10 @@ public class ControlCamion : MonoBehaviour {
 
 	public void reset(){
 		SceneManager.LoadScene (SceneManager.GetActiveScene().name);
+	}
+
+	void OnGUI(){
+		GUI.Label (new Rect (10, 150, 500, 40), "Ignicion " + controlTarjetaControladora.ignicion ());
+		//GUI.Box (new Rect (3f * Screen.width / 5f, 0f, 400f, 60f), "orden ejecucion: " + ordenEjecucion + "\nFreno parqueo: " + controlExcavadoraMotor.frenoParqueoActivado);
 	}
 }
