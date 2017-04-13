@@ -239,14 +239,14 @@ public class ControlCamionMotor : MonoBehaviour {
             print("cambio " + cambioActual);
         }
 
-		if (Input.GetKeyUp(KeyCode.Q) || factorRetroceso == -1)
+		if (Input.GetKeyUp(KeyCode.Q))// || factorRetroceso == -1)
 		{
 			retroceso = !retroceso;
 			camaraMedicionAdelante.SetActive(!camaraMedicionAdelante.activeSelf);
 			camaraMedicionAtras.SetActive(!camaraMedicionAtras.activeSelf);
 		}
 
-        print(velocidadActual + " " + cambioActual);
+        //print(velocidadActual + " " + cambioActual);
 		audioSource.pitch = Mathf.Clamp (1f + velocidadActual / (velocidades[cambioActual] * 100000f + 1f), 1f, 1.5f);
 
 		foreach (WheelCollider w in ruedasConMotor) {

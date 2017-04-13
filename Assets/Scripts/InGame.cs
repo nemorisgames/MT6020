@@ -684,7 +684,7 @@ public class InGame : MonoBehaviour {
     public void fallaOperacion(ControlCamion.LugarMaquina lugarFalla)
     {
         print("falla " + lugarFalla.ToString());
-        maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(false);
+        //maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(false);
         ControlCamion c = maquina.GetComponent<ControlCamion>();
         c.estado = ControlCamion.EstadoMaquina.apagadaTotal;
         Time.timeScale = 0f;
