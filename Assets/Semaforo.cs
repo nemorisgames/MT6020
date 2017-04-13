@@ -6,29 +6,25 @@ public class Semaforo : MonoBehaviour {
 
 	public Material go;
 	public Material stop;
-	MeshRenderer semaforo;
+	public Material off;
+	public MeshRenderer semaforoGo;
+	public MeshRenderer semaforoStop;
 	public GameObject dummy;
 	bool initialState = false;
 	bool active = false;
 
 	// Use this for initialization
 	void Start () {
-		semaforo = GameObject.Find ("Semaforo").GetComponent<MeshRenderer> ();
 		if (initialState) {
-			semaforo.material = go;
+			ToggleGoStop (true);
 		} else {
-			semaforo.material = stop;
+			ToggleGoStop (false);
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	void OnTriggerEnter(Collider other){
 		if ((other.gameObject.transform.root.CompareTag("semaforo_dummy")||other.gameObject.transform.root.CompareTag("Maquina")) && !active) {
-			semaforo.material = stop;
+			ToggleGoStop (false);
 			dummy.SetActive (true);
 			StartCoroutine (SemaforoRojo ());
 			active = true;
@@ -37,8 +33,19 @@ public class Semaforo : MonoBehaviour {
 
 	IEnumerator SemaforoRojo(){
 		yield return new WaitForSeconds (40f);
-		semaforo.material = go;
+		ToggleGoStop (true);
 		yield return new WaitForSeconds (5f);
 		active = false;
+	}
+
+	void ToggleGoStop(bool b){
+		if (b) {
+			//Go
+			semaforoGo.material = go;
+			semaforoStop.material = off;
+		} else {
+			semaforoGo.material = off;
+			semaforoStop.material = stop;
+		}
 	}
 }

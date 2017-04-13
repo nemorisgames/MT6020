@@ -39,7 +39,7 @@ public class AnimCarguio : MonoBehaviour {
 	}
 
 	public void Update(){
-		if(!cargado)
+		if(!cargado && carga2 !=null)
 			carga2.transform.position = cargaPosicion.transform.position;	
 	}
 }

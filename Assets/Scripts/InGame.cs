@@ -308,13 +308,23 @@ public class InGame : MonoBehaviour {
         pausar(!pausado);
     }
 
+	public void mostrarPregunta(bool b){
+		pausar (b);
+		preguntasGUI.SetActive (b);
+	}
+
+	public void cerrarPreguntaGUI(){
+		mostrarPregunta (false);
+	}
+		
     void pausar(bool p)
     {
         pausado = p;
         Time.timeScale = pausado ? 0f : 1f;
-        panelAyuda.SetActive(pausado);
-        //controlMouseOperador.enabled = pausado;
-        maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(!pausado);
+		if (panelAyuda != null) {
+			panelAyuda.SetActive (pausado);
+		}//controlMouseOperador.enabled = pausado;
+        //maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(!pausado);
     }
 
     public void salirSimulacion()

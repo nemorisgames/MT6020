@@ -255,59 +255,56 @@ public class DiapositivaPreguntas : MonoBehaviour {
     }
 
 	public IEnumerator evaluacion()
-    {
-        int correcta = 0;
+	{
+		int correcta = 0;
         
-        foreach (Pregunta p in preguntas)
-        {
-            /*db = new DataBase();
+		if (preguntas != null) {
+			foreach (Pregunta p in preguntas) {
+				/*db = new DataBase();
             db.EjecutarConsultar("INSERT INTO InformationModuleDetail (fk_realizationModule, fk_questionID, fk_informationModuleAnswers) VALUES (1," + preguntaID + "," + p.respuestaUsuarioID + ")");
             */
 
-			WWWForm form = new WWWForm ();
-            form.AddField("idModulo", idModulo);
-			form.AddField ("preguntaID",preguntaID);
-			form.AddField ("respuestaUsuarioID",p.respuestaUsuarioID);
-			WWW download = new WWW (db.direccion+"crearInfoModuleDetail.php",form);
-			yield return download;
-			if (download.error != null) {
-				print ("Error downloading: " + download.error);
-				//mostrarError("Error de conexion");
-				yield return false;
-			} else {
-				print (download.text);
+				WWWForm form = new WWWForm ();
+				form.AddField ("idModulo", idModulo);
+				form.AddField ("preguntaID", preguntaID);
+				form.AddField ("respuestaUsuarioID", p.respuestaUsuarioID);
+				WWW download = new WWW (db.direccion + "crearInfoModuleDetail.php", form);
+				yield return download;
+				if (download.error != null) {
+					print ("Error downloading: " + download.error);
+					//mostrarError("Error de conexion");
+					yield return false;
+				} else {
+					print (download.text);
+				}
+
+				if (p.respuestaToggle [p.respuestaCorrectaID].isChecked == true) {
+					//print("Pregunta: " + correcta + " es correcta");
+					correcta++;
+				}
+
+				Debug.Log ("CORRECTA!" + correcta.ToString ());
 			}
+			int j = preguntas.Count;
+			int k = correcta;
+			percentageGet = (k * 100) / j;
 
-			if (p.respuestaToggle[p.respuestaCorrectaID].isChecked == true)
-            {
-                //print("Pregunta: " + correcta + " es correcta");
-                correcta++;
-            }
-
-            Debug.Log("CORRECTA!" + correcta.ToString());
-        }
-        int j = preguntas.Count;
-        int k = correcta;
-        percentageGet = (k * 100) / j;
-
-        if (GameObject.Find("Configuracion") != null)
-        {
-            print("Configuracion Existe");
-            conf = GameObject.Find("Configuracion").GetComponent<Configuracion>();
-        }
-        conf.ResultadoPreguntas = Mathf.RoundToInt(percentageGet);
-        if (idModulo == 1)
-        {
-            if (tiempoFinal < 0)
-            {
-                tiempoFinal = Mathf.RoundToInt(Time.time);
-                conf.ResultadoTiempo = tiempoFinal - tiempoInicial;
-            }
-        }
-        //conf.ResultadoTiempo = tiempoGet;
-        //print(conf.ResultadoPreguntas);
-        conf.guardarHistorial();
-        StartCoroutine(verificarResultados());
+			if (GameObject.Find ("Configuracion") != null) {
+				print ("Configuracion Existe");
+				conf = GameObject.Find ("Configuracion").GetComponent<Configuracion> ();
+			}
+			conf.ResultadoPreguntas = Mathf.RoundToInt (percentageGet);
+			if (idModulo == 1) {
+				if (tiempoFinal < 0) {
+					tiempoFinal = Mathf.RoundToInt (Time.time);
+					conf.ResultadoTiempo = tiempoFinal - tiempoInicial;
+				}
+			}
+			//conf.ResultadoTiempo = tiempoGet;
+			//print(conf.ResultadoPreguntas);
+			conf.guardarHistorial ();
+			StartCoroutine (verificarResultados ());
+		}
     }
 
     IEnumerator verificarResultados()
