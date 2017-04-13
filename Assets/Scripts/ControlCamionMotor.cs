@@ -102,6 +102,10 @@ public class ControlCamionMotor : MonoBehaviour {
         }
         else
         {
+
+			ingame.tableroControl.setPetroleo(0f);
+			ingame.tableroControl.setRevoluciones(0f);
+			ingame.tableroControl.setTemperatura(0f);
             audioSource.Stop();
         }
     }
@@ -113,23 +117,21 @@ public class ControlCamionMotor : MonoBehaviour {
 
 		if (estado != ControlCamion.EstadoMaquina.encendida) {// || central.estado == Central.EstadoSimulacion.Finalizando) {
 			//if(central != null && central.estado == Central.EstadoSimulacion.Finalizando){
-				//GetComponent<Rigidbody>().velocity = Vector3.zero;
-				//GetComponent<Rigidbody>().isKinematic = true;
-				//audioMotor.pitch = 0.7f;
-				//audioRetroceso.Stop();
+			//GetComponent<Rigidbody>().velocity = Vector3.zero;
+			//GetComponent<Rigidbody>().isKinematic = true;
+			//audioMotor.pitch = 0.7f;
+			//audioRetroceso.Stop();
 			//}
 			foreach (WheelCollider w in ruedasConMotor) {
 				w.brakeTorque = 500000f;
 			}
-            if (estado == ControlCamion.EstadoMaquina.apagada)
-            {
-                audioSource.loop = false;
-                if (!audioSource.isPlaying)
-                {
-                    audioSource.clip = sonidoPitido;
-                    audioSource.PlayDelayed(4f);
-                }
-            }
+			if (estado == ControlCamion.EstadoMaquina.apagada) {
+				audioSource.loop = false;
+				if (!audioSource.isPlaying) {
+					audioSource.clip = sonidoPitido;
+					audioSource.PlayDelayed (4f);
+				}
+			}
 			return;
 		}
 
@@ -154,7 +156,7 @@ public class ControlCamionMotor : MonoBehaviour {
         //	throttle = throttle * cambioActual / 6f;
 
         if(!frenoParqueoActivado)
-            velocidadActual = Mathf.Lerp(velocidadActual, Mathf.Clamp(Mathf.Clamp(throttle, 0f, 1f) * velocidades[cambioActual], 0f, velocidades[cambioActual]) * 100000f, factorAceleracion * Time.deltaTime);
+            velocidadActual = Mathf.Lerp(velocidadActual, Mathf.Clamp(Mathf.Clamp(throttle, 0f, 1f) * velocidades[cambioActual], 0f, velocidades[cambioActual]) * 130000f, factorAceleracion * Time.deltaTime);
 
         if (retardador > 0.5f)
         {
@@ -237,14 +239,14 @@ public class ControlCamionMotor : MonoBehaviour {
             print("cambio " + cambioActual);
         }
 
-		if (Input.GetKeyUp(KeyCode.Q) || factorRetroceso == -1)
+		if (Input.GetKeyUp(KeyCode.Q))// || factorRetroceso == -1)
 		{
 			retroceso = !retroceso;
 			camaraMedicionAdelante.SetActive(!camaraMedicionAdelante.activeSelf);
 			camaraMedicionAtras.SetActive(!camaraMedicionAtras.activeSelf);
 		}
 
-        //print(velocidadActual / ((velocidades[cambioActual] * 100000f) + 1f));
+        //print(velocidadActual + " " + cambioActual);
 		audioSource.pitch = Mathf.Clamp (1f + velocidadActual / (velocidades[cambioActual] * 100000f + 1f), 1f, 1.5f);
 
 		foreach (WheelCollider w in ruedasConMotor) {
@@ -294,7 +296,7 @@ public class ControlCamionMotor : MonoBehaviour {
     }
 
 	void OnGUI(){
-		GUI.Label (new Rect(10f, 200f, 200f, 20f), "Cambio " + Input.GetAxis("Cambio"));
+		GUI.Label (new Rect(10f, 200f, 200f, 20f), "Cambio " + cambioActual + " " + Input.GetAxis("Cambio"));
 		GUI.Label (new Rect(10f, 220f, 200f, 20f), "Freno " + controlTarjetaControladora.Freno());
 		GUI.Label (new Rect(10f, 240f, 200f, 20f), "Retardador " + controlTarjetaControladora.Retardador());
 	}

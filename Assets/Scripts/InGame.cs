@@ -267,6 +267,8 @@ public class InGame : MonoBehaviour {
         Time.timeScale = 0f;
 		maquina.FindChild("Trasero_B").gameObject.SetActive(maquina.FindChild("Trasero_B").gameObject.activeSelf);
 		maquina.FindChild("Delantera_B").gameObject.SetActive(maquina.FindChild("Delantera_B").gameObject.activeSelf);
+		maquina.FindChild ("Delantera_B/CamaraCabinaIzquierda").gameObject.SetActive (true);
+		maquina.FindChild ("Delantera_B/CamaraCabinaDerecha").gameObject.SetActive (true);
         //maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(true);
         maquinaFinal.gameObject.SetActive(maquinaFinal.gameObject.activeSelf);
         diapositivaFinal.SetActive(false);
@@ -538,6 +540,7 @@ public class InGame : MonoBehaviour {
             }
             */
             configuracion.guardarHistorial();
+			SceneManager.LoadScene("Login");
         }
 		else
 			SceneManager.LoadScene("Login");
@@ -546,7 +549,7 @@ public class InGame : MonoBehaviour {
 
     public void iniciarSimulacion()
     {
-        //		print ("iniciarSimulacion");
+        		print ("iniciarSimulacion");
         /*if (controlExterior == null || (((controlChecklistFinal == null || (controlChecklistFinal != null && controlChecklistFinal.activa)) && (estado != EstadoSimulacion.PanelInicial && estado != EstadoSimulacion.Conduciendo && estado != EstadoSimulacion.EncendidoExterior)) || (controlChecklistFinal != null && !controlChecklistFinal.activa && estado == EstadoSimulacion.ApagadoExterior)))
         {
             moduloFinalizar();
@@ -663,22 +666,22 @@ public class InGame : MonoBehaviour {
     {
         //if (diapositivaFalla == null || diapositivaFalla.activeSelf || estado == EstadoSimulacion.Finalizando || estado == EstadoSimulacion.ApagadoExterior)
         //    return;
-        if (estado != EstadoSimulacion.EncendidoExterior && estado != EstadoSimulacion.PanelInicial)
-        {
-            tiempoUtilizado = Time.time - tiempoFaenaActual;
-            estado = EstadoSimulacion.Finalizando;
-            mostrarPanelFinal();
-			maquina.FindChild("Trasero_B").localPosition = new Vector3(0.0002759445f, 0.7498303f, 0f);
-			maquina.FindChild("Delantera_B").localPosition = new Vector3(0.0002759445f, 0.7498303f, 0f);
-			maquina.FindChild("Trasero_B").localRotation = Quaternion.identity;
-			maquina.FindChild("Delantera_B").localRotation = Quaternion.identity;
-            maquina.position = posicionFinal.position;
-            maquina.rotation = posicionFinal.rotation;
-            maquinaFinal.position = posicionFinal.position;
-            maquinaFinal.rotation = posicionFinal.rotation;
-        }
-        //else
-        //    SceneManager.LoadScene("Login");
+		if (estado != EstadoSimulacion.EncendidoExterior && estado != EstadoSimulacion.PanelInicial) {
+			tiempoUtilizado = Time.time - tiempoFaenaActual;
+			estado = EstadoSimulacion.Finalizando;
+			mostrarPanelFinal ();
+			maquina.FindChild ("Trasero_B").localPosition = new Vector3 (0.0002759445f, 0.7498303f, 0f);
+			maquina.FindChild ("Delantera_B").localPosition = new Vector3 (0.0002759445f, 0.7498303f, 0f);
+			maquina.FindChild ("Trasero_B").localRotation = Quaternion.identity;
+			maquina.FindChild ("Delantera_B").localRotation = Quaternion.identity; 
+			maquina.FindChild ("Delantera_B/CamaraCabinaIzquierda").gameObject.SetActive (false);
+			maquina.FindChild ("Delantera_B/CamaraCabinaDerecha").gameObject.SetActive (false);
+			maquina.position = posicionFinal.position;
+			maquina.rotation = posicionFinal.rotation;
+			maquinaFinal.position = posicionFinal.position;
+			maquinaFinal.rotation = posicionFinal.rotation;
+		} else
+			diapositivaFinalResumen.SetActive (true);
     }
 
     string calcularReloj(float tiempo)
@@ -691,7 +694,7 @@ public class InGame : MonoBehaviour {
     public void fallaOperacion(ControlCamion.LugarMaquina lugarFalla)
     {
         print("falla " + lugarFalla.ToString());
-        maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(false);
+        //maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(false);
         ControlCamion c = maquina.GetComponent<ControlCamion>();
         c.estado = ControlCamion.EstadoMaquina.apagadaTotal;
         Time.timeScale = 0f;

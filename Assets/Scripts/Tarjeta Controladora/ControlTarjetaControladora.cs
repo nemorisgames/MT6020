@@ -417,7 +417,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
     public int ignicion()
     {
         //dev.PinStates[3] + " - analog: " + dev.GetAnalogInput(40)
-        return leerSwitch(20, 21);
+        return leerSwitch(21, 20);
     }
 
     public int ignicion1()

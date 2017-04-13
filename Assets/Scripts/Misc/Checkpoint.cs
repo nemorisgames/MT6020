@@ -7,11 +7,11 @@ public class Checkpoint : MonoBehaviour {
 	public string mensaje;
 	InGame inGame;
 	float cooldownError = 0f;
-	Rigidbody maquina;
+	public Rigidbody maquina;
 	// Use this for initialization
 	void Start () {
 		inGame = GameObject.FindWithTag ("InGame").GetComponent<InGame> ();
-		maquina = GameObject.FindWithTag ("Maquina").transform.FindChild ("Trasero_B").gameObject.GetComponent<Rigidbody> ();
+		//maquina = GameObject.FindWithTag ("Maquina").transform.FindChild ("Trasero_B").gameObject.GetComponent<Rigidbody> ();
 	}
 
 	void OnTriggerEnter(Collider c){
@@ -20,7 +20,7 @@ public class Checkpoint : MonoBehaviour {
 			//TO DO: solucionar esto para mt6020
             if(true) {// inGame.verificarAvance){
 				if(cooldownError < Time.time){
-					print (maquina.transform.InverseTransformDirection(maquina.velocity) + " " + c.gameObject.transform.parent.name);
+					//print (maquina.transform.InverseTransformDirection(maquina.velocity) + " " + c.gameObject.transform.parent.name);
 					//if((inGame.avanceEnBalde && c.gameObject.transform.parent.name == "CollidersBalde" || inGame.avanceEnBalde && c.gameObject.transform.parent.name == "Pala") && maquina.transform.InverseTransformDirection(maquina.velocity).z > 0f ){
                     if ((true && c.gameObject.transform.parent.name == "Colliders_D") && maquina.transform.InverseTransformDirection(maquina.velocity).z > 0f)
                     {

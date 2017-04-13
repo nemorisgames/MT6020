@@ -45,7 +45,7 @@ public class ControlCheckpoints : MonoBehaviour {
                 tiempoInicialVueltaAnterior = Time.time;
                 if (nVueltas >= nVueltasObjetivo) {
                     //TO DO: arreglar esto para mt6020
-					//inGame.condicionesTerminoListas ();
+					inGame.condicionesTerminoListas ();
 				}
 			}
 			checkpoints [indiceActual].SetActive (true);
