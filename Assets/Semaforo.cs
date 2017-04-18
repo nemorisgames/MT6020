@@ -12,6 +12,7 @@ public class Semaforo : MonoBehaviour {
 	public GameObject dummy;
 	bool initialState = false;
 	bool active = false;
+	bool state = false;
 
 	// Use this for initialization
 	void Start () {
@@ -32,10 +33,10 @@ public class Semaforo : MonoBehaviour {
 	}
 
 	IEnumerator SemaforoRojo(){
-		yield return new WaitForSeconds (40f);
-		ToggleGoStop (true);
-		yield return new WaitForSeconds (5f);
-		active = false;
+		yield return new WaitForSeconds (30f);
+		if (!state) {
+			entregaTerminada ();
+		}
 	}
 
 	void ToggleGoStop(bool b){
@@ -47,5 +48,12 @@ public class Semaforo : MonoBehaviour {
 			semaforoGo.material = off;
 			semaforoStop.material = stop;
 		}
+		state = b;
+	}
+
+	public void entregaTerminada(){
+		ToggleGoStop (true);
+		active = false;
+		dummy.SetActive (false);
 	}
 }

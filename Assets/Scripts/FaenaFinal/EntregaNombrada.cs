@@ -71,7 +71,7 @@ public class EntregaNombrada : MonoBehaviour {
 			return;
 		}
 		if (Vector3.Distance (puntos [puntoActual].punto.position, transform.position) < 1.5f && !enEspera) {
-			StartCoroutine(cambiarPunto());
+			StartCoroutine (cambiarPunto ());
 		}
 
 		if (ruedas != null) {
