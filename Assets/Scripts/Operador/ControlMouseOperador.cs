@@ -118,16 +118,17 @@ public class ControlMouseOperador : MonoBehaviour {
 			print ("recibo");
 			Ray ray = camara.ScreenPointToRay(new Vector2(mousePosition2.x, Screen.height - mousePosition2.y));
 			RaycastHit hit;
+		print(ray.origin + " " + (ray.origin + ray.direction));
 			if (Physics.Raycast(ray, out hit, 1000000)){
-				//print ("click " + hit.transform.gameObject.name);
+				print ("click " + hit.transform.gameObject.name);
 				if(hit.transform.gameObject.activeSelf)
 					hit.transform.gameObject.SendMessage("OnClick", SendMessageOptions.DontRequireReceiver);
-				//Debug.DrawLine(ray.origin, hit.point);
+
 			}
 			if(camaraSecundaria != null){
 				ray = camaraSecundaria.ScreenPointToRay(new Vector2(mousePosition2.x, Screen.height - mousePosition2.y));
 				if (Physics.Raycast(ray, out hit, 1000000)){
-					//print ("click " + hit.transform.gameObject.name);
+					print ("click " + hit.transform.gameObject.name);
 					if(hit.transform.gameObject.activeSelf)
 						hit.transform.gameObject.SendMessage("OnClick", SendMessageOptions.DontRequireReceiver);
 					//Debug.DrawLine(ray.origin, hit.point);

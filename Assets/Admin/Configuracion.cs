@@ -707,6 +707,7 @@ public class Configuracion : MonoBehaviour {
 	}
 	
 	public void loadLabels(){
+		return;
 		resultadosAdmin [0].text = ResultadoTiempo.ToString();
 		resultadosUser [0].text = ResultadoTiempo.ToString();
 		resultadosAdmin [2].text = ResultadoRevFunc1.ToString();
