@@ -40,6 +40,13 @@ public class DiapositivaPreguntas : MonoBehaviour {
     public int tiempoFinal = -1;
     public int tiempoGet = -1;
 
+	public GameObject panelResultados;
+	public UILabel tiempo;
+	public UILabel repeticiones;
+	public UILabel resultado;
+	public GameObject[] resultados;
+
+
     // Use this for initialization
     void Start () {
 		StartCoroutine(inicializar());
@@ -302,6 +309,11 @@ public class DiapositivaPreguntas : MonoBehaviour {
 			}
 			//conf.ResultadoTiempo = tiempoGet;
 			//print(conf.ResultadoPreguntas);
+			panelResultados.SetActive(true);
+			tiempo.text = "" + conf.ResultadoTiempo;
+			resultado.text = "Resultado: " + percentageGet + "%";
+			resultados [0].SetActive (conf.ResultadoPreguntas < conf.ExitoPreguntas);
+			resultados [1].SetActive (conf.ResultadoPreguntas >= conf.ExitoPreguntas);
 			conf.guardarHistorial ();
 			StartCoroutine (verificarResultados ());
 		}
@@ -322,7 +334,10 @@ public class DiapositivaPreguntas : MonoBehaviour {
         {
 			string retorno = download.text.ToString().Trim();
 			percentageAproval = int.Parse(retorno);
+			print ("OK");
         }
+		//nuevo
+		//UnityEngine.SceneManagement.SceneManager.LoadScene("Login");
     }
 	
     public void IniciarContador()

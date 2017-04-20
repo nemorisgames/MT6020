@@ -36,7 +36,6 @@ ArrayList diapositivas;
     string imageSlider;
     string imagenPrincipal;
 
-
     void Start ()
     {
 		
@@ -319,5 +318,12 @@ ArrayList diapositivas;
 			}
 		}
 		StartCoroutine (traerInformacion ());
+	}
+
+	public void terminarSimulacion(){
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("Login");
+	}
+	public void resetSimulacion(){
+		UnityEngine.SceneManagement.SceneManager.LoadScene (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
 	}
 }
