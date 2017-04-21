@@ -287,8 +287,10 @@ public class ControlChecklist : MonoBehaviour {
 			if (p.parteMala != null && p.parteMala.Length > 0) {
 				if (!danado) {
 					print ("mostrando todos ok");
-					for (int i = 0; i < p.parteMala.Length; i++)
+					for (int i = 0; i < p.parteMala.Length; i++) {
+						Debug.Log ("1:"+""+p.indiceSeccion +","+p.indicePregunta);
 						p.parteMala [i].SetActive (danado);
+					}
 				} else {
 					int indiceDanio = 0;
 					if (p.parteMala.Length > 1)
@@ -296,6 +298,7 @@ public class ControlChecklist : MonoBehaviour {
 					print ("parte mala seleccionada " + indiceDanio);
 					for (int i = 0; i < p.parteMala.Length; i++) {
 						if (i == indiceDanio) { 
+							Debug.Log ("2:"+""+p.indiceSeccion +","+p.indicePregunta+";"+i+","+indiceDanio);
 							p.parteMala [i].SetActive (danado);
 						//	if (p.indicePregunta == 6 && p.indiceSeccion == 2)
 						//		print (i + " " + indiceDanio + " " + danado);
@@ -948,6 +951,11 @@ public class ControlChecklist : MonoBehaviour {
 		}
 		if (indice == configuracionControles.idBotonDisplayOFF) {
 		}*/
+
+		/*if (Input.GetKeyDown (KeyCode.M)) {
+			finalizarModuloChecklist ();
+			//terminarSimulacionFinal();
+		}*/
 	}
 
 	public void terminarSimulacionFinal(){
@@ -1165,7 +1173,8 @@ public class ControlChecklist : MonoBehaviour {
 			//controlUsuarioChecklist.enabled = false;
 		}
 		else{
-			pantallaTactil.SetActive(false);
+			if(pantallaTactil != null)
+				pantallaTactil.SetActive(false);
 		}
 	}
 
