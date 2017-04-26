@@ -57,10 +57,10 @@ public class Configuracion : MonoBehaviour {
 	public int ResultadoRevEst1;
 	public int ResultadoPrevRies1;
 	public int ResultadoCheck2;
-	//public int ResultadoRevFunc2;
-	//public int ResultadoRevCab2;
-	//public int ResultadoRevEst2;
-	//public int ResultadoPrevRies2;
+	public int ResultadoRevFunc2;
+	public int ResultadoRevCab2;
+	public int ResultadoRevEst2;
+	public int ResultadoPrevRies2;
 	//public string ResultadoOrdenEjecucion;
 	//public string ResultadoMotorPunta;
 	//public string ResultadoBaldePunta;

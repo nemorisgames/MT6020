@@ -160,6 +160,8 @@ public class ControlChecklist : MonoBehaviour {
 	public Light[] lucesTraseras;
 
 	public Animator animatorTolba;
+	int checklistIndex;
+	public bool singleChecklist;
 
 	// Use this for initialization
 	void Start () {
@@ -180,6 +182,7 @@ public class ControlChecklist : MonoBehaviour {
 			generarFallas ();
 		activar (activa);
 		mensajeInteraccion.text = "";
+		checklistIndex = 1;
 	}
 
 	/*void BotonDown(int indice){
@@ -276,6 +279,60 @@ public class ControlChecklist : MonoBehaviour {
 		fugasCilindrosMangueras.SetActive(fugasCilindrosManguerasActivada);
 		sistemaAnsul.SetActive(sistemaAnsulActivada);
 
+	}
+
+	public void ReiniciarMaquina(){
+		checklistIndex = 2;
+		listaActiva = true;
+		activa = true;
+		activarLista(listaActiva);
+		controlMouseOperador.enabled = true;
+		tiempo = Time.timeSinceLevelLoad;
+		generarFallas ();
+		activar (activa);
+		estado = estadoChequeo.exterior;
+		checkeandoCabina = !checkeandoCabina;
+		gameObject.SetActive (false);
+		controlUsuarioChecklist.gameObject.SetActive (!checkeandoCabina);
+		controlCamaraInterior.gameObject.SetActive (checkeandoCabina);
+		controlCamaraInterior.enabled = checkeandoCabina;
+		gameObject.SetActive (true);
+		deshabilitarCabina();
+		mensajeInteraccion.text = "";
+		mensajeInteraccion.gameObject.SetActive(false);
+		GameObject.FindGameObjectWithTag ("InGame").GetComponent<InGame> ().ejecutarEntradaMaquina (false);
+		foreach(GameObject g in GUINormal)
+			g.SetActive(true);
+		nivelPetroleoActivada = true;
+		nivelAceiteActivada = true;
+		nivelHidraulicoActivada = true;
+		nivelRefrigeranteActivada = true;
+		nivelAceiteTransActivada = true;
+		nivelAceiteCajaTransfActivada = true;
+		filtroAireActivada = true;
+		filtroCombustibleActivada = true;
+		topeEjeCentralActivada = true;
+		indicadoresObstruccionActivada = true;
+		articulacionCentralActivada = true;
+		articulacionDireccionalActivada = true;
+		pasadoresGeneralActivada = true;
+		fugasCilindrosManguerasActivada = true;
+		sistemaAnsulActivada = true;
+		nivelPetroleo.SetActive(nivelPetroleoActivada);
+		nivelAceite.SetActive(nivelAceiteActivada);
+		nivelHidraulico.SetActive(nivelHidraulicoActivada);
+		nivelRefrigerante.SetActive(nivelRefrigeranteActivada);
+		nivelAceiteTrans.SetActive(nivelAceiteTransActivada);
+		nivelAceiteCajaTransf.SetActive(nivelAceiteCajaTransfActivada);
+		filtroAire.SetActive(filtroAireActivada);
+		filtroCombustible.SetActive(filtroCombustibleActivada);
+		topeEjeCentral.SetActive(topeEjeCentralActivada);
+		indicadoresObstruccion.SetActive(indicadoresObstruccionActivada);
+		articulacionCentral.SetActive(articulacionCentralActivada);
+		articulacionDireccional.SetActive(articulacionDireccionalActivada);
+		pasadoresGeneral.SetActive(pasadoresGeneralActivada);
+		fugasCilindrosMangueras.SetActive(fugasCilindrosManguerasActivada);
+		sistemaAnsul.SetActive(sistemaAnsulActivada);
 	}
 
 	public void mostrarDanio(ParteMaquina p, bool danado, bool danioAleatorio){
@@ -952,19 +1009,36 @@ public class ControlChecklist : MonoBehaviour {
 		if (indice == configuracionControles.idBotonDisplayOFF) {
 		}*/
 
-		/*if (Input.GetKeyDown (KeyCode.M)) {
-			finalizarModuloChecklist ();
+		if (Input.GetKeyDown (KeyCode.M)) {
+			botonTerminarChecklist ();
+			//finalizarModuloChecklist ();
 			//terminarSimulacionFinal();
-		}*/
+		}
 	}
+
+	public void botonTerminarChecklist(){
+		if (!singleChecklist && checklistIndex == 1) {
+			terminarSimulacionParcial ();
+		} else {
+			terminarSimulacionFinal ();
+		}
+	}
+
 
 	public void terminarSimulacionFinal(){
 		terminarSimulacion (true);
+		if (checklistIndex == 1) {
+			enviarDatos ();
+		} else if (checklistIndex == 2) {
+			enviarDatos2 ();
+		}
 	}
 
 	public void terminarSimulacionParcial(){
 		terminarSimulacion (false);
 		arreglarMaquina ();
+		finalizarModuloChecklist ();
+		enviarDatos1 ();
 	}
 
 	public void terminarSimulacion(bool mostrarPanelFinal){
@@ -1095,7 +1169,7 @@ public class ControlChecklist : MonoBehaviour {
 				diapositivaFinalChecklist.SetActive(true);
 			}
 			else{
-				terminarSimulacion(true);
+				//terminarSimulacion(true);
 				return;
 			}
 		}
@@ -1183,12 +1257,8 @@ public class ControlChecklist : MonoBehaviour {
 	}
 
 	public void enviarDatos(){
-		configuracion.ResultadoTiempo = Mathf.RoundToInt(tiempo);
-		configuracion.ResultadoCheck1 = (int)resultadoTotal;
-		/*configuracion.ResultadoRevFunc1 = (int)resultadoSeccion1;
-		configuracion.ResultadoRevCab1 = (int)resultadoSeccion2;
-		configuracion.ResultadoRevEst1 = (int)resultadoSeccion3;
-		configuracion.ResultadoPrevRies1 = (int)resultadoSeccion4;
+		enviarDatos1 ();
+		/*
         configuracion.CheckRFNivPet = partesMaquina[19].danado ? -1 : 1;
         configuracion.ResultadoCheckRFNivPet = ((partesMaquina[19].danado && checklistLista.respuestas1[partesMaquina[19].indicePregunta] == 2) || (!partesMaquina[19].danado && checklistLista.respuestas1[partesMaquina[19].indicePregunta] == 1)) ? 1 : -1;
         configuracion.CheckRFNivAceMot = partesMaquina[26].danado ? -1 : 1; ;
@@ -1252,6 +1322,26 @@ public class ControlChecklist : MonoBehaviour {
 
         configuracion.guardarHistorial ();
         SceneManager.LoadScene("Login");
+	}
+
+	public void enviarDatos1(){
+		configuracion.ResultadoTiempo = Mathf.RoundToInt(tiempo);
+		configuracion.ResultadoCheck1 = (int)resultadoTotal;
+		configuracion.ResultadoRevFunc1 = (int)resultadoSeccion1;
+		configuracion.ResultadoRevCab1 = (int)resultadoSeccion2;
+		configuracion.ResultadoRevEst1 = (int)resultadoSeccion3;
+		configuracion.ResultadoPrevRies1 = (int)resultadoSeccion4;
+	}
+
+	public void enviarDatos2(){
+		configuracion.ResultadoTiempo = Mathf.RoundToInt(tiempo);
+		configuracion.ResultadoCheck2 = (int)resultadoTotal;
+		configuracion.ResultadoRevFunc2 = (int)resultadoSeccion1;
+		configuracion.ResultadoRevCab2 = (int)resultadoSeccion2;
+		configuracion.ResultadoRevEst2 = (int)resultadoSeccion3;
+		configuracion.ResultadoPrevRies2 = (int)resultadoSeccion4;
+		configuracion.guardarHistorial ();
+		SceneManager.LoadScene("Login");
 	}
 	
 	public void cerrarPanelControles(){

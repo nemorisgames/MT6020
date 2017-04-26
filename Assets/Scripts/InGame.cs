@@ -65,6 +65,7 @@ public class InGame : MonoBehaviour {
 
     public bool pausado = false;
     public GameObject panelAyuda;
+	public GameObject checklistFinal;
     //AVProMovieCaptureFromCamera avpro;
     //int secuenciaGrabacion = 0;
 
@@ -563,6 +564,11 @@ public class InGame : MonoBehaviour {
         //}
 
     }
+
+	public void ActivarCheckFinal(){
+		if(checklistFinal != null)
+			checklistFinal.SetActive (true);
+	}
 
     public void iniciarTiempo()
     {
