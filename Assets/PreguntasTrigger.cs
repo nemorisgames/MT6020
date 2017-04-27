@@ -13,14 +13,11 @@ public class PreguntasTrigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Alpha0)) {
-			inGame.mostrarPregunta (true);
-		}
 	}
 
 	void OnTriggerEnter(Collider c){
 		if (c.gameObject.transform.root.CompareTag("Maquina")) {
-			inGame.mostrarPregunta (true);
+			StartCoroutine(inGame.mostrarPregunta (true));
 		}
 		
 	}

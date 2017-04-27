@@ -459,16 +459,18 @@ public class Configuracion : MonoBehaviour {
     form.AddField("IdNivel", idModulo);
     form.AddField("PorPreguntas", ResultadoPreguntas);
     form.AddField("TiempoEmpleado", ResultadoTiempo);
-    form.AddField("Check1", ResultadoCheck1);
+    */
+    //form.AddField("Check1", ResultadoCheck1);
     form.AddField("revFunc1", ResultadoRevFunc1);
     form.AddField("revEst1", ResultadoRevEst1);
     form.AddField("revCab1", ResultadoRevCab1);
     form.AddField("prevRies1", ResultadoPrevRies1);
-    form.AddField("Check2", ResultadoCheck2);
+    //form.AddField("Check2", ResultadoCheck2);
     form.AddField("revFunc2", ResultadoRevFunc2);
     form.AddField("revEst2", ResultadoRevEst2);
     form.AddField("revCab2", ResultadoRevCab2);
     form.AddField("prevRies2", ResultadoPrevRies2);
+	/*
     form.AddField("OrdenEj", ResultadoOrdenEjecucion);
     form.AddField("MotorPunta", ResultadoMotorPunta);
     form.AddField("BaldePunta", ResultadoBaldePunta);

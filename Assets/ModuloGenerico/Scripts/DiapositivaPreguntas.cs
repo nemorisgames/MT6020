@@ -264,7 +264,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
 	public IEnumerator evaluacion()
 	{
 		int correcta = 0;
-        
+
 		if (preguntas != null) {
 			foreach (Pregunta p in preguntas) {
 				/*db = new DataBase();
@@ -277,6 +277,7 @@ public class DiapositivaPreguntas : MonoBehaviour {
 				form.AddField ("respuestaUsuarioID", p.respuestaUsuarioID);
 				WWW download = new WWW (db.direccion + "crearInfoModuleDetail.php", form);
 				yield return download;
+				Debug.Log (download);
 				if (download.error != null) {
 					print ("Error downloading: " + download.error);
 					//mostrarError("Error de conexion");
@@ -309,11 +310,16 @@ public class DiapositivaPreguntas : MonoBehaviour {
 			}
 			//conf.ResultadoTiempo = tiempoGet;
 			//print(conf.ResultadoPreguntas);
-			panelResultados.SetActive(true);
-			tiempo.text = "" + conf.ResultadoTiempo;
-			resultado.text = "Resultado: " + percentageGet + "%";
-			resultados [0].SetActive (conf.ResultadoPreguntas < conf.ExitoPreguntas);
-			resultados [1].SetActive (conf.ResultadoPreguntas >= conf.ExitoPreguntas);
+			if(panelResultados != null)
+				panelResultados.SetActive(true);
+			if(tiempo != null)
+				tiempo.text = "" + conf.ResultadoTiempo;
+			if(resultado != null)
+				resultado.text = "Resultado: " + percentageGet + "%";
+			if (resultados.Length != 0) {
+				resultados [0].SetActive (conf.ResultadoPreguntas < conf.ExitoPreguntas);
+				resultados [1].SetActive (conf.ResultadoPreguntas >= conf.ExitoPreguntas);
+			}
 			conf.guardarHistorial ();
 			StartCoroutine (verificarResultados ());
 		}

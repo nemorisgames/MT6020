@@ -38,7 +38,8 @@ public class ControlCheckpoints : MonoBehaviour {
 			indiceActual++;
 			if (indiceActual >= nCheckpoints) {
                 nVueltas++;
-				contadorLabel.text = "" + nVueltas;
+				if(contadorLabel != null)
+					contadorLabel.text = "" + nVueltas;
 				indiceActual = 0;
                 tiempos.Add(Time.time - tiempoInicialVueltaAnterior);
                 print("tiempo vuelta " + nVueltas + ": " + (Time.time - tiempoInicialVueltaAnterior));

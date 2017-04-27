@@ -10,7 +10,7 @@ public class TriggerChecklistFinal : MonoBehaviour {
 	void OnTriggerEnter(Collider c){
 		if (c.gameObject.transform.root.CompareTag("Maquina")) {
 			checklist.ReiniciarMaquina ();
-			ingame.salirCabina ();
+			//ingame.salirCabina ();
 			gameObject.SetActive (false);
 		}
 	}
