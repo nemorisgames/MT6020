@@ -849,7 +849,7 @@ public class ControlChecklist : MonoBehaviour {
 			}
 		}
 		#endif
-		print("cambio " + cambioActual);
+		//print("cambio " + cambioActual);
 
 		if(cambioActual == 1){
 			//if (estado != estadoChequeo.revisionControles && estado != estadoChequeo.revisionPanel) {
@@ -1146,27 +1146,36 @@ public class ControlChecklist : MonoBehaviour {
 			controlUsuarioChecklist.enabled = false;
 			controlCamaraInterior.enabled = false;
 			controlCamaraInterior.gameObject.SetActive(false);
-			if (configuracion != null && resultadoTotal >= configuracion.check1) {
-				panelAprobado [0].SetActive (true);
-				panelAprobado [1].SetActive (true);
-				panelReprobado [0].SetActive (false);
-				panelReprobado [1].SetActive (false);
+			if (singleChecklist) {
+				if (configuracion != null && resultadoTotal >= configuracion.check1) {
+					panelAprobado [0].SetActive (true);
+					panelAprobado [1].SetActive (true);
+					panelReprobado [0].SetActive (false);
+					panelReprobado [1].SetActive (false);
+				} else {
+					panelAprobado [0].SetActive (false);
+					panelAprobado [1].SetActive (false);
+					panelReprobado [0].SetActive (true);
+					panelReprobado [1].SetActive (true);
+				}
+				panelResultados [0].SetActive (true);
+				panelResultados [1].SetActive (true);
 			} else {
 				panelAprobado [0].SetActive (false);
 				panelAprobado [1].SetActive (false);
-				panelReprobado [0].SetActive (true);
-				panelReprobado [1].SetActive (true);
+				panelReprobado [0].SetActive (false);
+				panelReprobado [1].SetActive (false);
+				panelResultados [0].SetActive (false);
+				panelResultados [1].SetActive (false);
 			}
-
-			panelResultados [0].SetActive (true);
-			panelResultados [1].SetActive (true);
 		} else {
 			controlMouseOperador.enabled = false;
 			if(diapositivaFinalChecklist != null){
 				if(estado == estadoChequeo.exterior) controlMouseOperador.enabled = true;
 				else controlMouseOperadorInterior.enabled = true;
 				camara.SetActive(false);
-				diapositivaFinalChecklist.SetActive(true);
+				if(singleChecklist)
+					diapositivaFinalChecklist.SetActive(true);
 			}
 			else{
 				//terminarSimulacion(true);

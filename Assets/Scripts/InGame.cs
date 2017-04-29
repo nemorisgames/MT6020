@@ -311,13 +311,15 @@ public class InGame : MonoBehaviour {
         pausar(!pausado);
     }
 
-	public void mostrarPregunta(bool b){
+	public IEnumerator mostrarPregunta(bool b){
 		pausar (b);
+		if(!b)
+			yield return new WaitForSeconds (1.5f);
 		preguntasGUI.SetActive (b);
 	}
 
 	public void cerrarPreguntaGUI(){
-		mostrarPregunta (false);
+		StartCoroutine(mostrarPregunta (false));
 	}
 		
     void pausar(bool p)
