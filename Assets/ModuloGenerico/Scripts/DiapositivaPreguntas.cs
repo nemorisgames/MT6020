@@ -46,9 +46,10 @@ public class DiapositivaPreguntas : MonoBehaviour {
 	public UILabel resultado;
 	public GameObject[] resultados;
 
-
+	public GameObject botonEntregarEvaluacion;
     // Use this for initialization
-    void Start () {
+	void Start () {
+		botonEntregarEvaluacion.SetActive (false);
 		StartCoroutine(inicializar());
     }
 
@@ -246,6 +247,8 @@ public class DiapositivaPreguntas : MonoBehaviour {
 			}
 
         }
+
+		botonEntregarEvaluacion.SetActive (true);
     }
 
 	public void entregarEvaluacion(){

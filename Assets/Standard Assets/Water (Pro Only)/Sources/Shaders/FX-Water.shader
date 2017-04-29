@@ -1,6 +1,6 @@
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
-Shader "FX/Water" { 
+Shader "FX/Water" {
 Properties {
 	_WaveScale ("Wave scale", Range (0.02,0.15)) = 0.063
 	_ReflDistort ("Reflection distort", Range (0,1.5)) = 0.44
@@ -20,7 +20,7 @@ Properties {
 // Fragment program cards
 
 
-Subshader { 
+Subshader {
 	Tags { "WaterMode"="Refractive" "RenderType"="Opaque" }
 	Pass {
 CGPROGRAM
@@ -89,7 +89,7 @@ v2f vert(appdata v)
 	o.ref = ComputeScreenPos(o.pos);
 	#endif
 
-	UNITY_TRANSFER_FOG(o,o.pos);	
+	UNITY_TRANSFER_FOG(o,o.pos);
 	return o;
 }
 
@@ -132,7 +132,7 @@ half4 frag( v2f i ) : SV_Target
 	half4 refr = tex2Dproj( _RefractionTex, UNITY_PROJ_COORD(uv2) ) * _RefrColor;
 	#endif
 	
-	// final color is between refracted and reflected based on fresnel	
+	// final color is between refracted and reflected based on fresnel
 	half4 color;
 	
 	#if defined(WATER_REFRACTIVE)
@@ -152,7 +152,7 @@ half4 frag( v2f i ) : SV_Target
 	color.a = _HorizonColor.a;
 	#endif
 
-	UNITY_APPLY_FOG(i.fogCoord, color);	
+	UNITY_APPLY_FOG(i.fogCoord, color);
 	return color;
 }
 ENDCG
