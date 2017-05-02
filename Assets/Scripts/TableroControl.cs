@@ -3,6 +3,8 @@ using System.Collections;
 
 public class TableroControl : MonoBehaviour {
     public GameObject[] indicadoresSuperiores;
+	public ControlCamion maquina;
+	public ControlCamionMotor motor;
 
 	Transform agujaTemperatura;
 	Transform agujaRevoluciones;
@@ -39,7 +41,20 @@ public class TableroControl : MonoBehaviour {
 	}
     // Update is called once per frame
     void Update () {
+		if (maquina != null) {
+			if (Input.GetAxis ("ControlTolba") != 0 || Input.GetAxis ("ControlTolbaEditor") != 0)
+				encenderTolva (true);
+			else
+				encenderTolva (false);
 
+			if (maquina.estado == ControlCamion.EstadoMaquina.apagada)
+				encenderStopMotor (true);
+			else
+				encenderStopMotor (false);
+		}
+		if (motor != null) {
+			encenderFrenoParq (motor.frenoParqueoActivado);
+		}
 	}
 
 	void rotacionAguja(Transform a, float p, float pond){

@@ -7,6 +7,7 @@ public class AnimCarguio : MonoBehaviour {
 	public GameObject cargaTapa;
 	public GameObject cargaRocas;
 	public GameObject cargaPosicion;
+	public TableroControl tableroControl;
 
 	GameObject carga2;
 	bool cargado = false;
@@ -41,5 +42,11 @@ public class AnimCarguio : MonoBehaviour {
 	public void Update(){
 		if(!cargado && carga2 !=null)
 			carga2.transform.position = cargaPosicion.transform.position;	
+	}
+
+	public void ToggleTablero(bool b){
+		if (tableroControl != null) {
+			tableroControl.encenderCarga (true);
+		}
 	}
 }
