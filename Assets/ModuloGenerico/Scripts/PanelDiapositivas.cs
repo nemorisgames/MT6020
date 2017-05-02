@@ -36,9 +36,11 @@ ArrayList diapositivas;
     string imageSlider;
     string imagenPrincipal;
 
+	public GameObject botonSiguienteTitulo;
+
     void Start ()
     {
-		
+		botonSiguienteTitulo.SetActive (false);
         /*module = db.Consultar("SELECT * FROM Module WHERE id = "+idModule);
         while (module.Read())
         {
@@ -78,7 +80,7 @@ ArrayList diapositivas;
             {
 			case Diapositiva.TipoDispositiva.TextoDerecha:
 				GameObject g = NGUITools.AddChild (gameObject, (GameObject)Resources.Load ("Diapositiva_Tipo1"));
-				g.SetActive(false);
+				g.SetActive (false);
 				Diapositiva d = g.GetComponent<Diapositiva> ();
 				d.panelDiapositivas = this;
 
@@ -93,7 +95,7 @@ ArrayList diapositivas;
 
 				WWWForm form = new WWWForm ();
 				//Debug.Log (sliders [0, i]);
-				form.AddField ("id", int.Parse (sliders [0, i].ToString().Trim()));
+				form.AddField ("id", int.Parse (sliders [0, i].ToString ().Trim ()));
 				WWW download = new WWW (db.direccion + "obtenerInfoPageDesign.php", form);
 				yield return download;
 				if (download.error != null) {
@@ -111,16 +113,16 @@ ArrayList diapositivas;
 					//imagenPrincipal = (string)infoPageDesign["image"];
 					//imagenPrincipal = imagenPrincipal.Split('.')[0].ToString();
 					//if ((string)infoPageDesign["sound"].ToString().Trim() != "")
-					imagenPrincipal = infoPageDesign [1].Split ('.') [0];
-					if (infoPageDesign [2].Trim () != "") {
-						d.sonidoBotones [0].SetActive (true);
-						d.sonidoBotones [1].SetActive (true);
-						//d.sound = (string)infoPageDesign["sound"];
-						d.sound = infoPageDesign [2];
-					} else {
-						d.sonidoBotones [0].SetActive (false);
-						d.sonidoBotones [1].SetActive (false);
-					}
+				imagenPrincipal = infoPageDesign [1].Split ('.') [0];
+				if (infoPageDesign [2].Trim () != "") {
+					d.sonidoBotones [0].SetActive (true);
+					d.sonidoBotones [1].SetActive (true);
+					//d.sound = (string)infoPageDesign["sound"];
+					d.sound = infoPageDesign [2];
+				} else {
+					d.sonidoBotones [0].SetActive (false);
+					d.sonidoBotones [1].SetActive (false);
+				}
 
                 //}
 
@@ -131,7 +133,7 @@ ArrayList diapositivas;
                 //infoStructureSlider = db.Consultar("SELECT * FROM Structure WHERE fk_informationPageDesign IN (SELECT id FROM InformationPageDesign WHERE fk_slider = "+sliders["id"]+")");
 
 				form = new WWWForm ();
-				form.AddField ("id", int.Parse (sliders [0, i].ToString().Trim()));
+				form.AddField ("id", int.Parse (sliders [0, i].ToString ().Trim ()));
 				download = new WWW (db.direccion + "obtenerInfoStructureSlider.php", form);
 				yield return download;
 				if (download.error != null) {
@@ -139,12 +141,12 @@ ArrayList diapositivas;
 					//mostrarError("Error de conexion");
 					yield return false;
 				} else {
-					string[] retorno = download.text.Split (new char[]{'*'});
+					string[] retorno = download.text.Split (new char[]{ '*' });
 					StructureCount = retorno.Length;
-					string [] rowAux = retorno [0].Split (new char[]{ '|' });
+					string[] rowAux = retorno [0].Split (new char[]{ '|' });
 					infoStructureSlider = new string[rowAux.Length, StructureCount];
-					for(int j=0;j<StructureCount;j++){
-						string [] row = retorno[j].Split(new char[]{'|'});
+					for (int j = 0; j < StructureCount; j++) {
+						string[] row = retorno [j].Split (new char[]{ '|' });
 						for (int k = 0; k < row.Length; k++) {
 							infoStructureSlider [k, j] = row [k];
 						}
@@ -162,25 +164,23 @@ ArrayList diapositivas;
                 //db = new DataBase();
                 //infoStructureSlider = db.Consultar("SELECT * FROM Structure WHERE fk_informationPageDesign IN (SELECT id FROM InformationPageDesign WHERE fk_slider = " + sliders["id"] + ") ORDER BY orderStructure");
 
-                InformacionBullet[] bullets = new InformacionBullet[StructureCount];
+				InformacionBullet[] bullets = new InformacionBullet[StructureCount];
 
-                for (int countBullets = 0; countBullets < StructureCount; countBullets++)
-                {
-                    bullets[countBullets] = new InformacionBullet();
-                }
+				for (int countBullets = 0; countBullets < StructureCount; countBullets++) {
+					bullets [countBullets] = new InformacionBullet ();
+				}
 
                 //i = 0;
                 //while (infoStructureSlider.Read())
-				for(int j = 0;j<StructureCount;j++)
-                {
-                    //la forma en que se maneja la informacion en cada panel de informacion depende de su diseño. en este caso, solo hay uno
+				for (int j = 0; j < StructureCount; j++) {
+					//la forma en que se maneja la informacion en cada panel de informacion depende de su diseño. en este caso, solo hay uno
 
-                    //icoFullName = (string)infoStructureSlider["icon"];
+					//icoFullName = (string)infoStructureSlider["icon"];
 					//bullets[i].sprite = icoFullName.Split('.')[0].ToString();
 					//fontColor = (string)infoStructureSlider["fontColor"];
-					icoFullName = infoStructureSlider[1,j].ToString();
-					bullets[j].sprite = icoFullName.Split('.')[0];
-					fontColor = infoStructureSlider [2, j].ToString();
+					icoFullName = infoStructureSlider [1, j].ToString ();
+					bullets [j].sprite = icoFullName.Split ('.') [0];
+					fontColor = infoStructureSlider [2, j].ToString ();
 
 					switch (fontColor.Trim ()) {
 
@@ -208,7 +208,7 @@ ArrayList diapositivas;
 					}
 						
 
-                    /*bullets[i].texto = "["+hexaColor+"]"+(string)infoStructureSlider["text"]+"[-]";
+					/*bullets[i].texto = "["+hexaColor+"]"+(string)infoStructureSlider["text"]+"[-]";
                     if (bullets[i].texto.Length < 32)
                     {
                         bullets[i].texto = "\n" + bullets[i].texto+"\n";
@@ -221,27 +221,23 @@ ArrayList diapositivas;
                         }
 
                     }*/
-					bullets[j].texto = "["+hexaColor+"]"+infoStructureSlider[3,j]+"[-]";
-					if (bullets[j].texto.Length < 32)
-					{
-						bullets[j].texto = "\n" + bullets[j].texto+"\n";
-					}
-					else
-					{
-						if (bullets[j].texto.Length < 64)
-						{
-							bullets[j].texto += "\n";
+					bullets [j].texto = "[" + hexaColor + "]" + infoStructureSlider [3, j] + "[-]";
+					if (bullets [j].texto.Length < 32) {
+						bullets [j].texto = "\n" + bullets [j].texto + "\n";
+					} else {
+						if (bullets [j].texto.Length < 64) {
+							bullets [j].texto += "\n";
 						}
 
 					}
-                    //i++;
-                }
+					//i++;
+				}
 
-                d.panelInformacionBullets[0].inicializar((string)sliders[1,i], bullets);
+				d.panelInformacionBullets [0].inicializar ((string)sliders [1, i], bullets);
                 //FIN SEGMENTO
 
-                diapositivas.Add(g);
-
+				diapositivas.Add (g);
+				print ("añade 1");
                 break;
             }
           //  i++;
@@ -249,6 +245,8 @@ ArrayList diapositivas;
         }
 
         diapositivas.Add(diapositivaPreguntas.gameObject);
+
+		botonSiguienteTitulo.SetActive (true);
     }
 
     public void cambiarDiapositiva(bool adelante)
