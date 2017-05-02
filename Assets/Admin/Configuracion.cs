@@ -665,6 +665,7 @@ public class Configuracion : MonoBehaviour {
 		else if(NumeroModulo == "Módulo 4")
 				tipoModulo = "checklist";
 		form.AddField ("tipoModulo", tipoModulo);
+		form.AddField ("NumeroModulo", NumeroModulo);
 
 		print (tipoModulo);
 		print (VariablesGlobales.direccion + "SimuladorMT6020/crearHistorial.php");
@@ -676,8 +677,7 @@ public class Configuracion : MonoBehaviour {
 		}
 		else{
             //string retorno = download.text;
-            //print(download.text);
-
+			print(download.text);
 		}
 
 

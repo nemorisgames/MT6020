@@ -10,7 +10,7 @@ public class Semaforo : MonoBehaviour {
 	public MeshRenderer semaforoGo;
 	public MeshRenderer semaforoStop;
 	public GameObject dummy;
-	bool initialState = false;
+	bool initialState = true;
 	bool active = false;
 	bool state = false;
 

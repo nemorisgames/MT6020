@@ -14,23 +14,46 @@ public class TableroControl : MonoBehaviour {
 		agujaPetroleo = transform.FindChild ("IndicadorPetroleo");
 	}
 
+	public void encenderStopMotor(bool encender){ indicadoresSuperiores[5].SetActive(!encender); }
+	public void encenderCarga(bool encender) { indicadoresSuperiores[6].SetActive(!encender); }
+	public void encenderTolva(bool encender) { indicadoresSuperiores[9].SetActive(!encender); }
+	public void encenderFrenoParq(bool encender) { indicadoresSuperiores[10].SetActive(!encender); }
     public void encenderReversa(bool encender){ indicadoresSuperiores[13].SetActive(!encender); }
     public void encenderNeutro(bool encender) { indicadoresSuperiores[14].SetActive(!encender); }
     public void encenderAdelante(bool encender) { indicadoresSuperiores[15].SetActive(!encender); }
     public void encenderAuto(bool encender) { indicadoresSuperiores[16].SetActive(!encender); }
     public void encenderManual(bool encender) { indicadoresSuperiores[17].SetActive(!encender); }
 
-	public void setPetroleo(float porcentaje){
-		agujaPetroleo.rotation = Quaternion.Euler (0f, 0f, -179f * porcentaje / 100f);
+
+	public void setPetroleo(float target){
+		//agujaPetroleo.rotation = Quaternion.Euler (0f, 0f, -179f * porcentaje / 100f);
+		rotacionAguja(agujaPetroleo,target,-179f);
 	}
-	public void setRevoluciones(float porcentaje){
-		agujaRevoluciones.rotation = Quaternion.Euler (0f, 0f, 15f -210f * porcentaje / 100f);
+	public void setRevoluciones(float target){
+		//agujaRevoluciones.rotation = Quaternion.Euler (0f, 0f, 15f -210f * porcentaje / 100f);
+		rotacionAguja(agujaRevoluciones,target,(15f -210f));
 	}
-	public void setTemperatura(float porcentaje){
-		agujaTemperatura.rotation = Quaternion.Euler (0f, 0f, -179f * porcentaje / 100f);
+	public void setTemperatura(float target){
+		//agujaTemperatura.rotation = Quaternion.Euler (0f, 0f, -179f * porcentaje / 100f);
+		rotacionAguja(agujaTemperatura,target,-179f);
 	}
     // Update is called once per frame
     void Update () {
-	
+
+	}
+
+	void rotacionAguja(Transform a, float p, float pond){
+		/*for (int i = 0; i < p; i++) {
+			a.rotation = Quaternion.Euler (0f, 0f, -179f*i / 100f);
+		}*/
+		if (p > 0) {
+			Quaternion current = a.rotation;
+			Quaternion target = Quaternion.Euler (0f, 0f, pond * p / 100f);
+			a.rotation = Quaternion.Lerp (current, target, Time.deltaTime);
+		} else {
+			Quaternion current = a.rotation;
+			Quaternion target = Quaternion.Euler (0f, 0f, 0f);
+			a.rotation = Quaternion.Lerp (current, target, Time.deltaTime);
+		}
 	}
 }

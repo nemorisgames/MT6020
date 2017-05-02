@@ -101,11 +101,10 @@ public class ControlCamionMotor : MonoBehaviour {
             audioSource.PlayOneShot(sonidoEncendido);
         }
         else
-        {
-
-			ingame.tableroControl.setPetroleo(0f);
-			ingame.tableroControl.setRevoluciones(0f);
-			ingame.tableroControl.setTemperatura(0f);
+		{
+			ingame.tableroControl.setPetroleo (0f);
+			ingame.tableroControl.setRevoluciones (0f);
+			ingame.tableroControl.setTemperatura (0f);
             audioSource.Stop();
         }
     }
@@ -122,6 +121,10 @@ public class ControlCamionMotor : MonoBehaviour {
 			//audioMotor.pitch = 0.7f;
 			//audioRetroceso.Stop();
 			//}
+			ingame.tableroControl.setPetroleo (0f);
+			ingame.tableroControl.setRevoluciones (0f);
+			ingame.tableroControl.setTemperatura (0f);
+
 			foreach (WheelCollider w in ruedasConMotor) {
 				w.brakeTorque = 500000f;
 			}
@@ -275,9 +278,12 @@ public class ControlCamionMotor : MonoBehaviour {
 
 		ingame.tableroControl.encenderReversa(retroceso);
 		ingame.tableroControl.encenderAdelante(!retroceso);
-		ingame.tableroControl.setPetroleo(90f);
-		ingame.tableroControl.setRevoluciones(throttle * 100f);
-		ingame.tableroControl.setTemperatura(20f);
+		Debug.Log (estado.ToString());
+		if (estado == ControlCamion.EstadoMaquina.encendida) {
+			ingame.tableroControl.setPetroleo (90f);
+			ingame.tableroControl.setRevoluciones (throttle * 100f);
+			ingame.tableroControl.setTemperatura (20f);
+		}
         //print(GetComponent<Rigidbody>().velocity.magnitude);
     }
     

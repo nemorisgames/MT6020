@@ -160,7 +160,7 @@ public class ControlChecklist : MonoBehaviour {
 	public Light[] lucesTraseras;
 
 	public Animator animatorTolba;
-	int checklistIndex;
+	public int checklistIndex = 1;
 	public bool singleChecklist;
 
 	// Use this for initialization
@@ -286,6 +286,7 @@ public class ControlChecklist : MonoBehaviour {
 		listaActiva = true;
 		activa = true;
 		activarLista(listaActiva);
+		checklistLista.restartListas ();
 		controlMouseOperador.enabled = true;
 		tiempo = Time.timeSinceLevelLoad;
 		generarFallas ();
@@ -303,6 +304,10 @@ public class ControlChecklist : MonoBehaviour {
 		GameObject.FindGameObjectWithTag ("InGame").GetComponent<InGame> ().ejecutarEntradaMaquina (false);
 		foreach(GameObject g in GUINormal)
 			g.SetActive(true);
+		resultadoSeccion1 = 0;
+		resultadoSeccion2 = 0;
+		resultadoSeccion3 = 0;
+		resultadoSeccion4 = 0;
 		nivelPetroleoActivada = true;
 		nivelAceiteActivada = true;
 		nivelHidraulicoActivada = true;
@@ -345,7 +350,7 @@ public class ControlChecklist : MonoBehaviour {
 				if (!danado) {
 					print ("mostrando todos ok");
 					for (int i = 0; i < p.parteMala.Length; i++) {
-						Debug.Log ("1:"+""+p.indiceSeccion +","+p.indicePregunta);
+						//Debug.Log ("1:"+""+p.indiceSeccion +","+p.indicePregunta);
 						p.parteMala [i].SetActive (danado);
 					}
 				} else {
@@ -355,7 +360,7 @@ public class ControlChecklist : MonoBehaviour {
 					print ("parte mala seleccionada " + indiceDanio);
 					for (int i = 0; i < p.parteMala.Length; i++) {
 						if (i == indiceDanio) { 
-							Debug.Log ("2:"+""+p.indiceSeccion +","+p.indicePregunta+";"+i+","+indiceDanio);
+							//Debug.Log ("2:"+""+p.indiceSeccion +","+p.indicePregunta+";"+i+","+indiceDanio);
 							p.parteMala [i].SetActive (danado);
 						//	if (p.indicePregunta == 6 && p.indiceSeccion == 2)
 						//		print (i + " " + indiceDanio + " " + danado);
@@ -1019,8 +1024,10 @@ public class ControlChecklist : MonoBehaviour {
 	public void botonTerminarChecklist(){
 		if (!singleChecklist && checklistIndex == 1) {
 			terminarSimulacionParcial ();
+			Debug.Log ("simulacion parcial");
 		} else {
 			terminarSimulacionFinal ();
+			Debug.Log ("simulacion final");
 		}
 	}
 
@@ -1051,6 +1058,7 @@ public class ControlChecklist : MonoBehaviour {
 		//abrirCabina ();
 		brazoActivado = true;
 		abrirBrazo ();
+
 		for (int i = 0; i < partesMaquina.Length; i++) {
 			switch(partesMaquina[i].indiceSeccion){
 			case 0:
@@ -1112,11 +1120,11 @@ public class ControlChecklist : MonoBehaviour {
 
 		tiempo = (int)(Time.timeSinceLevelLoad - tiempo);
 
-		configuracion.ResultadoRevFunc1 = (int)resultadoSeccion1;
-		configuracion.ResultadoRevCab1 = (int)resultadoSeccion2;
-		configuracion.ResultadoRevEst1 = (int)resultadoSeccion3;
-		configuracion.ResultadoPrevRies1 = (int)resultadoSeccion4;
-		configuracion.ResultadoTiempo = (int)tiempo;
+		//configuracion.ResultadoRevFunc1 = (int)resultadoSeccion1;
+		//configuracion.ResultadoRevCab1 = (int)resultadoSeccion2;
+		//configuracion.ResultadoRevEst1 = (int)resultadoSeccion3;
+		//configuracion.ResultadoPrevRies1 = (int)resultadoSeccion4;
+		//configuracion.ResultadoTiempo = (int)tiempo;
 		configuracion.loadLabels ();
 
 		//resultadoTiempoLabel.text = Configuracion.calcularReloj(tiempo); 
@@ -1330,19 +1338,22 @@ public class ControlChecklist : MonoBehaviour {
 */
 
         configuracion.guardarHistorial ();
-        SceneManager.LoadScene("Login");
+		StartCoroutine (pausaFinal ());
 	}
 
 	public void enviarDatos1(){
+		//datos 1
 		configuracion.ResultadoTiempo = Mathf.RoundToInt(tiempo);
 		configuracion.ResultadoCheck1 = (int)resultadoTotal;
 		configuracion.ResultadoRevFunc1 = (int)resultadoSeccion1;
 		configuracion.ResultadoRevCab1 = (int)resultadoSeccion2;
 		configuracion.ResultadoRevEst1 = (int)resultadoSeccion3;
 		configuracion.ResultadoPrevRies1 = (int)resultadoSeccion4;
+		Debug.Log ("datos1");
 	}
 
 	public void enviarDatos2(){
+		Debug.Log ("datos2");
 		configuracion.ResultadoTiempo = Mathf.RoundToInt(tiempo);
 		configuracion.ResultadoCheck2 = (int)resultadoTotal;
 		configuracion.ResultadoRevFunc2 = (int)resultadoSeccion1;
@@ -1350,7 +1361,7 @@ public class ControlChecklist : MonoBehaviour {
 		configuracion.ResultadoRevEst2 = (int)resultadoSeccion3;
 		configuracion.ResultadoPrevRies2 = (int)resultadoSeccion4;
 		configuracion.guardarHistorial ();
-		SceneManager.LoadScene("Login");
+		StartCoroutine (pausaFinal ());
 	}
 	
 	public void cerrarPanelControles(){
@@ -1368,6 +1379,11 @@ public class ControlChecklist : MonoBehaviour {
 		c.enabled = false;
 		foreach(GameObject g in GUINormal)
 			g.SetActive(true);
+	}
+
+	IEnumerator pausaFinal(){
+		yield return new WaitForSeconds (2f);
+		SceneManager.LoadScene("Login");
 	}
 }
 

@@ -126,4 +126,12 @@ public class ChecklistLista : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void restartListas(){
+		Debug.Log ("listas reiniciadas");
+		respuestas1 = new int[checkLists1.Length];
+		respuestas2 = new int[checkLists2.Length];
+		respuestas3 = new int[checkLists3.Length];
+		respuestas4 = new int[checkLists4.Length];
+	}
 }
