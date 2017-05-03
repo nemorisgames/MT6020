@@ -11,6 +11,7 @@ public class AnimCarguio : MonoBehaviour {
 
 	GameObject carga2;
 	bool cargado = false;
+	bool boton = false;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,8 @@ public class AnimCarguio : MonoBehaviour {
 		cargaTapa.SetActive (true);
 		carga2 = (GameObject)Instantiate (cargaRocas, cargaPosicion.transform.position, cargaPosicion.transform.rotation);
 		carga2.SetActive (false);
+		if (tableroControl == null)
+			tableroControl = GameObject.Find ("TableroControl").GetComponent<TableroControl> ();
 	}
 
 	public void QuitarBarrera(){
@@ -44,9 +47,10 @@ public class AnimCarguio : MonoBehaviour {
 			carga2.transform.position = cargaPosicion.transform.position;	
 	}
 
-	public void ToggleTablero(bool b){
+	public void ToggleTablero(){
 		if (tableroControl != null) {
-			tableroControl.encenderCarga (true);
+			tableroControl.encenderCarga (!boton);
+			boton = !boton;
 		}
 	}
 }

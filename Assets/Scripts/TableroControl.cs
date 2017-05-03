@@ -14,6 +14,10 @@ public class TableroControl : MonoBehaviour {
 		agujaTemperatura = transform.FindChild ("IndicadorTemperatura");
 		agujaRevoluciones = transform.FindChild ("IndicadorRevoluciones");
 		agujaPetroleo = transform.FindChild ("IndicadorPetroleo");
+		if(maquina == null)
+			maquina = GameObject.FindGameObjectWithTag ("Maquina").GetComponent<ControlCamion>();
+		if(motor == null)
+			motor = GameObject.Find ("Delantera_B").GetComponent<ControlCamionMotor>();
 	}
 
 	public void encenderStopMotor(bool encender){ indicadoresSuperiores[5].SetActive(!encender); }
@@ -47,8 +51,14 @@ public class TableroControl : MonoBehaviour {
 			else
 				encenderTolva (false);
 
-			if (maquina.estado == ControlCamion.EstadoMaquina.apagada)
+			if (maquina.estado == ControlCamion.EstadoMaquina.apagada){
 				encenderStopMotor (true);
+				encenderReversa (false);
+				encenderNeutro (false);
+				encenderAdelante (false);
+				encenderAuto (false);
+				encenderManual (false);
+			}
 			else
 				encenderStopMotor (false);
 		}
