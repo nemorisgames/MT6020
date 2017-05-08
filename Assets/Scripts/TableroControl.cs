@@ -63,7 +63,7 @@ public class TableroControl : MonoBehaviour {
 				encenderStopMotor (false);
 		}
 		if (motor != null) {
-			encenderFrenoParq (motor.frenoParqueoActivado);
+			encenderFrenoParq (!motor.frenoParqueoActivado);
 		}
 	}
 

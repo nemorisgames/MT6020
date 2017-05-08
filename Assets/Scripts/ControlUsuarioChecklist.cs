@@ -495,11 +495,13 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 		if(controlChecklist != null)
 			controlChecklist.estadoExcavadoraChecklist = controlCamion.estado;
         //inGame.cambiarEstado(InGame.EstadoSimulacion.EncendidoExterior);
+		puertaIsoSwitchAbierta = false;
     }
     //se ejecuta cuando la animacion de puerta de switch termina
     public void puertaIsoSwitchAbiertaTotal()
     {
-        puertaIsoSwitchAbierta = puertaIsoSwitch.direction == AnimationOrTween.Direction.Forward;
+        //puertaIsoSwitchAbierta = puertaIsoSwitch.direction == AnimationOrTween.Direction.Forward;
+		puertaIsoSwitchAbierta = true;
     }
 
     void OnDisable(){
