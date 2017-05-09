@@ -37,6 +37,8 @@ public class ControlCamionMotor : MonoBehaviour {
     public AudioClip sonidoRetroceso;
     public AudioClip sonidoPitido;
 
+	GameObject ruedasT;
+	GameObject ejeT;
     /*
 
     public AudioClip sonidoClaxon;
@@ -53,6 +55,8 @@ public class ControlCamionMotor : MonoBehaviour {
     // Use this for initialization
     */
     void Start () {
+		ruedasT = transform.Find ("../Trasero_B/Ruendas_T").gameObject;
+		ejeT = transform.Find ("../Trasero_B/EjeTrasero").gameObject;
         /*
         audioMotor = gameObject.GetComponent<AudioSource> ();
         cambioVelocidad (0);
@@ -275,13 +279,22 @@ public class ControlCamionMotor : MonoBehaviour {
 				}
 			}
 
+		float auxSpeed = (velocidadActual / 100000f);
+
+		if (auxSpeed > 0.15f) {
+			if (!retroceso)
+				//ruedasT.transform.RotateAround (ejeT.transform.position, Vector3.right, auxSpeed / 50f);
+				ruedasT.transform.Rotate(new Vector3(auxSpeed/50f,0f,0f));
+			else
+				//ruedasT.transform.RotateAround (ejeT.transform.position, Vector3.left, auxSpeed / 50f);
+				ruedasT.transform.Rotate(new Vector3(-auxSpeed/50f,0f,0f));
+		}
 
 		ingame.tableroControl.encenderReversa(retroceso);
 		ingame.tableroControl.encenderAdelante(!retroceso);
-		//Debug.Log (estado.ToString());
 		if (estado == ControlCamion.EstadoMaquina.encendida) {
 			ingame.tableroControl.setPetroleo (90f);
-			ingame.tableroControl.setRevoluciones (throttle * 100f);
+			ingame.tableroControl.setRevoluciones (Mathf.Clamp(auxSpeed*0.6f,0f,100f));
 			ingame.tableroControl.setTemperatura (20f);
 		}
         //print(GetComponent<Rigidbody>().velocity.magnitude);

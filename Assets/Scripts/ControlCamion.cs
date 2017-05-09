@@ -13,6 +13,7 @@ public class ControlCamion : MonoBehaviour {
     bool animacionEnFinal = false;
     public GameObject camaraTrasera;
     public GameObject camaraBalde;
+	public GameObject monitor;
 
     public InGame ingame;
 
@@ -119,6 +120,9 @@ public class ControlCamion : MonoBehaviour {
         ingame = GameObject.FindWithTag("InGame").GetComponent<InGame>();
         controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
         animator = GetComponent<Animator>();
+		monitor = transform.Find ("Delantera_B/Varios/Monitor").gameObject;
+		monitor.SetActive (false);
+		camaraBalde.SetActive (false);
         
         //cilindroEmpuje = jointBrazo.transform.FindChild ("Eje_empuje_medio/Pomo");
 		configuracion = GameObject.FindWithTag ("Configuracion").GetComponent<Configuracion>();
@@ -999,6 +1003,8 @@ public class ControlCamion : MonoBehaviour {
 		if(ingame.estado != InGame.EstadoSimulacion.ApagadoExterior && ingame.estado != InGame.EstadoSimulacion.Finalizando)
 			ingame.estado = activar?InGame.EstadoSimulacion.Conduciendo:ingame.estado;
         controlCamionMotor.encender(activar);
+		monitor.SetActive (true);
+		camaraBalde.SetActive (true);
         //enciende leds iniciales
         /*controlPantallaTactil.motorEncendido (activar);
 		controlPantallaTactil.neutro (true);
@@ -1135,8 +1141,9 @@ public class ControlCamion : MonoBehaviour {
 		}
 		if(position.y >= controlCamionMotor.transform.position.y + 2f && tag == "pared")
 			ingame.choqueTunel ();
-
 	}
+
+
 
 	public void reset(){
 		SceneManager.LoadScene (SceneManager.GetActiveScene().name);
