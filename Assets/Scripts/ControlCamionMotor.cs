@@ -278,7 +278,7 @@ public class ControlCamionMotor : MonoBehaviour {
 
 		ingame.tableroControl.encenderReversa(retroceso);
 		ingame.tableroControl.encenderAdelante(!retroceso);
-		Debug.Log (estado.ToString());
+		//Debug.Log (estado.ToString());
 		if (estado == ControlCamion.EstadoMaquina.encendida) {
 			ingame.tableroControl.setPetroleo (90f);
 			ingame.tableroControl.setRevoluciones (throttle * 100f);
