@@ -813,7 +813,7 @@ public class ControlCamion : MonoBehaviour {
 		#if UNITY_EDITOR
 		controlCamionMotor.frenoParqueoActivado = controlTarjetaControladora.BotonAccion() == 0;
 		#else
-		controlCamionMotor.frenoParqueoActivado = controlTarjetaControladora.BotonAccion() == 1;
+		controlCamionMotor.frenoParqueoActivado = controlTarjetaControladora.BotonAccion() == 0;
 		#endif
 
         if (Input.GetButtonDown("Encendido"))

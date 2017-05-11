@@ -289,9 +289,9 @@ public class ControlCamionMotor : MonoBehaviour {
 				//ruedasT.transform.RotateAround (ejeT.transform.position, Vector3.left, auxSpeed / 50f);
 				ruedasT.transform.Rotate(new Vector3(-auxSpeed/50f,0f,0f));
 		}
-
-		ingame.tableroControl.encenderReversa(retroceso);
-		ingame.tableroControl.encenderAdelante(!retroceso);
+        ingame.tableroControl.encenderFrenoParq(frenoParqueoActivado);
+		ingame.tableroControl.encenderReversa(retroceso || factorRetroceso == -1);
+		ingame.tableroControl.encenderAdelante(!retroceso || factorRetroceso != -1);
 		if (estado == ControlCamion.EstadoMaquina.encendida) {
 			ingame.tableroControl.setPetroleo (90f);
 			ingame.tableroControl.setRevoluciones (Mathf.Clamp(auxSpeed*0.6f,0f,100f));

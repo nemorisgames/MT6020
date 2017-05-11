@@ -482,11 +482,20 @@ public class ControlUsuarioChecklist : MonoBehaviour {
         {
 			if(operarioAnimator != null) operarioAnimator.SetTrigger("Entrar");
             camionAnimator.SetTrigger("Entrada");
+            StartCoroutine(entradaPausa());
             camaraEntradaAnimator.SetTrigger("Entrar");
             print("entrar aqui");
         }
         inGame.ejecutarEntradaMaquina(ingresar);
         gameObject.SetActive(!ingresar);
+    }
+
+    IEnumerator entradaPausa() {
+        print("pausando ingreso");
+        yield return new WaitForSeconds(1f);
+        camionAnimator.StopPlayback();
+        yield return new WaitForSeconds(1f);
+        camionAnimator.Play("Entrada");
     }
     
     //se ejecuta cuando la animacion de switch termina
