@@ -121,8 +121,7 @@ public class ControlCamion : MonoBehaviour {
         controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
         animator = GetComponent<Animator>();
 		monitor = transform.Find ("Delantera_B/Varios/Monitor").gameObject;
-		monitor.SetActive (false);
-		camaraBalde.SetActive (false);
+		ActivarMonitores (false);
         
         //cilindroEmpuje = jointBrazo.transform.FindChild ("Eje_empuje_medio/Pomo");
 		configuracion = GameObject.FindWithTag ("Configuracion").GetComponent<Configuracion>();
@@ -141,6 +140,11 @@ public class ControlCamion : MonoBehaviour {
         //quitar esto. se encuentra en ingresar maquina
         resetMaquina();
     }
+
+	void ActivarMonitores(bool b){
+		monitor.SetActive (b);
+		camaraBalde.SetActive (b);
+	}
     /*
 	//0: freno
 	//1: acelerador
@@ -758,6 +762,9 @@ public class ControlCamion : MonoBehaviour {
 		{
 			manejarEjeLimites (-direccion);
 			manejarBrazoLimites(brazo);
+			if (brazo != 0 && brazo < 0.95 && brazo > -0.95) {
+				ingame.ShakeMulti2 ();
+			}
 		}
 		// * (test?100f:1f));
         /*manejarPalaLimites (pala * (test?100f:1f));
@@ -1003,8 +1010,7 @@ public class ControlCamion : MonoBehaviour {
 		if(ingame.estado != InGame.EstadoSimulacion.ApagadoExterior && ingame.estado != InGame.EstadoSimulacion.Finalizando)
 			ingame.estado = activar?InGame.EstadoSimulacion.Conduciendo:ingame.estado;
         controlCamionMotor.encender(activar);
-		monitor.SetActive (true);
-		camaraBalde.SetActive (true);
+		ActivarMonitores (activar);
         //enciende leds iniciales
         /*controlPantallaTactil.motorEncendido (activar);
 		controlPantallaTactil.neutro (true);
@@ -1031,6 +1037,7 @@ public class ControlCamion : MonoBehaviour {
 	void salirCabinaFinal(){
 		if (ingame.estado == InGame.EstadoSimulacion.Finalizando || ingame.estado == InGame.EstadoSimulacion.ApagadoExterior || ingame.estado == InGame.EstadoSimulacion.EncendidoExterior) {
 				//print ("salir cabina");
+			ActivarMonitores(false);
 				salirCabina ();
 				//controlUsuarioChecklist.mensajeInteraccion.gameObject.SetActive (false);
 				//controlUsuarioChecklist.enfocandoCabina = false;

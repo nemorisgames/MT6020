@@ -279,15 +279,15 @@ public class ControlCamionMotor : MonoBehaviour {
 				}
 			}
 
-		float auxSpeed = (velocidadActual / 100000f);
+		float auxSpeed = Mathf.Clamp((velocidadActual / 100000f)/50f,0.1f,float.MaxValue);
 
-		if (auxSpeed > 0.15f) {
+		if (velocidadActual > 0.1) {
 			if (!retroceso)
 				//ruedasT.transform.RotateAround (ejeT.transform.position, Vector3.right, auxSpeed / 50f);
-				ruedasT.transform.Rotate(new Vector3(auxSpeed/50f,0f,0f));
+				ruedasT.transform.Rotate(new Vector3(auxSpeed,0f,0f));
 			else
 				//ruedasT.transform.RotateAround (ejeT.transform.position, Vector3.left, auxSpeed / 50f);
-				ruedasT.transform.Rotate(new Vector3(-auxSpeed/50f,0f,0f));
+				ruedasT.transform.Rotate(new Vector3(-auxSpeed,0f,0f));
 		}
         ingame.tableroControl.encenderFrenoParq(frenoParqueoActivado);
 		ingame.tableroControl.encenderReversa(retroceso || factorRetroceso == -1);
