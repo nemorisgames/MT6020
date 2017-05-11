@@ -281,7 +281,7 @@ public class ControlCamionMotor : MonoBehaviour {
 
 		float auxSpeed = (velocidadActual / 100000f);
 
-		if (auxSpeed > 0.15f) {
+		if (auxSpeed > 0f) {
 			if (!retroceso)
 				//ruedasT.transform.RotateAround (ejeT.transform.position, Vector3.right, auxSpeed / 50f);
 				ruedasT.transform.Rotate(new Vector3(auxSpeed/50f,0f,0f));
