@@ -459,12 +459,13 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				switch (inGame.estado) {
 				case InGame.EstadoSimulacion.EncendidoExterior:
 				case InGame.EstadoSimulacion.ApagadoExterior:
-					if (!puertaIsoSwitchAbierta)
-					if(!puertaIsoSwitch.isActiveAndEnabled)
-						puertaIsoSwitch.Toggle ();
+					if (!puertaIsoSwitchAbierta) {
+						if (!puertaIsoSwitch.isActiveAndEnabled)
+							puertaIsoSwitch.Toggle ();
+					}
 					else {
 						if(!isoSwitch.isActiveAndEnabled)
-						isoSwitch.Toggle ();
+							isoSwitch.Toggle ();
 					}
 					break;
 
@@ -511,7 +512,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
     //se ejecuta cuando la animacion de puerta de switch termina
     public void puertaIsoSwitchAbiertaTotal()
     {
-        puertaIsoSwitchAbierta = puertaIsoSwitch.direction == AnimationOrTween.Direction.Forward;
+    	puertaIsoSwitchAbierta = puertaIsoSwitch.direction == AnimationOrTween.Direction.Forward;
     }
 
     void OnDisable(){

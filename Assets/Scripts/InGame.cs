@@ -98,6 +98,13 @@ public class InGame : MonoBehaviour {
             diapositivaFallaMensajeVolcado = diapositivaFinalResumen.transform.parent.FindChild("DiapositivaFalla/Volcamiento").gameObject;
             diapositivaFalla.SetActive(false);
         }
+
+		if (camarasMaquina == null) {
+			camarasMaquina = new Camera[3];
+			camarasMaquina [0] = GameObject.Find ("CamaraCabinaAdelante").GetComponent<Camera>();
+			camarasMaquina [1] = GameObject.Find ("CamaraCabinaIzquierda").GetComponent<Camera>();
+			camarasMaquina [2] = GameObject.Find ("CamaraCabinaDerecha").GetComponent<Camera>();
+		}
         //if (controlChecklistFinal != null)
         //	controlChecklistFinal.activar (false);
         StartCoroutine(contarRepeticiones());
@@ -748,6 +755,44 @@ public class InGame : MonoBehaviour {
         if (integridadTunel < configuracion.IntTunel)
             fallaOperacion(ControlCamion.LugarMaquina.Tunel);
     }
+
+	public Camera [] camarasMaquina;
+
+	IEnumerator ShakeSingle(){
+		float rnd = Random.Range (-0.03f, 0.03f);
+		Vector3[] target = new Vector3[3];
+		shaking = true;
+		for (int i = 0; i < 3; i++) {
+			target [i] = new Vector3 (camarasMaquina [i].transform.position.x, camarasMaquina [i].transform.position.y + rnd, camarasMaquina [i].transform.position.z);
+		}
+		while (camarasMaquina [0].transform.position != target [0] && camarasMaquina[1].transform.position != target[1] && camarasMaquina[2].transform.position != target[2]) {
+			for(int i=0;i<3;i++)
+				camarasMaquina [i].transform.position = Vector3.Lerp (camarasMaquina [i].transform.position, target [i], Time.deltaTime);
+		}
+		yield return new WaitForSeconds (0.01f);
+		for (int i = 0; i < 3; i++) {
+			target [i] = new Vector3 (camarasMaquina [i].transform.position.x, camarasMaquina [i].transform.position.y - rnd, camarasMaquina [i].transform.position.z);
+		}
+		while (camarasMaquina [0].transform.position != target [0] && camarasMaquina[1].transform.position != target[1] && camarasMaquina[2].transform.position != target[2]) {
+			for(int i=0;i<3;i++)
+				camarasMaquina [i].transform.position = Vector3.Lerp (camarasMaquina [i].transform.position, target [i], Time.deltaTime);		
+		}
+		shaking = false;
+	}
+
+	public IEnumerator ShakeMulti(int n){
+		for(int i=0;i<n;i++){
+			StartCoroutine(ShakeSingle ());
+			yield return new WaitForSeconds (0.07f);
+		}
+	}
+
+	bool shaking = false;
+	public void ShakeMulti2(){
+		if (!shaking) {
+			StartCoroutine(ShakeSingle ());
+		}
+	}
 
 
     /*public Transform camaraInterior;
