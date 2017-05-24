@@ -773,7 +773,7 @@ public class ControlCamion : MonoBehaviour {
         */
         
         //print(controlTarjetaControladora.ignicion());
-        if (controlTarjetaControladora.ignicion() == 2)
+        if (controlTarjetaControladora.ignicion() == 0)
         {
             if (estado == EstadoMaquina.encendida)
             {
@@ -783,7 +783,7 @@ public class ControlCamion : MonoBehaviour {
         }
         else
         {
-            if (controlTarjetaControladora.ignicion() == 1)
+            if (controlTarjetaControladora.ignicion() == 2)
             {
                 if (estado == EstadoMaquina.apagada && tiempoEncendido <= 0f)
                 {
@@ -805,7 +805,7 @@ public class ControlCamion : MonoBehaviour {
             }
             else
             {
-                if (controlTarjetaControladora.ignicion() == 0)
+                if (controlTarjetaControladora.ignicion() == 1)
                 {
                     if (estado != EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))
                     {
