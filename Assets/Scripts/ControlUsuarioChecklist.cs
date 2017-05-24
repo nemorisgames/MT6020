@@ -450,11 +450,11 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 			}
 			//}
 
-			if (enfocandoCabina && (Input.GetKeyDown (KeyCode.E) || Input.GetButton ("Fire3"))) {
+			if (enfocandoCabina && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
 				ingresarCabina (true);
 			}
 
-			if (enfocandoEncendido && (Input.GetKeyDown (KeyCode.E) || Input.GetButton ("Fire3"))) {
+			if (enfocandoEncendido && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
 				print ("enfocandoEncendido boton press");
 				switch (inGame.estado) {
 				case InGame.EstadoSimulacion.EncendidoExterior:
