@@ -292,7 +292,7 @@ public class ControlCamionMotor : MonoBehaviour {
 				//ruedasT.transform.RotateAround (ejeT.transform.position, Vector3.left, auxSpeed / 50f);
 				ruedasT.transform.Rotate(new Vector3(-auxSpeed,0f,0f));
 		}
-        ingame.tableroControl.encenderFrenoParq(frenoParqueoActivado);
+        ingame.tableroControl.encenderFrenoParq(!frenoParqueoActivado);
 		ingame.tableroControl.encenderReversa(retroceso || factorRetroceso == -1);
 		ingame.tableroControl.encenderAdelante(!retroceso || factorRetroceso != -1);
 		if (estado == ControlCamion.EstadoMaquina.encendida) {
@@ -320,9 +320,9 @@ public class ControlCamionMotor : MonoBehaviour {
     }
 
 	void OnGUI(){
-		GUI.Label (new Rect(10f, 200f, 200f, 20f), "Cambio " + cambioActual + " " + Input.GetAxis("Cambio"));
-		GUI.Label (new Rect(10f, 220f, 200f, 20f), "Freno " + controlTarjetaControladora.Freno());
-		GUI.Label (new Rect(10f, 240f, 200f, 20f), "Retardador " + controlTarjetaControladora.Retardador());
+		GUI.Label (new Rect(300f, 200f, 200f, 20f), "Cambio " + cambioActual + " " + Input.GetAxis("Cambio"));
+		GUI.Label (new Rect(300f, 220f, 200f, 20f), "Freno " + controlTarjetaControladora.Freno());
+		GUI.Label (new Rect(300f, 240f, 200f, 20f), "Retardador " + controlTarjetaControladora.Retardador());
 	}
 
 }

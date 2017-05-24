@@ -115,7 +115,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
         hor = Input.GetAxis("Manubrio");
 
 		ver = -controlTarjetaControladora.Retardador() + controlTarjetaControladora.Freno();
-		ver2 = controlTarjetaControladora.Acelerador();
+		ver2 = Mathf.Floor(controlTarjetaControladora.Acelerador());
 #endif
         hor2 = 0f;// Input.GetAxis("Horizontal");
         //#else

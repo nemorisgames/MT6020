@@ -23,7 +23,7 @@ public class TableroControl : MonoBehaviour {
 	public void encenderStopMotor(bool encender){ indicadoresSuperiores[5].SetActive(!encender); }
 	public void encenderCarga(bool encender) { indicadoresSuperiores[6].SetActive(!encender); }
 	public void encenderTolva(bool encender) { indicadoresSuperiores[9].SetActive(!encender); }
-	public void encenderFrenoParq(bool encender) { indicadoresSuperiores[10].SetActive(encender); }
+	public void encenderFrenoParq(bool encender) { indicadoresSuperiores[10].SetActive(!encender); }
     public void encenderReversa(bool encender){ indicadoresSuperiores[13].SetActive(!encender); }
     public void encenderNeutro(bool encender) { indicadoresSuperiores[14].SetActive(!encender); }
     public void encenderAdelante(bool encender) { indicadoresSuperiores[15].SetActive(!encender); }
