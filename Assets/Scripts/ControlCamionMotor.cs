@@ -39,6 +39,8 @@ public class ControlCamionMotor : MonoBehaviour {
 
 	GameObject ruedasT;
 	GameObject ejeT;
+
+    Transform balde;
     /*
 
     public AudioClip sonidoClaxon;
@@ -57,6 +59,7 @@ public class ControlCamionMotor : MonoBehaviour {
     void Start () {
 		ruedasT = transform.Find ("../Trasero_B/Ruendas_T").gameObject;
 		ejeT = transform.Find ("../Trasero_B/EjeTrasero").gameObject;
+        balde = transform.Find("../Trasero_B/Balde");
         /*
         audioMotor = gameObject.GetComponent<AudioSource> ();
         cambioVelocidad (0);
@@ -296,7 +299,9 @@ public class ControlCamionMotor : MonoBehaviour {
 			ingame.tableroControl.setPetroleo (90f);
 			ingame.tableroControl.setRevoluciones (Mathf.Clamp(auxSpeed*0.6f,0f,100f));
 			ingame.tableroControl.setTemperatura (20f);
-		}
+            ingame.tableroControl.encenderTolva(balde.transform.localEulerAngles.x != 0f);
+        }
+
         //print(GetComponent<Rigidbody>().velocity.magnitude);
     }
     
