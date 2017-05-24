@@ -294,7 +294,7 @@ public class ControlCamionMotor : MonoBehaviour {
 		}
         ingame.tableroControl.encenderFrenoParq(!frenoParqueoActivado);
 		ingame.tableroControl.encenderReversa(retroceso || factorRetroceso == -1);
-		ingame.tableroControl.encenderAdelante(!retroceso || factorRetroceso != -1);
+		ingame.tableroControl.encenderAdelante(!(retroceso || factorRetroceso == -1));
 		if (estado == ControlCamion.EstadoMaquina.encendida) {
 			ingame.tableroControl.setPetroleo (90f);
 			ingame.tableroControl.setRevoluciones (Mathf.Clamp(auxSpeed*0.6f,0f,100f));
