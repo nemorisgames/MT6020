@@ -68,7 +68,8 @@ public class InGame : MonoBehaviour {
 	public GameObject checklistFinal;
     //AVProMovieCaptureFromCamera avpro;
     //int secuenciaGrabacion = 0;
-
+	Vector3 [] camaraPosIni = new Vector3[3];
+	Quaternion [] camaraRotIni = new Quaternion[3];
 
     // Use this for initialization
     void Start ()
@@ -104,6 +105,12 @@ public class InGame : MonoBehaviour {
 			camarasMaquina [0] = GameObject.Find ("CamaraCabinaAdelante").GetComponent<Camera>();
 			camarasMaquina [1] = GameObject.Find ("CamaraCabinaIzquierda").GetComponent<Camera>();
 			camarasMaquina [2] = GameObject.Find ("CamaraCabinaDerecha").GetComponent<Camera>();
+		}
+
+		for (int i = 0; i < 3; i++) {
+			camaraPosIni [i] = camarasMaquina [i].transform.localPosition;
+			camaraRotIni [i] = camarasMaquina [i].transform.localRotation;
+			Debug.Log (camaraPosIni [i]);
 		}
         //if (controlChecklistFinal != null)
         //	controlChecklistFinal.activar (false);
@@ -154,8 +161,13 @@ public class InGame : MonoBehaviour {
     public IEnumerator ejecutarEntradaMaquinaDelay(bool ingresar) { 
         yield return new WaitForSeconds(ingresar?10f:0f);
         print(ingresar?"entrar":"salir");
-		if(maquinaAlta != null)
-			activarMaquinaAlta(!ingresar);
+		if (maquinaAlta != null) {
+			activarMaquinaAlta (!ingresar);
+			for (int i = 0; i < 3; i++) {
+				camaraPosIni [i] = camarasMaquina [i].transform.localPosition;
+				camaraRotIni [i] = camarasMaquina [i].transform.localRotation;
+			}
+		}
     }
 
     public void cambiarEstado(EstadoSimulacion e)
@@ -660,6 +672,15 @@ public class InGame : MonoBehaviour {
         {
             fallaOperacion(ControlCamion.LugarMaquina.Buzon);
         }
+
+		if (shaking) {
+			StartCoroutine(ApplyShake(ShakeV2 (5f, 1.5f)));
+		}
+
+		/*if (Input.GetKeyDown (KeyCode.L))
+			EnableShaking (true);
+		if (Input.GetKeyUp (KeyCode.L))
+			EnableShaking (false);*/
     }
 
     public void condicionesTerminoListas()
@@ -743,41 +764,55 @@ public class InGame : MonoBehaviour {
 
 	public Camera [] camarasMaquina;
 
-	IEnumerator ShakeSingle(){
-		float rnd = Random.Range (-0.03f, 0.03f);
-		Vector3[] target = new Vector3[3];
-		shaking = true;
-		for (int i = 0; i < 3; i++) {
-			target [i] = new Vector3 (camarasMaquina [i].transform.position.x, camarasMaquina [i].transform.position.y + rnd, camarasMaquina [i].transform.position.z);
-		}
-		while (camarasMaquina [0].transform.position != target [0] && camarasMaquina[1].transform.position != target[1] && camarasMaquina[2].transform.position != target[2]) {
-			for(int i=0;i<3;i++)
-				camarasMaquina [i].transform.position = Vector3.Lerp (camarasMaquina [i].transform.position, target [i], Time.deltaTime);
-		}
-		yield return new WaitForSeconds (0.01f);
-		for (int i = 0; i < 3; i++) {
-			target [i] = new Vector3 (camarasMaquina [i].transform.position.x, camarasMaquina [i].transform.position.y - rnd, camarasMaquina [i].transform.position.z);
-		}
-		while (camarasMaquina [0].transform.position != target [0] && camarasMaquina[1].transform.position != target[1] && camarasMaquina[2].transform.position != target[2]) {
-			for(int i=0;i<3;i++)
-				camarasMaquina [i].transform.position = Vector3.Lerp (camarasMaquina [i].transform.position, target [i], Time.deltaTime);		
-		}
-		shaking = false;
+	Vector3 ShakeV2(float frec, float mag){
+		Vector2 result;
+		float seed = Time.time * frec;
+		result.x = Mathf.Clamp(Mathf.PerlinNoise (seed, 0f),0f,0.3f)*Mathf.Sign(Random.Range(-1,1));
+		result.y = Mathf.Clamp(Mathf.PerlinNoise (0f, seed),0f,0.3f)*Mathf.Sign(Random.Range(-1,1));
+		result = (result * mag)/100f;
+		return result;
 	}
 
-	public IEnumerator ShakeMulti(int n){
-		for(int i=0;i<n;i++){
-			StartCoroutine(ShakeSingle ());
-			yield return new WaitForSeconds (0.07f);
+	IEnumerator ApplyShake(Vector3 noise){
+
+		Vector3 [] newPosition = new Vector3[3];
+		for (int i = 0; i < 3; i++) {
+			newPosition [i] = camarasMaquina [i].transform.localPosition;
+			//newPosition [i].x += noise.x;
+			newPosition [i].y += noise.y;
+			camarasMaquina [i].transform.localPosition = newPosition[i];
+		}
+		yield return new WaitForSeconds (0.15f);
+		for (int i = 0; i < 3; i++) {
+			newPosition [i] = camarasMaquina [i].transform.localPosition;
+			//newPosition [i].x += noise.x;
+			newPosition [i].y -= noise.y;
+			camarasMaquina [i].transform.localPosition = newPosition[i];
+		}
+	}
+
+	public void EnableShaking(bool b){
+		shaking = b;
+		if (!shaking) {
+			StartCoroutine (StopShaking ());
+		}
+	}
+
+	public IEnumerator ShakeForSecs(float s){
+		EnableShaking (true);
+		yield return new WaitForSeconds (s);
+		EnableShaking (false);
+	}
+
+	IEnumerator StopShaking(){
+		yield return new WaitForSeconds (0.5f);
+		for (int i = 0; i < 3; i++) {
+			camarasMaquina [i].transform.localPosition = camaraPosIni [i];
 		}
 	}
 
 	bool shaking = false;
-	public void ShakeMulti2(){
-		if (!shaking) {
-			StartCoroutine(ShakeSingle ());
-		}
-	}
+
 
 
     /*public Transform camaraInterior;

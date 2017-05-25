@@ -762,9 +762,10 @@ public class ControlCamion : MonoBehaviour {
 		{
 			manejarEjeLimites (-direccion);
 			manejarBrazoLimites(brazo);
-			if (brazo != 0 && brazo < 0.95 && brazo > -0.95) {
-				ingame.ShakeMulti2 ();
-			}
+			if (brazo != 0 && Mathf.Abs(brazo) > 0.5f)
+				ingame.EnableShaking (true);
+			else
+				ingame.EnableShaking (false);	
 		}
 		// * (test?100f:1f));
         /*manejarPalaLimites (pala * (test?100f:1f));

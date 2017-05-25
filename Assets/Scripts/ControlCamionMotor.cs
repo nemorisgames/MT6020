@@ -106,6 +106,7 @@ public class ControlCamionMotor : MonoBehaviour {
             audioSource.loop = true;
             audioSource.Play();
             audioSource.PlayOneShot(sonidoEncendido);
+			StartCoroutine (ingame.ShakeForSecs (1f));
         }
         else
 		{

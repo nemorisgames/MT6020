@@ -65,7 +65,11 @@ public class AnimCarguio : MonoBehaviour {
 	}
 
 	public void SacudirCamaras(){
-		StartCoroutine (ingame.ShakeMulti (45));
+		ingame.EnableShaking (true);
+	}
+
+	public void DetenerCamaras(){
+		ingame.EnableShaking (false);
 	}
 
 
