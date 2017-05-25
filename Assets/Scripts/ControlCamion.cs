@@ -684,6 +684,14 @@ public class ControlCamion : MonoBehaviour {
         animacionEnInicio = false;
         animacionEnFinal = true;
     }
+
+	bool usingArm = false;
+
+	IEnumerator stopArm(){
+		yield return new WaitForSeconds (1f);
+		ingame.EnableShaking (false);
+		usingArm = false;
+	}
 	
     // Update is called once per frame
     void Update()
@@ -731,7 +739,8 @@ public class ControlCamion : MonoBehaviour {
 		float pala = 0f;*/
         float brazo = 0f;
 		float direccion = 0f;
-        /*
+	
+		/*
 #if !UNITY_EDITOR
 		pala = Input.GetAxis ("CucharaEditor");*/
 #if UNITY_EDITOR
@@ -762,10 +771,14 @@ public class ControlCamion : MonoBehaviour {
 		{
 			manejarEjeLimites (-direccion);
 			manejarBrazoLimites(brazo);
-			if (brazo != 0 && Mathf.Abs(brazo) > 0.5f)
+			if (brazo != 0 && Mathf.Abs (brazo) > 0.5f && !usingArm) {
 				ingame.EnableShaking (true);
-			else
-				ingame.EnableShaking (false);	
+				usingArm = true;
+			}
+			else{
+				Debug.Log ("here");
+				StartCoroutine (stopArm ());
+			}
 		}
 		// * (test?100f:1f));
         /*manejarPalaLimites (pala * (test?100f:1f));

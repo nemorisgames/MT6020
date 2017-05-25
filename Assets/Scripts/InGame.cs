@@ -646,6 +646,10 @@ public class InGame : MonoBehaviour {
             avpro.StartCapture();
             secuenciaGrabacion++;
         }*/
+		if (shaking) {
+			StartCoroutine(ApplyShake(ShakeV2 (5f, 1.5f)));
+		}
+
         if (estado == EstadoSimulacion.Finalizando || estado == EstadoSimulacion.ApagadoExterior)
             return;
         /*if (shake_intensity > 0f)
@@ -673,14 +677,6 @@ public class InGame : MonoBehaviour {
             fallaOperacion(ControlCamion.LugarMaquina.Buzon);
         }
 
-		if (shaking) {
-			StartCoroutine(ApplyShake(ShakeV2 (5f, 1.5f)));
-		}
-
-		/*if (Input.GetKeyDown (KeyCode.L))
-			EnableShaking (true);
-		if (Input.GetKeyUp (KeyCode.L))
-			EnableShaking (false);*/
     }
 
     public void condicionesTerminoListas()
@@ -767,14 +763,13 @@ public class InGame : MonoBehaviour {
 	Vector3 ShakeV2(float frec, float mag){
 		Vector2 result;
 		float seed = Time.time * frec;
-		result.x = Mathf.Clamp(Mathf.PerlinNoise (seed, 0f),0f,0.3f)*Mathf.Sign(Random.Range(-1,1));
-		result.y = Mathf.Clamp(Mathf.PerlinNoise (0f, seed),0f,0.3f)*Mathf.Sign(Random.Range(-1,1));
+		result.x = Mathf.Clamp(Mathf.PerlinNoise (seed, 0f),0f,0.5f)*Mathf.Sign(Random.Range(-1,1))/10f;
+		result.y = Mathf.Clamp(Mathf.PerlinNoise (0f, seed),0f,0.5f)*Mathf.Sign(Random.Range(-1,1))/10f;
 		result = (result * mag)/100f;
 		return result;
 	}
 
 	IEnumerator ApplyShake(Vector3 noise){
-
 		Vector3 [] newPosition = new Vector3[3];
 		for (int i = 0; i < 3; i++) {
 			newPosition [i] = camarasMaquina [i].transform.localPosition;
@@ -782,7 +777,7 @@ public class InGame : MonoBehaviour {
 			newPosition [i].y += noise.y;
 			camarasMaquina [i].transform.localPosition = newPosition[i];
 		}
-		yield return new WaitForSeconds (0.15f);
+		yield return new WaitForSeconds (0.1f);
 		for (int i = 0; i < 3; i++) {
 			newPosition [i] = camarasMaquina [i].transform.localPosition;
 			//newPosition [i].x += noise.x;
@@ -793,7 +788,7 @@ public class InGame : MonoBehaviour {
 
 	public void EnableShaking(bool b){
 		shaking = b;
-		if (!shaking) {
+		if (!b) {
 			StartCoroutine (StopShaking ());
 		}
 	}
@@ -805,7 +800,7 @@ public class InGame : MonoBehaviour {
 	}
 
 	IEnumerator StopShaking(){
-		yield return new WaitForSeconds (0.5f);
+		yield return new WaitForSeconds (0.8f);
 		for (int i = 0; i < 3; i++) {
 			camarasMaquina [i].transform.localPosition = camaraPosIni [i];
 		}

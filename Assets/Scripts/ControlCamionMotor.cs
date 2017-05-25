@@ -97,8 +97,8 @@ public class ControlCamionMotor : MonoBehaviour {
     
     */
     public void encender(bool activar){
-        if (estado == ControlCamion.EstadoMaquina.apagadaTotal)
-            return;
+        /*if (estado == ControlCamion.EstadoMaquina.apagadaTotal)
+            return;*/
         estado = activar? ControlCamion.EstadoMaquina.encendida: ControlCamion.EstadoMaquina.apagada;
         if (activar)
         {
@@ -106,7 +106,7 @@ public class ControlCamionMotor : MonoBehaviour {
             audioSource.loop = true;
             audioSource.Play();
             audioSource.PlayOneShot(sonidoEncendido);
-			StartCoroutine (ingame.ShakeForSecs (1f));
+			StartCoroutine(ingame.ShakeForSecs(1f));
         }
         else
 		{
