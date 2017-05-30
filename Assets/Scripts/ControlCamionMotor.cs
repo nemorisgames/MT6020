@@ -66,6 +66,7 @@ public class ControlCamionMotor : MonoBehaviour {
         */
         ingame = GameObject.FindWithTag("InGame").GetComponent<InGame>();
         controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
+
 #if UNITY_EDITOR
         tipoCambio = TipoCambio.automatico;
 #else
@@ -110,9 +111,7 @@ public class ControlCamionMotor : MonoBehaviour {
         }
         else
 		{
-			ingame.tableroControl.setPetroleo (0f);
-			ingame.tableroControl.setRevoluciones (0f);
-			ingame.tableroControl.setTemperatura (0f);
+			//ingame.tableroControl.setRevoluciones (0f);
             audioSource.Stop();
         }
     }
@@ -129,9 +128,7 @@ public class ControlCamionMotor : MonoBehaviour {
 			//audioMotor.pitch = 0.7f;
 			//audioRetroceso.Stop();
 			//}
-			ingame.tableroControl.setPetroleo (0f);
 			ingame.tableroControl.setRevoluciones (0f);
-			ingame.tableroControl.setTemperatura (0f);
 
 			foreach (WheelCollider w in ruedasConMotor) {
 				w.brakeTorque = 500000f;
@@ -249,6 +246,15 @@ public class ControlCamionMotor : MonoBehaviour {
             }
             print("cambio " + cambioActual);
         }
+		ingame.tableroControl.encenderNeutro (false);
+		ingame.tableroControl.encenderAdelante (false);
+		ingame.tableroControl.encenderReversa (false);
+		if (cambioActual != 0 && throttle != 0 && !retroceso)
+			ingame.tableroControl.encenderAdelante (true);
+		else if (factorRetroceso == -1 && throttle != 0)
+			ingame.tableroControl.encenderReversa (true);
+		else if(cambioActual == 0)
+			ingame.tableroControl.encenderNeutro(true);
 
 		if (Input.GetKeyUp(KeyCode.Q))// || factorRetroceso == -1)
 		{
@@ -284,6 +290,7 @@ public class ControlCamionMotor : MonoBehaviour {
 			}
 
 		float auxSpeed = Mathf.Clamp((velocidadActual / 100000f)/50f,0.1f,float.MaxValue);
+		Debug.Log (auxSpeed);
 
 		if (velocidadActual > 0.1) {
 			if (!retroceso)
@@ -293,12 +300,12 @@ public class ControlCamionMotor : MonoBehaviour {
 				//ruedasT.transform.RotateAround (ejeT.transform.position, Vector3.left, auxSpeed / 50f);
 				ruedasT.transform.Rotate(new Vector3(-auxSpeed,0f,0f));
 		}
-        ingame.tableroControl.encenderFrenoParq(!frenoParqueoActivado);
-		ingame.tableroControl.encenderReversa(retroceso || factorRetroceso == -1);
-		ingame.tableroControl.encenderAdelante(!(retroceso || factorRetroceso == -1));
+        ingame.tableroControl.encenderFrenoParq(frenoParqueoActivado);
+		//ingame.tableroControl.encenderReversa(retroceso || factorRetroceso == -1);
+		//ingame.tableroControl.encenderAdelante(!(retroceso || factorRetroceso == -1));
 		if (estado == ControlCamion.EstadoMaquina.encendida) {
 			ingame.tableroControl.setPetroleo (90f);
-			ingame.tableroControl.setRevoluciones (Mathf.Clamp(auxSpeed*0.6f,0f,100f));
+			ingame.tableroControl.setRevoluciones (Mathf.Clamp(auxSpeed*20f,0f,100f));
 			ingame.tableroControl.setTemperatura (20f);
             ingame.tableroControl.encenderTolva(balde.transform.localEulerAngles.x != 0f);
         }
