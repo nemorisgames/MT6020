@@ -249,16 +249,21 @@ public class ControlCamionMotor : MonoBehaviour {
             }
             print("cambio " + cambioActual);
         }
-
-		if (Input.GetKeyUp(KeyCode.Q))// || factorRetroceso == -1)
+#if UNITY_EDITOR
+        if (Input.GetKeyUp(KeyCode.Q))// || factorRetroceso == -1)
 		{
 			retroceso = !retroceso;
 			camaraMedicionAdelante.SetActive(!camaraMedicionAdelante.activeSelf);
 			camaraMedicionAtras.SetActive(!camaraMedicionAtras.activeSelf);
 		}
-
+#else
+            retroceso = factorRetroceso == -1;
+            camaraMedicionAdelante.SetActive(factorRetroceso == 1);
+            camaraMedicionAtras.SetActive(factorRetroceso == -1);
+        
+#endif
         //print(velocidadActual + " " + cambioActual);
-		audioSource.pitch = Mathf.Clamp (1f + velocidadActual / (velocidades[cambioActual] * 100000f + 1f), 1f, 1.5f);
+        audioSource.pitch = Mathf.Clamp (1f + velocidadActual / (velocidades[cambioActual] * 100000f + 1f), 1f, 1.5f);
 
 		foreach (WheelCollider w in ruedasConMotor) {
 			w.motorTorque = factorRetroceso * velocidadActual * Time.deltaTime;

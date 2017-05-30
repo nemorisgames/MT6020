@@ -1044,6 +1044,7 @@ public class ControlCamion : MonoBehaviour {
     }
     public void cambiarCamara()
     {
+        print("cambiando camara");
         camaraTrasera.SetActive(!camaraTrasera.activeSelf);
         camaraBalde.SetActive(!camaraBalde.activeSelf);
     }
