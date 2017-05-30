@@ -769,6 +769,15 @@ public class InGame : MonoBehaviour {
 		return result;
 	}
 
+	Vector3 ShakeV3(float frec, float mag){
+		Vector2 result;
+		float seed = Time.time * frec;
+		result.x = Mathf.Clamp(Mathf.PerlinNoise (seed, 0f),0f,0.15f)*Mathf.Sign(Random.Range(-1,1));
+		result.y = Mathf.Clamp(Mathf.PerlinNoise (0f, seed),0f,0.155f)*Mathf.Sign(Random.Range(-1,1));
+		result = (result * mag)/100f;
+		return result;
+	}
+
 	IEnumerator ApplyShake(Vector3 noise){
 		Vector3 [] newPosition = new Vector3[3];
 		for (int i = 0; i < 3; i++) {
@@ -793,6 +802,11 @@ public class InGame : MonoBehaviour {
 		}
 	}
 
+	public void EnableShaking(bool b, float f){
+		StartCoroutine(ApplyShake(ShakeV3 (5f, f)));
+		EnableShaking (b);
+	}
+
 	public IEnumerator ShakeForSecs(float s){
 		EnableShaking (true);
 		yield return new WaitForSeconds (s);
@@ -807,7 +821,6 @@ public class InGame : MonoBehaviour {
 	}
 
 	bool shaking = false;
-
 
 
     /*public Transform camaraInterior;

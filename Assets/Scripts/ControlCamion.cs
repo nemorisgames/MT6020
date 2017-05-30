@@ -767,16 +767,21 @@ public class ControlCamion : MonoBehaviour {
 		if (brazoAutomatico)
 			brazo = 1f;
 		*/
+
+		float animTime = animator.GetCurrentAnimatorStateInfo (0).normalizedTime;
+		animTime = Mathf.Clamp01 (animTime);
+		Debug.Log (animTime);
 		if (estado == EstadoMaquina.encendida)
 		{
 			manejarEjeLimites (-direccion);
 			manejarBrazoLimites(brazo);
 			if (brazo != 0 && Mathf.Abs (brazo) > 0.5f && !usingArm) {
-				ingame.EnableShaking (true);
-				usingArm = true;
+				if (animTime != 0 && animTime != 1) {
+					ingame.EnableShaking (true);
+					usingArm = true;
+				}
 			}
 			else{
-				Debug.Log ("here");
 				StartCoroutine (stopArm ());
 			}
 		}
@@ -1174,5 +1179,28 @@ public class ControlCamion : MonoBehaviour {
 	void OnGUI(){
 		GUI.Label (new Rect (10, 150, 500, 40), "Ignicion " + controlTarjetaControladora.ignicion ());
 		//GUI.Box (new Rect (3f * Screen.width / 5f, 0f, 400f, 60f), "orden ejecucion: " + ordenEjecucion + "\nFreno parqueo: " + controlExcavadoraMotor.frenoParqueoActivado);
+	}
+
+	public void SacudirTolvaStartEnd(){
+		float brazo = 0;
+		#if UNITY_EDITOR
+		brazo = Input.GetAxis ("ControlTolbaEditor");
+		#else
+		brazo = Input.GetAxis("ControlTolba");
+		#endif
+		if(brazo != 0)
+			ingame.EnableShaking (true, 8f);
+	}
+
+	public void SacudirTolvaMid(){
+		float brazo = 0;
+		#if UNITY_EDITOR
+		brazo = Input.GetAxis ("ControlTolbaEditor");
+		#else
+		brazo = Input.GetAxis("ControlTolba");
+		#endif
+		if (brazo > 0) {
+			ingame.EnableShaking (true, 8f);
+		}
 	}
 }

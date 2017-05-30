@@ -6,9 +6,9 @@ public class TableroControl : MonoBehaviour {
 	public ControlCamion maquina;
 	public ControlCamionMotor motor;
 
-	Transform agujaTemperatura;
-	Transform agujaRevoluciones;
-	Transform agujaPetroleo;
+	public Transform agujaTemperatura;
+	public Transform agujaRevoluciones;
+	public Transform agujaPetroleo;
 	// Use this for initialization
 	void Start () {
 		agujaTemperatura = transform.FindChild ("IndicadorTemperatura");
@@ -45,6 +45,8 @@ public class TableroControl : MonoBehaviour {
 	}
     // Update is called once per frame
     void Update () {
+		setTemperatura (20f);
+		setPetroleo (90f);
 		if (maquina != null) {
 			/*if (Mathf.Abs(Input.GetAxis ("ControlTolba")) > 0.1f || Mathf.Abs(Input.GetAxis ("ControlTolbaEditor")) > 0.1f)
 				encenderTolva (true);
@@ -62,9 +64,9 @@ public class TableroControl : MonoBehaviour {
 			else
 				encenderStopMotor (false);
 		}
-		if (motor != null) {
-			encenderFrenoParq (!motor.frenoParqueoActivado);
-		}
+		/*if (motor != null) {
+			encenderFrenoParq (motor.frenoParqueoActivado);
+		}*/
 	}
 
 	void rotacionAguja(Transform a, float p, float pond){

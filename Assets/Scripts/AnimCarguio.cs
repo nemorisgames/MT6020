@@ -49,12 +49,6 @@ public class AnimCarguio : MonoBehaviour {
 	public void Update(){
 		if(!cargado && carga2 !=null)
 			carga2.transform.position = cargaPosicion.transform.position;
-
-		if(Input.GetKeyDown(KeyCode.X)){
-			float t = Time.time;
-			SacudirCamaras ();
-			Debug.Log (t + "->" + (Time.time - t));
-		}
 	}
 
 	public void ToggleTablero(){
@@ -71,6 +65,5 @@ public class AnimCarguio : MonoBehaviour {
 	public void DetenerCamaras(){
 		ingame.EnableShaking (false);
 	}
-
 
 }
