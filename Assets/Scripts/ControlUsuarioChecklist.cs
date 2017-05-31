@@ -393,7 +393,10 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 			//}
 
 			if (enfocandoCabina && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
-				ingresarCabinaCheck (true);
+				if (inGame.estado == InGame.EstadoSimulacion.PanelInicial)
+					ingresarCabinaCheck (true);
+				else
+					ingresarCabina (true);
 			}
 
 			if (enfocandoEncendido && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
@@ -454,7 +457,10 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 			//}
 
 			if (enfocandoCabina && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
-				ingresarCabinaCheck (true);
+				if (inGame.estado == InGame.EstadoSimulacion.PanelInicial)
+					ingresarCabinaCheck (true);
+				else
+					ingresarCabina (true);
 			}
 
 			if (enfocandoEncendido && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
