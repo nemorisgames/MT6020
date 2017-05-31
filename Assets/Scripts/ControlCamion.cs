@@ -770,7 +770,6 @@ public class ControlCamion : MonoBehaviour {
 
 		float animTime = animator.GetCurrentAnimatorStateInfo (0).normalizedTime;
 		animTime = Mathf.Clamp01 (animTime);
-		Debug.Log (animTime);
 		if (estado == EstadoMaquina.encendida)
 		{
 			manejarEjeLimites (-direccion);

@@ -25,6 +25,7 @@ public class ControlCamaraInterior : MonoBehaviour {
 		valoresPotenciometro = valores;
 	}
 	public ConfiguracionControles configuracionControles;
+	public Quaternion rotacionInicial;
 	// Use this for initialization
 	void Start () {
 		GameObject g = GameObject.FindWithTag ("Configuracion");
@@ -32,6 +33,7 @@ public class ControlCamaraInterior : MonoBehaviour {
 			configuracionControles = g.GetComponent<ConfiguracionControles> ();
 		mensajeInteraccion.gameObject.SetActive (false);
 		controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
+		rotacionInicial = gameObject.transform.rotation;
 	}
 
 	public void desactivar(){

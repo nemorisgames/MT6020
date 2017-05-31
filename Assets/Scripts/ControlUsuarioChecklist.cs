@@ -56,11 +56,14 @@ public class ControlUsuarioChecklist : MonoBehaviour {
     public Animator camionAnimator;
     public Animator camaraEntradaAnimator;
 
+	Quaternion rotacionInicial;
+
 	// Use this for initialization
 	void Start () {
         inGame = GameObject.FindWithTag("InGame").GetComponent<InGame>();
         controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
 		central = GameObject.FindWithTag ("InGame").GetComponent<InGame>();
+		rotacionInicial = gameObject.transform.rotation;
 		/*maquina = GameObject.FindWithTag ("Maquina");
 		if(maquina != null) controlExcavadora = maquina.GetComponent<ControlExcavadora> ();
 		mensajeInteraccion.gameObject.SetActive (false);*/
@@ -390,7 +393,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 			//}
 
 			if (enfocandoCabina && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
-				ingresarCabina (true);
+				ingresarCabinaCheck (true);
 			}
 
 			if (enfocandoEncendido && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
@@ -451,7 +454,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 			//}
 
 			if (enfocandoCabina && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
-				ingresarCabina (true);
+				ingresarCabinaCheck (true);
 			}
 
 			if (enfocandoEncendido && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
@@ -488,8 +491,25 @@ public class ControlUsuarioChecklist : MonoBehaviour {
             print("entrar aqui");
         }
         inGame.ejecutarEntradaMaquina(ingresar);
+		gameObject.transform.rotation = rotacionInicial;
         gameObject.SetActive(!ingresar);
     }
+
+	public void ingresarCabinaCheck(bool ingresar)
+	{
+		if(operarioAnimator != null) operarioAnimator.gameObject.SetActive(ingresar);
+		camaraEntradaAnimator.gameObject.SetActive(ingresar);
+		if (ingresar)
+		{
+			if(operarioAnimator != null) operarioAnimator.SetTrigger("Entrar");
+			camionAnimator.SetTrigger("Entrada");
+			StartCoroutine(entradaPausa());
+			camaraEntradaAnimator.SetTrigger("Entrar");
+			print("entrar aqui");
+		}
+		gameObject.transform.rotation = rotacionInicial;
+		gameObject.SetActive(!ingresar);
+	}
 
     IEnumerator entradaPausa() {
         print("pausando ingreso");

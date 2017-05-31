@@ -934,6 +934,8 @@ public class ControlChecklist : MonoBehaviour {
 				controlUsuarioChecklist.gameObject.SetActive (!checkeandoCabina);
 				controlCamaraInterior.gameObject.SetActive (checkeandoCabina);
 				controlCamaraInterior.enabled = checkeandoCabina;
+				if (controlCamaraInterior.enabled)
+					controlCamaraInterior.transform.rotation = controlCamaraInterior.rotacionInicial;
 				gameObject.SetActive (true);
 				deshabilitarCabina();
 				print ("ingresando a cabina checklist");

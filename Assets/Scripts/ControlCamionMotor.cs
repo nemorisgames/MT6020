@@ -297,7 +297,6 @@ public class ControlCamionMotor : MonoBehaviour {
 			}
 
 		float auxSpeed = Mathf.Clamp((velocidadActual / 100000f)/50f,0.1f,float.MaxValue);
-		Debug.Log (auxSpeed);
 
 		if (velocidadActual > 0.1) {
 			if (!retroceso)
