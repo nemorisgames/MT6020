@@ -45,8 +45,6 @@ public class TableroControl : MonoBehaviour {
 	}
     // Update is called once per frame
     void Update () {
-		setTemperatura (20f);
-		setPetroleo (90f);
 		if (maquina != null) {
 			/*if (Mathf.Abs(Input.GetAxis ("ControlTolba")) > 0.1f || Mathf.Abs(Input.GetAxis ("ControlTolbaEditor")) > 0.1f)
 				encenderTolva (true);
