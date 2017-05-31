@@ -108,7 +108,7 @@ public class ControlMouseOperador : MonoBehaviour {
 		#else
 		//print(Input.GetAxis("Manubrio"));
 		hor = Input.GetAxis("Manubrio");
-		ver = controlTarjetaControladora.Retardador() + controlTarjetaControladora.Freno();
+		ver = -controlTarjetaControladora.Retardador() + controlTarjetaControladora.Freno();
 		#endif
 		mousePosition2 += new Vector2 (16f * hor, - 16f * ver);
 		mousePosition2 = new Vector2 (Mathf.Clamp (mousePosition2.x, 0f, Screen.width), Mathf.Clamp (mousePosition2.y, 0, Screen.height));
