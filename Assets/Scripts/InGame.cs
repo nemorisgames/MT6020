@@ -70,6 +70,7 @@ public class InGame : MonoBehaviour {
     //int secuenciaGrabacion = 0;
 	Vector3 [] camaraPosIni = new Vector3[3];
 	Quaternion [] camaraRotIni = new Quaternion[3];
+	public bool modoChecklist;
 
     // Use this for initialization
     void Start ()
@@ -107,11 +108,11 @@ public class InGame : MonoBehaviour {
 			camarasMaquina [2] = GameObject.Find ("CamaraCabinaDerecha").GetComponent<Camera>();
 		}
 
-		for (int i = 0; i < 3; i++) {
+		/*for (int i = 0; i < 3; i++) {
 			camaraPosIni [i] = camarasMaquina [i].transform.localPosition;
 			camaraRotIni [i] = camarasMaquina [i].transform.localRotation;
 			Debug.Log (camaraPosIni [i]);
-		}
+		}*/
         //if (controlChecklistFinal != null)
         //	controlChecklistFinal.activar (false);
         StartCoroutine(contarRepeticiones());
@@ -141,7 +142,12 @@ public class InGame : MonoBehaviour {
 		if(maquinaAlta != null)
         	activarMaquinaAlta(true);
 		print("pantallas: " + Display.displays.Length);
-    }
+	}
+
+	public void iniciarChecklist(){
+		estado = EstadoSimulacion.ApagadoExterior;
+	}
+
 
     void activarMaquinaAlta(bool activar)
     {
@@ -565,7 +571,7 @@ public class InGame : MonoBehaviour {
         {*/
             //controlExterior.SetActive(true);
             
-                estado = EstadoSimulacion.EncendidoExterior;
+				estado = EstadoSimulacion.ApagadoExterior;
                 iniciarTiempo();
         //}
 
@@ -622,6 +628,7 @@ public class InGame : MonoBehaviour {
 
     void  Update()
     {
+		//Debug.Log (estado);
         /*if (avpro != null && avpro.GetCaptureFileSize() > 10000000)
         {
             string nombreVideo = avpro._forceFilename;

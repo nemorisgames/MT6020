@@ -393,7 +393,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 			//}
 
 			if (enfocandoCabina && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
-				if (inGame.estado == InGame.EstadoSimulacion.PanelInicial)
+				if (inGame.modoChecklist)
 					ingresarCabinaCheck (true);
 				else
 					ingresarCabina (true);
@@ -457,7 +457,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 			//}
 
 			if (enfocandoCabina && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
-				if (inGame.estado == InGame.EstadoSimulacion.PanelInicial)
+				if (inGame.modoChecklist)
 					ingresarCabinaCheck (true);
 				else
 					ingresarCabina (true);
@@ -469,11 +469,11 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				case InGame.EstadoSimulacion.EncendidoExterior:
 				case InGame.EstadoSimulacion.ApagadoExterior:
 					if (!puertaIsoSwitchAbierta) {
-						if (!puertaIsoSwitch.isActiveAndEnabled)
+						//if (!puertaIsoSwitch.isActiveAndEnabled)
 							puertaIsoSwitch.Toggle ();
 					}
 					else {
-						if(!isoSwitch.isActiveAndEnabled)
+						//if(!isoSwitch.isActiveAndEnabled)
 							isoSwitch.Toggle ();
 					}
 					break;

@@ -1048,6 +1048,7 @@ public class ControlChecklist : MonoBehaviour {
 		arreglarMaquina ();
 		finalizarModuloChecklist ();
 		enviarDatos1 ();
+		GameObject.FindGameObjectWithTag ("InGame").GetComponent<InGame> ().modoChecklist = false;
 	}
 
 	public void terminarSimulacion(bool mostrarPanelFinal){
@@ -1179,6 +1180,7 @@ public class ControlChecklist : MonoBehaviour {
 				panelResultados [1].SetActive (false);
 			}
 		} else {
+			GameObject.FindGameObjectWithTag ("InGame").GetComponent<InGame> ().modoChecklist = true;
 			controlMouseOperador.enabled = false;
 			if(diapositivaFinalChecklist != null){
 				if(estado == estadoChequeo.exterior) controlMouseOperador.enabled = true;
