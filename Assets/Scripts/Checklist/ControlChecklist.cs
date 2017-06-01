@@ -162,6 +162,7 @@ public class ControlChecklist : MonoBehaviour {
 	public Animator animatorTolba;
 	public int checklistIndex = 1;
 	public bool singleChecklist;
+	public BajarMaquina maquinaTrigger;
 
 	// Use this for initialization
 	void Start () {
@@ -917,6 +918,11 @@ public class ControlChecklist : MonoBehaviour {
 				abrirMotor ();
 			if (escaleraHabilitada) {
 				controlUsuarioChecklist.transform.position = posicionSobreMaquina.position;
+				if (maquinaTrigger != null)
+					maquinaTrigger.triggerEnabled = true;
+				Vector3 pos = controlUsuarioChecklist.transform.FindChild ("Camera").transform.position;
+				pos.y -= 0.7f;
+				controlUsuarioChecklist.transform.FindChild ("Camera").transform.position = pos;
 				controlUsuarioChecklist.transform.rotation = posicionSobreMaquina.rotation;
 				mensajeInteraccion.text = "";
 				mensajeInteraccion.gameObject.SetActive(false);

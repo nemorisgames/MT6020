@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: c6acdc76bb87486418ed02bcb16abace
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 19
   fileIDToRecycleName:
     100000: Alogenos
     100002: Ampolleta1
@@ -556,6 +556,110 @@ ModelImporter:
     4300204: CollidersMuro7
     4300206: CollidersMuro8
     4300208: CollidersMuro9
+    6400000: Alogenos_1
+    6400002: Ampolleta1
+    6400004: AsientoPedalHidraul
+    6400006: B_Aguja
+    6400008: B_Aguja1
+    6400010: B_Antena
+    6400012: B_Balde
+    6400014: B_Cabina
+    6400016: B_ConeccionCentral
+    6400018: B_DeathMen_1
+    6400020: B_DeathMen_2
+    6400022: B_EjeCentral
+    6400024: B_Escalera
+    6400026: B_LimpiaP_Back
+    6400028: B_LimpiaP_Front
+    6400030: B_Luz_1
+    6400032: B_Luz_10
+    6400034: B_Luz_11
+    6400036: B_Luz_12
+    6400038: B_Luz_2
+    6400040: B_Luz_3
+    6400042: B_Luz_4
+    6400044: B_Luz_5
+    6400046: B_Luz_6
+    6400048: B_Luz_7
+    6400050: B_Luz_8
+    6400052: B_Luz_9
+    6400054: B_PantallaTouch
+    6400056: B_Pasador
+    6400058: B_Wheel_1
+    6400060: B_Wheel_2
+    6400062: B_Wheel_3
+    6400064: B_Wheel_4
+    6400066: B_Windows
+    6400068: Back 1
+    6400070: Brazo
+    6400072: CilindroEmpuje
+    6400074: CollidersMuro1
+    6400076: CollidersMuro2
+    6400078: CollidersMuro3
+    6400080: CollidersMuro4
+    6400082: CollidersMuro5
+    6400084: CollidersMuro6
+    6400086: CollidersMuro7
+    6400088: CollidersMuro8
+    6400090: CollidersMuro9
+    6400092: CollidersSuelo
+    6400094: ConexionLeft
+    6400096: CristalAceite
+    6400098: CristalPuerta
+    6400100: EjeEmpuje
+    6400102: ExtintorCabina
+    6400104: FiltroAceite
+    6400106: Frontal
+    6400108: Grasa
+    6400110: ISO_switch
+    6400112: M_Aguja
+    6400114: M_AgujaBack
+    6400116: M_Antena
+    6400118: M_Balde
+    6400120: M_Bocina
+    6400122: M_Bocina 1
+    6400124: M_Cabina
+    6400126: M_DeathMen_1
+    6400128: M_DeathMen_2
+    6400130: M_EjeCentral
+    6400132: M_Escalera
+    6400134: M_LimpiaP_Back
+    6400136: M_LimpiaP_Front
+    6400138: M_Luz_1
+    6400140: M_Luz_10
+    6400142: M_Luz_11
+    6400144: M_Luz_12
+    6400146: M_Luz_2
+    6400148: M_Luz_3
+    6400150: M_Luz_4
+    6400152: M_Luz_5
+    6400154: M_Luz_6
+    6400156: M_Luz_7
+    6400158: M_Luz_8
+    6400160: M_Luz_9
+    6400162: M_Mancha
+    6400164: M_PantallaTouch
+    6400166: M_Pasador
+    6400168: M_Wheel_1
+    6400170: M_Wheel_2
+    6400172: M_Wheel_3
+    6400174: M_Wheel_4
+    6400176: M_Windows
+    6400178: MangueraRepuesto
+    6400180: ManguerasConexiones
+    6400182: ManillaExit
+    6400184: Manometro
+    6400186: Nivel_Aceite_Trasmision
+    6400188: NivelPetroleo
+    6400190: ObjBrillantes
+    6400192: ObjOpacos
+    6400194: Plastico
+    6400196: polySurface56
+    6400198: PuertaHidraulica
+    6400200: Ruta
+    6400202: SymbolsBack
+    6400204: SymbolsFront
+    6400206: TuberiaElectrica1
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -564,50 +668,64 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 1
-    animationRotationError: .5
-    animationPositionError: .5
-    animationScaleError: .5
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00999999978
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 1
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
+    keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 6
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 6
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 1
+    tangentImportMode: 4
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
