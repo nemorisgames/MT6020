@@ -556,4 +556,8 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 	public void resetValores(){
 		//enfocandoEncendidoActual = false;
 	}
+
+	public bool checkingCabina(){
+		return (controlChecklist.estado == ControlChecklist.estadoChequeo.interior);
+	}
 }

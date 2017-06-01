@@ -562,7 +562,12 @@ public class InGame : MonoBehaviour {
 
     public void iniciarSimulacion()
     {
-        		print ("iniciarSimulacion");
+		ControlUsuarioChecklist cuc = controlChecklistGameObject.GetComponent<ControlUsuarioChecklist> ();
+		if (cuc.checkingCabina ()) {
+			cuc.ingresarCabinaCheck (false);
+			cuc.controlChecklist.toggleCabina ();
+		}
+			print ("iniciarSimulacion");
         /*if (controlExterior == null || (((controlChecklistFinal == null || (controlChecklistFinal != null && controlChecklistFinal.activa)) && (estado != EstadoSimulacion.PanelInicial && estado != EstadoSimulacion.Conduciendo && estado != EstadoSimulacion.EncendidoExterior)) || (controlChecklistFinal != null && !controlChecklistFinal.activa && estado == EstadoSimulacion.ApagadoExterior)))
         {
             moduloFinalizar();

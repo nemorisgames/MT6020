@@ -1389,6 +1389,25 @@ public class ControlChecklist : MonoBehaviour {
 		yield return new WaitForSeconds (2f);
 		SceneManager.LoadScene("Login");
 	}
+
+	public void toggleCabina(){
+		if (estado == estadoChequeo.exterior)
+			estado = estadoChequeo.interior;
+		else
+			estado = estadoChequeo.exterior;
+		checkeandoCabina = !checkeandoCabina;
+		gameObject.SetActive (false);
+		controlUsuarioChecklist.gameObject.SetActive (!checkeandoCabina);
+		controlCamaraInterior.gameObject.SetActive (checkeandoCabina);
+		controlCamaraInterior.enabled = checkeandoCabina;
+		if (controlCamaraInterior.enabled)
+			controlCamaraInterior.transform.rotation = controlCamaraInterior.rotacionInicial;
+		gameObject.SetActive (true);
+		deshabilitarCabina();
+		print ("ingresando a cabina checklist");
+		mensajeInteraccion.text = "";
+		mensajeInteraccion.gameObject.SetActive(false);
+	}
 }
 
 
