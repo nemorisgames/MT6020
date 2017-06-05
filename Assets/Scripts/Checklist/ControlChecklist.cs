@@ -821,43 +821,50 @@ public class ControlChecklist : MonoBehaviour {
 		if(Input.GetKey(KeyCode.Alpha3)) cambioActual = 3;
 		if(Input.GetKey(KeyCode.Alpha4)) cambioActual = 4;
 
-		#else
-		if (c > 0.9f)
-		{
-			cambioActual = 1;
-		}
-		else
-		{
-			if(c > 0.6f)
-			{
-				cambioActual = 2;
-			}
-			else
-			{
-				if (c > 0.1f)
-				{
-					cambioActual = 3;
-				}
-				else
-				{
-					if (c > -0.3f)
-					{
-						cambioActual = 4;
-					}
-					else
-					{
-						if (c > -0.7f)
-						{
-							cambioActual = 0;
-						}
-					}
-				}
-			}
-		}
-		#endif
-		//print("cambio " + cambioActual);
+#else
+            if (c > 0.9f)
+            {
+                cambioActual = 1;
+                factorRetroceso = 1;
+            }
+            else
+            {
+                if(c > 0.6f)
+                {
+                    cambioActual = 2;
+                    factorRetroceso = 1;
+                }
+                else
+                {
+                    if (c > 0.1f)
+                    {
+                        cambioActual = 3;
+                        factorRetroceso = 1;
+                    }
+                    else
+                    {
+                        if (c > -0.3f)
+                        {
+                            cambioActual = 4;
+                            factorRetroceso = 1;
+                        }
+                        else
+                        {
+                            if (c > -0.7f)
+                            {
+                                cambioActual = 0;
+                                factorRetroceso = 1;
+                            }
+                        }
+                    }
+                }
+            }
+            print("cambio " + cambioActual);
+        }
+#endif
+        //print("cambio " + cambioActual);
 
-		if(cambioActual == 1){
+        if (cambioActual == 1){
 			//if (estado != estadoChequeo.revisionControles && estado != estadoChequeo.revisionPanel) {
 				//if(listaActiva && checklistLista.listaSelec == 0) activarLista(false);
 				//else{

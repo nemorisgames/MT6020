@@ -114,11 +114,11 @@ public class ControlMouseOperador : MonoBehaviour {
 		mousePosition2 = new Vector2 (Mathf.Clamp (mousePosition2.x, 0f, Screen.width), Mathf.Clamp (mousePosition2.y, 0, Screen.height));
 		mouseSprite.transform.localPosition = new Vector2(mousePosition2.x - Screen.width / 2f, Screen.height / 2f - mousePosition2.y);
 
-		if(controlTarjetaControladora.BotonAccion() == 0){//indice == configuracionControles.idJDerechoGatillo){
+		if(Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire3")) {//controlTarjetaControladora.BotonAccion() == 0){//indice == configuracionControles.idJDerechoGatillo){
 			print ("recibo");
 			Ray ray = camara.ScreenPointToRay(new Vector2(mousePosition2.x, Screen.height - mousePosition2.y));
 			RaycastHit hit;
-		print(ray.origin + " " + (ray.origin + ray.direction));
+		    print(ray.origin + " " + (ray.origin + ray.direction));
 			if (Physics.Raycast(ray, out hit, 1000000)){
 				print ("click " + hit.transform.gameObject.name);
 				if(hit.transform.gameObject.activeSelf)
