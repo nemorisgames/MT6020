@@ -145,7 +145,7 @@ public class InGame : MonoBehaviour {
 	}
 
 	public void iniciarChecklist(){
-		estado = EstadoSimulacion.ApagadoExterior;
+		estado = EstadoSimulacion.EncendidoExterior;
 	}
 
 
@@ -562,12 +562,14 @@ public class InGame : MonoBehaviour {
 
     public void iniciarSimulacion()
     {
-		ControlUsuarioChecklist cuc = controlChecklistGameObject.GetComponent<ControlUsuarioChecklist> ();
-		if (cuc.checkingCabina ()) {
-			cuc.ingresarCabinaCheck (false);
-			cuc.controlChecklist.toggleCabina ();
+		if (controlChecklistGameObject != null && modoChecklist) {
+			ControlUsuarioChecklist cuc = controlChecklistGameObject.GetComponent<ControlUsuarioChecklist> ();
+			if (cuc.checkingCabina ()) {
+				cuc.ingresarCabinaCheck (false);
+				cuc.controlChecklist.toggleCabina ();
+			}
 		}
-			print ("iniciarSimulacion");
+		print ("iniciarSimulacion");
         /*if (controlExterior == null || (((controlChecklistFinal == null || (controlChecklistFinal != null && controlChecklistFinal.activa)) && (estado != EstadoSimulacion.PanelInicial && estado != EstadoSimulacion.Conduciendo && estado != EstadoSimulacion.EncendidoExterior)) || (controlChecklistFinal != null && !controlChecklistFinal.activa && estado == EstadoSimulacion.ApagadoExterior)))
         {
             moduloFinalizar();
@@ -576,8 +578,8 @@ public class InGame : MonoBehaviour {
         {*/
             //controlExterior.SetActive(true);
             
-				estado = EstadoSimulacion.ApagadoExterior;
-                iniciarTiempo();
+		estado = EstadoSimulacion.EncendidoExterior;
+        iniciarTiempo();
         //}
 
     }
