@@ -11,7 +11,6 @@ public class EntregaNombrada : MonoBehaviour {
 	public GameObject callbackFinal;
 	public bool detenido = false;
 	public bool autodestruir = true;
-	public bool carga = true;
 	float velocidad;
 	public float velocidadActual = 0f;
 	float velocidadObjetivo;
@@ -42,7 +41,7 @@ public class EntregaNombrada : MonoBehaviour {
 		if (detenido && !enEspera) {
 //			print ("continuar");
 			detenido = false;
-			navmesh.angularSpeed = 25f;
+			navmesh.angularSpeed = 60f;
 			navmesh.enabled = true; 
 			velocidadObjetivo = velocidad;
 			navmesh.SetDestination (puntos [puntoActual].punto.position);
@@ -55,7 +54,7 @@ public class EntregaNombrada : MonoBehaviour {
 		if (activo) {
 			navmesh.enabled = true;
 			velocidadObjetivo = velocidad;
-			navmesh.angularSpeed = 25f;
+			navmesh.angularSpeed = 60f;
 			//navmesh.Resume();
 		}
 	}
@@ -71,7 +70,7 @@ public class EntregaNombrada : MonoBehaviour {
 			return;
 		}
 		if (Vector3.Distance (puntos [puntoActual].punto.position, transform.position) < 1.5f && !enEspera) {
-			StartCoroutine (cambiarPunto ());
+			StartCoroutine(cambiarPunto());
 		}
 
 		if (ruedas != null) {
@@ -87,17 +86,13 @@ public class EntregaNombrada : MonoBehaviour {
 	IEnumerator cambiarPunto(){
 		enEspera = true;
 //		print ("stop");
-		if (puntos [puntoActual].tiempoEspera > 0f) { 
+		if (puntos [puntoActual].tiempoEspera > 0f) 
 			detenerse ();
-		}
 		yield return new WaitForSeconds (puntos [puntoActual].tiempoEspera);
 		puntoActual++;
 		if (puntoActual >= puntos.Length) {
 			if (callbackFinal != null) 
 				callbackFinal.SendMessage ("entregaTerminada");
-			if (carga) {
-				AnimacionCarga ();
-			}
 			if(autodestruir) 
 				destruir();
 			activar(false);
@@ -111,10 +106,6 @@ public class EntregaNombrada : MonoBehaviour {
 
 	public void destruir(){
 		Destroy (gameObject);
-	}
-
-	public void AnimacionCarga(){
-		GetComponent<Animator> ().SetTrigger ("Brazo");
 	}
 
 }
