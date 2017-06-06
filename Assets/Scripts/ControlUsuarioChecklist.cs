@@ -104,6 +104,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//Debug.Log (enfocandoCabina + "," + enfocandoCabinaActual);
 		float hor = 0f;
 		float hor2 = 0f;
 		float ver = 0f;
@@ -196,6 +197,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				case "TapaMotor": enfocandoMotor = true; break;
 					case "TapaAceite": enfocandoAceite = true; break;
 						case "puertaCabina": enfocandoCabina = true; break;
+				case "Puerta": enfocandoCabina = true; break;
 						case "Brazo": enfocandoBrazo = true; break;
 				case "ISO_switch":case "IsoSwitch": enfocandoEncendido = true; break;
 					}
@@ -496,6 +498,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
             camaraEntradaAnimator.SetTrigger("Entrar");
             print("entrar aqui");
         }
+		inGame.tableroControl.transform.GetComponentInParent<Camera> ().enabled = ingresar;
         inGame.ejecutarEntradaMaquina(ingresar);
 		gameObject.transform.rotation = rotacionInicial;
         gameObject.SetActive(!ingresar);
@@ -503,16 +506,17 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 
 	public void ingresarCabinaCheck(bool ingresar)
 	{
-		if(operarioAnimator != null) operarioAnimator.gameObject.SetActive(ingresar);
+		//if(operarioAnimator != null) operarioAnimator.gameObject.SetActive(ingresar);
 		camaraEntradaAnimator.gameObject.SetActive(ingresar);
 		if (ingresar)
 		{
-			if(operarioAnimator != null) operarioAnimator.SetTrigger("Entrar");
-			camionAnimator.SetTrigger("Entrada");
+			//if(operarioAnimator != null) operarioAnimator.SetTrigger("Entrar");
+			//camionAnimator.SetTrigger("Entrada");
 			StartCoroutine(entradaPausa());
-			camaraEntradaAnimator.SetTrigger("Entrar");
+			//camaraEntradaAnimator.SetTrigger("Entrar");
 			print("entrar aqui");
 		}
+		inGame.tableroControl.transform.GetComponentInParent<Camera> ().enabled = ingresar;
 		gameObject.transform.rotation = rotacionInicial;
 		gameObject.SetActive(!ingresar);
 	}

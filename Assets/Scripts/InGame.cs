@@ -165,13 +165,15 @@ public class InGame : MonoBehaviour {
 
 
     public IEnumerator ejecutarEntradaMaquinaDelay(bool ingresar) { 
-        yield return new WaitForSeconds(ingresar?10f:0f);
-        print(ingresar?"entrar":"salir");
-		if (maquinaAlta != null) {
-			activarMaquinaAlta (!ingresar);
-			for (int i = 0; i < 3; i++) {
-				camaraPosIni [i] = camarasMaquina [i].transform.localPosition;
-				camaraRotIni [i] = camarasMaquina [i].transform.localRotation;
+		if (!modoChecklist) {
+			yield return new WaitForSeconds (ingresar ? 10f : 0f);
+			print (ingresar ? "entrar" : "salir");
+			if (maquinaAlta != null) {
+				activarMaquinaAlta (!ingresar);
+				for (int i = 0; i < 3; i++) {
+					camaraPosIni [i] = camarasMaquina [i].transform.localPosition;
+					camaraRotIni [i] = camarasMaquina [i].transform.localRotation;
+				}
 			}
 		}
     }

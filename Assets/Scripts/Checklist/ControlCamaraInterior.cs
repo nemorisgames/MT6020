@@ -96,6 +96,7 @@ public class ControlCamaraInterior : MonoBehaviour {
 				//print (hit.transform.gameObject.name + " " + hit.distance);
 				switch(hit.transform.gameObject.name){
 				case "puertaCabina": enfocandoCabina = true; break;
+				case "Puerta": enfocandoCabina = true; break;
 				case "CabinaControles": enfocandoControles = true; break;
 				case "CabinaPantalla": enfocandoPanel = true; break;
 				}
