@@ -15,13 +15,14 @@ public class ControlCamaraInterior : MonoBehaviour {
 	ControlTarjetaControladora controlTarjetaControladora;
 	int[] valoresPotenciometro = new int[6];
 
-	//0: freno
-	//1: acelerador
-	//2: joy izq X
-	//3: joy izq Y
-	//4: joy der X
-	//5: joy der Y
-	void potenciometros(int[] valores){
+    Quaternion localRotation = Quaternion.identity;
+    //0: freno
+    //1: acelerador
+    //2: joy izq X
+    //3: joy izq Y
+    //4: joy der X
+    //5: joy der Y
+    void potenciometros(int[] valores){
 		valoresPotenciometro = valores;
 	}
 	public ConfiguracionControles configuracionControles;
@@ -46,16 +47,42 @@ public class ControlCamaraInterior : MonoBehaviour {
 	void Update () {
 		float hor = 0f;
 		float ver = 0f;
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		hor = Input.GetAxis("ManubrioEditor");
-		#else
+        ver = controlTarjetaControladora.Retardador() + controlTarjetaControladora.Freno();
+#else
 		//print(Input.GetAxis("Manubrio"));
 		hor = Input.GetAxis("Manubrio");
-		#endif
-		ver = controlTarjetaControladora.Retardador() + controlTarjetaControladora.Freno();
-		transform.Rotate (Vector3.up, hor * velocidadRotacion * 3f * Time.deltaTime, Space.World);
-		
-		transform.Rotate (Vector3.right, - ver * velocidadRotacion * 3f * Time.deltaTime);
+		ver = - controlTarjetaControladora.Retardador() + controlTarjetaControladora.Freno();
+#endif
+        print(hor +" && " + transform.rotation.eulerAngles.y);
+        /*if (hor != 0f && (transform.rotation.eulerAngles.y <= 80f || transform.rotation.eulerAngles.y >= 260f))
+        {
+            if(transform.rotation.eulerAngles.y > 80f)
+                transform.eulerAngles = new Vector3(transform.rotation.eulerAngles.x, 80f, transform.rotation.eulerAngles.z);
+            if (transform.rotation.eulerAngles.y < 260f)
+                transform.eulerAngles = new Vector3(transform.rotation.eulerAngles.x, 260f, transform.rotation.eulerAngles.z);
+            transform.Rotate(Vector3.up, hor * velocidadRotacion * 3f * Time.deltaTime, Space.World);
+        }*/
+        /*if (hor > 0f)
+        {
+            if ((transform.rotation.eulerAngles.y <= 80f || transform.rotation.eulerAngles.y >= 260f))
+            {
+                transform.Rotate(Vector3.up, hor * velocidadRotacion * 3f * Time.deltaTime, Space.World);
+            }
+        }
+        if ((transform.rotation.eulerAngles.y <= 80f || transform.rotation.eulerAngles.y >= 260f))
+        { 
+            if(transform.rotation.eulerAngles.y >= 260f)
+                transform.Rotate(Vector3.up, hor * velocidadRotacion * 3f * Time.deltaTime, Space.World);
+        }*/
+        transform.Rotate(Vector3.right, -ver * velocidadRotacion * 3f * Time.deltaTime);
+        transform.Rotate(Vector3.up, hor * velocidadRotacion * 3f * Time.deltaTime, Space.World);
+        transform.eulerAngles = new Vector3(Mathf.Clamp((transform.eulerAngles.x > 270f ? (transform.eulerAngles.x - 360f) : transform.eulerAngles.x), -20f, 40f), Mathf.Clamp((transform.eulerAngles.y > 270f ? (transform.eulerAngles.y - 360f) : transform.eulerAngles.y), -80f, 80f), 0f);
+
+
+        
+
 		//Vector3 correccion = new Vector3 (transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0f);
 		//transform. = correccion;
 		enfocandoCabina = false;
@@ -69,6 +96,7 @@ public class ControlCamaraInterior : MonoBehaviour {
 				//print (hit.transform.gameObject.name + " " + hit.distance);
 				switch(hit.transform.gameObject.name){
 				case "puertaCabina": enfocandoCabina = true; break;
+				case "Puerta": enfocandoCabina = true; break;
 				case "CabinaControles": enfocandoControles = true; break;
 				case "CabinaPantalla": enfocandoPanel = true; break;
 				}
