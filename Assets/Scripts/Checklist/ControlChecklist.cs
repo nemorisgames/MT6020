@@ -630,6 +630,7 @@ public class ControlChecklist : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		//Debug.Log (estado);
 		if (!activa)
 			return;
 		if (controlTarjetaControladora.ignicion() == 0)
