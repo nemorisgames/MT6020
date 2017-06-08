@@ -772,8 +772,9 @@ public class ControlCamion : MonoBehaviour {
 		animTime = Mathf.Clamp01 (animTime);
 		if (estado == EstadoMaquina.encendida)
 		{
-			manejarEjeLimites (-direccion);
-			manejarBrazoLimites(brazo);
+			//manejarEjeLimites (-(Mathf.Sign(direccion) * direccion * direccion));
+            manejarEjeLimites(-direccion);
+            manejarBrazoLimites(brazo);
 			if (brazo != 0 && Mathf.Abs (brazo) > 0.5f && !usingArm) {
 				if (animTime != 0 && animTime != 1) {
 					ingame.EnableShaking (true);
@@ -987,7 +988,7 @@ public class ControlCamion : MonoBehaviour {
     void manejarEjeLimites(float accionControl){
 
         JointLimits b = jointCentro.limits;
-		b.min = Mathf.Clamp(b.min + accionControl * accionControl * Mathf.Sign(accionControl) * 56f * Time.deltaTime, rangoLimitEje.x, rangoLimitEje.y);
+		b.min = Mathf.Clamp(b.min + accionControl * accionControl * Mathf.Sign(accionControl) * 15f * Time.deltaTime, rangoLimitEje.x, rangoLimitEje.y);
         b.max = b.min + 1f;
 		//b.max = limitMaxActual;
 		jointCentro.limits = b;

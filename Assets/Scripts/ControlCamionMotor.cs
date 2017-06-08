@@ -103,6 +103,7 @@ public class ControlCamionMotor : MonoBehaviour {
         estado = activar? ControlCamion.EstadoMaquina.encendida: ControlCamion.EstadoMaquina.apagada;
         if (activar)
         {
+            GetComponent<Rigidbody>().isKinematic = false;
             audioSource.clip = sonidoMotor;
             audioSource.loop = true;
             audioSource.Play();
@@ -111,7 +112,8 @@ public class ControlCamionMotor : MonoBehaviour {
         }
         else
 		{
-			//ingame.tableroControl.setRevoluciones (0f);
+            //ingame.tableroControl.setRevoluciones (0f);
+            GetComponent<Rigidbody>().isKinematic = true;
             audioSource.Stop();
         }
     }
@@ -159,12 +161,13 @@ public class ControlCamionMotor : MonoBehaviour {
 			factorAceleracion = 5f;
 
 
-
         //if (tipoCambio != TipoCambio.automatico)
         //	throttle = throttle * cambioActual / 6f;
 
-        if(!frenoParqueoActivado)
+        if (!frenoParqueoActivado)
             velocidadActual = Mathf.Lerp(velocidadActual, Mathf.Clamp(Mathf.Clamp(throttle, 0f, 1f) * velocidades[cambioActual], 0f, velocidades[cambioActual]) * 130000f, factorAceleracion * Time.deltaTime);
+
+        GetComponent<Rigidbody>().isKinematic = (GetComponent<Rigidbody>().velocity.magnitude < 0.1f && throttle == 0f);
 
         if (retardador > 0.5f)
         {
