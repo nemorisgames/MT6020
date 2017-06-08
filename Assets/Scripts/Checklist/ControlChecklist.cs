@@ -816,6 +816,7 @@ public class ControlChecklist : MonoBehaviour {
 
 		float c = Input.GetAxis("Cambio");
 		int cambioActual = 0;
+		int  factorRetroceso = 1;
 		#if UNITY_EDITOR
 		if(Input.GetKey(KeyCode.Alpha1)) cambioActual = 1;
 		if(Input.GetKey(KeyCode.Alpha2)) cambioActual = 2;
@@ -859,9 +860,10 @@ public class ControlChecklist : MonoBehaviour {
                         }
                     }
                 }
+				print("cambio " + cambioActual);
             }
-            print("cambio " + cambioActual);
-        }
+            
+        
 #endif
         //print("cambio " + cambioActual);
 

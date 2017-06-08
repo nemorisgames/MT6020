@@ -100,6 +100,8 @@ public class InGame : MonoBehaviour {
             diapositivaFallaMensajeVolcado = diapositivaFinalResumen.transform.parent.FindChild("DiapositivaFalla/Volcamiento").gameObject;
             diapositivaFalla.SetActive(false);
         }
+		camaraPosIni = new Vector3[camarasMaquina.Length];
+		camaraRotIni = new Quaternion[camarasMaquina.Length];
 
 		if (camarasMaquina == null) {
 			camarasMaquina = new Camera[3];
@@ -170,7 +172,7 @@ public class InGame : MonoBehaviour {
 			print (ingresar ? "entrar" : "salir");
 			if (maquinaAlta != null) {
 				activarMaquinaAlta (!ingresar);
-				for (int i = 0; i < 3; i++) {
+				for (int i = 0; i < camarasMaquina.Length; i++) {
 					camaraPosIni [i] = camarasMaquina [i].transform.localPosition;
 					camaraRotIni [i] = camarasMaquina [i].transform.localRotation;
 				}
@@ -795,15 +797,15 @@ public class InGame : MonoBehaviour {
 	}
 
 	IEnumerator ApplyShake(Vector3 noise){
-		Vector3 [] newPosition = new Vector3[3];
-		for (int i = 0; i < 3; i++) {
+		Vector3 [] newPosition = new Vector3[camarasMaquina.Length];
+		for (int i = 0; i < camarasMaquina.Length; i++) {
 			newPosition [i] = camarasMaquina [i].transform.localPosition;
 			//newPosition [i].x += noise.x;
 			newPosition [i].y += noise.y;
 			camarasMaquina [i].transform.localPosition = newPosition[i];
 		}
 		yield return new WaitForSeconds (0.1f);
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < camarasMaquina.Length; i++) {
 			newPosition [i] = camarasMaquina [i].transform.localPosition;
 			//newPosition [i].x += noise.x;
 			newPosition [i].y -= noise.y;
@@ -831,7 +833,7 @@ public class InGame : MonoBehaviour {
 
 	IEnumerator StopShaking(){
 		yield return new WaitForSeconds (0.8f);
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < camarasMaquina.Length; i++) {
 			camarasMaquina [i].transform.localPosition = camaraPosIni [i];
 		}
 	}

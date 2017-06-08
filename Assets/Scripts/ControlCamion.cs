@@ -792,7 +792,7 @@ public class ControlCamion : MonoBehaviour {
         */
         
         //print(controlTarjetaControladora.ignicion());
-        if (controlTarjetaControladora.ignicion() == 1)
+        /*if (controlTarjetaControladora.ignicion() == 2)
         {
             if (estado == EstadoMaquina.encendida)
             {
@@ -817,14 +817,14 @@ public class ControlCamion : MonoBehaviour {
                 {
                     if (estado == EstadoMaquina.encendida)
                     {
-                        tiempoEncendido = 0f;
-                        arranque(false);
+                        //tiempoEncendido = 0f;
+                        //arranque(false);
                     }
                 }
             }
             else
             {
-                if (controlTarjetaControladora.ignicion() == 2)
+                if (controlTarjetaControladora.ignicion() == 1)
                 {
                     if (estado != EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))
                     {
@@ -833,7 +833,38 @@ public class ControlCamion : MonoBehaviour {
                     }
                 }
             }
-        }
+        }*/
+
+		if(controlTarjetaControladora.ignicion() == 2) {
+			if (estado != EstadoMaquina.encendida)
+			{
+				//tiempoEncendido = 0f;
+				//arranque(false);
+				tiempoEncendido = Time.time + 5f;
+			}
+			if (estado == EstadoMaquina.encendida) {
+				arranque(false);
+				tiempoEncendido = 0f;
+			}
+		}
+		else{
+			if (controlTarjetaControladora.ignicion() == 0)
+			{
+				controlCamionMotor.audioSource.loop = true;
+				controlCamionMotor.audioSource.clip = controlCamionMotor.sonidoBomba;
+				controlCamionMotor.audioSource.Play();
+			}
+			else{
+				if (controlTarjetaControladora.ignicion() == 1)
+				{
+					if (estado != EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time) && tiempoEncendido > 0f)
+					{
+						tiempoEncendido = 0f;
+						arranque(true);
+					}
+				}
+			}
+		}
 
         
 		#if UNITY_EDITOR
