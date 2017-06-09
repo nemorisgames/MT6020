@@ -111,6 +111,8 @@ public class ControlCamion : MonoBehaviour {
 	public AudioSource audioRetroceso;
     */
 	float tiempoGolpeSonido = 0f;
+
+	float lastDireccion = 0;
     /*
     [HideInInspector]
     public float tiempoOrdenEjecucion = 0f;
@@ -1017,13 +1019,28 @@ public class ControlCamion : MonoBehaviour {
 	}
     */
     void manejarEjeLimites(float accionControl){
+		JointLimits b = jointCentro.limits;
+		if (Mathf.Abs (accionControl) > 0.05f) {
+			if (accionControl > 0) {
+				b.min = Mathf.Lerp (b.min, accionControl*rangoLimitEje.y, Time.deltaTime*0.5f);
+				Debug.Log (accionControl + " " + rangoLimitEje.y);
+			} else if(accionControl < 0){
+				b.min = Mathf.Lerp (b.min, -accionControl*rangoLimitEje.x, Time.deltaTime*0.5f);
+				Debug.Log (accionControl + " " + rangoLimitEje.x);
+			}
+			b.min = Mathf.Clamp (b.min, rangoLimitEje.x, rangoLimitEje.y);
+			//b.min = Mathf.Clamp (b.min + accionControl * accionControl * Mathf.Sign (accionControl) * 15f * Time.deltaTime, rangoLimitEje.x, rangoLimitEje.y);
+			//Debug.Log (accionControl + ", "+(b.min + accionControl * accionControl * Mathf.Sign (accionControl) * 15f * Time.deltaTime));
 
-        JointLimits b = jointCentro.limits;
-		b.min = Mathf.Clamp(b.min + accionControl * accionControl * Mathf.Sign(accionControl) * 15f * Time.deltaTime, rangoLimitEje.x, rangoLimitEje.y);
-        b.max = b.min + 1f;
+			//print (accionControl + " " + b.max);
+		}
+		b.max = b.min + 1f;
+		b.min = Mathf.Round (b.min*10f)/10f;
+		b.max = Mathf.Round (b.max*10f)/10f;
 		//b.max = limitMaxActual;
 		jointCentro.limits = b;
-		//print (accionControl + " " + b.max);
+
+		lastDireccion = accionControl;
 	}
     /*
 	void pruebaFrenos(bool activar){
