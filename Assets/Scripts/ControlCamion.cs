@@ -117,6 +117,10 @@ public class ControlCamion : MonoBehaviour {
     [HideInInspector]
     public float tiempoOrdenEjecucion = 0f;
     */
+
+	public MonitorIzquierdo monitorTrasero;
+	public MonitorIzquierdo monitorDelantero;
+
     // Use this for initialization
     void Start () {
         ingame = GameObject.FindWithTag("InGame").GetComponent<InGame>();
@@ -776,6 +780,16 @@ public class ControlCamion : MonoBehaviour {
 		{
 			//manejarEjeLimites (-(Mathf.Sign(direccion) * direccion * direccion));
             manejarEjeLimites(-direccion);
+			if (direccion > 0) {
+				monitorDelantero.MostrarGuia (0);
+				monitorTrasero.MostrarGuia (0);
+			} else if (direccion < 0) {
+				monitorDelantero.MostrarGuia (2);
+				monitorTrasero.MostrarGuia (2);
+			} else {
+				monitorDelantero.MostrarGuia (1);
+				monitorTrasero.MostrarGuia (1);
+			}
             manejarBrazoLimites(brazo);
 			if (brazo != 0 && Mathf.Abs (brazo) > 0.5f && !usingArm) {
 				if (animTime != 0 && animTime != 1) {
@@ -843,6 +857,7 @@ public class ControlCamion : MonoBehaviour {
 				//tiempoEncendido = 0f;
 				//arranque(false);
 				tiempoEncendido = Time.time + 5f;
+				controlCamionMotor.SonidoIgnicion ();
 			}
 			if (estado == EstadoMaquina.encendida) {
 				arranque(false);
@@ -852,9 +867,9 @@ public class ControlCamion : MonoBehaviour {
 		else{
 			if (controlTarjetaControladora.ignicion() == 0)
 			{
-				controlCamionMotor.audioSource.loop = true;
+				/*controlCamionMotor.audioSource.loop = true;
 				controlCamionMotor.audioSource.clip = controlCamionMotor.sonidoBomba;
-				controlCamionMotor.audioSource.Play();
+				controlCamionMotor.audioSource.Play();*/
 			}
 			else{
 				if (controlTarjetaControladora.ignicion() == 1)
@@ -880,6 +895,7 @@ public class ControlCamion : MonoBehaviour {
             if (estado != EstadoMaquina.apagadaTotal)
             {
                 tiempoEncendido = Time.time + 5f;
+				controlCamionMotor.SonidoIgnicion ();
                 //audioRetroceso.clip = Resources.Load("camion") as AudioClip;
                 //if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
             }
@@ -1078,6 +1094,8 @@ public class ControlCamion : MonoBehaviour {
 			ingame.estado = activar?InGame.EstadoSimulacion.Conduciendo:ingame.estado;
         controlCamionMotor.encender(activar);
 		ActivarMonitores (activar);
+		ingame.tableroControl.setPetroleo (0f);
+		ingame.tableroControl.setTemperatura (0f);
         //enciende leds iniciales
         /*controlPantallaTactil.motorEncendido (activar);
 		controlPantallaTactil.neutro (true);

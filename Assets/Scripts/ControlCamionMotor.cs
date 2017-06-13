@@ -97,6 +97,16 @@ public class ControlCamionMotor : MonoBehaviour {
     }
     
     */
+
+	public void SonidoIgnicion(){
+		if (!audioSource.isPlaying) {
+			audioSource.loop = false;
+			audioSource.clip = sonidoPitido;
+			audioSource.PlayDelayed (4f);
+		}
+	}
+
+
     public void encender(bool activar){
         /*if (estado == ControlCamion.EstadoMaquina.apagadaTotal)
             return;*/
@@ -104,10 +114,10 @@ public class ControlCamionMotor : MonoBehaviour {
         if (activar)
         {
             GetComponent<Rigidbody>().isKinematic = false;
-            audioSource.clip = sonidoMotor;
-            audioSource.loop = true;
-            audioSource.Play();
-            audioSource.PlayOneShot(sonidoEncendido);
+			audioSource.clip = sonidoMotor;
+			audioSource.loop = true;
+			audioSource.Play ();
+			audioSource.PlayOneShot (sonidoEncendido);
 			StartCoroutine(ingame.ShakeForSecs(1f));
         }
         else
@@ -130,17 +140,14 @@ public class ControlCamionMotor : MonoBehaviour {
 			//audioMotor.pitch = 0.7f;
 			//audioRetroceso.Stop();
 			//}
-			ingame.tableroControl.setRevoluciones (0f);
+			ingame.tableroControl.setRevoluciones (-10f);
 
 			foreach (WheelCollider w in ruedasConMotor) {
 				w.brakeTorque = 500000f;
 			}
+
 			if (estado == ControlCamion.EstadoMaquina.apagada) {
-				audioSource.loop = false;
-				if (!audioSource.isPlaying) {
-					audioSource.clip = sonidoPitido;
-					audioSource.PlayDelayed (4f);
-				}
+				//SonidoIgnicion();
 			}
 			return;
 		}
@@ -254,12 +261,18 @@ public class ControlCamionMotor : MonoBehaviour {
 		ingame.tableroControl.encenderNeutro (false);
 		ingame.tableroControl.encenderAdelante (false);
 		ingame.tableroControl.encenderReversa (false);
-		if (cambioActual != 0 && throttle != 0 && !retroceso)
+		/*if (cambioActual != 0 && throttle != 0 && !retroceso)
 			ingame.tableroControl.encenderAdelante (true);
 		else if (factorRetroceso == -1 && throttle != 0)
 			ingame.tableroControl.encenderReversa (true);
 		else if(cambioActual == 0)
-			ingame.tableroControl.encenderNeutro(true);
+			ingame.tableroControl.encenderNeutro(true);*/
+		if (retroceso)
+			ingame.tableroControl.encenderReversa (true);
+		else
+			ingame.tableroControl.encenderAdelante (true);
+		if (cambioActual == 0)
+			ingame.tableroControl.encenderNeutro (true);
 #if UNITY_EDITOR
         if (Input.GetKeyUp(KeyCode.Q))// || factorRetroceso == -1)
 		{
@@ -314,7 +327,10 @@ public class ControlCamionMotor : MonoBehaviour {
 		//ingame.tableroControl.encenderAdelante(!(retroceso || factorRetroceso == -1));
 		if (estado == ControlCamion.EstadoMaquina.encendida) {
 			ingame.tableroControl.setPetroleo (90f);
-			ingame.tableroControl.setRevoluciones (Mathf.Clamp(auxSpeed*20f,0f,100f));
+			if (throttle >= 0.5)
+				ingame.tableroControl.setRevoluciones (Mathf.Clamp (auxSpeed * 20f, 0f, 100f));
+			else
+				ingame.tableroControl.setRevoluciones (-8f);
 			ingame.tableroControl.setTemperatura (20f);
             ingame.tableroControl.encenderTolva(balde.transform.localEulerAngles.x != 0f);
         }

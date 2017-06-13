@@ -71,7 +71,7 @@ public class TableroControl : MonoBehaviour {
 		/*for (int i = 0; i < p; i++) {
 			a.rotation = Quaternion.Euler (0f, 0f, -179f*i / 100f);
 		}*/
-		if (p > 0) {
+		if (p != 0) {
 			Quaternion current = a.rotation;
 			Quaternion target = Quaternion.Euler (0f, 0f, pond * p / 100f);
 			a.rotation = Quaternion.Lerp (current, target, Time.deltaTime);

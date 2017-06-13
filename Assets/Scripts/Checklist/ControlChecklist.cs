@@ -212,6 +212,8 @@ public class ControlChecklist : MonoBehaviour {
 			lucesAltasPala(false);
 			lucesAltasMotor(false);
 			lucesBajasPala(false);
+			tableroControl.setPetroleo (0f);
+			tableroControl.setTemperatura (0f);
 			//lucesBajasMotor(false);
 			/*lectorControles.OutCmd (byte.Parse("" + configuracionControles.idLedLucesAltasDelanteras), false);
 			lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesAltasTraseras), false);
@@ -648,9 +650,6 @@ public class ControlChecklist : MonoBehaviour {
 				if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagada && tiempoEncendido <= 0f)
 				{
 					tiempoEncendido = Time.time + 5f;
-					audioEncendido.loop = true;
-					audioEncendido.clip = sonidoBomba;
-					audioEncendido.Play();
 					//audioRetroceso.clip = Resources.Load("camion") as AudioClip;
 					//if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
 				}
@@ -667,6 +666,9 @@ public class ControlChecklist : MonoBehaviour {
 			{
 				if (controlTarjetaControladora.ignicion() == 2)
 				{
+					audioEncendido.loop = true;
+					audioEncendido.clip = sonidoBomba;
+					audioEncendido.Play();
 					if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))
 					{
 						tiempoEncendido = 0f;
@@ -748,7 +750,7 @@ public class ControlChecklist : MonoBehaviour {
 			else{
 				tableroControl.setTemperatura(0f);
 				tableroControl.setPetroleo(0f);
-				tableroControl.setRevoluciones(0f);
+				tableroControl.setRevoluciones(-8f);
 			}
 		}
 		//nivel aceite transmision
