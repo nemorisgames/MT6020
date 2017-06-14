@@ -857,7 +857,7 @@ public class ControlCamion : MonoBehaviour {
 				//tiempoEncendido = 0f;
 				//arranque(false);
 				tiempoEncendido = Time.time + 5f;
-				controlCamionMotor.SonidoIgnicion ();
+				//controlCamionMotor.SonidoIgnicion ();
 			}
 			if (estado == EstadoMaquina.encendida) {
 				arranque(false);
@@ -895,11 +895,14 @@ public class ControlCamion : MonoBehaviour {
             if (estado != EstadoMaquina.apagadaTotal)
             {
                 tiempoEncendido = Time.time + 5f;
-				controlCamionMotor.SonidoIgnicion ();
+				//StartCoroutine(controlCamionMotor.SonidoIgnicion ());
                 //audioRetroceso.clip = Resources.Load("camion") as AudioClip;
                 //if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
             }
         }
+		if (Input.GetButton ("Encendido")) {
+			StartCoroutine (controlCamionMotor.SonidoIgnicion ());
+		}
         if (Input.GetButtonUp("Encendido"))
         {
             if (estado != EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))

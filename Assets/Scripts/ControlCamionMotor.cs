@@ -56,6 +56,8 @@ public class ControlCamionMotor : MonoBehaviour {
     float tiempoClaxon =  0f;
     // Use this for initialization
     */
+	bool pitidoIgnicion = false;
+
     void Start () {
 		ruedasT = transform.Find ("../Trasero_B/Ruendas_T").gameObject;
 		ejeT = transform.Find ("../Trasero_B/EjeTrasero").gameObject;
@@ -98,11 +100,14 @@ public class ControlCamionMotor : MonoBehaviour {
     
     */
 
-	public void SonidoIgnicion(){
-		if (!audioSource.isPlaying) {
+	public IEnumerator SonidoIgnicion(){
+		if (!audioSource.isPlaying && !pitidoIgnicion) {
+			pitidoIgnicion = true;
 			audioSource.loop = false;
 			audioSource.clip = sonidoPitido;
-			audioSource.PlayDelayed (4f);
+			audioSource.Play ();
+			yield return new WaitForSeconds (1f);
+			pitidoIgnicion = false;
 		}
 	}
 
