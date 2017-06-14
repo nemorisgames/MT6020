@@ -857,7 +857,7 @@ public class ControlCamion : MonoBehaviour {
 				//tiempoEncendido = 0f;
 				//arranque(false);
 				tiempoEncendido = Time.time + 5f;
-				//controlCamionMotor.SonidoIgnicion ();
+				StartCoroutine(controlCamionMotor.SonidoIgnicion ());
 			}
 			if (estado == EstadoMaquina.encendida) {
 				arranque(false);
