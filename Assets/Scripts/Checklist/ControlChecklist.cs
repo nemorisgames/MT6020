@@ -630,6 +630,19 @@ public class ControlChecklist : MonoBehaviour {
 		return ((minutos < 10) ? ("0" + minutos) : "" + minutos) + ":" + ((segundos < 10) ? ("0" + segundos) : "" + segundos);
 	}
 
+	bool pitidoIgnicion;
+
+	public IEnumerator SonidoIgnicion(){
+		if (!audioEncendido.isPlaying && !pitidoIgnicion) {
+			pitidoIgnicion = true;
+			audioEncendido.loop = false;
+			audioEncendido.clip = sonidoBomba;
+			audioEncendido.Play ();
+			yield return new WaitForSeconds (1f);
+			pitidoIgnicion = false;
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log (estado);
@@ -666,9 +679,8 @@ public class ControlChecklist : MonoBehaviour {
 			{
 				if (controlTarjetaControladora.ignicion() == 2)
 				{
-					audioEncendido.loop = true;
-					audioEncendido.clip = sonidoBomba;
-					audioEncendido.Play();
+					if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagada  && checkeandoCabina)
+						SonidoIgnicion ();
 					if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))
 					{
 						tiempoEncendido = 0f;
@@ -688,6 +700,8 @@ public class ControlChecklist : MonoBehaviour {
 				//if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
 			}
 		}
+		if(Input.GetButton("Encendido") && checkeandoCabina)
+			SonidoIgnicion ();
 		if (Input.GetButtonUp("Encendido"))
 		{
 			if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))
