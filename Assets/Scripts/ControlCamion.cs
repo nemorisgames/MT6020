@@ -851,7 +851,7 @@ public class ControlCamion : MonoBehaviour {
             }
         }*/
 
-		if(controlTarjetaControladora.ignicion() == 2) {
+		if(controlTarjetaControladora.ignicion() == 0) {
 			if (estado != EstadoMaquina.encendida)
 			{
 				//tiempoEncendido = 0f;
@@ -865,7 +865,7 @@ public class ControlCamion : MonoBehaviour {
 			}
 		}
 		else{
-			if (controlTarjetaControladora.ignicion() == 0)
+			if (controlTarjetaControladora.ignicion() == 2)
 			{
 				/*controlCamionMotor.audioSource.loop = true;
 				controlCamionMotor.audioSource.clip = controlCamionMotor.sonidoBomba;

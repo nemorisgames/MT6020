@@ -14,14 +14,14 @@ public class MonitorDerecho : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (botonEncendido == null && boton1 == null && boton2 == null && bg == null) {
+		/*if (botonEncendido == null && boton1 == null && boton2 == null && bg == null) {
 			botonEncendido = transform.FindChild ("Boton").GetComponentInChildren<UISprite> ();
 			boton1 = transform.FindChild ("Boton1").GetComponentInChildren<UISprite> ();
 			boton2 = transform.FindChild ("Boton2").GetComponentInChildren<UISprite> ();
 			bg = transform.FindChild ("bg_negro").gameObject;
 		}
 		if(ctrl == null)
-			ctrl = GameObject.FindGameObjectWithTag ("Maquina").GetComponent<ControlCamion> ();
+			ctrl = GameObject.FindGameObjectWithTag ("Maquina").GetComponent<ControlCamion> ();*/
 	}
 
 	void Update(){

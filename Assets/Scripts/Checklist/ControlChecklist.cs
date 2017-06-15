@@ -648,7 +648,7 @@ public class ControlChecklist : MonoBehaviour {
 		//Debug.Log (estado);
 		if (!activa)
 			return;
-		if (controlTarjetaControladora.ignicion() == 0)
+		if (controlTarjetaControladora.ignicion() == 2)
 		{
 			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)
 			{
@@ -677,7 +677,7 @@ public class ControlChecklist : MonoBehaviour {
 			}
 			else
 			{
-				if (controlTarjetaControladora.ignicion() == 2)
+				if (controlTarjetaControladora.ignicion() == 0)
 				{
 					if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagada  && checkeandoCabina)
 						SonidoIgnicion ();
