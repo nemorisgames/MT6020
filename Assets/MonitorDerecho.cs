@@ -25,11 +25,12 @@ public class MonitorDerecho : MonoBehaviour {
 	}
 
 	void Update(){
-		if (ctrl.estado == ControlCamion.EstadoMaquina.encendida)
+		if (ctrl != null && ctrl.estado == ControlCamion.EstadoMaquina.encendida)
 			bg.GetComponent<UISprite> ().depth = 0;
 		else {
 			bg.GetComponent<UISprite> ().depth = 5;
 			bg.SetActive (true);
+			encendido = false;
 			botonEncendido.spriteName = botonEncendido.name + "_Off";
 			boton1.spriteName = boton1.name + "_off";
 			boton2.spriteName = boton2.name + "_off";

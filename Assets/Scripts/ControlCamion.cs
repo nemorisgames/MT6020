@@ -128,8 +128,7 @@ public class ControlCamion : MonoBehaviour {
         animator = GetComponent<Animator>();
 		monitor = transform.Find ("Delantera_B/Varios/Monitor").gameObject;
 		ActivarMonitores (false);
-        
-        //cilindroEmpuje = jointBrazo.transform.FindChild ("Eje_empuje_medio/Pomo");
+		GameObject.FindGameObjectWithTag ("MonitorDerecho").GetComponent<MonitorDerecho> ().ctrl = this.GetComponent<ControlCamion> ();
 		configuracion = GameObject.FindWithTag ("Configuracion").GetComponent<Configuracion>();
         /*
         configuracionControles = GameObject.FindWithTag ("Configuracion").GetComponent<ConfiguracionControles>();
@@ -149,7 +148,7 @@ public class ControlCamion : MonoBehaviour {
 
 	void ActivarMonitores(bool b){
 		monitor.SetActive (b);
-		camaraBalde.SetActive (b);
+		//camaraBalde.SetActive (b);
 	}
     /*
 	//0: freno
