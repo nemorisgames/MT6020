@@ -850,13 +850,13 @@ public class ControlCamion : MonoBehaviour {
             }
         }*/
 
-		if(controlTarjetaControladora.ignicion() == 0) {
+		if(controlTarjetaControladora.ignicion() == 2) {
 			if (estado != EstadoMaquina.encendida)
 			{
 				//tiempoEncendido = 0f;
 				//arranque(false);
 				tiempoEncendido = Time.time + 5f;
-				StartCoroutine(controlCamionMotor.SonidoIgnicion ());
+
 			}
 			if (estado == EstadoMaquina.encendida) {
 				arranque(false);
@@ -864,8 +864,9 @@ public class ControlCamion : MonoBehaviour {
 			}
 		}
 		else{
-			if (controlTarjetaControladora.ignicion() == 2)
+			if (controlTarjetaControladora.ignicion() == 0 && estado != EstadoMaquina.encendida)
 			{
+				StartCoroutine(controlCamionMotor.SonidoIgnicion ());
 				/*controlCamionMotor.audioSource.loop = true;
 				controlCamionMotor.audioSource.clip = controlCamionMotor.sonidoBomba;
 				controlCamionMotor.audioSource.Play();*/

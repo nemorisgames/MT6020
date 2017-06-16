@@ -648,13 +648,15 @@ public class ControlChecklist : MonoBehaviour {
 		//Debug.Log (estado);
 		if (!activa)
 			return;
-		if (controlTarjetaControladora.ignicion() == 2)
+		if (controlTarjetaControladora.ignicion() == 0)
 		{
 			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)
 			{
 				tiempoEncendido = 0f;
 				arranque(false);
 			}
+			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagada  && checkeandoCabina)
+				SonidoIgnicion ();
 		}
 		else
 		{
@@ -677,10 +679,8 @@ public class ControlChecklist : MonoBehaviour {
 			}
 			else
 			{
-				if (controlTarjetaControladora.ignicion() == 0)
+				if (controlTarjetaControladora.ignicion() == 2)
 				{
-					if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagada  && checkeandoCabina)
-						SonidoIgnicion ();
 					if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))
 					{
 						tiempoEncendido = 0f;
