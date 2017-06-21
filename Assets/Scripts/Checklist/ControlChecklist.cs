@@ -156,7 +156,7 @@ public class ControlChecklist : MonoBehaviour {
 	LectorControles lectorControles;
 	public TweenRotation iso_switch;
 	public float tiempoEncendido = 2f;
-	public AudioSource sonidoMotor;
+	public AudioClip sonidoMotor;
 	public AudioClip sonidoApagadoMotor;
     public AudioSource audioEncendido;
 
@@ -208,12 +208,17 @@ public class ControlChecklist : MonoBehaviour {
 	public void arranque(bool activar){
 		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagadaTotal)
 			return;
-		if (activar)
-			sonidoMotor.Play ();
+		if (activar) {
+
+			audioEncendido.clip = sonidoMotor;
+			audioEncendido.loop = true;
+			audioEncendido.Play ();
+		}
 		else { 
-			sonidoMotor.Stop ();
+			audioEncendido.loop = false;
+			audioEncendido.Stop ();
 			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) 
-				sonidoMotor.PlayOneShot(sonidoApagadoMotor);
+				audioEncendido.PlayOneShot(sonidoApagadoMotor);
 			lucesAltasPala(false);
 			lucesAltasMotor(false);
 			lucesBajasPala(false);
@@ -652,6 +657,8 @@ public class ControlChecklist : MonoBehaviour {
 		}
 	}
 
+	bool startFromZero = false;
+
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log (estado);
@@ -665,7 +672,7 @@ public class ControlChecklist : MonoBehaviour {
 				arranque(false);
 			}
 			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagada  && checkeandoCabina)
-				if(tiempoEncendido > 0f)
+				if(tiempoEncendido - Time.time < 4)
 					StartCoroutine(SonidoIgnicion ());
 		}
 		else
@@ -710,8 +717,8 @@ public class ControlChecklist : MonoBehaviour {
 				//if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
 			}
 		}
-		if (Input.GetButton ("Encendido") && checkeandoCabina) {
-			if(tiempoEncendido > 0f)
+		if (Input.GetButton ("Encendido") && checkeandoCabina && estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal) {
+			if(tiempoEncendido - Time.time < 4)
 				StartCoroutine (SonidoIgnicion ());
 		}
 		
@@ -723,7 +730,7 @@ public class ControlChecklist : MonoBehaviour {
 				arranque(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagada);
 
 				//audioEncendido.clip = Resources.Load("camion") as AudioClip;
-				if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida) audioEncendido.Play();
+				//if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida) audioEncendido.Play();
 			}
 			//audioRetroceso.Stop();
 			//if ((central.estado == Central.EstadoSimulacion.Finalizando || central.estado == Central.EstadoSimulacion.ApagadoExterior) && estado == EstadoMaquina.encendida) mensajeApagar.Toggle();

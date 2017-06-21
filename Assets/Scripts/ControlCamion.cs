@@ -866,7 +866,7 @@ public class ControlCamion : MonoBehaviour {
 		else{
 			if (controlTarjetaControladora.ignicion() == 0 && estado != EstadoMaquina.encendida)
 			{
-				if(tiempoEncendido > 0f)
+				if(tiempoEncendido - Time.time < 4)
 					StartCoroutine(controlCamionMotor.SonidoIgnicion ());
 				/*controlCamionMotor.audioSource.loop = true;
 				controlCamionMotor.audioSource.clip = controlCamionMotor.sonidoBomba;
@@ -902,7 +902,7 @@ public class ControlCamion : MonoBehaviour {
             }
         }
 		if (Input.GetButton ("Encendido")) {
-			if(tiempoEncendido > 0f)
+			if(tiempoEncendido - Time.time < 4)
 				StartCoroutine (controlCamionMotor.SonidoIgnicion ());
 		}
         if (Input.GetButtonUp("Encendido"))
