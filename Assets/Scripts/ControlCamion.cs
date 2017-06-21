@@ -779,10 +779,10 @@ public class ControlCamion : MonoBehaviour {
 		{
 			//manejarEjeLimites (-(Mathf.Sign(direccion) * direccion * direccion));
             manejarEjeLimites(-direccion);
-			if (direccion > 0) {
+			if (direccion > 0.25f) {
 				monitorDelantero.MostrarGuia (0);
 				monitorTrasero.MostrarGuia (0);
-			} else if (direccion < 0) {
+			} else if (direccion < -0.25f) {
 				monitorDelantero.MostrarGuia (2);
 				monitorTrasero.MostrarGuia (2);
 			} else {
@@ -866,7 +866,8 @@ public class ControlCamion : MonoBehaviour {
 		else{
 			if (controlTarjetaControladora.ignicion() == 0 && estado != EstadoMaquina.encendida)
 			{
-				StartCoroutine(controlCamionMotor.SonidoIgnicion ());
+				if(tiempoEncendido > 0f)
+					StartCoroutine(controlCamionMotor.SonidoIgnicion ());
 				/*controlCamionMotor.audioSource.loop = true;
 				controlCamionMotor.audioSource.clip = controlCamionMotor.sonidoBomba;
 				controlCamionMotor.audioSource.Play();*/
@@ -901,7 +902,8 @@ public class ControlCamion : MonoBehaviour {
             }
         }
 		if (Input.GetButton ("Encendido")) {
-			StartCoroutine (controlCamionMotor.SonidoIgnicion ());
+			if(tiempoEncendido > 0f)
+				StartCoroutine (controlCamionMotor.SonidoIgnicion ());
 		}
         if (Input.GetButtonUp("Encendido"))
         {

@@ -27,14 +27,20 @@ public class ControlCamaraInterior : MonoBehaviour {
 	}
 	public ConfiguracionControles configuracionControles;
 	public Quaternion rotacionInicial;
+	float rotY;
 	// Use this for initialization
+
+	void Awake(){
+		rotacionInicial = gameObject.transform.rotation;
+	}
+
 	void Start () {
 		GameObject g = GameObject.FindWithTag ("Configuracion");
 		if (g != null)
 			configuracionControles = g.GetComponent<ConfiguracionControles> ();
 		mensajeInteraccion.gameObject.SetActive (false);
 		controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
-		rotacionInicial = gameObject.transform.rotation;
+
 	}
 
 	public void desactivar(){
@@ -55,7 +61,7 @@ public class ControlCamaraInterior : MonoBehaviour {
 		hor = Input.GetAxis("Manubrio");
 		ver = - controlTarjetaControladora.Retardador() + controlTarjetaControladora.Freno();
 #endif
-        print(hor +" && " + transform.rotation.eulerAngles.y);
+       	//print(hor +" && " + transform.rotation.eulerAngles.y);
         /*if (hor != 0f && (transform.rotation.eulerAngles.y <= 80f || transform.rotation.eulerAngles.y >= 260f))
         {
             if(transform.rotation.eulerAngles.y > 80f)
@@ -78,8 +84,16 @@ public class ControlCamaraInterior : MonoBehaviour {
         }*/
         transform.Rotate(Vector3.right, -ver * velocidadRotacion * 3f * Time.deltaTime);
         transform.Rotate(Vector3.up, hor * velocidadRotacion * 3f * Time.deltaTime, Space.World);
-        transform.eulerAngles = new Vector3(Mathf.Clamp((transform.eulerAngles.x > 270f ? (transform.eulerAngles.x - 360f) : transform.eulerAngles.x), -20f, 40f), Mathf.Clamp((transform.eulerAngles.y > 270f ? (transform.eulerAngles.y - 360f) : transform.eulerAngles.y), -80f, 80f), 0f);
-
+		/*Debug.Log (transform.eulerAngles.y);
+		Debug.Log ((transform.eulerAngles.y - 360f) + "," + ((rotacionInicial.eulerAngles.y - 80f)) + "," + ((rotacionInicial.eulerAngles.y + 80f)));
+		Debug.Log ((transform.eulerAngles.y) + "," + (rotacionInicial.eulerAngles.y - 80f) + "," + (rotacionInicial.eulerAngles.y + 80f));*/
+		float auxY = 0;
+		if (transform.eulerAngles.y >= 270 && rotacionInicial.eulerAngles.y < 270)
+			auxY = Mathf.Clamp (transform.eulerAngles.y - 360f, rotacionInicial.eulerAngles.y - 80f, rotacionInicial.eulerAngles.y + 80f);
+		else
+			auxY = Mathf.Clamp (transform.eulerAngles.y, rotacionInicial.eulerAngles.y - 80f, rotacionInicial.eulerAngles.y + 80f);
+		//transform.eulerAngles = new Vector3(Mathf.Clamp((transform.eulerAngles.x > 270f ? (transform.eulerAngles.x - 360f) : transform.eulerAngles.x), -20f, 40f), Mathf.Clamp((transform.eulerAngles.y >= 270f ? (transform.eulerAngles.y - 360f) : transform.eulerAngles.y), -80f,  80f), 0f);
+		transform.eulerAngles = new Vector3(Mathf.Clamp((transform.eulerAngles.x > 270f ? (transform.eulerAngles.x - 360f) : transform.eulerAngles.x), -20f, 40f), auxY, 0f);
 
         
 

@@ -45,7 +45,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 	ControlCamion controlExcavadora;
 	InGame central;
 	//int[] valoresPotenciometro = new int[6];
-    
+	Transform rotacionCamara;
 
     public LayerMask mascaraLayers;
 
@@ -90,6 +90,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 		controlChecklist.pasadoresGeneralActivada = false;
 		controlChecklist.fugasCilindrosManguerasActivada = false;
 		controlChecklist.sistemaAnsulActivada = false;
+		controlChecklist.extintorManualActivada = false;
 	}
 
 	//0: freno
@@ -139,7 +140,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 			GetComponent<Rigidbody>().AddForce ((hor2 * transform.right + ver2 * new Vector3(transform.forward.x, 0f, transform.forward.z)).normalized * 450f * 1f *  Time.deltaTime);
 		transform.Rotate (Vector3.right, ver * velocidadRotacion * 1.5f * Time.deltaTime);
 		transform.Rotate (Vector3.up, hor * velocidadRotacion * 1.5f * Time.deltaTime);
-		transform.eulerAngles = new Vector3 (Mathf.Clamp((transform.eulerAngles.x>270f?(transform.eulerAngles.x - 360f):transform.eulerAngles.x), -20f, 40f), transform.eulerAngles.y, 0f);
+		transform.eulerAngles = new Vector3 (Mathf.Clamp((transform.eulerAngles.x>270f?(transform.eulerAngles.x - 360f):transform.eulerAngles.x), -20f, 60f), transform.eulerAngles.y, 0f);
 
 
         enfocandoCabina = false;
@@ -167,42 +168,42 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 			controlChecklist.pasadoresGeneralActivada = false;
 			controlChecklist.fugasCilindrosManguerasActivada = false;
 			controlChecklist.sistemaAnsulActivada = false;
+			controlChecklist.extintorManualActivada = false;
 		}
 		if(controlChecklist == null || (controlChecklist != null && (!controlChecklist.activa || !controlChecklist.listaActiva))){
-				RaycastHit hit;
-				
-				Debug.DrawRay(camara.transform.position, camara.transform.forward);
-				if (Physics.Raycast (camara.transform.position, camara.transform.forward, out hit, 2f, mascaraLayers)) {
-					print (hit.transform.gameObject.name + " " + hit.distance);
-					switch(hit.transform.gameObject.name){
-					case "nivelPetroleo": controlChecklist.nivelPetroleoActivada = true; break;
-					case "nivelAceite": controlChecklist.nivelAceiteActivada = true; break;
-					case "nivelHidraulico": controlChecklist.nivelHidraulicoActivada = true; break;
-					case "nivelRefrigerante": controlChecklist.nivelRefrigeranteActivada = true; break;
-					case "nivelAceiteTrans": controlChecklist.nivelAceiteTransActivada = true; break;
-					case "nivelAceiteCajaTransf": controlChecklist.nivelAceiteCajaTransfActivada = true; break;
-					case "filtroAire": controlChecklist.filtroAireActivada = true; break;
-					case "filtroCombustible": controlChecklist.filtroCombustibleActivada = true; break;
-					case "topeEjeCentral": controlChecklist.topeEjeCentralActivada = true; break;
-					case "indicadoresObstruccion": controlChecklist.indicadoresObstruccionActivada = true; break;
-					case "articulacionCentral": controlChecklist.articulacionCentralActivada = true; break;
-					case "articulacionDireccional": controlChecklist.articulacionDireccionalActivada = true; break;
-					case "pasadoresGeneral": controlChecklist.pasadoresGeneralActivada = true; break;
-					case "fugasCilindrosMangueras": controlChecklist.fugasCilindrosManguerasActivada = true; break;
-					case "sistemaAnsul": controlChecklist.sistemaAnsulActivada = true; break;
-
-					case "TapaRadiador": enfocandoPuertaHidraulica = true; break;
+			RaycastHit hit;
+			
+			Debug.DrawRay(camara.transform.position, camara.transform.forward);
+			if (Physics.Raycast (camara.transform.position, camara.transform.forward, out hit, 2f, mascaraLayers)) {
+				print (hit.transform.gameObject.name + " " + hit.distance);
+				switch(hit.transform.gameObject.name){
+				case "nivelPetroleo": controlChecklist.nivelPetroleoActivada = true; break;
+				case "nivelAceite": controlChecklist.nivelAceiteActivada = true; break;
+				case "nivelHidraulico": controlChecklist.nivelHidraulicoActivada = true; break;
+				case "nivelRefrigerante": controlChecklist.nivelRefrigeranteActivada = true; break;
+				case "nivelAceiteTrans": controlChecklist.nivelAceiteTransActivada = true; break;
+				case "nivelAceiteCajaTransf": controlChecklist.nivelAceiteCajaTransfActivada = true; break;
+				case "filtroAire": controlChecklist.filtroAireActivada = true; break;
+				case "filtroCombustible": controlChecklist.filtroCombustibleActivada = true; break;
+				case "topeEjeCentral": controlChecklist.topeEjeCentralActivada = true; break;
+				case "indicadoresObstruccion": controlChecklist.indicadoresObstruccionActivada = true; break;
+				case "articulacionCentral": controlChecklist.articulacionCentralActivada = true; break;
+				case "articulacionDireccional": controlChecklist.articulacionDireccionalActivada = true; break;
+				case "pasadoresGeneral": controlChecklist.pasadoresGeneralActivada = true; break;
+				case "fugasCilindrosMangueras": controlChecklist.fugasCilindrosManguerasActivada = true; break;
+				case "sistemaAnsul": controlChecklist.sistemaAnsulActivada = true; break;
+				case "extintorManual": controlChecklist.extintorManualActivada = true; break;
+				case "TapaRadiador": enfocandoPuertaHidraulica = true; break;
 				case "Escalera": enfocandoEscalera = true; break;
 				case "TapaAnsu": enfocandoAnsu = true; break;
 				case "TapaMotor": enfocandoMotor = true; break;
-					case "TapaAceite": enfocandoAceite = true; break;
-						case "puertaCabina": enfocandoCabina = true; break;
+				case "TapaAceite": enfocandoAceite = true; break;
+				case "puertaCabina": enfocandoCabina = true; break;
 				case "Puerta": enfocandoCabina = true; break;
-						case "Brazo": enfocandoBrazo = true; break;
+				case "Brazo": enfocandoBrazo = true; break;
 				case "ISO_switch":case "IsoSwitch": enfocandoEncendido = true; break;
-					}
 				}
-
+			}
 		}
 		//if (realizarChecklist) {
 		if (enfocandoPuertaHidraulicaActual != enfocandoPuertaHidraulica) {
@@ -225,7 +226,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				controlChecklist.habilitarEscalera ();
 				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
 					print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
-					mensajeInteraccion.text = "Presione el gatillo derecho para subir";
+					mensajeInteraccion.text = "Presione el gatillo derecho para subir/bajar";
 				}
 			} else
 				controlChecklist.deshabilitarEscalera ();

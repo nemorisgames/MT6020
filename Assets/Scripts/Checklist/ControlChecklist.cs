@@ -64,8 +64,12 @@ public class ControlChecklist : MonoBehaviour {
 	public GameObject sistemaAnsul;//OK
 	[HideInInspector]
 	public bool sistemaAnsulActivada = false;
+	public GameObject extintorManual;//OK
+	[HideInInspector]
+	public bool extintorManualActivada = false;
 
 	public Transform posicionSobreMaquina;
+	public Transform posicionBajoMaquina;
 	bool escaleraHabilitada = false;
 	bool escaleraActivada = false;
 	public TweenRotation[] ansu;
@@ -103,6 +107,7 @@ public class ControlChecklist : MonoBehaviour {
 	public estadoChequeo estado = estadoChequeo.exterior;
 
 	public ParteMaquina[] partesMaquina;
+	public GameObject varillaPetroleoDefault;
 
 	public GameObject[] GUINormal;
 	public GameObject instruccionesControles;
@@ -162,7 +167,7 @@ public class ControlChecklist : MonoBehaviour {
 	public Animator animatorTolba;
 	public int checklistIndex = 1;
 	public bool singleChecklist;
-	public BajarMaquina maquinaTrigger;
+	bool sobreMaquina = false;
 
 	// Use this for initialization
 	void Start () {
@@ -229,6 +234,7 @@ public class ControlChecklist : MonoBehaviour {
 	}
 
 	public void arreglarMaquina(){
+		Debug.Log ("arreglar maquina");
 		for (int i = 0; i < partesMaquina.Length; i++) {
 				
 			ParteMaquina p = partesMaquina[i];
@@ -266,6 +272,7 @@ public class ControlChecklist : MonoBehaviour {
 		pasadoresGeneralActivada = false;
 		fugasCilindrosManguerasActivada = false;
 		sistemaAnsulActivada = false;
+		extintorManualActivada = false;
 		nivelPetroleo.SetActive(nivelPetroleoActivada);
 		nivelAceite.SetActive(nivelAceiteActivada);
 		nivelHidraulico.SetActive(nivelHidraulicoActivada);
@@ -281,7 +288,7 @@ public class ControlChecklist : MonoBehaviour {
 		pasadoresGeneral.SetActive(pasadoresGeneralActivada);
 		fugasCilindrosMangueras.SetActive(fugasCilindrosManguerasActivada);
 		sistemaAnsul.SetActive(sistemaAnsulActivada);
-
+		extintorManual.SetActive (extintorManualActivada);
 	}
 
 	public void ReiniciarMaquina(){
@@ -326,6 +333,7 @@ public class ControlChecklist : MonoBehaviour {
 		pasadoresGeneralActivada = true;
 		fugasCilindrosManguerasActivada = true;
 		sistemaAnsulActivada = true;
+		extintorManualActivada = true;
 		nivelPetroleo.SetActive(nivelPetroleoActivada);
 		nivelAceite.SetActive(nivelAceiteActivada);
 		nivelHidraulico.SetActive(nivelHidraulicoActivada);
@@ -341,6 +349,7 @@ public class ControlChecklist : MonoBehaviour {
 		pasadoresGeneral.SetActive(pasadoresGeneralActivada);
 		fugasCilindrosMangueras.SetActive(fugasCilindrosManguerasActivada);
 		sistemaAnsul.SetActive(sistemaAnsulActivada);
+		extintorManual.SetActive (extintorManualActivada);
 	}
 
 	public void mostrarDanio(ParteMaquina p, bool danado, bool danioAleatorio){
@@ -630,7 +639,7 @@ public class ControlChecklist : MonoBehaviour {
 		return ((minutos < 10) ? ("0" + minutos) : "" + minutos) + ":" + ((segundos < 10) ? ("0" + segundos) : "" + segundos);
 	}
 
-	bool pitidoIgnicion;
+	bool pitidoIgnicion = false;
 
 	public IEnumerator SonidoIgnicion(){
 		if (!audioEncendido.isPlaying && !pitidoIgnicion) {
@@ -656,7 +665,8 @@ public class ControlChecklist : MonoBehaviour {
 				arranque(false);
 			}
 			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagada  && checkeandoCabina)
-				SonidoIgnicion ();
+				if(tiempoEncendido > 0f)
+					StartCoroutine(SonidoIgnicion ());
 		}
 		else
 		{
@@ -700,8 +710,11 @@ public class ControlChecklist : MonoBehaviour {
 				//if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
 			}
 		}
-		if(Input.GetButton("Encendido") && checkeandoCabina)
-			SonidoIgnicion ();
+		if (Input.GetButton ("Encendido") && checkeandoCabina) {
+			if(tiempoEncendido > 0f)
+				StartCoroutine (SonidoIgnicion ());
+		}
+		
 		if (Input.GetButtonUp("Encendido"))
 		{
 			if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))
@@ -731,6 +744,7 @@ public class ControlChecklist : MonoBehaviour {
 			if (nivelRefrigerante != null)
 				nivelRefrigerante.SetActive (nivelRefrigeranteActivada);
 			if (nivelAceiteTrans != null)
+				Debug.Log (nivelAceiteTransActivada);
 				nivelAceiteTrans.SetActive (nivelAceiteTransActivada);
 			if (nivelAceiteCajaTransf != null)
 				nivelAceiteCajaTransf.SetActive (nivelAceiteCajaTransfActivada);
@@ -752,6 +766,8 @@ public class ControlChecklist : MonoBehaviour {
 				fugasCilindrosMangueras.SetActive (fugasCilindrosManguerasActivada);
 			if (sistemaAnsul != null)
 				sistemaAnsul.SetActive (sistemaAnsulActivada);
+			if (extintorManual != null)
+				extintorManual.SetActive (extintorManualActivada);
 		}
 		if (partesMaquina [14].danado) {
 			//manometros dañados
@@ -767,9 +783,16 @@ public class ControlChecklist : MonoBehaviour {
 				tableroControl.setRevoluciones(-8f);
 			}
 		}
-		//nivel aceite transmision
-		if(estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida)
-			partesMaquina [6].parteBuena[0].transform.parent.gameObject.SetActive(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
+
+		if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida) {
+			//nivel aceite transmision
+			partesMaquina [6].parteBuena [0].transform.parent.gameObject.SetActive (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
+			//nivel petroleo
+			partesMaquina [0].parteBuena [0].transform.parent.gameObject.SetActive (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
+			partesMaquina [0].parteBuena [1].transform.parent.gameObject.SetActive (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
+		}
+		varillaPetroleoDefault.SetActive(!(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida));
+
 		if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida) {
 			float brazo = 0f;
 			#if UNITY_EDITOR
@@ -943,13 +966,26 @@ public class ControlChecklist : MonoBehaviour {
 			if (motorHabilitada)
 				abrirMotor ();
 			if (escaleraHabilitada) {
-				controlUsuarioChecklist.transform.position = posicionSobreMaquina.position;
-				if (maquinaTrigger != null)
-					maquinaTrigger.triggerEnabled = true;
 				Vector3 pos = controlUsuarioChecklist.transform.FindChild ("Camera").transform.position;
-				pos.y -= 0.7f;
-				controlUsuarioChecklist.transform.FindChild ("Camera").transform.position = pos;
-				controlUsuarioChecklist.transform.rotation = posicionSobreMaquina.rotation;
+				if (!sobreMaquina) {
+					sobreMaquina = true;
+					pos.y -= 0.9f;
+					controlUsuarioChecklist.transform.FindChild ("Camera").transform.position = pos;
+					controlUsuarioChecklist.transform.position = posicionSobreMaquina.position;
+					controlUsuarioChecklist.transform.rotation = posicionSobreMaquina.rotation;
+					Debug.Log ("subiendo");
+				} else {
+					sobreMaquina = false;
+					pos.y += 0.9f;
+					controlUsuarioChecklist.transform.FindChild ("Camera").transform.position = pos;
+					controlUsuarioChecklist.transform.position = posicionBajoMaquina.position;
+					controlUsuarioChecklist.transform.rotation = posicionBajoMaquina.rotation;
+					Debug.Log ("bajando");
+				}
+					
+				/*if (maquinaTrigger != null)
+					maquinaTrigger.triggerEnabled = true;*/
+				
 				mensajeInteraccion.text = "";
 				mensajeInteraccion.gameObject.SetActive(false);
 				controlUsuarioChecklist.enfocandoEscalera = false;
@@ -1242,6 +1278,7 @@ public class ControlChecklist : MonoBehaviour {
 		pasadoresGeneralActivada = false;
 		fugasCilindrosManguerasActivada = false;
 		sistemaAnsulActivada = false;
+		extintorManualActivada = false;
 		nivelPetroleo.SetActive(nivelPetroleoActivada);
 		nivelAceite.SetActive(nivelAceiteActivada);
 		nivelHidraulico.SetActive(nivelHidraulicoActivada);
@@ -1257,6 +1294,7 @@ public class ControlChecklist : MonoBehaviour {
 		pasadoresGeneral.SetActive(pasadoresGeneralActivada);
 		fugasCilindrosMangueras.SetActive(fugasCilindrosManguerasActivada);
 		sistemaAnsul.SetActive(sistemaAnsulActivada);
+		extintorManual.SetActive (extintorManualActivada);
 	}
 
 	public void finalizarModuloChecklist (){
