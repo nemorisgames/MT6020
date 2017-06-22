@@ -156,6 +156,7 @@ public class ControlChecklist : MonoBehaviour {
 	LectorControles lectorControles;
 	public TweenRotation iso_switch;
 	public float tiempoEncendido = 2f;
+	float tiempoEncendidoB = 0f;
 	public AudioClip sonidoMotor;
 	public AudioClip sonidoApagadoMotor;
     public AudioSource audioEncendido;
@@ -213,6 +214,8 @@ public class ControlChecklist : MonoBehaviour {
 			audioEncendido.clip = sonidoMotor;
 			audioEncendido.loop = true;
 			audioEncendido.Play ();
+			InGame aux = GameObject.FindGameObjectWithTag ("InGame").GetComponent<InGame> ();
+			StartCoroutine(aux.ShakeForSecs(1f));
 		}
 		else { 
 			audioEncendido.loop = false;
@@ -658,13 +661,14 @@ public class ControlChecklist : MonoBehaviour {
 	}
 
 	bool startFromZero = false;
+	int lastPosIgnicion = -1;
 
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log (estado);
 		if (!activa)
 			return;
-		if (controlTarjetaControladora.ignicion() == 0)
+		/*if (controlTarjetaControladora.ignicion() == 0)
 		{
 			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)
 			{
@@ -707,8 +711,67 @@ public class ControlChecklist : MonoBehaviour {
 					}
 				}
 			}
+		}*/
+
+		if(controlTarjetaControladora.ignicion() == 2 || Input.GetKey(KeyCode.Keypad1)) {
+			if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida)
+			{
+				//tiempoEncendido = 0f;
+				//arranque(false);
+				tiempoEncendido = Time.time + 5f;
+				if(lastPosIgnicion != 2)
+					tiempoEncendidoB = Time.time + 8f;
+
+				//Debug.Log(tiempoEncendidoB + " | "+(tiempoEncendidoB - Time.time) + " | "+lastPosIgnicion);
+
+				if ((tiempoEncendidoB - Time.time) < 7 && lastPosIgnicion == 2) {
+					StartCoroutine (SonidoIgnicion ());
+				}
+
+			}
+			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) {
+				arranque(false);
+				tiempoEncendidoB = Time.time + 8f;
+				tiempoEncendido = 0f;
+			}
+
+			lastPosIgnicion = 2;
+
 		}
-		if (Input.GetButtonDown("Encendido"))
+		else{
+			if ((controlTarjetaControladora.ignicion() == 0 || Input.GetKey(KeyCode.Keypad3)) && estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida && (lastPosIgnicion == 2 || lastPosIgnicion == 0))
+			{
+				if (tiempoEncendido - Time.time < 4 && lastPosIgnicion == 0) {
+					StartCoroutine (SonidoIgnicion ());
+				}
+				lastPosIgnicion = 0;
+			}
+			else{
+				if (controlTarjetaControladora.ignicion() == 1 || Input.GetKey(KeyCode.Keypad2))
+				{
+					if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time) && tiempoEncendido > 0f && lastPosIgnicion == 0) {
+						tiempoEncendido = 0f;
+						tiempoEncendidoB = 0f;
+						arranque (true);
+						lastPosIgnicion = 1;
+					}
+					else if(estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendidoB < Time.time) && (tiempoEncendidoB + 2f > Time.time) && tiempoEncendidoB > 0f && lastPosIgnicion == 2){
+						tiempoEncendidoB = 0f;
+						tiempoEncendido = 0f;
+						arranque (true);
+						lastPosIgnicion = 1;
+					}
+					else
+						lastPosIgnicion = -1;
+				}
+			}
+		}
+
+		//Debug.Log (lastPosIgnicion);
+
+		/*
+		//if (Input.GetButtonDown("Encendido"))
+		if(Input.GetKey(KeyCode.Keypad1))
 		{
 			if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal)
 			{
@@ -717,12 +780,13 @@ public class ControlChecklist : MonoBehaviour {
 				//if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
 			}
 		}
-		if (Input.GetButton ("Encendido") && checkeandoCabina && estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal) {
+		if(Input.GetKey(KeyCode.Keypad3) && checkeandoCabina && estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal){
+		//if (Input.GetButton ("Encendido") && checkeandoCabina && estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal) {
 			if(tiempoEncendido - Time.time < 4)
 				StartCoroutine (SonidoIgnicion ());
 		}
-		
-		if (Input.GetButtonUp("Encendido"))
+		if(Input.GetKey(KeyCode.Keypad2))
+		//if (Input.GetButtonUp("Encendido"))
 		{
 			if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))
 			{
@@ -734,7 +798,8 @@ public class ControlChecklist : MonoBehaviour {
 			}
 			//audioRetroceso.Stop();
 			//if ((central.estado == Central.EstadoSimulacion.Finalizando || central.estado == Central.EstadoSimulacion.ApagadoExterior) && estado == EstadoMaquina.encendida) mensajeApagar.Toggle();
-		}
+		}*/
+
 		if (tiempoFaenaLabel != null) {
 			tiempoFaenaLabel.text = "" + calcularReloj (configuracion.TiempoFaena * 60f + tiempo * 1f - Time.timeSinceLevelLoad);
 			if (configuracion != null && Time.timeSinceLevelLoad - tiempo > configuracion.TiempoFaena * 60f)
@@ -751,7 +816,7 @@ public class ControlChecklist : MonoBehaviour {
 			if (nivelRefrigerante != null)
 				nivelRefrigerante.SetActive (nivelRefrigeranteActivada);
 			if (nivelAceiteTrans != null)
-				Debug.Log (nivelAceiteTransActivada);
+				//Debug.Log (nivelAceiteTransActivada);
 				nivelAceiteTrans.SetActive (nivelAceiteTransActivada);
 			if (nivelAceiteCajaTransf != null)
 				nivelAceiteCajaTransf.SetActive (nivelAceiteCajaTransfActivada);
@@ -1306,6 +1371,7 @@ public class ControlChecklist : MonoBehaviour {
 
 	public void finalizarModuloChecklist (){
 		activar (false);
+		arranque (false);
 		foreach(GameObject g in GUINormal)
 			g.SetActive(false);
 		//controlUsuarioChecklist.desactivar ();

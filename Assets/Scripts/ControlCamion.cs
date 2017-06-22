@@ -64,6 +64,8 @@ public class ControlCamion : MonoBehaviour {
 	public bool enTopeEje = false;
     */
     public float tiempoEncendido = 2f;
+	float tiempoEncendidoB = 0f;
+	int lastPosIgnicion = -1;
     /*
 	int[] valoresPotenciometro = new int[6];
 	
@@ -850,36 +852,50 @@ public class ControlCamion : MonoBehaviour {
             }
         }*/
 
-		if(controlTarjetaControladora.ignicion() == 2) {
+		if(controlTarjetaControladora.ignicion() == 2 || Input.GetKey(KeyCode.Keypad1)) {
 			if (estado != EstadoMaquina.encendida)
 			{
-				//tiempoEncendido = 0f;
-				//arranque(false);
 				tiempoEncendido = Time.time + 5f;
+				if(lastPosIgnicion != 2)
+					tiempoEncendidoB = Time.time + 8f;
 
+				if ((tiempoEncendidoB - Time.time) < 7 && (tiempoEncendidoB - Time.time) > -3f && lastPosIgnicion == 2) {
+					StartCoroutine (controlCamionMotor.SonidoIgnicion ());
+				}
 			}
 			if (estado == EstadoMaquina.encendida) {
 				arranque(false);
+				tiempoEncendidoB = Time.time + 8f;
 				tiempoEncendido = 0f;
 			}
+
+			lastPosIgnicion = 2;
 		}
 		else{
-			if (controlTarjetaControladora.ignicion() == 0 && estado != EstadoMaquina.encendida)
+			if ((controlTarjetaControladora.ignicion() == 0 || Input.GetKey(KeyCode.Keypad3)) && estado != EstadoMaquina.encendida && (lastPosIgnicion == 2 || lastPosIgnicion == 0))
 			{
-				if(tiempoEncendido - Time.time < 4)
+				if(tiempoEncendido - Time.time < 4 && lastPosIgnicion == 0)
 					StartCoroutine(controlCamionMotor.SonidoIgnicion ());
-				/*controlCamionMotor.audioSource.loop = true;
-				controlCamionMotor.audioSource.clip = controlCamionMotor.sonidoBomba;
-				controlCamionMotor.audioSource.Play();*/
+				lastPosIgnicion = 0;
 			}
 			else{
-				if (controlTarjetaControladora.ignicion() == 1)
+				if (controlTarjetaControladora.ignicion() == 1 || Input.GetKey(KeyCode.Keypad2))
 				{
-					if (estado != EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time) && tiempoEncendido > 0f)
+					if (estado != EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time) && tiempoEncendido > 0f && lastPosIgnicion == 0)
 					{
 						tiempoEncendido = 0f;
-						arranque(true);
+						tiempoEncendidoB = 0f;
+						arranque (true);
+						lastPosIgnicion = 1;
 					}
+					else if(estado != EstadoMaquina.apagadaTotal && (tiempoEncendidoB < Time.time) && (tiempoEncendidoB + 2f > Time.time) && tiempoEncendidoB > 0f && lastPosIgnicion == 2){
+						tiempoEncendidoB = 0f;
+						tiempoEncendido = 0f;
+						arranque (true);
+						lastPosIgnicion = 1;
+					}
+					else
+						lastPosIgnicion = -1;
 				}
 			}
 		}
@@ -891,7 +907,7 @@ public class ControlCamion : MonoBehaviour {
 		controlCamionMotor.frenoParqueoActivado = controlTarjetaControladora.BotonAccion() == 0;
 		#endif
 
-        if (Input.GetButtonDown("Encendido"))
+        /*if (Input.GetButtonDown("Encendido"))
         {
             if (estado != EstadoMaquina.apagadaTotal)
             {
@@ -900,6 +916,10 @@ public class ControlCamion : MonoBehaviour {
                 //audioRetroceso.clip = Resources.Load("camion") as AudioClip;
                 //if (estado != EstadoMaquina.encendida) audioRetroceso.Play();
             }
+			if (estado == EstadoMaquina.encendida) {
+				arranque(false);
+				tiempoEncendido = 0f;
+			}
         }
 		if (Input.GetButton ("Encendido")) {
 			if(tiempoEncendido - Time.time < 4)
@@ -907,17 +927,17 @@ public class ControlCamion : MonoBehaviour {
 		}
         if (Input.GetButtonUp("Encendido"))
         {
-            if (estado != EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time))
+			if (estado != EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time) && tiempoEncendido > 0f)
             {
                 tiempoEncendido = 0f;
-                arranque(estado == EstadoMaquina.apagada);
+                arranque(true);
                 //audioRetroceso.clip = Resources.Load("Retroceso") as AudioClip;
                 //lectorControles.OutCmd(byte.Parse("" + configuracionControles.idLedEncendido), estado == EstadoMaquina.encendida);
                 //central.SendMessage("encenderLeds", estado == EstadoMaquina.encendida, SendMessageOptions.DontRequireReceiver); 
             }
             //audioRetroceso.Stop();
             //if ((central.estado == Central.EstadoSimulacion.Finalizando || central.estado == Central.EstadoSimulacion.ApagadoExterior) && estado == EstadoMaquina.encendida) mensajeApagar.Toggle();
-        }
+        }*/
 
         //if (estado == EstadoMaquina.encendida)
         //{

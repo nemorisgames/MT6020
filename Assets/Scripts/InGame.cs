@@ -68,7 +68,7 @@ public class InGame : MonoBehaviour {
 	public GameObject checklistFinal;
     //AVProMovieCaptureFromCamera avpro;
     //int secuenciaGrabacion = 0;
-	Vector3 [] camaraPosIni = new Vector3[3];
+	public Vector3 [] camaraPosIni = new Vector3[3];
 	Quaternion [] camaraRotIni = new Quaternion[3];
 	public bool modoChecklist;
 
@@ -102,13 +102,17 @@ public class InGame : MonoBehaviour {
         }
 		camaraPosIni = new Vector3[camarasMaquina.Length];
 		camaraRotIni = new Quaternion[camarasMaquina.Length];
+		for (int i = 0; i < camarasMaquina.Length; i++) {
+			camaraPosIni [i] = camarasMaquina [i].localPosition;
+			camaraRotIni [i] = camarasMaquina [i].localRotation;
+		}
 
-		if (camarasMaquina == null) {
+		/*if (camarasMaquina == null) {
 			camarasMaquina = new Camera[3];
 			camarasMaquina [0] = GameObject.Find ("CamaraCabinaAdelante").GetComponent<Camera>();
 			camarasMaquina [1] = GameObject.Find ("CamaraCabinaIzquierda").GetComponent<Camera>();
 			camarasMaquina [2] = GameObject.Find ("CamaraCabinaDerecha").GetComponent<Camera>();
-		}
+		}*/
 
 		/*for (int i = 0; i < 3; i++) {
 			camaraPosIni [i] = camarasMaquina [i].transform.localPosition;
@@ -173,8 +177,8 @@ public class InGame : MonoBehaviour {
 			if (maquinaAlta != null) {
 				activarMaquinaAlta (!ingresar);
 				for (int i = 0; i < camarasMaquina.Length; i++) {
-					camaraPosIni [i] = camarasMaquina [i].transform.localPosition;
-					camaraRotIni [i] = camarasMaquina [i].transform.localRotation;
+					camaraPosIni [i] = camarasMaquina [i].localPosition;
+					camaraRotIni [i] = camarasMaquina [i].localRotation;
 				}
 			}
 		}
@@ -776,7 +780,7 @@ public class InGame : MonoBehaviour {
             fallaOperacion(ControlCamion.LugarMaquina.Tunel);
     }
 
-	public Camera [] camarasMaquina;
+	public Transform [] camarasMaquina;
 
 	Vector3 ShakeV2(float frec, float mag){
 		Vector2 result;
@@ -799,17 +803,17 @@ public class InGame : MonoBehaviour {
 	IEnumerator ApplyShake(Vector3 noise){
 		Vector3 [] newPosition = new Vector3[camarasMaquina.Length];
 		for (int i = 0; i < camarasMaquina.Length; i++) {
-			newPosition [i] = camarasMaquina [i].transform.localPosition;
+			newPosition [i] = camarasMaquina [i].localPosition;
 			//newPosition [i].x += noise.x;
 			newPosition [i].y += noise.y;
-			camarasMaquina [i].transform.localPosition = newPosition[i];
+			camarasMaquina [i].localPosition = newPosition[i];
 		}
 		yield return new WaitForSeconds (0.1f);
 		for (int i = 0; i < camarasMaquina.Length; i++) {
-			newPosition [i] = camarasMaquina [i].transform.localPosition;
+			newPosition [i] = camarasMaquina [i].localPosition;
 			//newPosition [i].x += noise.x;
 			newPosition [i].y -= noise.y;
-			camarasMaquina [i].transform.localPosition = newPosition[i];
+			camarasMaquina [i].localPosition = newPosition[i];
 		}
 	}
 
@@ -834,7 +838,7 @@ public class InGame : MonoBehaviour {
 	IEnumerator StopShaking(){
 		yield return new WaitForSeconds (0.8f);
 		for (int i = 0; i < camarasMaquina.Length; i++) {
-			camarasMaquina [i].transform.localPosition = camaraPosIni [i];
+			camarasMaquina [i].localPosition = camaraPosIni [i];
 		}
 	}
 
