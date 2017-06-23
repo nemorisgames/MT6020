@@ -859,9 +859,9 @@ public class ControlCamion : MonoBehaviour {
 				if(lastPosIgnicion != 2)
 					tiempoEncendidoB = Time.time + 8f;
 
-				if ((tiempoEncendidoB - Time.time) < 7 && (tiempoEncendidoB - Time.time) > -3f && lastPosIgnicion == 2) {
+				/*if ((tiempoEncendidoB - Time.time) < 7 && (tiempoEncendidoB - Time.time) > -3f && lastPosIgnicion == 2) {
 					StartCoroutine (controlCamionMotor.SonidoIgnicion ());
-				}
+				}*/
 			}
 			if (estado == EstadoMaquina.encendida) {
 				arranque(false);
@@ -874,7 +874,7 @@ public class ControlCamion : MonoBehaviour {
 		else{
 			if ((controlTarjetaControladora.ignicion() == 0 || Input.GetKey(KeyCode.Keypad3)) && estado != EstadoMaquina.encendida && (lastPosIgnicion == 2 || lastPosIgnicion == 0))
 			{
-				if(tiempoEncendido - Time.time < 4 && lastPosIgnicion == 0)
+				if(tiempoEncendido - Time.time < 4 && lastPosIgnicion == 0 && estado != EstadoMaquina.apagadaTotal)
 					StartCoroutine(controlCamionMotor.SonidoIgnicion ());
 				lastPosIgnicion = 0;
 			}
@@ -893,6 +893,10 @@ public class ControlCamion : MonoBehaviour {
 						tiempoEncendido = 0f;
 						arranque (true);
 						lastPosIgnicion = 1;
+					}
+					else if(estado != EstadoMaquina.apagadaTotal && (tiempoEncendidoB > Time.time) && lastPosIgnicion == 2){
+						//Debug.Log ("skip 1");
+						lastPosIgnicion = 2;
 					}
 					else
 						lastPosIgnicion = -1;

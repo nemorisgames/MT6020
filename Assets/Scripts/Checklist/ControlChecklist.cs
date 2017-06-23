@@ -713,56 +713,54 @@ public class ControlChecklist : MonoBehaviour {
 			}
 		}*/
 
-		if(controlTarjetaControladora.ignicion() == 2 || Input.GetKey(KeyCode.Keypad1)) {
-			if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida)
-			{
-				//tiempoEncendido = 0f;
-				//arranque(false);
-				tiempoEncendido = Time.time + 5f;
-				if(lastPosIgnicion != 2)
+		if (controlCamaraInterior.enabled) {
+			if (controlTarjetaControladora.ignicion () == 2 || Input.GetKey (KeyCode.Keypad1)) {
+				if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida) {
+					//tiempoEncendido = 0f;
+					//arranque(false);
+					tiempoEncendido = Time.time + 5f;
+					if (lastPosIgnicion != 2)
+						tiempoEncendidoB = Time.time + 8f;
+
+					//Debug.Log(tiempoEncendidoB + " | "+(tiempoEncendidoB - Time.time) + " | "+lastPosIgnicion);
+
+					/*if ((tiempoEncendidoB - Time.time) < 7 && lastPosIgnicion == 2) {
+					StartCoroutine (SonidoIgnicion ());
+				}*/
+
+				}
+				if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) {
+					arranque (false);
 					tiempoEncendidoB = Time.time + 8f;
-
-				//Debug.Log(tiempoEncendidoB + " | "+(tiempoEncendidoB - Time.time) + " | "+lastPosIgnicion);
-
-				if ((tiempoEncendidoB - Time.time) < 7 && lastPosIgnicion == 2) {
-					StartCoroutine (SonidoIgnicion ());
+					tiempoEncendido = 0f;
 				}
 
-			}
-			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) {
-				arranque(false);
-				tiempoEncendidoB = Time.time + 8f;
-				tiempoEncendido = 0f;
-			}
+				lastPosIgnicion = 2;
 
-			lastPosIgnicion = 2;
-
-		}
-		else{
-			if ((controlTarjetaControladora.ignicion() == 0 || Input.GetKey(KeyCode.Keypad3)) && estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida && (lastPosIgnicion == 2 || lastPosIgnicion == 0))
-			{
-				if (tiempoEncendido - Time.time < 4 && lastPosIgnicion == 0) {
-					StartCoroutine (SonidoIgnicion ());
-				}
-				lastPosIgnicion = 0;
-			}
-			else{
-				if (controlTarjetaControladora.ignicion() == 1 || Input.GetKey(KeyCode.Keypad2))
-				{
-					if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time) && tiempoEncendido > 0f && lastPosIgnicion == 0) {
-						tiempoEncendido = 0f;
-						tiempoEncendidoB = 0f;
-						arranque (true);
-						lastPosIgnicion = 1;
+			} else {
+				if ((controlTarjetaControladora.ignicion () == 0 || Input.GetKey (KeyCode.Keypad3)) && estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida && (lastPosIgnicion == 2 || lastPosIgnicion == 0)) {
+					if (tiempoEncendido - Time.time < 4 && lastPosIgnicion == 0 && estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal) {
+						StartCoroutine (SonidoIgnicion ());
 					}
-					else if(estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendidoB < Time.time) && (tiempoEncendidoB + 2f > Time.time) && tiempoEncendidoB > 0f && lastPosIgnicion == 2){
-						tiempoEncendidoB = 0f;
-						tiempoEncendido = 0f;
-						arranque (true);
-						lastPosIgnicion = 1;
+					lastPosIgnicion = 0;
+				} else {
+					if (controlTarjetaControladora.ignicion () == 1 || Input.GetKey (KeyCode.Keypad2)) {
+						if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendido < Time.time) && tiempoEncendido > 0f && lastPosIgnicion == 0) {
+							tiempoEncendido = 0f;
+							tiempoEncendidoB = 0f;
+							arranque (true);
+							lastPosIgnicion = 1;
+						} else if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendidoB < Time.time) && (tiempoEncendidoB + 2f > Time.time) && tiempoEncendidoB > 0f && lastPosIgnicion == 2) {
+							tiempoEncendidoB = 0f;
+							tiempoEncendido = 0f;
+							arranque (true);
+							lastPosIgnicion = 1;
+						} else if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal && (tiempoEncendidoB > Time.time) && lastPosIgnicion == 2) {
+							//Debug.Log ("skip 1");
+							lastPosIgnicion = 2;
+						} else
+							lastPosIgnicion = -1;
 					}
-					else
-						lastPosIgnicion = -1;
 				}
 			}
 		}
@@ -1188,7 +1186,10 @@ public class ControlChecklist : MonoBehaviour {
 		arreglarMaquina ();
 		finalizarModuloChecklist ();
 		enviarDatos1 ();
-		GameObject.FindGameObjectWithTag ("InGame").GetComponent<InGame> ().modoChecklist = false;
+		//GameObject.FindGameObjectWithTag ("InGame").GetComponent<InGame> ().modoChecklist = false;
+		InGame aux = GameObject.FindGameObjectWithTag ("InGame").GetComponent<InGame> ();
+		aux.modoChecklist = false;
+		aux.maquina.GetComponent<ControlCamion> ().estado = ControlCamion.EstadoMaquina.apagadaTotal;
 	}
 
 	public void terminarSimulacion(bool mostrarPanelFinal){
