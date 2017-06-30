@@ -47,6 +47,8 @@ public class DiapositivaPreguntas : MonoBehaviour {
 	public GameObject[] resultados;
 
 	public GameObject botonEntregarEvaluacion;
+	public GameObject PreguntaSmPrefab;
+	public bool modoCuadricula;
     // Use this for initialization
 	void Start () {
 		botonEntregarEvaluacion.SetActive (false);
@@ -215,8 +217,15 @@ public class DiapositivaPreguntas : MonoBehaviour {
             //int preguntaID, string pregunta, int[] respuestaID, string[] respuesta, int respuestaCorrecta
 
             
-            GameObject g = NGUITools.AddChild(transform.FindChild("PanelCentral").gameObject, preguntaPrefab);
-            g.transform.localPosition = new Vector3(g.transform.localPosition.x, g.transform.localPosition.y - questions * 350f, g.transform.localPosition.z);
+			GameObject g = null;
+			if (!modoCuadricula) {
+				g = NGUITools.AddChild (transform.FindChild ("PanelCentral").gameObject, preguntaPrefab);
+				g.transform.localPosition = new Vector3 (g.transform.localPosition.x, g.transform.localPosition.y - questions * 350f, g.transform.localPosition.z);
+			}
+			else{
+				g = NGUITools.AddChild(transform.FindChild("PanelCentral").gameObject, PreguntaSmPrefab);
+				g.transform.localPosition = new Vector3(g.transform.localPosition.x - 400f * ((questions % 2) == 0 ? 1 : 0) + (questions % 2) * 400f, g.transform.localPosition.y -380f * ((questions > 1) ? 1 : 0), g.transform.localPosition.z);
+			}
             Pregunta d = g.GetComponent<Pregunta>();
             d.inicializar(preguntaID, preguntaText, respuestasID, respuestas, randomCorrecta);
             

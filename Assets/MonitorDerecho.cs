@@ -39,7 +39,7 @@ public class MonitorDerecho : MonoBehaviour {
 
 
 	public void ToggleEncendido(){
-		if (ctrl.estado == ControlCamion.EstadoMaquina.encendida) {
+		if (ctrl != null && ctrl.estado == ControlCamion.EstadoMaquina.encendida) {
 			bg.SetActive (encendido);
 			encendido = !encendido;
 			if (encendido) {
@@ -57,7 +57,7 @@ public class MonitorDerecho : MonoBehaviour {
 	}
 
 	public void ToggleModo1(){
-		if (ctrl.estado == ControlCamion.EstadoMaquina.encendida && modo == 2) {
+		if (ctrl != null && ctrl.estado == ControlCamion.EstadoMaquina.encendida && modo == 2) {
 			ctrl.cambiarCamara ();
 			modo = 1;
 			boton1.spriteName = boton1.name + "_on";
@@ -66,7 +66,7 @@ public class MonitorDerecho : MonoBehaviour {
 	}
 
 	public void ToggleModo2(){
-		if (ctrl.estado == ControlCamion.EstadoMaquina.encendida && modo == 1) {
+		if (ctrl != null && ctrl.estado == ControlCamion.EstadoMaquina.encendida && modo == 1) {
 			ctrl.cambiarCamara ();
 			modo = 2;
 			boton1.spriteName = boton1.name + "_off";

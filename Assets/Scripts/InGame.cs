@@ -45,6 +45,7 @@ public class InGame : MonoBehaviour {
     public GameObject supervisorModelo;
     
     public GameObject preguntasGUI;
+	public ControlMouseOperador mousePreguntas;
     public GameObject diapositivaSalir;
     public GameObject diapositivaFinal;
     public GameObject diapositivaFinalResumen;
@@ -330,10 +331,13 @@ public class InGame : MonoBehaviour {
     }
 
 	public IEnumerator mostrarPregunta(bool b){
-		pausar (b);
+		//pausar (b);
+		if(b == maquinaBaja.activeSelf)
+			maquinaBaja.SetActive(!b);
 		if(!b)
 			yield return new WaitForSeconds (1.5f);
 		preguntasGUI.SetActive (b);
+		mousePreguntas.enabled = b;
 	}
 
 	public void cerrarPreguntaGUI(){
@@ -643,6 +647,9 @@ public class InGame : MonoBehaviour {
 
     void  Update()
     {
+		if (Input.GetKeyDown (KeyCode.N)) {
+			StartCoroutine (mostrarPregunta (true));
+		}
 		//Debug.Log (estado);
         /*if (avpro != null && avpro.GetCaptureFileSize() > 10000000)
         {
@@ -698,6 +705,7 @@ public class InGame : MonoBehaviour {
         {
             fallaOperacion(ControlCamion.LugarMaquina.Buzon);
         }
+		
 
     }
 

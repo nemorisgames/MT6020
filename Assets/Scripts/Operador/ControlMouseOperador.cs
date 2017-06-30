@@ -105,14 +105,18 @@ public class ControlMouseOperador : MonoBehaviour {
 		#if UNITY_EDITOR
 		hor = Input.GetAxis("ManubrioEditor");
 		ver = controlTarjetaControladora.Retardador() + controlTarjetaControladora.Freno();
+		camara.GetComponent<UICamera> ().scrollAxisName = "ControlTolbaEditor";
 		#else
 		//print(Input.GetAxis("Manubrio"));
 		hor = Input.GetAxis("Manubrio");
 		ver = -controlTarjetaControladora.Retardador() + controlTarjetaControladora.Freno();
+		camara.GetComponent<UICamera> ().scrollAxisName = "ControlTolba";
 		#endif
+		//Debug.Log (hor + ", " + ver);
 		mousePosition2 += new Vector2 (16f * hor, - 16f * ver);
 		mousePosition2 = new Vector2 (Mathf.Clamp (mousePosition2.x, 0f, Screen.width), Mathf.Clamp (mousePosition2.y, 0, Screen.height));
 		mouseSprite.transform.localPosition = new Vector2(mousePosition2.x - Screen.width / 2f, Screen.height / 2f - mousePosition2.y);
+		
 
 		if(Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire3")) {//controlTarjetaControladora.BotonAccion() == 0){//indice == configuracionControles.idJDerechoGatillo){
 			print ("recibo");
@@ -136,5 +140,7 @@ public class ControlMouseOperador : MonoBehaviour {
 			}
 			return;
 		}
+
+	//mouseSprite.transform.localPosition = new Vector3 (mouseSprite.transform.localPosition.x, mouseSprite.transform.localPosition.y, -10f);
 	}
 }

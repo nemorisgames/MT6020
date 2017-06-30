@@ -90,6 +90,10 @@ public class ControlChecklist : MonoBehaviour {
 	public bool puertaAceiteHabilitada = false;
 	public bool puertaAceiteActivada = false;
 
+	public TweenRotation[] puertaDropBox;
+	public bool puertaDropBoxHabilitada = false;
+	public bool puertaDropBoxActivada = false;
+
 	public TweenRotation[] brazo;
 	public TweenPosition cilindroBrazo;
 
@@ -169,6 +173,7 @@ public class ControlChecklist : MonoBehaviour {
 	public int checklistIndex = 1;
 	public bool singleChecklist;
 	bool sobreMaquina = false;
+	InGame ingame;
 
 	// Use this for initialization
 	void Start () {
@@ -225,8 +230,6 @@ public class ControlChecklist : MonoBehaviour {
 			lucesAltasPala(false);
 			lucesAltasMotor(false);
 			lucesBajasPala(false);
-			tableroControl.setPetroleo (0f);
-			tableroControl.setTemperatura (0f);
 			//lucesBajasMotor(false);
 			/*lectorControles.OutCmd (byte.Parse("" + configuracionControles.idLedLucesAltasDelanteras), false);
 			lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesAltasTraseras), false);
@@ -505,6 +508,12 @@ public class ControlChecklist : MonoBehaviour {
 		print ("deshabilitar aceite");
 		puertaAceiteHabilitada = false;
 	}
+	public void habilitarDropBox(){
+		puertaDropBoxHabilitada = true;
+	}
+	public void deshabilitarDropBox(){
+		puertaDropBoxHabilitada = false;
+	}
 	public void habilitarCabina(){
 		print ("habilitar cabina");
 		puertaCabinaHabilitada = true;
@@ -544,6 +553,12 @@ public class ControlChecklist : MonoBehaviour {
 		foreach (TweenRotation t in motor) {
 			t.Play(motorActivada);
 		}
+	}
+
+	public void abrirDropBox(){
+		puertaDropBoxActivada = !puertaDropBoxActivada;
+		foreach (TweenRotation t in puertaDropBox)
+			t.Play (puertaDropBoxActivada);
 	}
 
 
@@ -839,7 +854,7 @@ public class ControlChecklist : MonoBehaviour {
 			if (extintorManual != null)
 				extintorManual.SetActive (extintorManualActivada);
 		}
-		if (partesMaquina [14].danado) {
+		/*if (partesMaquina [14].danado) {
 			//manometros dañados
 		} else {
 			if(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida){
@@ -852,15 +867,16 @@ public class ControlChecklist : MonoBehaviour {
 				tableroControl.setPetroleo(0f);
 				tableroControl.setRevoluciones(-8f);
 			}
-		}
+		}*/
 
-		if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida) {
+		//if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida) {
 			//nivel aceite transmision
 			partesMaquina [6].parteBuena [0].transform.parent.gameObject.SetActive (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
 			//nivel petroleo
-			partesMaquina [0].parteBuena [0].transform.parent.gameObject.SetActive (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
+			//partesMaquina [0].parteBuena [0].transform.parent.gameObject.SetActive (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
 			partesMaquina [0].parteBuena [1].transform.parent.gameObject.SetActive (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
-		}
+
+		//}
 		varillaPetroleoDefault.SetActive(!(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida));
 
 		if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida) {
@@ -895,6 +911,14 @@ public class ControlChecklist : MonoBehaviour {
 		}*/
 		//if(controlTarjetaControladora.ControlLucesDelanteras() == 1 ){
 		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida){
+			if (partesMaquina [0].danado)
+				tableroControl.setPetroleo (0f);
+			
+			else
+				tableroControl.setPetroleo (90f);
+			tableroControl.encenderNeutro (true);
+			tableroControl.encenderManual (true);
+			tableroControl.setTemperatura (20f);
 			if(lucesDelanteras.Length > 0){
 				lucesAltasPala(controlTarjetaControladora.ControlLucesDelanteras() == 1);
 				//lectorControles.OutCmd(byte.Parse("" + configuracionControles.idLedLucesAltasDelanteras), lucesDelanteras[0].gameObject.activeSelf);
@@ -915,14 +939,20 @@ public class ControlChecklist : MonoBehaviour {
 				//lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesAltasTraseras), lucesTraseras [0].gameObject.activeSelf);
 			}
 		}
-		if(controlTarjetaControladora.ControlLucesCarga() == 1){
+		if (controlTarjetaControladora.ControlLucesCarga () == 1) {
 			if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)
-			if(lucesCarga.Length > 0){
-				lucesBajasPala(!lucesCarga[0].gameObject.activeSelf);
+			if (lucesCarga.Length > 0) {
+				lucesBajasPala (!lucesCarga [0].gameObject.activeSelf);
 				//lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesBajasDelanteras), lucesCarga [0].gameObject.activeSelf);
 			}
+		} else {
+			tableroControl.encenderNeutro (false);
+			tableroControl.encenderManual (false);
+			tableroControl.setPetroleo (0f);
+			tableroControl.setTemperatura (0f);
 		}
 
+		tableroControl.setRevoluciones (-8f);
 		float c = Input.GetAxis("Cambio");
 		int cambioActual = 0;
 		int  factorRetroceso = 1;
@@ -1024,6 +1054,8 @@ public class ControlChecklist : MonoBehaviour {
 			//}
 		}
 
+
+
 		if (Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire3")) {
 			if (listaActiva) 
 				return;
@@ -1035,6 +1067,8 @@ public class ControlChecklist : MonoBehaviour {
 				abrirAnsu ();
 			if (motorHabilitada)
 				abrirMotor ();
+			if (puertaDropBoxHabilitada)
+				abrirDropBox ();
 			if (escaleraHabilitada) {
 				Vector3 pos = controlUsuarioChecklist.transform.FindChild ("Camera").transform.position;
 				if (!sobreMaquina) {
@@ -1159,6 +1193,8 @@ public class ControlChecklist : MonoBehaviour {
 			//finalizarModuloChecklist ();
 			//terminarSimulacionFinal();
 		}
+
+
 	}
 
 	public void botonTerminarChecklist(){

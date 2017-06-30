@@ -120,7 +120,7 @@ public class ControlCamaraInterior : MonoBehaviour {
 			enfocandoCabinaActual = enfocandoCabina;
 			if(enfocandoCabina){
 				controlChecklist.habilitarCabina();
-				mensajeInteraccion.text = "Presione el gatillo derecho para salir de la cabina";
+				mensajeInteraccion.text = "Presione el boton del manubrio para salir de la cabina";
 			}
 			else 
 				controlChecklist.deshabilitarCabina();
@@ -132,7 +132,7 @@ public class ControlCamaraInterior : MonoBehaviour {
 			enfocandoControlesActual = enfocandoControles;
 			if(enfocandoControles){
 				controlChecklist.habilitarControles();
-				mensajeInteraccion.text = "Presione el gatillo derecho para revisar los Controles";
+				mensajeInteraccion.text = "Presione el boton del manubrio para revisar los Controles";
 			}
 			else 
 				controlChecklist.deshabilitarControles();
@@ -144,7 +144,7 @@ public class ControlCamaraInterior : MonoBehaviour {
 			enfocandoPanelActual = enfocandoPanel;
 			if(enfocandoPanel){
 				controlChecklist.habilitarPanel();
-				mensajeInteraccion.text = "Presione el gatillo derecho para revisar el panel";
+				mensajeInteraccion.text = "Presione el boton del manubrio para revisar el panel";
 			}
 			else 
 				controlChecklist.deshabilitarPanel();

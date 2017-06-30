@@ -32,6 +32,9 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 	public bool enfocandoAceite = false;
 	public bool enfocandoAceiteActual = false;
 
+	public bool enfocandoDropBox = false;
+	public bool enfocandoDropBoxActual = false;
+
     public ControlCamion controlCamion;
     public bool puertaIsoSwitchAbierta = false;
     public TweenRotation puertaIsoSwitch;
@@ -75,6 +78,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 		enfocandoPuertaHidraulicaActual = false;
 		enfocandoCabinaActual = false;
 		enfocandoBrazoActual = false;
+		enfocandoDropBoxActual = false;
 		controlChecklist.nivelPetroleoActivada = false;
 		controlChecklist.nivelAceiteActivada = false;
 		controlChecklist.nivelHidraulicoActivada = false;
@@ -91,6 +95,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 		controlChecklist.fugasCilindrosManguerasActivada = false;
 		controlChecklist.sistemaAnsulActivada = false;
 		controlChecklist.extintorManualActivada = false;
+
 	}
 
 	//0: freno
@@ -148,6 +153,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 		enfocandoAceite = false;
 		enfocandoAnsu = false;
 		enfocandoMotor = false;
+		enfocandoDropBox = false;
         
         enfocandoPuertaHidraulica = false;
 		enfocandoBrazo = false;
@@ -201,6 +207,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				case "puertaCabina": enfocandoCabina = true; break;
 				case "Puerta": enfocandoCabina = true; break;
 				case "Brazo": enfocandoBrazo = true; break;
+				case "TapaDropBox": enfocandoDropBox = true; break;
 				case "ISO_switch":case "IsoSwitch": enfocandoEncendido = true; break;
 				}
 			}
@@ -212,7 +219,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				controlChecklist.habilitarPuertaHidraulica ();
 				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
 					print ("enfocando puerta h " + SceneManager.GetActiveScene ().name);
-					mensajeInteraccion.text = "Presione el gatillo derecho para abrir/cerrar la puerta hidráulica";
+					mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar la puerta hidráulica";
 				}
 			} else
 				controlChecklist.deshabilitarPuertaHidraulica ();
@@ -226,7 +233,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				controlChecklist.habilitarEscalera ();
 				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
 					print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
-					mensajeInteraccion.text = "Presione el gatillo derecho para subir/bajar";
+					mensajeInteraccion.text = "Presione el boton del manubrio para subir/bajar";
 				}
 			} else
 				controlChecklist.deshabilitarEscalera ();
@@ -240,7 +247,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				controlChecklist.habilitarAnsu ();
 				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
 					print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
-					mensajeInteraccion.text = "Presione el gatillo derecho para abrir/cerrar";
+					mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar";
 				}
 			} else
 				controlChecklist.deshabilitarAnsu ();
@@ -254,7 +261,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				controlChecklist.habilitarMotor ();
 				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
 					print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
-					mensajeInteraccion.text = "Presione el gatillo derecho para abrir/cerrar";
+					mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar";
 				}
 			} else
 				controlChecklist.deshabilitarMotor ();
@@ -262,13 +269,28 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				mensajeInteraccion.gameObject.SetActive (enfocandoMotor);
 
 		}
+
+		if (enfocandoDropBoxActual != enfocandoDropBox) {
+			enfocandoDropBoxActual = enfocandoDropBox;
+			if (enfocandoDropBox) {
+				controlChecklist.habilitarDropBox ();
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
+					print ("enfocando dropbox " + SceneManager.GetActiveScene ().name);
+					mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar";
+				}
+			} else
+				controlChecklist.deshabilitarDropBox ();
+			if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
+				mensajeInteraccion.gameObject.SetActive (enfocandoDropBox);
+		}
+
 		if (enfocandoAceiteActual != enfocandoAceite) {
 			enfocandoAceiteActual = enfocandoAceite;
 			if (enfocandoAceite) {
 				controlChecklist.habilitarAceite ();
 				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
 					print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
-					mensajeInteraccion.text = "Presione el gatillo derecho para abrir/cerrar";
+					mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar";
 				}
 			} else
 				controlChecklist.deshabilitarAceite ();
@@ -282,7 +304,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 					controlChecklist.habilitarCabina ();
 					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
 						print ("enfocando puerta " + SceneManager.GetActiveScene ().name);
-						mensajeInteraccion.text = "Presione el gatillo derecho para ingresar a la cabina";
+						mensajeInteraccion.text = "Presione el boton del manubrio para ingresar a la cabina";
 					}
 				} else
 					controlChecklist.deshabilitarCabina ();
@@ -296,7 +318,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 					controlChecklist.habilitarBrazo ();
 					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
 						print ("enfocando brazo " + SceneManager.GetActiveScene ().name);
-						mensajeInteraccion.text = "Presione el gatillo derecho para subir/bajar el brazo";
+						mensajeInteraccion.text = "Presione el boton del manubrio para subir/bajar el brazo";
 					}
 				} else
 					controlChecklist.deshabilitarBrazo ();
@@ -310,7 +332,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 					print ("enfocando iso " + SceneManager.GetActiveScene ().name);
 					if (controlChecklist != null) {
 						if (controlChecklist.estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagadaTotal)
-							mensajeInteraccion.text = "Presione el gatillo derecho para girar la llave de encendido";
+							mensajeInteraccion.text = "Presione el boton del manubrio para girar la llave de encendido";
 						else
 							mensajeInteraccion.text = "La acción ya fue realizada. Entre a la cabina";
 					} else {
@@ -325,7 +347,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				enfocandoCabinaActual = enfocandoCabina;
 				if (enfocandoCabina) {
 					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
-						mensajeInteraccion.text = "Presione el gatillo derecho para ingresar a la cabina";
+						mensajeInteraccion.text = "Presione el boton del manubrio para ingresar a la cabina";
 					} 
 					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
 						mensajeInteraccion.gameObject.SetActive (enfocandoCabina);
@@ -336,7 +358,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 						if (enfocandoEncendido) {
 							if (controlExcavadora.estado == ControlCamion.EstadoMaquina.apagadaTotal)
 							if (SceneManager.GetActiveScene ().name == "Modulo5")
-								mensajeInteraccion.text = "Presione el gatillo derecho para girar la llave de encendido";
+								mensajeInteraccion.text = "Presione el boton del manubrio para girar la llave de encendido";
 							else if (SceneManager.GetActiveScene ().name == "Modulo5")
 								mensajeInteraccion.text = "La acción ya fue realizada. Entre a la cabina";
 						}
@@ -359,7 +381,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 						if (enfocandoEncendido) {
 							if (controlExcavadora.estado == ControlCamion.EstadoMaquina.apagada)
 							if (SceneManager.GetActiveScene ().name == "Modulo5")
-							if(mensajeInteraccion!=null)mensajeInteraccion.text = "Para finalizar el apagado de equipo, presione el gatillo derecho";
+							if(mensajeInteraccion!=null)mensajeInteraccion.text = "Para finalizar el apagado de equipo, presione el boton del manubrio";
 						}
 						if (SceneManager.GetActiveScene ().name == "Modulo5")
 							if(mensajeInteraccion!=null)mensajeInteraccion.gameObject.SetActive (enfocandoEncendido);
@@ -454,6 +476,9 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 					break;
 				case "ISO_switch":
 					enfocandoEncendido = true;
+					break;
+				case "TapaDropBox":
+					enfocandoDropBox = true;
 					break;
 				}
 			}
