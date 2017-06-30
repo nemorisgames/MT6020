@@ -332,8 +332,10 @@ public class InGame : MonoBehaviour {
 
 	public IEnumerator mostrarPregunta(bool b){
 		//pausar (b);
-		if(b == maquinaBaja.activeSelf)
-			maquinaBaja.SetActive(!b);
+		if (!modoChecklist) {
+			if (b == maquinaBaja.activeSelf)
+				maquinaBaja.SetActive (!b);
+		}
 		if(!b)
 			yield return new WaitForSeconds (1.5f);
 		preguntasGUI.SetActive (b);
