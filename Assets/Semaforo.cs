@@ -3,57 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Semaforo : MonoBehaviour {
+	public GameObject rojo_on;
+	public GameObject rojo_off;
+	public GameObject verde_on;
+	public GameObject verde_off;
 
-	public Material go;
-	public Material stop;
-	public Material off;
-	public MeshRenderer semaforoGo;
-	public MeshRenderer semaforoStop;
 	public GameObject dummy;
+	Vector3 posInicial;
 	bool initialState = true;
 	bool active = false;
 	bool state = false;
 
 	// Use this for initialization
 	void Start () {
-		if (initialState) {
-			ToggleGoStop (true);
-		} else {
-			ToggleGoStop (false);
-		}
+		ToggleGoStop (initialState);
+		posInicial = dummy.transform.position;
 	}
+
+	void Update(){
+		if (Input.GetKey (KeyCode.Keypad7))
+			ToggleGoStop (true);
+		if (Input.GetKey (KeyCode.Keypad9))
+			ToggleGoStop (false);
+	}
+
 
 	void OnTriggerEnter(Collider other){
 		if ((other.gameObject.transform.root.CompareTag("semaforo_dummy")||other.gameObject.transform.root.CompareTag("Maquina")) && !active) {
 			ToggleGoStop (false);
 			dummy.SetActive (true);
-			StartCoroutine (SemaforoRojo ());
 			active = true;
 		}
 	}
 
-	IEnumerator SemaforoRojo(){
-		yield return new WaitForSeconds (30f);
-		if (!state) {
-			entregaTerminada ();
-		}
-	}
-
 	void ToggleGoStop(bool b){
-		if (b) {
-			//Go
-			semaforoGo.material = go;
-			semaforoStop.material = off;
-		} else {
-			semaforoGo.material = off;
-			semaforoStop.material = stop;
-		}
+		rojo_on.SetActive(!b);
+		rojo_off.SetActive(b);
+		verde_on.SetActive(b);
+		verde_off.SetActive(!b);
 		state = b;
 	}
 
 	public void entregaTerminada(){
 		ToggleGoStop (true);
-		active = false;
 		dummy.SetActive (false);
+	}
+
+	IEnumerator Reset(){
+		yield return new WaitForSeconds (60f);
+		active = true;
+		dummy.transform.position = posInicial;
 	}
 }

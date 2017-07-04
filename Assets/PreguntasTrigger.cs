@@ -5,10 +5,12 @@ using UnityEngine;
 public class PreguntasTrigger : MonoBehaviour {
 
 	InGame inGame;
+	GameObject camioneta;
 
 	// Use this for initialization
 	void Awake () {
 		inGame = GameObject.FindGameObjectWithTag ("InGame").GetComponent<InGame> ();
+		camioneta = GameObject.FindGameObjectWithTag ("Camioneta");
 	}
 	
 	// Update is called once per frame
@@ -19,7 +21,7 @@ public class PreguntasTrigger : MonoBehaviour {
 		if (c.gameObject.transform.root.CompareTag("Maquina")) {
 			StartCoroutine(inGame.mostrarPregunta (true));
 		}
-		
+		camioneta.SetActive (false);
 	}
 
 	public void DesactivarTrigger(){

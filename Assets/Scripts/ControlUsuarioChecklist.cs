@@ -193,8 +193,8 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				case "filtroCombustible": controlChecklist.filtroCombustibleActivada = true; break;
 				case "topeEjeCentral": controlChecklist.topeEjeCentralActivada = true; break;
 				case "indicadoresObstruccion": controlChecklist.indicadoresObstruccionActivada = true; break;
-				case "articulacionCentral": controlChecklist.articulacionCentralActivada = true; break;
-				case "articulacionDireccional": controlChecklist.articulacionDireccionalActivada = true; break;
+				//case "articulacionCentral": controlChecklist.articulacionCentralActivada = true; break;
+				//case "articulacionDireccional": controlChecklist.articulacionDireccionalActivada = true; break;
 				case "pasadoresGeneral": controlChecklist.pasadoresGeneralActivada = true; break;
 				case "fugasCilindrosMangueras": controlChecklist.fugasCilindrosManguerasActivada = true; break;
 				case "sistemaAnsul": controlChecklist.sistemaAnsulActivada = true; break;
@@ -212,92 +212,93 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				}
 			}
 		}
-		//if (realizarChecklist) {
-		if (enfocandoPuertaHidraulicaActual != enfocandoPuertaHidraulica) {
-			enfocandoPuertaHidraulicaActual = enfocandoPuertaHidraulica;
-			if (enfocandoPuertaHidraulica) {
-				controlChecklist.habilitarPuertaHidraulica ();
-				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
-					print ("enfocando puerta h " + SceneManager.GetActiveScene ().name);
-					mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar la puerta hidráulica";
-				}
-			} else
-				controlChecklist.deshabilitarPuertaHidraulica ();
-			if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
-				mensajeInteraccion.gameObject.SetActive (enfocandoPuertaHidraulica);
+		if (controlChecklist != null) {
+			//if (realizarChecklist) {
+			if (enfocandoPuertaHidraulicaActual != enfocandoPuertaHidraulica) {
+				enfocandoPuertaHidraulicaActual = enfocandoPuertaHidraulica;
+				if (enfocandoPuertaHidraulica) {
+					controlChecklist.habilitarPuertaHidraulica ();
+					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
+						print ("enfocando puerta h " + SceneManager.GetActiveScene ().name);
+						mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar la puerta hidráulica";
+					}
+				} else
+					controlChecklist.deshabilitarPuertaHidraulica ();
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
+					mensajeInteraccion.gameObject.SetActive (enfocandoPuertaHidraulica);
 
-		}
-		if (enfocandoEscaleraActual != enfocandoEscalera) {
-			enfocandoEscaleraActual = enfocandoEscalera;
-			if (enfocandoEscalera) {
-				controlChecklist.habilitarEscalera ();
-				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
-					print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
-					mensajeInteraccion.text = "Presione el boton del manubrio para subir/bajar";
-				}
-			} else
-				controlChecklist.deshabilitarEscalera ();
-			if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
-				mensajeInteraccion.gameObject.SetActive (enfocandoEscalera);
+			}
+			if (enfocandoEscaleraActual != enfocandoEscalera) {
+				enfocandoEscaleraActual = enfocandoEscalera;
+				if (enfocandoEscalera) {
+					controlChecklist.habilitarEscalera ();
+					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
+						print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
+						mensajeInteraccion.text = "Presione el boton del manubrio para subir/bajar";
+					}
+				} else
+					controlChecklist.deshabilitarEscalera ();
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
+					mensajeInteraccion.gameObject.SetActive (enfocandoEscalera);
 
-		}
-		if (enfocandoAnsuActual != enfocandoAnsu) {
-			enfocandoAnsuActual = enfocandoAnsu;
-			if (enfocandoAnsu) {
-				controlChecklist.habilitarAnsu ();
-				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
-					print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
-					mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar";
-				}
-			} else
-				controlChecklist.deshabilitarAnsu ();
-			if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
-				mensajeInteraccion.gameObject.SetActive (enfocandoAnsu);
+			}
+			if (enfocandoAnsuActual != enfocandoAnsu) {
+				enfocandoAnsuActual = enfocandoAnsu;
+				if (enfocandoAnsu) {
+					controlChecklist.habilitarAnsu ();
+					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
+						print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
+						mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar";
+					}
+				} else
+					controlChecklist.deshabilitarAnsu ();
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
+					mensajeInteraccion.gameObject.SetActive (enfocandoAnsu);
 
-		}
-		if (enfocandoMotorActual != enfocandoMotor) {
-			enfocandoMotorActual = enfocandoMotor;
-			if (enfocandoMotor) {
-				controlChecklist.habilitarMotor ();
-				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
-					print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
-					mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar";
-				}
-			} else
-				controlChecklist.deshabilitarMotor ();
-			if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
-				mensajeInteraccion.gameObject.SetActive (enfocandoMotor);
+			}
+			if (enfocandoMotorActual != enfocandoMotor) {
+				enfocandoMotorActual = enfocandoMotor;
+				if (enfocandoMotor) {
+					controlChecklist.habilitarMotor ();
+					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
+						print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
+						mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar";
+					}
+				} else
+					controlChecklist.deshabilitarMotor ();
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
+					mensajeInteraccion.gameObject.SetActive (enfocandoMotor);
 
-		}
+			}
 
-		if (enfocandoDropBoxActual != enfocandoDropBox) {
-			enfocandoDropBoxActual = enfocandoDropBox;
-			if (enfocandoDropBox) {
-				controlChecklist.habilitarDropBox ();
-				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
-					print ("enfocando dropbox " + SceneManager.GetActiveScene ().name);
-					mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar";
-				}
-			} else
-				controlChecklist.deshabilitarDropBox ();
-			if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
-				mensajeInteraccion.gameObject.SetActive (enfocandoDropBox);
-		}
+			if (enfocandoDropBoxActual != enfocandoDropBox) {
+				enfocandoDropBoxActual = enfocandoDropBox;
+				if (enfocandoDropBox) {
+					controlChecklist.habilitarDropBox ();
+					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
+						print ("enfocando dropbox " + SceneManager.GetActiveScene ().name);
+						mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar";
+					}
+				} else
+					controlChecklist.deshabilitarDropBox ();
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
+					mensajeInteraccion.gameObject.SetActive (enfocandoDropBox);
+			}
 
-		if (enfocandoAceiteActual != enfocandoAceite) {
-			enfocandoAceiteActual = enfocandoAceite;
-			if (enfocandoAceite) {
-				controlChecklist.habilitarAceite ();
-				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
-					print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
-					mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar";
-				}
-			} else
-				controlChecklist.deshabilitarAceite ();
-			if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
-				mensajeInteraccion.gameObject.SetActive (enfocandoAceite);
+			if (enfocandoAceiteActual != enfocandoAceite) {
+				enfocandoAceiteActual = enfocandoAceite;
+				if (enfocandoAceite) {
+					controlChecklist.habilitarAceite ();
+					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
+						print ("enfocando escalera " + SceneManager.GetActiveScene ().name);
+						mensajeInteraccion.text = "Presione el boton del manubrio para abrir/cerrar";
+					}
+				} else
+					controlChecklist.deshabilitarAceite ();
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
+					mensajeInteraccion.gameObject.SetActive (enfocandoAceite);
 
-		}
+			}
 			if (enfocandoCabinaActual != enfocandoCabina) {
 				enfocandoCabinaActual = enfocandoCabina;
 				if (enfocandoCabina) {
@@ -339,8 +340,10 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 						
 					}
 				}
-			if(mensajeInteraccion != null) mensajeInteraccion.gameObject.SetActive (enfocandoEncendido);
+				if (mensajeInteraccion != null)
+					mensajeInteraccion.gameObject.SetActive (enfocandoEncendido);
 			}
+		}
 		//} else {
 		if (central.estado != InGame.EstadoSimulacion.ApagadoExterior && central.estado != InGame.EstadoSimulacion.Finalizando) {
 			if (enfocandoCabinaActual != enfocandoCabina) {
@@ -419,9 +422,10 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 
 			if (enfocandoCabina && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
 				if (inGame.modoChecklist)
-					ingresarCabinaCheck (true);
+					Debug.Log ("here");//ingresarCabinaCheck (!inGame.enCabina);
 				else
-					ingresarCabina (true);
+					ingresarCabina (!inGame.enCabina);
+				//Debug.Log (!inGame.enCabina);
 			}
 
 			if (enfocandoEncendido && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
@@ -484,12 +488,13 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 			}
 			//}
 
-			if (enfocandoCabina && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
+			/*if (enfocandoCabina && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
 				if (inGame.modoChecklist)
-					ingresarCabinaCheck (true);
+					ingresarCabinaCheck (!inGame.enCabina);
 				else
-					ingresarCabina (true);
-			}
+					ingresarCabina (!inGame.enCabina);
+				Debug.Log (!inGame.enCabina);
+			}*/
 
 			if (enfocandoEncendido && (Input.GetKeyDown (KeyCode.E) || Input.GetButtonDown ("Fire3"))) {
 				print ("enfocandoEncendido boton press");
@@ -528,12 +533,13 @@ public class ControlUsuarioChecklist : MonoBehaviour {
         inGame.ejecutarEntradaMaquina(ingresar);
 		gameObject.transform.rotation = rotacionInicial;
         gameObject.SetActive(!ingresar);
+		inGame.enCabina = ingresar;
     }
 
 	public void ingresarCabinaCheck(bool ingresar)
 	{
 		//if(operarioAnimator != null) operarioAnimator.gameObject.SetActive(ingresar);
-		camaraEntradaAnimator.gameObject.SetActive(ingresar);
+		/*camaraEntradaAnimator.gameObject.SetActive(ingresar);
 		if (ingresar)
 		{
 			//if(operarioAnimator != null) operarioAnimator.SetTrigger("Entrar");
@@ -541,10 +547,11 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 			StartCoroutine(entradaPausa());
 			//camaraEntradaAnimator.SetTrigger("Entrar");
 			print("entrar aqui");
-		}
+		}*/
 		inGame.tableroControl.transform.GetComponentInParent<Camera> ().enabled = ingresar;
 		gameObject.transform.rotation = rotacionInicial;
 		gameObject.SetActive(!ingresar);
+		inGame.enCabina = ingresar;
 	}
 
     IEnumerator entradaPausa() {

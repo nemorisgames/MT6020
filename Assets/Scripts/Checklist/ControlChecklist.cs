@@ -195,6 +195,7 @@ public class ControlChecklist : MonoBehaviour {
 		activar (activa);
 		mensajeInteraccion.text = "";
 		checklistIndex = 1;
+		ingame = GameObject.FindGameObjectWithTag ("InGame").GetComponent<InGame>();
 	}
 
 	/*void BotonDown(int indice){
@@ -1097,10 +1098,14 @@ public class ControlChecklist : MonoBehaviour {
 				escaleraHabilitada = false;
 			}
 			if (puertaCabinaHabilitada && (estado == estadoChequeo.exterior || estado == estadoChequeo.interior) && !checkeandoControles && !checkeandoPanel) {
-				if (estado == estadoChequeo.exterior)
+				bool aux;
+				if (estado == estadoChequeo.exterior) {
 					estado = estadoChequeo.interior;
-				else
+					aux = true;
+				} else {
 					estado = estadoChequeo.exterior;
+					aux = false;
+				}
 				checkeandoCabina = !checkeandoCabina;
 				gameObject.SetActive (false);
 				controlUsuarioChecklist.gameObject.SetActive (!checkeandoCabina);
@@ -1113,6 +1118,7 @@ public class ControlChecklist : MonoBehaviour {
 				print ("ingresando a cabina checklist");
 				mensajeInteraccion.text = "";
 				mensajeInteraccion.gameObject.SetActive(false);
+				controlUsuarioChecklist.ingresarCabinaCheck (aux);
 				//abrirCabina();
 			} else {
 				if (brazoHabilitado)

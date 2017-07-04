@@ -10,7 +10,6 @@ public class AnimCarguio : MonoBehaviour {
 	public GameObject cargaPosicion;
 	public TableroControl tableroControl;
 
-
 	GameObject carga2;
 	bool cargado = false;
 	bool boton = false;

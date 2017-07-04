@@ -272,11 +272,13 @@ public class ControlCamionMotor : MonoBehaviour {
 			ingame.tableroControl.encenderReversa (true);
 		else if(cambioActual == 0)
 			ingame.tableroControl.encenderNeutro(true);*/
-		if (retroceso)
-			ingame.tableroControl.encenderReversa (true);
-		else
-			ingame.tableroControl.encenderAdelante (true);
-		if (cambioActual == 0)
+		if (throttle != 0) {
+			if (retroceso)
+				ingame.tableroControl.encenderReversa (true);
+			else
+				ingame.tableroControl.encenderAdelante (true);
+		}
+		if (cambioActual == 0 && throttle == 0)
 			ingame.tableroControl.encenderNeutro (true);
 #if UNITY_EDITOR
         if (Input.GetKeyUp(KeyCode.Q))// || factorRetroceso == -1)

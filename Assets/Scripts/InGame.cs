@@ -8,6 +8,7 @@ public class InGame : MonoBehaviour {
     public GameObject camaraEntrada;
     public GameObject controlChecklistGameObject;
     public TableroControl tableroControl;
+	public bool enCabina = false;
 
     public enum EstadoSimulacion { PanelInicial, EncendidoExterior, Conduciendo, Finalizando, ApagadoExterior, Resultados };
 	public EstadoSimulacion estado = EstadoSimulacion.PanelInicial;
@@ -337,7 +338,7 @@ public class InGame : MonoBehaviour {
 				maquinaBaja.SetActive (!b);
 		}
 		if(!b)
-			yield return new WaitForSeconds (1.5f);
+			yield return new WaitForSeconds (0.5f);
 		preguntasGUI.SetActive (b);
 		mousePreguntas.enabled = b;
 	}
