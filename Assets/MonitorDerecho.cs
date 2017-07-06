@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MonitorDerecho : MonoBehaviour {
+	public bool activadoInicial;
 	public UISprite botonEncendido;
 	public UISprite boton1;
 	public UISprite boton2;
 	public GameObject bg;
 	public ControlCamion ctrl;
+	public ControlChecklist ctrl2;
 	bool encendido = false;
 	int modo = 1;
 	bool visible = false;
@@ -25,7 +27,7 @@ public class MonitorDerecho : MonoBehaviour {
 	}
 
 	void Update(){
-		if (ctrl != null && ctrl.estado == ControlCamion.EstadoMaquina.encendida)
+		if (ctrl != null && ctrl2 != null && (ctrl.estado == ControlCamion.EstadoMaquina.encendida || ctrl2.estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida))
 			bg.GetComponent<UISprite> ().depth = 0;
 		else {
 			bg.GetComponent<UISprite> ().depth = 5;
@@ -39,7 +41,8 @@ public class MonitorDerecho : MonoBehaviour {
 
 
 	public void ToggleEncendido(){
-		if (ctrl != null && ctrl.estado == ControlCamion.EstadoMaquina.encendida) {
+		Debug.Log (encendido);
+		if (ctrl != null && ctrl2 != null && (ctrl.estado == ControlCamion.EstadoMaquina.encendida || ctrl2.estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)) {
 			bg.SetActive (encendido);
 			encendido = !encendido;
 			if (encendido) {
@@ -57,8 +60,9 @@ public class MonitorDerecho : MonoBehaviour {
 	}
 
 	public void ToggleModo1(){
-		if (ctrl != null && ctrl.estado == ControlCamion.EstadoMaquina.encendida && modo == 2) {
+		if (ctrl != null && ctrl2 != null && (ctrl.estado == ControlCamion.EstadoMaquina.encendida || ctrl2.estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) && modo == 2) {
 			ctrl.cambiarCamara ();
+			ctrl2.cambiarCamara ();
 			modo = 1;
 			boton1.spriteName = boton1.name + "_on";
 			boton2.spriteName = boton2.name + "_off";
@@ -66,8 +70,9 @@ public class MonitorDerecho : MonoBehaviour {
 	}
 
 	public void ToggleModo2(){
-		if (ctrl != null && ctrl.estado == ControlCamion.EstadoMaquina.encendida && modo == 1) {
+		if (ctrl != null && ctrl2 != null && (ctrl.estado == ControlCamion.EstadoMaquina.encendida || ctrl2.estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) && modo == 1) {
 			ctrl.cambiarCamara ();
+			ctrl2.cambiarCamara ();
 			modo = 2;
 			boton1.spriteName = boton1.name + "_off";
 			boton2.spriteName = boton2.name + "_on";

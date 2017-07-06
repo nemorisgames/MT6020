@@ -25,7 +25,7 @@ public class ControlCamionMotor : MonoBehaviour {
     public Central central;
     */
     public WheelCollider[] ruedasConMotor;
-    public bool frenoParqueoActivado = true;
+    public bool frenoParqueoActivado = false;
     public GameObject camaraMedicionAtras;
     public GameObject camaraMedicionAdelante;
 
@@ -124,6 +124,8 @@ public class ControlCamionMotor : MonoBehaviour {
 			audioSource.Play ();
 			audioSource.PlayOneShot (sonidoEncendido);
 			StartCoroutine(ingame.ShakeForSecs(1f));
+			if (ingame.monitorDerecho.activadoInicial)
+				ingame.monitorDerecho.ToggleEncendido ();
         }
         else
 		{
@@ -262,6 +264,20 @@ public class ControlCamionMotor : MonoBehaviour {
             print("cambio " + cambioActual);
         }
 
+		#if UNITY_EDITOR
+		if (Input.GetKeyUp(KeyCode.Q))// || factorRetroceso == -1)
+		{
+			retroceso = !retroceso;
+			camaraMedicionAdelante.SetActive(!camaraMedicionAdelante.activeSelf);
+			camaraMedicionAtras.SetActive(!camaraMedicionAtras.activeSelf);
+		}
+		#else
+		retroceso = factorRetroceso == -1;
+		camaraMedicionAdelante.SetActive(factorRetroceso == 1);
+		camaraMedicionAtras.SetActive(factorRetroceso == -1);
+
+		#endif
+
 
 		ingame.tableroControl.encenderNeutro (false);
 		ingame.tableroControl.encenderAdelante (false);
@@ -272,27 +288,24 @@ public class ControlCamionMotor : MonoBehaviour {
 			ingame.tableroControl.encenderReversa (true);
 		else if(cambioActual == 0)
 			ingame.tableroControl.encenderNeutro(true);*/
-		if (throttle != 0) {
+		/*if (throttle != 0) {
 			if (retroceso)
 				ingame.tableroControl.encenderReversa (true);
 			else
 				ingame.tableroControl.encenderAdelante (true);
 		}
-		if (cambioActual == 0 && throttle == 0)
+		if (cambioActual == 0)
 			ingame.tableroControl.encenderNeutro (true);
-#if UNITY_EDITOR
-        if (Input.GetKeyUp(KeyCode.Q))// || factorRetroceso == -1)
-		{
-			retroceso = !retroceso;
-			camaraMedicionAdelante.SetActive(!camaraMedicionAdelante.activeSelf);
-			camaraMedicionAtras.SetActive(!camaraMedicionAtras.activeSelf);
-		}
-#else
-            retroceso = factorRetroceso == -1;
-            camaraMedicionAdelante.SetActive(factorRetroceso == 1);
-            camaraMedicionAtras.SetActive(factorRetroceso == -1);
-        
-#endif
+		*/
+		if (cambioActual != 0 || retroceso) {
+			if (retroceso)
+				ingame.tableroControl.encenderReversa (true);
+			else
+				ingame.tableroControl.encenderAdelante (true);
+		} else
+			ingame.tableroControl.encenderNeutro (true);
+	
+
         //print(velocidadActual + " " + cambioActual);
         audioSource.pitch = Mathf.Clamp (1f + velocidadActual / (velocidades[cambioActual] * 100000f + 1f), 1f, 1.5f);
 
@@ -329,6 +342,7 @@ public class ControlCamionMotor : MonoBehaviour {
 				//ruedasT.transform.RotateAround (ejeT.transform.position, Vector3.left, auxSpeed / 50f);
 				ruedasT.transform.Rotate(new Vector3(-auxSpeed,0f,0f));
 		}
+		Debug.Log ("parqueo: " + frenoParqueoActivado);
         ingame.tableroControl.encenderFrenoParq(frenoParqueoActivado);
 		//ingame.tableroControl.encenderReversa(retroceso || factorRetroceso == -1);
 		//ingame.tableroControl.encenderAdelante(!(retroceso || factorRetroceso == -1));

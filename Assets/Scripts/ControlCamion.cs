@@ -906,7 +906,8 @@ public class ControlCamion : MonoBehaviour {
 
         
 		#if UNITY_EDITOR
-		controlCamionMotor.frenoParqueoActivado = controlTarjetaControladora.BotonAccion() == 0;
+		if(Input.GetKeyDown(KeyCode.Keypad5))
+			controlCamionMotor.frenoParqueoActivado = !controlCamionMotor.frenoParqueoActivado;
 		#else
 		controlCamionMotor.frenoParqueoActivado = controlTarjetaControladora.BotonAccion() == 0;
 		#endif

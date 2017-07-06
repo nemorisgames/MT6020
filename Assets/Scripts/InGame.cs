@@ -8,6 +8,7 @@ public class InGame : MonoBehaviour {
     public GameObject camaraEntrada;
     public GameObject controlChecklistGameObject;
     public TableroControl tableroControl;
+	public MonitorDerecho monitorDerecho;
 	public bool enCabina = false;
 
     public enum EstadoSimulacion { PanelInicial, EncendidoExterior, Conduciendo, Finalizando, ApagadoExterior, Resultados };
