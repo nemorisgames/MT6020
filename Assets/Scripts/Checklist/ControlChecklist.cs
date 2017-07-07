@@ -898,7 +898,22 @@ public class ControlChecklist : MonoBehaviour {
 			print("Tolba: " + Input.GetAxis("ControlTolba") + ", Cambio: " + Input.GetAxis("Cambio"));
 			brazo = Input.GetAxis("ControlTolba");
 			#endif
-			if(animatorTolba != null) animatorTolba.SetFloat ("multiplicadorVelocidadBalde", Mathf.Clamp (brazo, -1f, 1f));
+			if (brazo != 0)
+				animatorTolba.SetBool ("TolvaArriba", true);
+			else
+				animatorTolba.SetBool ("TolvaArriba", false);
+			if(animatorTolba != null && animatorTolba.GetBool("TolvaArriba")) animatorTolba.SetFloat ("multiplicadorVelocidadBalde", Mathf.Clamp (brazo, -1f, 1f));
+			float animTime = animatorTolba.GetCurrentAnimatorStateInfo (0).normalizedTime;
+			animTime = Mathf.Clamp01 (animTime);
+			if (brazo != 0 && Mathf.Abs (brazo) > 0.5f && !ingame.usingArm) {
+				if (animTime != 0 && animTime != 1) {
+					ingame.EnableShaking (true);
+					ingame.usingArm = true;
+				}
+			}
+			else{
+				StartCoroutine (ingame.stopArm ());
+			}
 		}
 
 		if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal) {
