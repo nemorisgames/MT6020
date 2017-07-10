@@ -46,6 +46,7 @@ public class TableroControl : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 		if (maquina != null) {
+			GetComponentInParent<Camera> ().enabled = maquina.ingame.enCabina;
 			/*if (Mathf.Abs(Input.GetAxis ("ControlTolba")) > 0.1f || Mathf.Abs(Input.GetAxis ("ControlTolbaEditor")) > 0.1f)
 				encenderTolva (true);
 			else
@@ -61,6 +62,7 @@ public class TableroControl : MonoBehaviour {
 			}
 			else
 				encenderStopMotor (false);
+			
 		}
 		/*if (motor != null) {
 			encenderFrenoParq (motor.frenoParqueoActivado);

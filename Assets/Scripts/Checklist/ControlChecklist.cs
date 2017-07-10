@@ -16,6 +16,8 @@ public class ControlChecklist : MonoBehaviour {
 	public GameObject diapositivaInicioChecklist;
 	public GameObject diapositivaFinalChecklist;
 
+	public GameObject camaraTrasera;
+	public GameObject camaraBalde;
 
 	public GameObject nivelPetroleo; //OK
 	[HideInInspector]
@@ -215,13 +217,15 @@ public class ControlChecklist : MonoBehaviour {
 	public void arranque(bool activar){
 		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagadaTotal)
 			return;
+		estadoExcavadoraChecklist = activar?ControlCamion.EstadoMaquina.encendida:ControlCamion.EstadoMaquina.apagada;
 		if (activar) {
-
 			audioEncendido.clip = sonidoMotor;
 			audioEncendido.loop = true;
 			audioEncendido.Play ();
 			InGame aux = GameObject.FindGameObjectWithTag ("InGame").GetComponent<InGame> ();
 			StartCoroutine(aux.ShakeForSecs(1f));
+			if (ingame.monitorDerecho.activadoInicial)
+				ingame.monitorDerecho.ToggleEncendido ();
 		}
 		else { 
 			audioEncendido.loop = false;
@@ -238,11 +242,17 @@ public class ControlChecklist : MonoBehaviour {
 			lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesBajasTraseras), false);*/
 		}
 		print ("arranque" + activar);
-		estadoExcavadoraChecklist = activar?ControlCamion.EstadoMaquina.encendida:ControlCamion.EstadoMaquina.apagada;
 		//enciende leds iniciales
 		//lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedTransmisionAutomatica), true);
 		//tableroControl.motorEncendido (activar);
 		//tableroControl.neutro (true);
+	}
+
+	public void cambiarCamara()
+	{
+		print("cambiando camara");
+		camaraTrasera.SetActive(!camaraTrasera.activeSelf);
+		camaraBalde.SetActive(!camaraBalde.activeSelf);
 	}
 
 	public void arreglarMaquina(){
@@ -880,7 +890,7 @@ public class ControlChecklist : MonoBehaviour {
 		//}
 		varillaPetroleoDefault.SetActive(!(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida));
 
-		if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida) {
+		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) {
 			float brazo = 0f;
 			#if UNITY_EDITOR
 			brazo = Input.GetAxis("ControlTolbaEditor");
@@ -888,8 +898,36 @@ public class ControlChecklist : MonoBehaviour {
 			print("Tolba: " + Input.GetAxis("ControlTolba") + ", Cambio: " + Input.GetAxis("Cambio"));
 			brazo = Input.GetAxis("ControlTolba");
 			#endif
-			if(animatorTolba != null) animatorTolba.SetFloat ("multiplicadorVelocidadBalde", Mathf.Clamp (brazo, -1f, 1f));
+			if (brazo != 0)
+				animatorTolba.SetBool ("TolvaArriba", true);
+			else
+				animatorTolba.SetBool ("TolvaArriba", false);
+			if(animatorTolba != null && animatorTolba.GetBool("TolvaArriba")) animatorTolba.SetFloat ("multiplicadorVelocidadBalde", Mathf.Clamp (brazo, -1f, 1f));
+			float animTime = animatorTolba.GetCurrentAnimatorStateInfo (0).normalizedTime;
+			animTime = Mathf.Clamp01 (animTime);
+			if (brazo != 0 && Mathf.Abs (brazo) > 0.5f && !ingame.usingArm) {
+				if (animTime != 0 && animTime != 1) {
+					ingame.EnableShaking (true);
+					ingame.usingArm = true;
+				}
+			}
+			else{
+				StartCoroutine (ingame.stopArm ());
+			}
 		}
+
+		if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal) {
+			bool frenoParqEncendido = false;
+			#if UNITY_EDITOR
+			if(Input.GetKeyDown(KeyCode.Keypad5))
+				frenoParqEncendido = !frenoParqEncendido;
+			#else
+			frenoParqEncendido = controlTarjetaControladora.BotonAccion() == 0;
+			#endif
+			tableroControl.encenderFrenoParq (frenoParqEncendido);
+		}
+
+
 		/*
 		if(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida){
 			tableroControl.setOp1menuD3 ("" + Random.Range(43, 45));
@@ -1071,18 +1109,18 @@ public class ControlChecklist : MonoBehaviour {
 			if (puertaDropBoxHabilitada)
 				abrirDropBox ();
 			if (escaleraHabilitada) {
-				Vector3 pos = controlUsuarioChecklist.transform.FindChild ("Camera").transform.position;
+				Vector3 pos = controlUsuarioChecklist.transform.FindChild ("Camera").transform.localPosition;
 				if (!sobreMaquina) {
 					sobreMaquina = true;
-					pos.y -= 0.9f;
-					controlUsuarioChecklist.transform.FindChild ("Camera").transform.position = pos;
+					pos.y = 0.2f;
+					controlUsuarioChecklist.transform.FindChild ("Camera").transform.localPosition = pos;
 					controlUsuarioChecklist.transform.position = posicionSobreMaquina.position;
 					controlUsuarioChecklist.transform.rotation = posicionSobreMaquina.rotation;
 					Debug.Log ("subiendo");
 				} else {
 					sobreMaquina = false;
-					pos.y += 0.9f;
-					controlUsuarioChecklist.transform.FindChild ("Camera").transform.position = pos;
+					pos.y = 1.1f;
+					controlUsuarioChecklist.transform.FindChild ("Camera").transform.localPosition = pos;
 					controlUsuarioChecklist.transform.position = posicionBajoMaquina.position;
 					controlUsuarioChecklist.transform.rotation = posicionBajoMaquina.rotation;
 					Debug.Log ("bajando");
@@ -1118,6 +1156,7 @@ public class ControlChecklist : MonoBehaviour {
 				print ("ingresando a cabina checklist");
 				mensajeInteraccion.text = "";
 				mensajeInteraccion.gameObject.SetActive(false);
+				ingame.tableroControl.GetComponentInParent<Camera> ().enabled = aux;
 				controlUsuarioChecklist.ingresarCabinaCheck (aux);
 				//abrirCabina();
 			} else {

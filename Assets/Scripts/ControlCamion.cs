@@ -693,12 +693,6 @@ public class ControlCamion : MonoBehaviour {
     }
 
 	bool usingArm = false;
-
-	IEnumerator stopArm(){
-		yield return new WaitForSeconds (1f);
-		ingame.EnableShaking (false);
-		usingArm = false;
-	}
 	
     // Update is called once per frame
     void Update()
@@ -792,14 +786,14 @@ public class ControlCamion : MonoBehaviour {
 				monitorTrasero.MostrarGuia (1);
 			}
             manejarBrazoLimites(brazo);
-			if (brazo != 0 && Mathf.Abs (brazo) > 0.5f && !usingArm) {
+			if (brazo != 0 && Mathf.Abs (brazo) > 0.5f && !ingame.usingArm) {
 				if (animTime != 0 && animTime != 1) {
 					ingame.EnableShaking (true);
-					usingArm = true;
+					ingame.usingArm = true;
 				}
 			}
 			else{
-				StartCoroutine (stopArm ());
+				StartCoroutine (ingame.stopArm ());
 			}
 		}
 		// * (test?100f:1f));
@@ -906,7 +900,8 @@ public class ControlCamion : MonoBehaviour {
 
         
 		#if UNITY_EDITOR
-		controlCamionMotor.frenoParqueoActivado = controlTarjetaControladora.BotonAccion() == 0;
+		if(Input.GetKeyDown(KeyCode.Keypad5))
+			controlCamionMotor.frenoParqueoActivado = !controlCamionMotor.frenoParqueoActivado;
 		#else
 		controlCamionMotor.frenoParqueoActivado = controlTarjetaControladora.BotonAccion() == 0;
 		#endif

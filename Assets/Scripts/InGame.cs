@@ -8,6 +8,7 @@ public class InGame : MonoBehaviour {
     public GameObject camaraEntrada;
     public GameObject controlChecklistGameObject;
     public TableroControl tableroControl;
+	public MonitorDerecho monitorDerecho;
 	public bool enCabina = false;
 
     public enum EstadoSimulacion { PanelInicial, EncendidoExterior, Conduciendo, Finalizando, ApagadoExterior, Resultados };
@@ -73,6 +74,8 @@ public class InGame : MonoBehaviour {
 	public Vector3 [] camaraPosIni = new Vector3[3];
 	Quaternion [] camaraRotIni = new Quaternion[3];
 	public bool modoChecklist;
+	[HideInInspector]
+	public bool usingArm = false;
 
     // Use this for initialization
     void Start ()
@@ -155,7 +158,12 @@ public class InGame : MonoBehaviour {
 	public void iniciarChecklist(){
 		estado = EstadoSimulacion.EncendidoExterior;
 	}
-
+	
+	public IEnumerator stopArm(){
+		yield return new WaitForSeconds (1f);
+		EnableShaking (false);
+		usingArm = false;
+	}
 
     void activarMaquinaAlta(bool activar)
     {
