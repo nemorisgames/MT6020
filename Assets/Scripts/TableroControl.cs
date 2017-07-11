@@ -75,6 +75,9 @@ public class TableroControl : MonoBehaviour {
 		}*/
 		if (p != 0) {
 			Quaternion current = a.rotation;
+			Debug.Log ("rotacion: "+current.eulerAngles.z);
+			//if (current.eulerAngles.z < 180 && current.eulerAngles.z > 15)
+			//	current.eulerAngles = new Vector3(0f,0f,180f);
 			Quaternion target = Quaternion.Euler (0f, 0f, pond * p / 100f);
 			a.rotation = Quaternion.Lerp (current, target, Time.deltaTime);
 		} else {

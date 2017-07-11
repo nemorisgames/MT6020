@@ -218,6 +218,20 @@ public class ControlCamionMotor : MonoBehaviour {
 		}
         else
         {
+			#if UNITY_EDITOR
+			if(Input.GetKeyDown(KeyCode.Alpha1))
+				cambioActual = 1;
+			else if(Input.GetKeyDown(KeyCode.Alpha0))
+				cambioActual = 0;
+			else if(Input.GetKeyDown(KeyCode.Alpha2))
+				cambioActual = 2;
+			else if(Input.GetKeyDown(KeyCode.Alpha3))
+				cambioActual = 3;
+			else if(Input.GetKeyDown(KeyCode.Alpha4))
+				cambioActual = 4;
+			else if(Input.GetKeyDown(KeyCode.Alpha5))
+				cambioActual = 5;
+			#else
             float c = Input.GetAxis("Cambio");
             if (c > 0.9f)
             {
@@ -262,6 +276,7 @@ public class ControlCamionMotor : MonoBehaviour {
                 }
             }
             print("cambio " + cambioActual);
+			#endif
         }
 
 		#if UNITY_EDITOR
@@ -333,6 +348,7 @@ public class ControlCamionMotor : MonoBehaviour {
 			}
 
 		float auxSpeed = Mathf.Clamp((velocidadActual / 100000f)/50f,0.1f,float.MaxValue);
+		//Debug.Log (auxSpeed);
 
 		if (velocidadActual > 0.1) {
 			if (!retroceso)
@@ -349,7 +365,7 @@ public class ControlCamionMotor : MonoBehaviour {
 		if (estado == ControlCamion.EstadoMaquina.encendida) {
 			ingame.tableroControl.setPetroleo (90f);
 			if (throttle >= 0.5)
-				ingame.tableroControl.setRevoluciones (Mathf.Clamp (auxSpeed * 20f, 0f, 100f));
+				ingame.tableroControl.setRevoluciones (Mathf.Clamp (auxSpeed * 28f, 0f, 100f));
 			else
 				ingame.tableroControl.setRevoluciones (-8f);
 			ingame.tableroControl.setTemperatura (20f);

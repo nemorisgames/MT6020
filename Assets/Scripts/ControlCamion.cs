@@ -1063,10 +1063,10 @@ public class ControlCamion : MonoBehaviour {
 		if (Mathf.Abs (accionControl) > 0.05f) {
 			if (accionControl > 0) {
 				b.min = Mathf.Lerp (b.min, accionControl*rangoLimitEje.y, Time.deltaTime*0.5f);
-				Debug.Log (accionControl + " " + rangoLimitEje.y);
+				//Debug.Log (accionControl + " " + rangoLimitEje.y);
 			} else if(accionControl < 0){
 				b.min = Mathf.Lerp (b.min, -accionControl*rangoLimitEje.x, Time.deltaTime*0.5f);
-				Debug.Log (accionControl + " " + rangoLimitEje.x);
+				//Debug.Log (accionControl + " " + rangoLimitEje.x);
 			}
 			b.min = Mathf.Clamp (b.min, rangoLimitEje.x, rangoLimitEje.y);
 			//b.min = Mathf.Clamp (b.min + accionControl * accionControl * Mathf.Sign (accionControl) * 15f * Time.deltaTime, rangoLimitEje.x, rangoLimitEje.y);
