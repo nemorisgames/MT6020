@@ -235,6 +235,10 @@ public class ControlChecklist : MonoBehaviour {
 			lucesAltasPala(false);
 			lucesAltasMotor(false);
 			lucesBajasPala(false);
+			float animTime = animatorTolba.GetCurrentAnimatorStateInfo (0).normalizedTime;
+			animTime = Mathf.Clamp01 (animTime);
+			if (animTime > 0)
+				animTime = 0f;
 			//lucesBajasMotor(false);
 			/*lectorControles.OutCmd (byte.Parse("" + configuracionControles.idLedLucesAltasDelanteras), false);
 			lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesAltasTraseras), false);
@@ -634,22 +638,22 @@ public class ControlChecklist : MonoBehaviour {
 
 	public void lucesAltasPala(bool activar){
 		print ("luces altas pala " + activa);
-		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) {
+		//if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) {
 			foreach (Light l in lucesDelanteras)
 				l.gameObject.SetActive (activar);
-		}
+		//}
 	}
 	public void lucesAltasMotor(bool activar){
-		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) {
+		//if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) {
 			foreach (Light l in lucesTraseras)
 				l.gameObject.SetActive (activar);
-		}
+		//}
 	}
 	public void lucesBajasPala(bool activar){
-		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) {
+		//if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) {
 			foreach (Light l in lucesCarga)
 				l.gameObject.SetActive (activar);
-		}
+		//}
 	}
 	/*
 	public void lucesBajasMotor(bool activar){
@@ -1256,7 +1260,10 @@ public class ControlChecklist : MonoBehaviour {
 	public void terminarSimulacionFinal(){
 		terminarSimulacion (true);
 		if (checklistIndex == 1) {
-			enviarDatos ();
+			if (singleChecklist)
+				enviarDatos ();
+			else
+				enviarDatos1 ();
 		} else if (checklistIndex == 2) {
 			enviarDatos2 ();
 		}
@@ -1274,7 +1281,8 @@ public class ControlChecklist : MonoBehaviour {
 	}
 
 	public void terminarSimulacion(bool mostrarPanelFinal){
-		GameObject.FindGameObjectWithTag ("InGame").GetComponent<InGame> ().estado = InGame.EstadoSimulacion.Finalizando;
+		if(mostrarPanelFinal)
+			GameObject.FindGameObjectWithTag ("InGame").GetComponent<InGame> ().estado = InGame.EstadoSimulacion.Finalizando;
 		activarLista (false);
 		arranque (false);
 		puertaHidraulicaActivada = true;
@@ -1370,6 +1378,7 @@ public class ControlChecklist : MonoBehaviour {
 			controlMouseOperador.enabled = true;
 			foreach(GameObject g in GUINormal)
 				g.SetActive(false);
+			//Debug.Log ("aqui");
 			controlUsuarioChecklist.desactivar ();
 			controlCamaraInterior.desactivar();
 			controlMouseOperador.enabled = false;

@@ -58,5 +58,7 @@ public class ColisionDetector : MonoBehaviour {
 		if(!encontrado_) return;
 
 		//Instantiate(polvo, other.transform.position, Quaternion.identity);
+		if (other.tag == "PesoBalde")
+			transform.SetParent (other.transform);
 	}
 }

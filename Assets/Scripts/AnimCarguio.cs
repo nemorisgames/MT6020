@@ -41,7 +41,8 @@ public class AnimCarguio : MonoBehaviour {
 			carga2.SetActive (true);
 			cargado = true;
 		} else {
-			Instantiate (cargaRocas, cargaPosicion.transform.position, cargaPosicion.transform.rotation);
+			GameObject aux = Instantiate (cargaRocas, cargaPosicion.transform.position, cargaPosicion.transform.rotation);
+			aux.SetActive (true);
 		}
 	}
 
