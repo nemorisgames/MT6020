@@ -123,6 +123,8 @@ public class ControlCamion : MonoBehaviour {
 	public MonitorIzquierdo monitorTrasero;
 	public MonitorIzquierdo monitorDelantero;
 
+	public float pesoCarga = 0f;
+
     // Use this for initialization
     void Start () {
         ingame = GameObject.FindWithTag("InGame").GetComponent<InGame>();
@@ -132,6 +134,7 @@ public class ControlCamion : MonoBehaviour {
 		ActivarMonitores (false);
 		GameObject.FindGameObjectWithTag ("MonitorDerecho").GetComponent<MonitorDerecho> ().ctrl = this.GetComponent<ControlCamion> ();
 		configuracion = GameObject.FindWithTag ("Configuracion").GetComponent<Configuracion>();
+
         /*
         configuracionControles = GameObject.FindWithTag ("Configuracion").GetComponent<ConfiguracionControles>();
 		connectedAnchorBrazo = jointBrazo.connectedAnchor;

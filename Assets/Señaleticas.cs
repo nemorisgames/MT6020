@@ -25,15 +25,6 @@ public class Señaleticas : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (currentIndex > 0) {
-			Debug.Log (currentIndex);
-			if (signs.Length >= 8 && currentIndex == 8) {
-				ToggleMidRestart (true);
-			}
-			if (signs.Length >= 8 && currentIndex >= 11) {
-				ToggleMidRestart (false);
-			}
-		}
 		if (!active) {
 			forward.value = 0;
 			left.value = 0;
@@ -64,5 +55,7 @@ public class Señaleticas : MonoBehaviour {
 		signs [2].enable (!b);
 		signs [1].enable (!b);
 		signs [0].enable (!b);
+		signs [3].enable (!b);
+		signs [13].enable (b);
 	}
 }

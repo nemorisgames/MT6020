@@ -39,4 +39,8 @@ public class TriggerST : MonoBehaviour {
 		//active = false;
 		st14.gameObject.SetActive (false);
 	}
+
+	public void Restart(){
+		active = false;
+	}
 }

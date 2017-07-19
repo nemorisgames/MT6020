@@ -7,6 +7,7 @@ public class ColisionDetector : MonoBehaviour {
 	public Collider[] colliders;
 	//rango aproximado 1000 a 125000
 	float fuerzaMinima_ = 5f;
+	public float pesoRoca = 1f;
 
 	void Start(){
 		if (colliders == null || colliders.Length == 0) {
@@ -58,7 +59,25 @@ public class ColisionDetector : MonoBehaviour {
 		if(!encontrado_) return;
 
 		//Instantiate(polvo, other.transform.position, Quaternion.identity);
-		if (other.tag == "PesoBalde")
+		if (other.tag == "PesoBalde") {
 			transform.SetParent (other.transform);
+			other.GetComponentInParent<ControlCamion> ().pesoCarga += pesoRoca;
+		}
+
+		if (other.tag == "RecogerPiedras") {
+			StartCoroutine(SelfDestroy (60f));
+		}
+	}
+
+	void OnTriggerExit(Collider other){
+		if (other.tag == "PesoBalde") {
+			transform.SetParent (null);
+			other.GetComponentInParent<ControlCamion> ().pesoCarga -= pesoRoca;
+		}
+	}
+
+	IEnumerator SelfDestroy(float f){
+		yield return new WaitForSeconds (f);
+		Destroy (this.gameObject);
 	}
 }

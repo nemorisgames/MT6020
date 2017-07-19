@@ -9,6 +9,7 @@ public class AnimCarguio : MonoBehaviour {
 	public GameObject cargaRocas;
 	public GameObject cargaPosicion;
 	public TableroControl tableroControl;
+	public BoxCollider bc;
 
 	GameObject carga2;
 	bool cargado = false;

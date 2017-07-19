@@ -54,4 +54,8 @@ public class Semaforo : MonoBehaviour {
 		active = true;
 		dummy.transform.position = posInicial;
 	}
+
+	public void Restart(){
+		active = false;
+	}
 }
