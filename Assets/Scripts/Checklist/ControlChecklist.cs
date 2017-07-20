@@ -235,10 +235,7 @@ public class ControlChecklist : MonoBehaviour {
 			lucesAltasPala(false);
 			lucesAltasMotor(false);
 			lucesBajasPala(false);
-			float animTime = animatorTolba.GetCurrentAnimatorStateInfo (0).normalizedTime;
-			animTime = Mathf.Clamp01 (animTime);
-			if (animTime > 0)
-				animTime = 0f;
+			animatorTolba.SetTrigger ("ReturnIdle");
 			//lucesBajasMotor(false);
 			/*lectorControles.OutCmd (byte.Parse("" + configuracionControles.idLedLucesAltasDelanteras), false);
 			lectorControles.OutCmd (byte.Parse ("" + configuracionControles.idLedLucesAltasTraseras), false);
