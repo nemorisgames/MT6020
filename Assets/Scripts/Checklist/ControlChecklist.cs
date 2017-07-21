@@ -157,6 +157,7 @@ public class ControlChecklist : MonoBehaviour {
 	GameObject camara;
 	
 	public bool activarMouseInicio = false;
+	bool frenoParqEncendido;
 
 	public ControlCamion.EstadoMaquina estadoExcavadoraChecklist = ControlCamion.EstadoMaquina.apagadaTotal;
 	LectorControles lectorControles;
@@ -915,10 +916,10 @@ public class ControlChecklist : MonoBehaviour {
 			else{
 				StartCoroutine (ingame.stopArm ());
 			}
+			ingame.tableroControl.encenderTolva(animTime != 0f);
 		}
 
 		if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.apagadaTotal) {
-			bool frenoParqEncendido = false;
 			#if UNITY_EDITOR
 			if(Input.GetKeyDown(KeyCode.Keypad5))
 				frenoParqEncendido = !frenoParqEncendido;

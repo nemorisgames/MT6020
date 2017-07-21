@@ -147,7 +147,7 @@ public class ControlCamionMotor : MonoBehaviour {
 			//audioMotor.pitch = 0.7f;
 			//audioRetroceso.Stop();
 			//}
-			ingame.tableroControl.setRevoluciones (-10f);
+			ingame.tableroControl.setRevoluciones (-8f);
 
 			foreach (WheelCollider w in ruedasConMotor) {
 				w.brakeTorque = 500000f;

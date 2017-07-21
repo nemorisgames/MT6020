@@ -5,6 +5,7 @@ public class TableroControl : MonoBehaviour {
     public GameObject[] indicadoresSuperiores;
 	public ControlCamion maquina;
 	public ControlCamionMotor motor;
+	public ControlChecklist checklist;
 
 	public Transform agujaTemperatura;
 	public Transform agujaRevoluciones;
@@ -45,7 +46,7 @@ public class TableroControl : MonoBehaviour {
 	}
     // Update is called once per frame
     void Update () {
-		if (maquina != null) {
+		if (maquina != null && !maquina.ingame.modoChecklist) {
 			GetComponentInParent<Camera> ().enabled = maquina.ingame.enCabina;
 			/*if (Mathf.Abs(Input.GetAxis ("ControlTolba")) > 0.1f || Mathf.Abs(Input.GetAxis ("ControlTolbaEditor")) > 0.1f)
 				encenderTolva (true);
@@ -59,31 +60,54 @@ public class TableroControl : MonoBehaviour {
 				encenderAdelante (false);
 				encenderAuto (false);
 				encenderManual (false);
+				setTemperatura (0);
+				setPetroleo (0);
 			}
 			else
 				encenderStopMotor (false);
-			
 		}
-		/*if (motor != null) {
+
+		if (checklist != null && maquina.ingame.modoChecklist) {
+			if (checklist.estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.apagada) {
+				encenderStopMotor (true);
+				encenderReversa (false);
+				encenderNeutro (false);
+				encenderAdelante (false);
+				encenderAuto (false);
+				encenderManual (false);
+				setTemperatura (0);
+				setPetroleo (0);
+			}
+			else
+				encenderStopMotor (false);
+		}
+		if(!maquina.ingame.modoChecklist)
 			encenderFrenoParq (motor.frenoParqueoActivado);
-		}*/
+
 	}
 
+	bool shortWay = true;
+
 	void rotacionAguja(Transform a, float p, float pond){
-		/*for (int i = 0; i < p; i++) {
-			a.rotation = Quaternion.Euler (0f, 0f, -179f*i / 100f);
-		}*/
-		if (p != 0) {
-			Quaternion current = a.rotation;
-			//Debug.Log ("rotacion: "+current.eulerAngles.z);
-			//if (current.eulerAngles.z < 180 && current.eulerAngles.z > 15)
+		Quaternion current = a.rotation;
+		Debug.Log ("rotacion: "+current.eulerAngles.z);
+		if (current.eulerAngles.z < 180 && current.eulerAngles.z > 15) {
+			shortWay = false;
+		}
+
+		Quaternion target = Quaternion.Euler (0f, 0f, pond * p / 100f);
+		if (p != -8) {
 			//	current.eulerAngles = new Vector3(0f,0f,180f);
-			Quaternion target = Quaternion.Euler (0f, 0f, pond * p / 100f);
 			a.rotation = Quaternion.Lerp (current, target, Time.deltaTime);
 		} else {
-			Quaternion current = a.rotation;
-			Quaternion target = Quaternion.Euler (0f, 0f, 0f);
-			a.rotation = Quaternion.Lerp (current, target, Time.deltaTime);
+			Debug.Log (shortWay);
+			if (!shortWay) {
+				a.rotation = QuaternionExtension.Lerp (current, target, Time.deltaTime, false);
+				if (current == target)
+					shortWay = true;
+			}
+			else
+				a.rotation = Quaternion.Lerp (current, target, Time.deltaTime);
 		}
 	}
 }
