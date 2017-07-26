@@ -35,6 +35,15 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 	public bool enfocandoDropBox = false;
 	public bool enfocandoDropBoxActual = false;
 
+	public bool enfocandoFiltroAireA = false;
+	public bool enfocandoFiltroAireAActual = false;
+
+	public bool enfocandoFiltroAireB = false;
+	public bool enfocandoFiltroAireBActual = false;
+
+	public bool enfocandoPerillaFiltro = false;
+	public bool enfocandoPerillaFiltroActual = false;
+
     public ControlCamion controlCamion;
     public bool puertaIsoSwitchAbierta = false;
     public TweenRotation puertaIsoSwitch;
@@ -79,6 +88,9 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 		enfocandoCabinaActual = false;
 		enfocandoBrazoActual = false;
 		enfocandoDropBoxActual = false;
+		enfocandoFiltroAireAActual = false;
+		enfocandoFiltroAireBActual = false;
+		enfocandoPerillaFiltroActual = false;
 		controlChecklist.nivelPetroleoActivada = false;
 		controlChecklist.nivelAceiteActivada = false;
 		controlChecklist.nivelHidraulicoActivada = false;
@@ -154,6 +166,9 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 		enfocandoAnsu = false;
 		enfocandoMotor = false;
 		enfocandoDropBox = false;
+		enfocandoFiltroAireA = false;
+		enfocandoFiltroAireB = false;
+		enfocandoPerillaFiltro = false;
         
         enfocandoPuertaHidraulica = false;
 		enfocandoBrazo = false;
@@ -209,6 +224,9 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				case "Brazo": enfocandoBrazo = true; break;
 				case "TapaDropBox": enfocandoDropBox = true; break;
 				case "ISO_switch":case "IsoSwitch": enfocandoEncendido = true; break;
+				case "filtroAireA": enfocandoFiltroAireA = true; break;
+				case "filtroAireB": enfocandoFiltroAireB = true; break;
+				case "perillaFiltro": enfocandoPerillaFiltro = true; break;
 				}
 			}
 		}
@@ -285,6 +303,48 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 					mensajeInteraccion.gameObject.SetActive (enfocandoDropBox);
 			}
 
+			if (enfocandoFiltroAireAActual != enfocandoFiltroAireA) {
+				enfocandoFiltroAireAActual = enfocandoFiltroAireA;
+				if (enfocandoFiltroAireA) {
+					controlChecklist.habilitarFiltroAireA ();
+					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
+						print ("enfocando dropbox " + SceneManager.GetActiveScene ().name);
+						mensajeInteraccion.text = "Presione el boton del manubrio para limpiar filtro";
+					}
+				} else
+					controlChecklist.deshabilitarFiltroAireA ();
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
+					mensajeInteraccion.gameObject.SetActive (enfocandoFiltroAireA);
+			}
+
+			if (enfocandoFiltroAireBActual != enfocandoFiltroAireB) {
+				enfocandoFiltroAireBActual = enfocandoFiltroAireB;
+				if (enfocandoFiltroAireB) {
+					controlChecklist.habilitarFiltroAireB ();
+					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
+						print ("enfocando dropbox " + SceneManager.GetActiveScene ().name);
+						mensajeInteraccion.text = "Presione el boton del manubrio para limpiar filtro";
+					}
+				} else
+					controlChecklist.deshabilitarFiltroAireB ();
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
+					mensajeInteraccion.gameObject.SetActive (enfocandoFiltroAireB);
+			}
+
+			if (enfocandoPerillaFiltroActual != enfocandoPerillaFiltro) {
+				enfocandoPerillaFiltroActual = enfocandoPerillaFiltro;
+				if (enfocandoPerillaFiltro) {
+					controlChecklist.habilitarPerillaFiltro ();
+					if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8") {
+						print ("enfocando dropbox " + SceneManager.GetActiveScene ().name);
+						mensajeInteraccion.text = "Presione el boton del manubrio para limpiar filtro";
+					}
+				} else
+					controlChecklist.deshabilitarPerillaFiltro ();
+				if (SceneManager.GetActiveScene ().name == "Modulo4" || SceneManager.GetActiveScene ().name == "Modulo7" || SceneManager.GetActiveScene ().name == "Modulo8")
+					mensajeInteraccion.gameObject.SetActive (enfocandoPerillaFiltro);
+			}
+
 			if (enfocandoAceiteActual != enfocandoAceite) {
 				enfocandoAceiteActual = enfocandoAceite;
 				if (enfocandoAceite) {
@@ -343,6 +403,8 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				if (mensajeInteraccion != null)
 					mensajeInteraccion.gameObject.SetActive (enfocandoEncendido);
 			}
+
+
 		}
 		//} else {
 		if (central.estado != InGame.EstadoSimulacion.ApagadoExterior && central.estado != InGame.EstadoSimulacion.Finalizando) {
@@ -484,6 +546,15 @@ public class ControlUsuarioChecklist : MonoBehaviour {
 				case "TapaDropBox":
 					enfocandoDropBox = true;
 					break;
+				case "filtroAireA":
+					enfocandoFiltroAireA = true;
+					break;
+				case "filtroAireB":
+					enfocandoFiltroAireB = true;
+					break;
+				case "perillaFiltro":
+					enfocandoPerillaFiltro = true;
+					break;
 				}
 			}
 			//}
@@ -529,7 +600,8 @@ public class ControlUsuarioChecklist : MonoBehaviour {
             camaraEntradaAnimator.SetTrigger("Entrar");
             print("entrar aqui");
         }
-		inGame.tableroControl.transform.GetComponentInParent<Camera> ().enabled = ingresar;
+		else
+			inGame.tableroControl.transform.GetComponentInParent<Camera> ().enabled = ingresar;
         inGame.ejecutarEntradaMaquina(ingresar);
 		gameObject.transform.rotation = rotacionInicial;
         gameObject.SetActive(!ingresar);
@@ -559,6 +631,7 @@ public class ControlUsuarioChecklist : MonoBehaviour {
         yield return new WaitForSeconds(1f);
         camionAnimator.StopPlayback();
         yield return new WaitForSeconds(1f);
+		//inGame.tableroControl.GetComponentInParent<Camera> ().enabled = true;
         camionAnimator.Play("Entrada");
     }
     

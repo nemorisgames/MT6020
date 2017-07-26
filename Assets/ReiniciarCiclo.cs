@@ -18,6 +18,9 @@ public class ReiniciarCiclo : MonoBehaviour {
 	Quaternion semaforoSt14RotIni;
 	Quaternion rocasRotIni;
 	public bool active = true;
+	public bool reiniciarCamioneta;
+	public bool reiniciarST14Estoque;
+	public bool reiniciarST14Semaforo;
 
 	// Use this for initialization
 	void Awake () {
@@ -32,18 +35,22 @@ public class ReiniciarCiclo : MonoBehaviour {
 	}
 	
 	public void Reiniciar(){
-		camioneta.puntoActual = 0;
-		camioneta.transform.position = camionetaPosIni;
-		camioneta.transform.rotation = camionetaRotIni;
-		camioneta.gameObject.SetActive (true);
-
-		st14Tunel.transform.position = estoqueSt14PosIni;
-		st14Tunel.puntoActual = 0;
-		st14Tunel.transform.rotation = estoqueSt14RotIni;
-
-		st14Semaforo.transform.position = SemaforoSt14PosIni;
-		st14Semaforo.puntoActual = 0;
-		st14Semaforo.transform.rotation = semaforoSt14RotIni;
+		if (reiniciarCamioneta) {
+			camioneta.puntoActual = 0;
+			camioneta.transform.position = camionetaPosIni;
+			camioneta.transform.rotation = camionetaRotIni;
+			camioneta.gameObject.SetActive (true);
+		}
+		if(reiniciarST14Estoque){
+			st14Tunel.transform.position = estoqueSt14PosIni;
+			st14Tunel.puntoActual = 0;
+			st14Tunel.transform.rotation = estoqueSt14RotIni;
+		}
+		if (reiniciarST14Semaforo) {
+			st14Semaforo.transform.position = SemaforoSt14PosIni;
+			st14Semaforo.puntoActual = 0;
+			st14Semaforo.transform.rotation = semaforoSt14RotIni;
+		}
 
 		triggerTunel.Restart ();
 		semaforo.Restart ();

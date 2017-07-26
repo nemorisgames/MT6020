@@ -96,6 +96,15 @@ public class ControlChecklist : MonoBehaviour {
 	public bool puertaDropBoxHabilitada = false;
 	public bool puertaDropBoxActivada = false;
 
+	public Animator [] filtroAireAnim;
+	public bool filtroAireAActivado = false;
+	public bool filtroAireAHabilitado = false;
+	public bool filtroAireBActivado = false;
+	public bool filtroAireBHabilitado = false;
+
+	public TweenRotation[] perillaFiltroComb;
+	public bool perillaFiltroCombHabilitada;
+
 	public TweenRotation[] brazo;
 	public TweenPosition cilindroBrazo;
 
@@ -521,11 +530,29 @@ public class ControlChecklist : MonoBehaviour {
 		print ("deshabilitar aceite");
 		puertaAceiteHabilitada = false;
 	}
+	public void habilitarPerillaFiltro(){
+		perillaFiltroCombHabilitada = true;
+	}
+	public void deshabilitarPerillaFiltro(){
+		perillaFiltroCombHabilitada = false;
+	}
 	public void habilitarDropBox(){
 		puertaDropBoxHabilitada = true;
 	}
 	public void deshabilitarDropBox(){
 		puertaDropBoxHabilitada = false;
+	}
+	public void habilitarFiltroAireA(){
+		filtroAireAHabilitado = true;
+	}
+	public void deshabilitarFiltroAireA(){
+		filtroAireAHabilitado = false;
+	}
+	public void habilitarFiltroAireB(){
+		filtroAireBHabilitado = true;
+	}
+	public void deshabilitarFiltroAireB(){
+		filtroAireBHabilitado = false;
 	}
 	public void habilitarCabina(){
 		print ("habilitar cabina");
@@ -572,6 +599,19 @@ public class ControlChecklist : MonoBehaviour {
 		puertaDropBoxActivada = !puertaDropBoxActivada;
 		foreach (TweenRotation t in puertaDropBox)
 			t.Play (puertaDropBoxActivada);
+	}
+
+	public void girarPerillaFiltro(){
+		perillaFiltroCombHabilitada = !perillaFiltroCombHabilitada;
+		foreach (TweenRotation t in perillaFiltroComb)
+			t.Play (perillaFiltroCombHabilitada);
+	}
+
+	public void animFiltroAire(int n){
+		n = Mathf.Clamp (n, 0, 1);
+		if (filtroAireAnim [n].GetCurrentAnimatorStateInfo (0).IsName("Idle")) {
+			filtroAireAnim [n].SetTrigger ("Activar");
+		}
 	}
 
 
@@ -892,7 +932,7 @@ public class ControlChecklist : MonoBehaviour {
 		//}
 		varillaPetroleoDefault.SetActive(!(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida));
 
-		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) {
+		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida && ingame.modoChecklist) {
 			float brazo = 0f;
 			#if UNITY_EDITOR
 			brazo = Input.GetAxis("ControlTolbaEditor");
@@ -1110,6 +1150,12 @@ public class ControlChecklist : MonoBehaviour {
 				abrirMotor ();
 			if (puertaDropBoxHabilitada)
 				abrirDropBox ();
+			if (filtroAireAHabilitado)
+				animFiltroAire(0);
+			if (filtroAireBHabilitado)
+				animFiltroAire(1);
+			if (filtroCombustibleActivada)
+				girarPerillaFiltro ();
 			if (escaleraHabilitada) {
 				Vector3 pos = controlUsuarioChecklist.transform.FindChild ("Camera").transform.localPosition;
 				if (!sobreMaquina) {

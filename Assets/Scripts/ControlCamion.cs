@@ -909,6 +909,9 @@ public class ControlCamion : MonoBehaviour {
 		controlCamionMotor.frenoParqueoActivado = controlTarjetaControladora.BotonAccion() == 0;
 		#endif
 
+
+		if (estado == EstadoMaquina.encendida)
+			EscribirPesoCarga (pesoCarga);
         /*if (Input.GetButtonDown("Encendido"))
         {
             if (estado != EstadoMaquina.apagadaTotal)
@@ -1295,5 +1298,15 @@ public class ControlCamion : MonoBehaviour {
 		if (brazo > 0) {
 			ingame.EnableShaking (true, 8f);
 		}
+	}
+
+	void EscribirPesoCarga(float peso){
+		float aux = peso * 10f;
+		int aux2 = Mathf.RoundToInt (aux);
+		aux = aux2/10f;
+		aux = Mathf.Clamp (aux, 0f, 99.9f);
+		string s = aux.ToString ();
+		s = s.Replace ('.', ',');
+		controlTarjetaControladora.velocimetro (s);
 	}
 }

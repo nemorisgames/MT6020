@@ -46,7 +46,7 @@ public class TableroControl : MonoBehaviour {
 	}
     // Update is called once per frame
     void Update () {
-		if (maquina != null && !maquina.ingame.modoChecklist) {
+		if (maquina != null && !maquina.ingame.modoChecklist && maquina.estado != ControlCamion.EstadoMaquina.apagada) {
 			GetComponentInParent<Camera> ().enabled = maquina.ingame.enCabina;
 			/*if (Mathf.Abs(Input.GetAxis ("ControlTolba")) > 0.1f || Mathf.Abs(Input.GetAxis ("ControlTolbaEditor")) > 0.1f)
 				encenderTolva (true);
@@ -100,7 +100,7 @@ public class TableroControl : MonoBehaviour {
 			//	current.eulerAngles = new Vector3(0f,0f,180f);
 			a.rotation = Quaternion.Lerp (current, target, Time.deltaTime);
 		} else {
-			Debug.Log (shortWay);
+			//Debug.Log (shortWay);
 			if (!shortWay) {
 				a.rotation = QuaternionExtension.Lerp (current, target, Time.deltaTime, false);
 				if (current == target)

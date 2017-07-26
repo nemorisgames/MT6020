@@ -183,6 +183,7 @@ public class InGame : MonoBehaviour {
     public IEnumerator ejecutarEntradaMaquinaDelay(bool ingresar) { 
 		if (!modoChecklist) {
 			yield return new WaitForSeconds (ingresar ? 10f : 0f);
+			tableroControl.GetComponentInParent<Camera> ().enabled = ingresar;
 			print (ingresar ? "entrar" : "salir");
 			if (maquinaAlta != null) {
 				activarMaquinaAlta (!ingresar);
@@ -259,6 +260,11 @@ public class InGame : MonoBehaviour {
     {
         
         diapositivaFinal.SetActive(true);
+		tableroControl.maquina.arranque (false);
+		tableroControl.GetComponentInParent<Camera> ().enabled = false;
+		/*for (int i = 0; i < camarasMaquina.Length; i++) {
+			camarasMaquina [i].gameObject.SetActive (false);
+		}*/
         //controlMouseOperador.enabled = true;
 		maquina.SendMessage("resetMaquina", SendMessageOptions.DontRequireReceiver);
         //maquina.FindChild("Back/ST14EstrucBack/Camaras").gameObject.SetActive(false);
@@ -661,6 +667,7 @@ public class InGame : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.N)) {
 			StartCoroutine (mostrarPregunta (true));
 		}
+		
 		//Debug.Log (estado);
         /*if (avpro != null && avpro.GetCaptureFileSize() > 10000000)
         {

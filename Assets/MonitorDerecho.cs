@@ -13,9 +13,15 @@ public class MonitorDerecho : MonoBehaviour {
 	bool encendido = false;
 	int modo = 1;
 	bool visible = false;
+	ControlTarjetaControladora tarjeta;
+	bool pressed1 = false;
+	bool pressed2 = false;
+	public bool pressedOn = false;
+	int lastEncendido = 0;
 
 	// Use this for initialization
 	void Start () {
+		tarjeta = GameObject.FindGameObjectWithTag ("TarjetaControladora").GetComponent<ControlTarjetaControladora> ();
 		/*if (botonEncendido == null && boton1 == null && boton2 == null && bg == null) {
 			botonEncendido = transform.FindChild ("Boton").GetComponentInChildren<UISprite> ();
 			boton1 = transform.FindChild ("Boton1").GetComponentInChildren<UISprite> ();
@@ -27,6 +33,25 @@ public class MonitorDerecho : MonoBehaviour {
 	}
 
 	void Update(){
+		if (tarjeta.monitorDModo1 () == 1 && !pressed1) {
+			ToggleModo1 ();
+			pressed1 = true;
+		} else
+			pressed1 = false;
+		if (tarjeta.monitorDModo2 () == 1 && !pressed2) {
+			ToggleModo2 ();
+			pressed2 = true;
+		} else
+			pressed2 = false;
+		if (tarjeta.monitorDEncendido () == 1) {
+			pressedOn = true;
+			if(tarjeta.monitorDEncendido() != lastEncendido)
+				ToggleEncendido ();
+		} else
+			pressedOn = false;
+
+		lastEncendido = tarjeta.monitorDEncendido ();
+
 		if (ctrl != null && ctrl2 != null && (ctrl.estado == ControlCamion.EstadoMaquina.encendida || ctrl2.estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida))
 			bg.GetComponent<UISprite> ().depth = 0;
 		else {
@@ -41,7 +66,7 @@ public class MonitorDerecho : MonoBehaviour {
 
 
 	public void ToggleEncendido(){
-		Debug.Log (encendido);
+		//Debug.Log (encendido);
 		if (ctrl != null && ctrl2 != null && (ctrl.estado == ControlCamion.EstadoMaquina.encendida || ctrl2.estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida)) {
 			bg.SetActive (encendido);
 			encendido = !encendido;

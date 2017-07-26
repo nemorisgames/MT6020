@@ -414,6 +414,31 @@ public class ControlTarjetaControladora : MonoBehaviour {
         return -1;
     }
     
+	public int monitorDModo1(){
+		#if !UNITY_EDITOR
+		return dev.PinStates[18];
+		#else
+		return ((Input.GetKey(KeyCode.Keypad7))?1:0);
+		#endif
+	}
+
+	public int monitorDModo2(){
+		#if !UNITY_EDITOR
+		return dev.PinStates[16];
+		#else
+		return ((Input.GetKey(KeyCode.Keypad8))?1:0);
+		#endif
+	}
+
+	public int monitorDEncendido(){
+		#if !UNITY_EDITOR
+		return dev.Pinstates[19];
+		#else
+		return ((Input.GetKey(KeyCode.Keypad9))?1:0);
+		#endif
+	}
+
+
     public int ignicion()
     {
         //dev.PinStates[3] + " - analog: " + dev.GetAnalogInput(40)
