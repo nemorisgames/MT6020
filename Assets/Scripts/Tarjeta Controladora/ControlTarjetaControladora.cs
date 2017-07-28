@@ -432,7 +432,7 @@ public class ControlTarjetaControladora : MonoBehaviour {
 
 	public int monitorDEncendido(){
 		#if !UNITY_EDITOR
-		return dev.Pinstates[19];
+		return dev.PinStates[19];
 		#else
 		return ((Input.GetKey(KeyCode.Keypad9))?1:0);
 		#endif
