@@ -934,20 +934,50 @@ public class ControlChecklist : MonoBehaviour {
 
 		if (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida && ingame.modoChecklist) {
 			float brazo = 0f;
+			int pos = -1;
 			#if UNITY_EDITOR
-			brazo = Input.GetAxis("ControlTolbaEditor");
+			if(Input.GetKey(KeyCode.H)){
+				brazo = -1f;
+			}
+			else if(Input.GetKey(KeyCode.J)){
+				brazo = -0.35f;
+			}
+			else if(Input.GetKey(KeyCode.K)){
+				brazo = 0.45f;
+			}
+			else if(Input.GetKey(KeyCode.L)){
+				brazo = 1f;
+			}
 			#else
 			print("Tolba: " + Input.GetAxis("ControlTolba") + ", Cambio: " + Input.GetAxis("Cambio"));
 			brazo = Input.GetAxis("ControlTolba");
 			#endif
-			if (brazo != 0)
+
+			if (brazo <= -0.34f && brazo >= -0.36f)
+				pos = 1;
+			else if (brazo < 0.36f)
+				pos = 0;
+			else if (brazo >= 0.44f && brazo <= 0.46f)
+				pos = 2;
+			else if (brazo >= 0.9f)
+				pos = 3;
+			
+			if (pos != -1)
 				animatorTolba.SetBool ("TolvaArriba", true);
 			else
 				animatorTolba.SetBool ("TolvaArriba", false);
-			if(animatorTolba != null && animatorTolba.GetBool("TolvaArriba")) animatorTolba.SetFloat ("multiplicadorVelocidadBalde", Mathf.Clamp (brazo, -1f, 1f));
+			
+			if (animatorTolba != null && animatorTolba.GetBool ("TolvaArriba")) {
+				if (pos != 1) {
+					animatorTolba.SetFloat ("multiplicadorVelocidadBalde", Mathf.Clamp (-brazo, -1f, 1f));
+				}
+				else
+					animatorTolba.SetFloat ("multiplicadorVelocidadBalde", 0);
+			}
+
 			float animTime = animatorTolba.GetCurrentAnimatorStateInfo (0).normalizedTime;
 			animTime = Mathf.Clamp01 (animTime);
-			if (brazo != 0 && Mathf.Abs (brazo) > 0.5f && !ingame.usingArm) {
+			if (brazo <= -0.36f && brazo >= 0.44f && !ingame.usingArm) {
 				if (animTime != 0 && animTime != 1) {
 					ingame.EnableShaking (true);
 					ingame.usingArm = true;

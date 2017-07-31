@@ -124,6 +124,7 @@ public class ControlCamion : MonoBehaviour {
 	public MonitorIzquierdo monitorDelantero;
 
 	public float pesoCarga = 0f;
+	float brazoRef = 0f;
 
     // Use this for initialization
     void Start () {
@@ -747,12 +748,26 @@ public class ControlCamion : MonoBehaviour {
 		/*
 #if !UNITY_EDITOR
 		pala = Input.GetAxis ("CucharaEditor");*/
-#if UNITY_EDITOR
-        brazo = Input.GetAxis("ControlTolbaEditor");
-#else
-        print("Tolba: " + Input.GetAxis("ControlTolba") + ", Cambio: " + Input.GetAxis("Cambio"));
-        brazo = Input.GetAxis("ControlTolba");
-#endif
+
+		int pos = -1;
+
+		#if UNITY_EDITOR
+		if(Input.GetKey(KeyCode.H)){
+			brazo = -1f;
+		}
+		else if(Input.GetKey(KeyCode.J)){
+			brazo = -0.35f;
+		}
+		else if(Input.GetKey(KeyCode.K)){
+			brazo = 0.45f;
+		}
+		else if(Input.GetKey(KeyCode.L)){
+			brazo = 1f;
+		}
+		#else
+		print("Tolba: " + Input.GetAxis("ControlTolba") + ", Cambio: " + Input.GetAxis("Cambio"));
+		brazo = Input.GetAxis("ControlTolba");
+		#endif
 #if UNITY_EDITOR
         direccion = Input.GetAxis("ManubrioEditor");
 #else
@@ -788,8 +803,27 @@ public class ControlCamion : MonoBehaviour {
 				monitorDelantero.MostrarGuia (1);
 				monitorTrasero.MostrarGuia (1);
 			}
-            manejarBrazoLimites(brazo);
-			if (brazo != 0 && Mathf.Abs (brazo) > 0.5f && !ingame.usingArm) {
+
+			if (brazo <= -0.34f && brazo >= -0.36f)
+				pos = 1;
+			else if (brazo < 0.36f)
+				pos = 0;
+			else if (brazo >= 0.44f && brazo <= 0.46f)
+				pos = 2;
+			else if (brazo >= 0.9f)
+				pos = 3;
+
+			brazoRef = brazo;
+
+			if (animator != null) {
+				if (pos != 1) {
+					manejarBrazoLimites(-brazo);
+				}
+				else
+					manejarBrazoLimites(0);
+			}
+            
+			if (brazo <= -0.36f && brazo >= 0.44f && !ingame.usingArm) {
 				if (animTime != 0 && animTime != 1) {
 					ingame.EnableShaking (true);
 					ingame.usingArm = true;
@@ -1278,24 +1312,24 @@ public class ControlCamion : MonoBehaviour {
 	}
 
 	public void SacudirTolvaStartEnd(){
-		float brazo = 0;
+		/*float brazo = 0;
 		#if UNITY_EDITOR
 		brazo = Input.GetAxis ("ControlTolbaEditor");
 		#else
 		brazo = Input.GetAxis("ControlTolba");
-		#endif
-		if(brazo != 0)
+		#endif*/
+		if(brazoRef != 0)
 			ingame.EnableShaking (true, 8f);
 	}
 
 	public void SacudirTolvaMid(){
-		float brazo = 0;
+		/*float brazo = 0;
 		#if UNITY_EDITOR
 		brazo = Input.GetAxis ("ControlTolbaEditor");
 		#else
 		brazo = Input.GetAxis("ControlTolba");
-		#endif
-		if (brazo > 0) {
+		#endif*/
+		if (brazoRef > 0) {
 			ingame.EnableShaking (true, 8f);
 		}
 	}

@@ -113,7 +113,7 @@ public class ControlMouseOperador : MonoBehaviour {
 		camara.GetComponent<UICamera> ().scrollAxisName = "ControlTolba";
 		#endif
 		//Debug.Log (hor + ", " + ver);
-		mousePosition2 += new Vector2 (16f * hor, - 16f * ver);
+		mousePosition2 += new Vector2 (16f * hor,  16f * ver);
 		mousePosition2 = new Vector2 (Mathf.Clamp (mousePosition2.x, 0f, Screen.width), Mathf.Clamp (mousePosition2.y, 0, Screen.height));
 		mouseSprite.transform.localPosition = new Vector2(mousePosition2.x - Screen.width / 2f, Screen.height / 2f - mousePosition2.y);
 		

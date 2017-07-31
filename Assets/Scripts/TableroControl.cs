@@ -90,7 +90,7 @@ public class TableroControl : MonoBehaviour {
 
 	void rotacionAguja(Transform a, float p, float pond){
 		Quaternion current = a.rotation;
-		Debug.Log ("rotacion: "+current.eulerAngles.z);
+		//Debug.Log ("rotacion: "+current.eulerAngles.z);
 		if (current.eulerAngles.z < 180 && current.eulerAngles.z > 15) {
 			shortWay = false;
 		}
