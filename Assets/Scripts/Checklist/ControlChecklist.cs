@@ -32,6 +32,7 @@ public class ControlChecklist : MonoBehaviour {
 	[HideInInspector]
 	public bool nivelRefrigeranteActivada = false;
 	public GameObject nivelAceiteTrans;//OK
+	public GameObject nivelAceiteTransApagado;
 	[HideInInspector]
 	public bool nivelAceiteTransActivada = false;
 	public GameObject nivelAceiteCajaTransf; //OK
@@ -883,7 +884,6 @@ public class ControlChecklist : MonoBehaviour {
 			if (nivelRefrigerante != null)
 				nivelRefrigerante.SetActive (nivelRefrigeranteActivada);
 			if (nivelAceiteTrans != null)
-				//Debug.Log (nivelAceiteTransActivada);
 				nivelAceiteTrans.SetActive (nivelAceiteTransActivada);
 			if (nivelAceiteCajaTransf != null)
 				nivelAceiteCajaTransf.SetActive (nivelAceiteCajaTransfActivada);
@@ -924,11 +924,13 @@ public class ControlChecklist : MonoBehaviour {
 		}*/
 
 		//if (estadoExcavadoraChecklist != ControlCamion.EstadoMaquina.encendida) {
-			//nivel aceite transmision
-			partesMaquina [6].parteBuena [0].transform.parent.gameObject.SetActive (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
-			//nivel petroleo
-			//partesMaquina [0].parteBuena [0].transform.parent.gameObject.SetActive (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
-			partesMaquina [0].parteBuena [1].transform.parent.gameObject.SetActive (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
+		nivelAceiteTransApagado.SetActive(!(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida) && nivelAceiteTransActivada);
+		//nivel aceite transmision
+		partesMaquina [6].parteBuena [0].transform.parent.gameObject.SetActive (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
+		//partesMaquina [6].parteMala [0].gameObject.SetActive (!(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida));
+		//nivel petroleo
+		//partesMaquina [0].parteBuena [0].transform.parent.gameObject.SetActive (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
+		partesMaquina [0].parteBuena [1].transform.parent.gameObject.SetActive (estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida);
 
 		//}
 		varillaPetroleoDefault.SetActive(!(estadoExcavadoraChecklist == ControlCamion.EstadoMaquina.encendida));
