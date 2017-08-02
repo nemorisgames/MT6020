@@ -184,6 +184,7 @@ public class InGame : MonoBehaviour {
 		if (!modoChecklist) {
 			yield return new WaitForSeconds (ingresar ? 10f : 0f);
 			tableroControl.GetComponentInParent<Camera> ().enabled = ingresar;
+			enCabina = ingresar;
 			print (ingresar ? "entrar" : "salir");
 			if (maquinaAlta != null) {
 				activarMaquinaAlta (!ingresar);

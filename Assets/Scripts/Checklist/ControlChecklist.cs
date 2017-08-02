@@ -185,7 +185,8 @@ public class ControlChecklist : MonoBehaviour {
 	public int checklistIndex = 1;
 	public bool singleChecklist;
 	bool sobreMaquina = false;
-	InGame ingame;
+	[HideInInspector]
+	public InGame ingame;
 
 	// Use this for initialization
 	void Start () {

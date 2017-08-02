@@ -126,12 +126,15 @@ public class ControlCamion : MonoBehaviour {
 	public float pesoCarga = 0f;
 	float brazoRef = 0f;
 
+	GameObject topeBalde;
+
     // Use this for initialization
     void Start () {
         ingame = GameObject.FindWithTag("InGame").GetComponent<InGame>();
         controlTarjetaControladora = GameObject.FindWithTag("TarjetaControladora").GetComponent<ControlTarjetaControladora>();
         animator = GetComponent<Animator>();
 		monitor = transform.Find ("Delantera_B/Varios/Monitor").gameObject;
+		topeBalde = transform.Find ("Trasero_B/Balde/Tope").gameObject;
 		ActivarMonitores (false);
 		GameObject.FindGameObjectWithTag ("MonitorDerecho").GetComponent<MonitorDerecho> ().ctrl = this.GetComponent<ControlCamion> ();
 		configuracion = GameObject.FindWithTag ("Configuracion").GetComponent<Configuracion>();
@@ -806,7 +809,7 @@ public class ControlCamion : MonoBehaviour {
 
 			if (brazo <= -0.34f && brazo >= -0.36f)
 				pos = 1;
-			else if (brazo < 0.36f)
+			else if (brazo < -0.36f)
 				pos = 0;
 			else if (brazo >= 0.44f && brazo <= 0.46f)
 				pos = 2;
@@ -814,6 +817,11 @@ public class ControlCamion : MonoBehaviour {
 				pos = 3;
 
 			brazoRef = brazo;
+
+			if (pos == 0)
+				topeBalde.SetActive (false);
+			else
+				topeBalde.SetActive (true);
 
 			if (animator != null) {
 				if (pos != 1) {
@@ -884,6 +892,7 @@ public class ControlCamion : MonoBehaviour {
         }*/
 
 		if(controlTarjetaControladora.ignicion() == 2 || Input.GetKey(KeyCode.Keypad1)) {
+			controlCamionMotor.CambiarSonido ();
 			if (estado != EstadoMaquina.encendida)
 			{
 				tiempoEncendido = Time.time + 5f;
@@ -1335,6 +1344,7 @@ public class ControlCamion : MonoBehaviour {
 	}
 
 	void EscribirPesoCarga(float peso){
+		controlTarjetaControladora.resetLucesVelocimetro ();
 		float aux = peso * 10f;
 		int aux2 = Mathf.RoundToInt (aux);
 		aux = aux2/10f;
@@ -1342,5 +1352,6 @@ public class ControlCamion : MonoBehaviour {
 		string s = aux.ToString ();
 		s = s.Replace ('.', ',');
 		controlTarjetaControladora.velocimetro (s);
+		//Debug.Log (s);
 	}
 }

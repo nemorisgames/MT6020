@@ -395,4 +395,11 @@ public class ControlCamionMotor : MonoBehaviour {
 		GUI.Label (new Rect(300f, 240f, 200f, 20f), "Retardador " + controlTarjetaControladora.Retardador());
 	}
 
+	public void CambiarSonido(){
+		audioSource.loop = false;
+		audioSource.clip = sonidoPitido;
+		audioSource.playOnAwake = false;
+		pitidoIgnicion = false;
+	}
+
 }

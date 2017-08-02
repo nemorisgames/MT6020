@@ -244,11 +244,11 @@ public class ControlTarjetaControladora : MonoBehaviour {
         dev.LoadIOConfig();        
 
         //Luces
-        for(int i = 0; i <= 19; i++)
+        for(int i = 0; i <= 15; i++)
             dev.PinFunctions[(byte)i] = 4;
 
         //Selectores
-        for (int i = 20; i <= 29; i++)
+        for (int i = 16; i <= 29; i++)
             dev.PinFunctions[(byte)i] = 2;
 
         //Velocimetro

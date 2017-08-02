@@ -592,20 +592,21 @@ public class ControlUsuarioChecklist : MonoBehaviour {
     {
 		if(operarioAnimator != null) operarioAnimator.gameObject.SetActive(ingresar);
         camaraEntradaAnimator.gameObject.SetActive(ingresar);
-        if (ingresar)
-        {
-			if(operarioAnimator != null) operarioAnimator.SetTrigger("Entrar");
-            camionAnimator.SetTrigger("Entrada");
-            StartCoroutine(entradaPausa());
-            camaraEntradaAnimator.SetTrigger("Entrar");
-            print("entrar aqui");
-        }
-		else
+		if (ingresar) {
+			if (operarioAnimator != null)
+				operarioAnimator.SetTrigger ("Entrar");
+			camionAnimator.SetTrigger ("Entrada");
+			StartCoroutine (entradaPausa ());
+			camaraEntradaAnimator.SetTrigger ("Entrar");
+			print ("entrar aqui");
+		} else {
 			inGame.tableroControl.transform.GetComponentInParent<Camera> ().enabled = ingresar;
+			inGame.enCabina = ingresar;
+		}
         inGame.ejecutarEntradaMaquina(ingresar);
 		gameObject.transform.rotation = rotacionInicial;
         gameObject.SetActive(!ingresar);
-		inGame.enCabina = ingresar;
+
     }
 
 	public void ingresarCabinaCheck(bool ingresar)

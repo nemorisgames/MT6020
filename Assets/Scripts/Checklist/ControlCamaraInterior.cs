@@ -82,7 +82,7 @@ public class ControlCamaraInterior : MonoBehaviour {
             if(transform.rotation.eulerAngles.y >= 260f)
                 transform.Rotate(Vector3.up, hor * velocidadRotacion * 3f * Time.deltaTime, Space.World);
         }*/
-        transform.Rotate(Vector3.right, -ver * velocidadRotacion * 3f * Time.deltaTime);
+        transform.Rotate(Vector3.right, ver * velocidadRotacion * 3f * Time.deltaTime);
         transform.Rotate(Vector3.up, hor * velocidadRotacion * 3f * Time.deltaTime, Space.World);
 		/*Debug.Log (transform.eulerAngles.y);
 		Debug.Log ((transform.eulerAngles.y - 360f) + "," + ((rotacionInicial.eulerAngles.y - 80f)) + "," + ((rotacionInicial.eulerAngles.y + 80f)));
