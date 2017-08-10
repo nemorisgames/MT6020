@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MonitorDerecho : MonoBehaviour {
 	public bool activadoInicial;
+	//public bool modoVisual = false;
 	public UISprite botonEncendido;
 	public UISprite boton1;
 	public UISprite boton2;
@@ -17,7 +18,7 @@ public class MonitorDerecho : MonoBehaviour {
 	bool pressed1 = false;
 	bool pressed2 = false;
 	public bool pressedOn = false;
-	int lastEncendido = 0;
+	int lastEncendido = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -33,20 +34,22 @@ public class MonitorDerecho : MonoBehaviour {
 	}
 
 	void Update(){
-		if (tarjeta.monitorDModo1 () == 1 && !pressed1) {
+		if (tarjeta.monitorDModo1 () == 0 && !pressed1) {
 			ToggleModo1 ();
 			pressed1 = true;
 		} else
 			pressed1 = false;
-		if (tarjeta.monitorDModo2 () == 1 && !pressed2) {
+		if (tarjeta.monitorDModo2 () == 0 && !pressed2) {
 			ToggleModo2 ();
 			pressed2 = true;
 		} else
 			pressed2 = false;
-		if (tarjeta.monitorDEncendido () == 1) {
+		if (tarjeta.monitorDEncendido () == 0) {
 			pressedOn = true;
-			if(tarjeta.monitorDEncendido() != lastEncendido)
+			if (tarjeta.monitorDEncendido () != lastEncendido) {
 				ToggleEncendido ();
+				Debug.Log ("here");
+			}
 		} else
 			pressedOn = false;
 

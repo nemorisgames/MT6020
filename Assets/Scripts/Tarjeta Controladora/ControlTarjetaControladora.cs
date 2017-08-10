@@ -418,24 +418,27 @@ public class ControlTarjetaControladora : MonoBehaviour {
 		#if !UNITY_EDITOR
 		return dev.PinStates[18];
 		#else
-		return ((Input.GetKey(KeyCode.Keypad7))?1:0);
+		return ((Input.GetKey(KeyCode.Keypad7))?0:1);
 		#endif
+		return -1;
 	}
 
 	public int monitorDModo2(){
 		#if !UNITY_EDITOR
 		return dev.PinStates[16];
 		#else
-		return ((Input.GetKey(KeyCode.Keypad8))?1:0);
+		return ((Input.GetKey(KeyCode.Keypad8))?0:1);
 		#endif
+		return -1;
 	}
 
 	public int monitorDEncendido(){
 		#if !UNITY_EDITOR
 		return dev.PinStates[19];
 		#else
-		return ((Input.GetKey(KeyCode.Keypad9))?1:0);
+		return ((Input.GetKey(KeyCode.Keypad9))?0:1);
 		#endif
+		return -1;
 	}
 
 

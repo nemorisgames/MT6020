@@ -188,6 +188,7 @@ public class ControlChecklist : MonoBehaviour {
 	bool sobreMaquina = false;
 	[HideInInspector]
 	public InGame ingame;
+	int filtroAireMalo = -1;
 
 	// Use this for initialization
 	void Start () {
@@ -403,22 +404,35 @@ public class ControlChecklist : MonoBehaviour {
 				} else {
 					int indiceDanio = 0;
 					if (p.parteMala.Length > 1)
-						indiceDanio = Random.Range (0, p.parteMala.Length);
+						indiceDanio = Random.Range (0, p.parteMala.Length - 1);
 					print ("parte mala seleccionada " + indiceDanio);
-					for (int i = 0; i < p.parteMala.Length; i++) {
-						if (i == indiceDanio) { 
-							//Debug.Log ("2:"+""+p.indiceSeccion +","+p.indicePregunta+";"+i+","+indiceDanio);
-							p.parteMala [i].SetActive (danado);
-						//	if (p.indicePregunta == 6 && p.indiceSeccion == 2)
-						//		print (i + " " + indiceDanio + " " + danado);
-						} else {
-						//	if (p.indicePregunta == 6 && p.indiceSeccion == 2)
-						//		print (i + " " + indiceDanio + " " + (p.parteBuena.Length - 1 >= indiceDanio));
-							if (p.parteBuena.Length - 1 >= indiceDanio) {
-								p.parteMala [i].SetActive (!danado);
-								if(i<= p.parteBuena.Length - 1) p.parteBuena [i].SetActive (danado);
-							} else {
+					if (p.indiceSeccion == 0 && p.indicePregunta == 10) {
+						int aux = Random.Range (0, 2);
+						filtroAireMalo = aux;
+						if (aux < 2) {
+							p.parteMala [aux].SetActive (danado);
+						}
+						else {
+							p.parteMala [0].SetActive (danado);
+							p.parteMala [1].SetActive (danado);
+						}
+					} else {
+						for (int i = 0; i < p.parteMala.Length; i++) {
+							if (i == indiceDanio) { 
+								//Debug.Log ("2:"+""+p.indiceSeccion +","+p.indicePregunta+";"+i+","+indiceDanio);
 								p.parteMala [i].SetActive (danado);
+								//	if (p.indicePregunta == 6 && p.indiceSeccion == 2)
+								//		print (i + " " + indiceDanio + " " + danado);
+							} else {
+								//	if (p.indicePregunta == 6 && p.indiceSeccion == 2)
+								//		print (i + " " + indiceDanio + " " + (p.parteBuena.Length - 1 >= indiceDanio));
+								if (p.parteBuena.Length - 1 >= indiceDanio) {
+									p.parteMala [i].SetActive (!danado);
+									if (i <= p.parteBuena.Length - 1)
+										p.parteBuena [i].SetActive (danado);
+								} else {
+									p.parteMala [i].SetActive (danado);
+								}
 							}
 						}
 					}

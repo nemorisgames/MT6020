@@ -15,6 +15,7 @@ public class EntregaNombrada : MonoBehaviour {
 	public float velocidadActual = 0f;
 	float velocidadObjetivo;
 	public TweenRotation[] ruedas;
+	public bool lineaRecta = false;
 	// Use this for initialization
 	void Start () {
 		navmesh = GetComponent<UnityEngine.AI.NavMeshAgent> ();
@@ -41,7 +42,10 @@ public class EntregaNombrada : MonoBehaviour {
 		if (detenido && !enEspera) {
 //			print ("continuar");
 			detenido = false;
-			navmesh.angularSpeed = 60f;
+			if (!lineaRecta)
+				navmesh.angularSpeed = 60f;
+			else
+				navmesh.angularSpeed = 0f;
 			navmesh.enabled = true; 
 			velocidadObjetivo = velocidad;
 			navmesh.SetDestination (puntos [puntoActual].punto.position);
@@ -54,7 +58,10 @@ public class EntregaNombrada : MonoBehaviour {
 		if (activo) {
 			navmesh.enabled = true;
 			velocidadObjetivo = velocidad;
-			navmesh.angularSpeed = 60f;
+			if (!lineaRecta)
+				navmesh.angularSpeed = 60f;
+			else
+				navmesh.angularSpeed = 0f;
 			//navmesh.Resume();
 		}
 	}
