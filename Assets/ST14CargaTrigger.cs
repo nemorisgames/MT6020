@@ -9,7 +9,7 @@ public class ST14CargaTrigger : MonoBehaviour {
 	void OnTriggerEnter(Collider c){
 		if (c.tag == "PesoBalde") {
 			activado = true;
-			st14.EncenderST ();
+			st14.gameObject.SetActive (true);
 		}
 	}
 

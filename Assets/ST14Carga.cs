@@ -30,10 +30,6 @@ public class ST14Carga : MonoBehaviour {
 		}
 	}
 
-	public void EncenderST(){
-		st14.gameObject.SetActive (true);
-	}
-
 	public void EjecutarCarga(){
 		if (!cargando) {
 			anim.SetTrigger ("Brazo");
@@ -61,6 +57,6 @@ public class ST14Carga : MonoBehaviour {
 
 	public void entregaTerminada(){
 		st14.gameObject.SetActive (false);
-		semaforo.gameObject.SetActive (true);
+		semaforo.GetComponent<BoxCollider> ().enabled = true;
 	}
 }
